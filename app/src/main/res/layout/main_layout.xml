@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@drawable/sa"
+    android:background="@drawable/bg_gradient"
     android:gravity="center"
     android:padding="5dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,56 +18,41 @@
             android:layout_height="30dp"
             android:layout_margin="10dp"
             android:id="@+id/logout"
-           />
+            android:src="@drawable/logout"/>
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:id="@+id/showUsers"
-           />
+            android:src="@drawable/users"/>
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:rotation="45">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_width="94dp"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:id="@+id/lay1"
+            android:visibility="invisible"
+            android:paddingTop="75dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="80dp"
             android:id="@+id/layout1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@color/darkMaroon2"
-            android:layout_height="90dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Chat"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="94dp"
-            android:id="@+id/layout11"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@color/new1"
-            android:layout_height="90dp">
+            android:background="@drawable/circle"
+            android:layout_height="80dp">
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                />
+                android:src="@drawable/futsal"/>
+        </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/white"
@@ -74,130 +60,171 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="polls"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="94dp"
-            android:id="@+id/layout2"
-            android:gravity="center"
-            android:background="@color/bluesh2"
-            android:orientation="vertical"
-            android:layout_height="90dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Score"/>
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="94dp"
-            android:id="@+id/layout5"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@color/red"
-            android:layout_height="100dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Interview"/>
+                android:text="Futsal"/>
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="94dp"
-            android:id="@+id/layout10"
+            android:layout_width="wrap_content"
             android:gravity="center"
-            android:background="@color/yellow"
-            android:orientation="vertical"
-            android:layout_height="100dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="OP caps"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="94dp"
-            android:id="@+id/layout6"
-            android:gravity="center"
-            android:background="@color/blue1"
-            android:orientation="vertical"
-            android:layout_height="100dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Pts Table"/>
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <LinearLayout
-            android:layout_width="282dp"
-            android:id="@+id/layout01"
-            android:background="@null"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_height="70dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:padding="10dp"
-                android:layout_height="wrap_content"
+            android:id="@+id/lay2"
+            android:visibility="invisible"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout2"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-condensed"
+                android:orientation="vertical"
+                android:background="@drawable/circle2"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/cricket"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
-                android:id="@+id/optionUsername"/></LinearLayout>
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Cricket"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+
+            android:id="@+id/lay3"
+            android:visibility="invisible"
+            android:paddingTop="75dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout3"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle3"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/basketball"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Basketball"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+
+            android:id="@+id/lay7"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout7"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle7"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/badminton"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Badminton"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout8"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle2"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/cricket"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Cricket"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:id="@+id/lay9"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout9"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle9"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/tennis"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tennis"/>
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -205,120 +232,118 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_width="94dp"
-            android:id="@+id/layout3"
-            android:background="@color/orange1"
-            android:orientation="vertical"
+            android:layout_width="wrap_content"
             android:gravity="center"
-            android:layout_height="100dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:text="Matches"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="94dp"
-            android:gravity="center"
-            android:id="@+id/layout4"
-            android:orientation="vertical"
-            android:background="@color/pink1"
-            android:layout_height="100dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+
+            android:id="@+id/lay4"
+            android:visibility="invisible"
+            android:paddingBottom="75dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout4"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle4"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/volleyball"/>
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:text="Teams"/></LinearLayout>
-        <LinearLayout
-            android:layout_width="94dp"
-            android:gravity="center"
-            android:id="@+id/layout7"
-            android:orientation="vertical"
-            android:background="@color/darkPurple"
-            android:layout_height="100dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:text="Sponsors"/>
+                android:text="Volley"/>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/lay5"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout5"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle5"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/throwball"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Throw"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:id="@+id/lay6"
+            android:visibility="invisible"
+            android:paddingBottom="75dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:id="@+id/layout6"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/circle6"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/tabletennis"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Table"/>
+
+        </LinearLayout>
+
+
+
+
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="180dp"
-            android:id="@+id/layout9"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@color/grayfinal"
-            android:layout_height="90dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Man of the Match"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="102dp"
-            android:id="@+id/layout8"
-            android:gravity="center"
-            android:background="@color/hash2"
-            android:orientation="vertical"
-            android:layout_height="90dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Admin "/>
-        </LinearLayout>
+        android:orientation="horizontal"
+        android:layout_weight="0.07">
 
 
 
-    </LinearLayout>
+
 </LinearLayout>
+
+
 
 </LinearLayout>

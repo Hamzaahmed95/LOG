@@ -261,7 +261,7 @@ public class QuestionFragment extends Fragment {
                 House house1 = new House(mUsername,favouriteBatsman,favouriteTeam,house);
                 mHouseDatabaseReference.push().setValue(house1);
 
-                Intent i = new Intent(getActivity(),MainActivity.class);
+                Intent i = new Intent(getActivity(),Check123.class);
                 Bundle b=new Bundle();
                 b.putStringArray("users",array);
                 i.putExtra("batch",house);
