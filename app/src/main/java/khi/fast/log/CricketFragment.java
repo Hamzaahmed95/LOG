@@ -162,9 +162,9 @@ public class CricketFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollingActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
