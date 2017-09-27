@@ -187,9 +187,9 @@ public class CricketFragment extends Fragment {
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PointsTableActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
@@ -270,7 +270,7 @@ public class CricketFragment extends Fragment {
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
                     Name=user.getDisplayName();
-                    name.setText(user.getDisplayName());
+                    name.setText(CapsFirst(user.getDisplayName()));
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
@@ -302,6 +302,18 @@ public class CricketFragment extends Fragment {
         return view;
 
 
+    }
+    String CapsFirst(String str) {
+        String[] words = str.split(" ");
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            ret.append(Character.toUpperCase(words[i].charAt(0)));
+            ret.append(words[i].substring(1));
+            if(i < words.length - 1) {
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
     }
     private boolean isFirstTime()
     {

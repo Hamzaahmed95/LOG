@@ -2,14 +2,39 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_gradient3"
     android:layout_height="match_parent">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient3"
+    android:layout_height="wrap_content"
     android:gravity="center|top"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/black"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/backButton4"
+            android:src="@drawable/left"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:paddingRight="10dp"
+            android:text="Score"/>
+    </LinearLayout>
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,13 +54,7 @@
             android:padding="0dp">
 
 
-            <ImageView
-                android:id="@+id/backButton4"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/left" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,6 +68,7 @@
                     android:background="@color/bluesh"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Live"
+                    android:visibility="gone"
                     android:textColor="@android:color/white"
                     android:textSize="20dp" />
             </LinearLayout>
@@ -79,10 +99,11 @@
                 android:textColor="@android:color/white" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:src="@drawable/vs" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/vs1" />
 
             <ImageView
                 android:layout_width="90dp"

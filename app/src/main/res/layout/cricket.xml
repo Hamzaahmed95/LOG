@@ -47,7 +47,7 @@
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@android:color/white"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:id="@+id/optionUsername"/>
         </LinearLayout>
     </LinearLayout>

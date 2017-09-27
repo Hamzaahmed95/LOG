@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_gradient3"
+    android:gravity="center|top"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@android:color/black"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/backButton5"
+            android:src="@drawable/left"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:paddingRight="10dp"
+            android:text="Points Table"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="60dp"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/photoPickerButton2"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@android:drawable/ic_menu_gallery" />
+        <ImageView
+            android:id="@+id/photoImageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:adjustViewBounds="true" />
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:padding="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/progressBarPT"
+            android:max="48"
+            android:progress="1"
+            android:progressDrawable="@drawable/circulr_screen"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+
+
+    </LinearLayout>
+</LinearLayout>
