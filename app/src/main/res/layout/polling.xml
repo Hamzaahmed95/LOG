@@ -92,6 +92,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:textStyle="bold"
+        android:textSize="25dp"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"
         android:id="@+id/status"/>
