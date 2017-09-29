@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,6 +83,27 @@ public class CricketFragment extends Fragment {
     Dialog dialog;
     int i;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        FragmentManager fm = getFragmentManager();
+        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                if(getFragmentManager().getBackStackEntryCount() == 0) {
+                    getActivity().finish();
+                    Intent i = new Intent(getActivity(),Check123.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                }
+                else{
+                    Intent i = new Intent(getActivity(),Check123.class);
+                    startActivity(i);
+
+                }
+            }
+        });
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -164,6 +186,7 @@ public class CricketFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),PollingActivity.class);
                 i.putExtra("username",name.getText());
+
                 startActivity(i);
             }
         });
@@ -172,6 +195,7 @@ public class CricketFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),CricketScoreCardActivity.class);
                 i.putExtra("username",name.getText());
+
                 startActivity(i);
             }
         });
@@ -203,8 +227,9 @@ public class CricketFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),Teams.class);
+                getActivity().finish();
+                startActivity(i);
             }
         });
 
@@ -328,6 +353,7 @@ public class CricketFragment extends Fragment {
         return !ranBefore;
     }
 
+
     @Override
     public void onPause(){
         super.onPause();
@@ -336,6 +362,7 @@ public class CricketFragment extends Fragment {
         }
         detachDatabaseReadListener();
     }
+
     public void onStart() {
         super.onStart();
 
@@ -376,7 +403,6 @@ public class CricketFragment extends Fragment {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
-
     private void  onSignedInInitialize(String username){
         mUsername = username;
         attachDatabaseReadListener();

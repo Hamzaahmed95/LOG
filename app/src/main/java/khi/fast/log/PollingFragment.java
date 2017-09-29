@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -85,6 +86,32 @@ public class PollingFragment extends Fragment {
     private Button matchUpdate;
     private ToggleButton toggle;
     private static final int RC_PHOTO_PICKER =  2;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        FragmentManager fm = getFragmentManager();
+        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                if(getFragmentManager().getBackStackEntryCount() == 0) {
+                    getActivity().finish();
+                    Intent i = new Intent(getActivity(),CricketActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                }
+                else{
+                    Intent i = new Intent(getActivity(),Check123.class);
+                    startActivity(i);
+
+                }
+            }
+        });
+    }
+
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
@@ -109,6 +136,8 @@ public class PollingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),CricketActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
                 startActivity(i);
             }
         });
@@ -357,10 +386,6 @@ public class PollingFragment extends Fragment {
 
     }
 
-
-    public void onclick1(String username11){
-
-    }
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
         super.onActivityResult(requestCode,resultCode,data);
