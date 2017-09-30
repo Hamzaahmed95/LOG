@@ -2,7 +2,11 @@ package khi.fast.log;
 
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -77,15 +81,17 @@ public class PollingFragment extends Fragment {
     String url1;
     private String username1;
     private ImageView backButton5;
-
+    private ImageView sadFace;
     private LinearLayout l1;
     ProgressBar mprogressBar;
     private String mUsername;
     String url2;
     private int count1;
-    private Button matchUpdate;
+    private TextView matchUpdate;
     private ToggleButton toggle;
     private static final int RC_PHOTO_PICKER =  2;
+    private LinearLayout l2;
+    private TextView msg;
 
 
     @Override
@@ -119,6 +125,9 @@ public class PollingFragment extends Fragment {
         firebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         l1 = (LinearLayout)view.findViewById(R.id.hide);
+        sadFace = (ImageView)view.findViewById(R.id.sadFace);
+        l2= (LinearLayout)view.findViewById(R.id.l2);
+        msg= (TextView)view.findViewById(R.id.msg);
         PointsTableStorageReference =firebaseStorage.getReference().child("polling_picture");
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("polling_2");
         mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child("polling_1");
@@ -129,7 +138,7 @@ public class PollingFragment extends Fragment {
       //  username1 = ProfileActivity.ANONYMOUS;
        // mUsername = ANONYMOUS;
         count1 = 0;
-        matchUpdate = (Button)view.findViewById(R.id.status);
+        matchUpdate = (TextView) view.findViewById(R.id.status);
         toggle = (ToggleButton) view.findViewById(R.id.toggleButton);
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
         backButton5.setOnClickListener(new View.OnClickListener() {
@@ -162,40 +171,60 @@ public class PollingFragment extends Fragment {
                 mPhotoPickerButton.setVisibility(View.GONE);
             }
         }
-        Query mHouseDatabaseReference23 =mFirebaseDatabase.getReference().child("onOfPolling").limitToLast(1);;
+        if(isNetworkAvailable()) {
 
-        mHouseDatabaseReference23.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-
-                        if (issue.child("bit").getValue().equals("1")){
-                            l1.setVisibility(View.GONE);
+            sadFace.setVisibility(View.GONE);
+            msg.setVisibility(View.GONE);
+            Query mHouseDatabaseReference23 = mFirebaseDatabase.getReference().child("onOfPolling").limitToLast(1);
 
 
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                            params.weight = 1.0f;
-                            params.gravity = Gravity.CENTER;
-                            matchUpdate.setText("Polling Time has closed!");
-                            matchUpdate.setLayoutParams(params);
+            mHouseDatabaseReference23.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
+                            if (issue.child("bit").getValue().equals("1")) {
+                                l1.setVisibility(View.GONE);
+
+                                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                params.weight = 1.0f;
+                                params.gravity = Gravity.CENTER;
+                                matchUpdate.setText("Polling Time has closed!");
+                                matchUpdate.setLayoutParams(params);
+                            } else {
+                                l1.setVisibility(View.VISIBLE);
+                                matchUpdate.setText("Polling is active now!");
+                            }
                         }
-                        else{
-                            l1.setVisibility(View.VISIBLE);
-                            matchUpdate.setText("Polling is active now!");
-                        }
+
                     }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
                 }
-            }
+            });
+        }
+        else{
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.weight=1.0f;
+            l1.setVisibility(View.GONE);
+            params.gravity = Gravity.CENTER;
+            sadFace.setVisibility(View.VISIBLE);
+            msg.setVisibility(View.VISIBLE);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+            matchUpdate.setText(CapsFirst("Unfortunately, Polling is \n not available right now"));
+            msg.setText("Please Check your Internet Connection and try again.");
+            l2.setLayoutParams(params);
 
-            }
-        });
 
+           // sadFace.setLayoutParams(params1);
+
+
+        }
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("polling_1").limitToLast(1);;
 
@@ -385,6 +414,12 @@ public class PollingFragment extends Fragment {
         return view;
 
     }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
@@ -418,6 +453,18 @@ public class PollingFragment extends Fragment {
                         }
                     });
         }
+    }
+    String CapsFirst(String str) {
+        String[] words = str.split(" ");
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            ret.append(Character.toUpperCase(words[i].charAt(0)));
+            ret.append(words[i].substring(1));
+            if(i < words.length - 1) {
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
     }
 
     private void  onSignedInInitialize(String username){

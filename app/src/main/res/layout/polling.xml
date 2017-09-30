@@ -88,13 +88,38 @@
     </LinearLayout>
     </LinearLayout>
 
-    <Button
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/l2"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/sadFace"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/sad"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:textStyle="bold"
+        android:textStyle="normal"
         android:textSize="25dp"
+        android:gravity="center"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"
         android:id="@+id/status"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/white"
+            android:id="@+id/msg"/>
+    </LinearLayout>
 </LinearLayout>
