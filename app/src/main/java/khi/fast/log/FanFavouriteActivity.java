@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +43,13 @@ public class FanFavouriteActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
 
     private ImageView backButton5;
+    private TextView t1;
+    private TextView t2;
+    private TextView t3;
+    private TextView t4;
+    private TextView t5;
+    private TextView t6;
+    private TextView t7;
     int count=0;
     int count1=0;
     int count2=0;
@@ -61,6 +69,13 @@ public class FanFavouriteActivity extends AppCompatActivity {
         v5= findViewById(R.id.v5);
         v6= findViewById(R.id.v6);
         v7= findViewById(R.id.v7);
+        t1 = (TextView)findViewById(R.id.poll1);
+        t2 = (TextView)findViewById(R.id.poll2);
+        t3 = (TextView)findViewById(R.id.poll3);
+        t4 = (TextView)findViewById(R.id.poll4);
+        t5 = (TextView)findViewById(R.id.poll5);
+        t6 = (TextView)findViewById(R.id.poll6);
+        t7 = (TextView)findViewById(R.id.poll7);
         firebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         backButton5=(ImageView)findViewById(R.id.backButton5);
@@ -85,25 +100,25 @@ public class FanFavouriteActivity extends AppCompatActivity {
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
 
                         if (issue.child("favTeam").getValue().equals("Stags")) {
-                            count++;
+                            count=count+4;
                         }
                         else if(issue.child("favTeam").getValue().equals("Dragons")) {
-                            count1++;
+                            count1=count1+4;;
                         }
                         else if(issue.child("favTeam").getValue().equals("Dires")) {
-                            count2++;
+                            count2=count2+4;;
                         }
                         else if(issue.child("favTeam").getValue().equals("Falcons")) {
-                            count3++;
+                            count3=count3+4;;
                         }
                         else if(issue.child("favTeam").getValue().equals("Pythons")) {
-                            count4++;
+                            count4=count4+4;;
                         }
                         else if(issue.child("favTeam").getValue().equals("Hunters")) {
-                            count5++;
+                            count5=count5+4;;
                         }
-                        else{
-                            count6++;
+                        else if(issue.child("favTeam").getValue().equals("Jaguars")){
+                            count6=count6+4;
                         }
                     }
                     System.out.println("count = "+count);
@@ -129,6 +144,14 @@ public class FanFavouriteActivity extends AppCompatActivity {
                     params6.height = count6;
                     v7.setLayoutParams(params6);
                    // v1.setLayoutParams(new LinearLayout.LayoutParams(200, 120));
+
+                    t1.setText(String.valueOf(count/4));
+                    t2.setText(String.valueOf(count1/4));
+                    t3.setText(String.valueOf(count2/4));
+                    t4.setText(String.valueOf(count3/4));
+                    t5.setText(String.valueOf(count4/4));
+                    t6.setText(String.valueOf(count5/4));
+                    t7.setText(String.valueOf(count6/4));
 
 
                 }
