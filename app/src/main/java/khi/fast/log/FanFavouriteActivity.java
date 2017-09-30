@@ -43,6 +43,12 @@ public class FanFavouriteActivity extends AppCompatActivity {
 
     private ImageView backButton5;
     int count=0;
+    int count1=0;
+    int count2=0;
+    int count3=0;
+    int count4=0;
+    int count5=0;
+    int count6=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,17 +84,50 @@ public class FanFavouriteActivity extends AppCompatActivity {
                     // dataSnapshot is the "issue" node with all children with id 0
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
 
-                        if (issue.child("favTeam").getValue().equals("Nawait Sultan")) {
+                        if (issue.child("favTeam").getValue().equals("Stags")) {
                             count++;
-
-                        } else {
-
+                        }
+                        else if(issue.child("favTeam").getValue().equals("Dragons")) {
+                            count1++;
+                        }
+                        else if(issue.child("favTeam").getValue().equals("Dires")) {
+                            count2++;
+                        }
+                        else if(issue.child("favTeam").getValue().equals("Falcons")) {
+                            count3++;
+                        }
+                        else if(issue.child("favTeam").getValue().equals("Pythons")) {
+                            count4++;
+                        }
+                        else if(issue.child("favTeam").getValue().equals("Hunters")) {
+                            count5++;
+                        }
+                        else{
+                            count6++;
                         }
                     }
                     System.out.println("count = "+count);
                     ViewGroup.LayoutParams params = v1.getLayoutParams();
                     params.height = count;
                     v1.setLayoutParams(params);
+                    ViewGroup.LayoutParams params1 = v2.getLayoutParams();
+                    params1.height = count1;
+                    v2.setLayoutParams(params1);
+                    ViewGroup.LayoutParams params2 = v3.getLayoutParams();
+                    params2.height = count2;
+                    v3.setLayoutParams(params2);
+                    ViewGroup.LayoutParams params3 = v4.getLayoutParams();
+                    params3.height = count3;
+                    v4.setLayoutParams(params3);
+                    ViewGroup.LayoutParams params4 = v5.getLayoutParams();
+                    params4.height = count4;
+                    v5.setLayoutParams(params4);
+                    ViewGroup.LayoutParams params5 = v6.getLayoutParams();
+                    params5.height = count5;
+                    v6.setLayoutParams(params5);
+                    ViewGroup.LayoutParams params6 = v7.getLayoutParams();
+                    params6.height = count6;
+                    v7.setLayoutParams(params6);
                    // v1.setLayoutParams(new LinearLayout.LayoutParams(200, 120));
 
 

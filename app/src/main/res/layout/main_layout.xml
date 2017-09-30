@@ -213,7 +213,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/tennis"/>
+                    android:src="@drawable/ffr"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -222,7 +222,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Tennis"/>
+                android:text="FFR"/>
 
         </LinearLayout>
     </LinearLayout>
