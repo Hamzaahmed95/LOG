@@ -55,7 +55,7 @@ public class CricketFragment extends Fragment {
     String[] array;
     AnimatorSet set3;
     private FirebaseDatabase mFirebaseDatabase;
-
+    private ImageView backButton5;
     private DatabaseReference mMessageDatabaseReference;
     private DatabaseReference mUsersDatabaseReference;
     public static final int RC_SIGN_IN =1;
@@ -115,10 +115,20 @@ public class CricketFragment extends Fragment {
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
+      //  signout =(ImageView)view.findViewById(R.id.logout);
         showUsers=(ImageView)view.findViewById(R.id.showUsers);
         array = new String[100];
         i=0;
+        backButton5=(ImageView)view.findViewById(R.id.backButton5);
+        backButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
+            }
+        });
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
 
@@ -146,13 +156,13 @@ public class CricketFragment extends Fragment {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
-        signout.setOnClickListener(new View.OnClickListener() {
+/*        signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AuthUI.getInstance().signOut(getActivity());
             }
         });
-
+*/
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {

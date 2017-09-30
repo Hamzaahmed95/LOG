@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -110,16 +111,15 @@ public class QuestionFragment extends Fragment {
         FavPlayer = (EditText)view.findViewById(R.id.FavPlayer);
         Username=(TextView) view.findViewById(R.id.Username);
         BestTeam = (Spinner) view.findViewById(R.id.favTeam);
-        BestPlayer = (Spinner) view.findViewById(R.id.FavPlayer2);
 
         SendButtonQuestion = (Button) view.findViewById(R.id.sendButtonQuesion);
-        final String[] items = new String[]{"Nawait United", "Nawait Aces", "Nawait Royals", "Shan-e-Nawait", "Nawait Sultan", "Nawait Janbaz"};
+        final String[] items = new String[]{"FAVOURITE TEAM","Falcons", "Jaguars", "Hunters", "Pythons", "Dires", "Dragons"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_style, items);
         Log.d("quantity",""+adapter);
 
         BestTeam.setAdapter(adapter);
         BestTeam.setPrompt("select");
-        final String[] items2 = new String[]{"select","Bidchol Saqib", "Haji Ameen Ali", "Khateeb Mairaj","Sunny Adnan","others"};
+        final String[] items2 = new String[]{"others"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), R.layout.spinner_style, items2);
         Log.d("quantity",""+adapter2);
 
@@ -165,74 +165,9 @@ public class QuestionFragment extends Fragment {
                         house="yellow";
                         favouriteTeam=items[position];
                         break;
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // set editbox invivible
-                FavPlayer.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-
-
-
-
-
-        BestPlayer.setAdapter(adapter2);
-        BestPlayer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-
-                FavPlayer.setVisibility(View.INVISIBLE);
-                SendButtonQuestion.setEnabled(true);
-
-                switch (position) {
-
-                    case 0:
-                        // set editbox visible
-                        Log.d("case : "," "+position);
-                        favouriteBatsman=items2[position];
-                        SendButtonQuestion.setEnabled(false);
-                        SendButtonQuestion.setTextColor(Color.RED);
-                        break;
-                    case 1:
-                        // set editbox invivible
-                        Log.d("case : "," "+position);
-                        favouriteBatsman=items2[position];
-
-                        SendButtonQuestion.setTextColor(Color.BLACK);
-                        SendButtonQuestion.setEnabled(true);
-                        break;
-                    case 2:
-                        // set editbox invivible
-                        Log.d("case : "," "+position);
-                        favouriteBatsman=items2[position];
-                        SendButtonQuestion.setTextColor(Color.BLACK);
-                        SendButtonQuestion.setEnabled(true);
-                        break;
-                    case 3:
-                        Log.d("case : "," "+position);
-                        favouriteBatsman=items2[position];
-                        SendButtonQuestion.setTextColor(Color.BLACK);
-                        SendButtonQuestion.setEnabled(true);
-                        break;
-                    case 4:
-                        Log.d("case : "," "+position);
-                        favouriteBatsman=items2[position];
-                        SendButtonQuestion.setTextColor(Color.BLACK);
-                        SendButtonQuestion.setEnabled(true);
-                        break;
-                    case 5:
-                        SendButtonQuestion.setTextColor(Color.BLACK);
-                        FavPlayer.setVisibility(View.VISIBLE);
-                        SendButtonQuestion.setEnabled(true);
+                    case 6:
+                        house="yellow";
+                        favouriteTeam=items[position];
                         break;
 
                 }
@@ -245,6 +180,11 @@ public class QuestionFragment extends Fragment {
 
             }
         });
+
+
+
+
+
 
 
 
@@ -252,24 +192,29 @@ public class QuestionFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Log.d("Username:",mUsername);
-                Log.d("favourite player",favouriteBatsman);
-                Log.d("favourite nota",favouriteTeam);
-                Log.d("house",house);
+               // Log.d("Username:",mUsername);
+               // Log.d("favourite player",favouriteBatsman);
+                //Log.d("favourite nota",favouriteTeam);
+                //Log.d("house",house);
                 favouriteBatsman=FavPlayer.getText().toString();
+                System.out.println(favouriteBatsman+" "+favouriteTeam);
+                if(!favouriteBatsman.equals("") && !favouriteTeam.equals("FAVOURITE TEAM") ) {
 
-                House house1 = new House(mUsername,favouriteBatsman,favouriteTeam,house);
-                mHouseDatabaseReference.push().setValue(house1);
+                    House house1 = new House(mUsername, favouriteBatsman, favouriteTeam, house);
+                    mHouseDatabaseReference.push().setValue(house1);
 
-                Intent i = new Intent(getActivity(),Check123.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                i.putExtra("batch",house);
-                i.putExtra("username",mUsername);
-                i.putExtras(b);
-                getActivity().finish();
-                startActivity(i);
-
+                    Intent i = new Intent(getActivity(), Check123.class);
+                    Bundle b = new Bundle();
+                    b.putStringArray("users", array);
+                    i.putExtra("batch", house);
+                    i.putExtra("username", mUsername);
+                    i.putExtras(b);
+                    getActivity().finish();
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(getContext(),"Enter the Required Fields",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

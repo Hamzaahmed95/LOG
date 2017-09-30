@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#000000"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/backButton5"
+            android:src="@drawable/left"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:paddingRight="10dp"
+            android:text="Fan Favourite Results"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:paddingTop="50dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="#fff" />
+
+        <View
+            android:id="@+id/v1"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#ff00" />
+
+        <View
+            android:id="@+id/v2"
+            android:layout_width="35dp"
+            android:layout_height="200dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#06b954" />
+
+        <View
+            android:id="@+id/v3"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#0609c6" />
+
+        <View
+            android:id="@+id/v4"
+            android:layout_width="35dp"
+            android:layout_height="350dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#c408a8" />
+
+        <View
+            android:id="@+id/v5"
+            android:layout_width="35dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#de7d07" />
+
+        <View
+            android:id="@+id/v6"
+            android:layout_width="35dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#b3b3b3" />
+
+        <View
+            android:id="@+id/v7"
+            android:layout_width="35dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="#ff0c01" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fff" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:gravity="center_horizontal"
+            android:text="      Stags      Dragons       Dires     Falcons     Pythons     Hunters     Jaguars"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
