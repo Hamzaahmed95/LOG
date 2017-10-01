@@ -65,7 +65,7 @@ public class CricketFragment extends Fragment {
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
+
 
     private FirebaseStorage firebaseStorage;
 
@@ -116,7 +116,7 @@ public class CricketFragment extends Fragment {
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
       //  signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
+
         array = new String[100];
         i=0;
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
@@ -131,18 +131,6 @@ public class CricketFragment extends Fragment {
         });
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
-
-        showUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-             //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-               // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
-            }
-        });
 
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -309,7 +297,7 @@ public class CricketFragment extends Fragment {
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
+                     
                     }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");
@@ -408,6 +396,9 @@ public class CricketFragment extends Fragment {
         }
 */
     }
+
+
+
     @Override
     public void onResume(){
         super.onResume();

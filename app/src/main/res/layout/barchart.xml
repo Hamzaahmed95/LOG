@@ -6,6 +6,8 @@
     android:background="@android:color/black"
     android:padding="10dp"
     android:orientation="vertical">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -28,6 +30,19 @@
             android:paddingRight="10dp"
             android:text="Fan Favourite Team"/>
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:indeterminateTint="@android:color/white"
+        android:foregroundGravity="center"
+        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/layoutMiss">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="350dp"
@@ -39,7 +54,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:background="@drawable/bg_gradient9" />
+            android:background="@drawable/bg_gradient3" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -205,7 +220,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@drawable/bg_gradient9" />
+        android:background="@drawable/bg_gradient3" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -711,4 +726,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</LinearLayout></LinearLayout>

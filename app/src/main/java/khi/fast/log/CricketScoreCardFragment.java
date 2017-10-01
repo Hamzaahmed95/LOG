@@ -1,6 +1,9 @@
 package khi.fast.log;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -186,10 +190,15 @@ public class CricketScoreCardFragment extends Fragment {
     private TextView hide1;
     private TextView hide2;
     private ToggleButton toggle;
-    private Button matchUpdate;
+    private TextView matchUpdate;
+    private TextView msg;
     String url1;
     String url2;
+    private ImageView sadFace;
+    private LinearLayout l2;
 
+
+    private ProgressBar mProgressBar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -221,8 +230,9 @@ public class CricketScoreCardFragment extends Fragment {
         firebaseStorage = FirebaseStorage.getInstance();
         buttonEnable = (Button)view.findViewById(R.id.scorecard1);
         buttonEnable2 = (Button)view.findViewById(R.id.scorecard2);
-        matchUpdate = (Button)view.findViewById(R.id.noMatchInProgress);
+        matchUpdate = (TextView)view.findViewById(R.id.status);
         hide2 = (TextView)view.findViewById(R.id.overhide2);
+        sadFace = (ImageView)view.findViewById(R.id.sadFace);
         mPhotoPickerButton1 = (ImageButton) view.findViewById(R.id.photoPickerTeam1);
         mPhotoPickerButton2 = (ImageButton) view.findViewById(R.id.photoPickerTeam2);
         imageView=(ImageView)view.findViewById(R.id.teamplaying1);
@@ -250,8 +260,11 @@ public class CricketScoreCardFragment extends Fragment {
         ball4 = (TextView) view.findViewById(R.id.ball4);
         ball5 = (TextView) view.findViewById(R.id.ball5);
         ball6 = (TextView) view.findViewById(R.id.ball6);
+        msg= (TextView)view.findViewById(R.id.msg);
+        l2= (LinearLayout)view.findViewById(R.id.l2);
         SendButton2 = (Button)view.findViewById(R.id.batsmanSendButton);
         l1 = (LinearLayout)view.findViewById(R.id.hide);
+        l1.setVisibility(View.GONE);
         scoreInput2 = (EditText) view.findViewById(R.id.batsmanUpdate);
         backButton4 =(ImageView) view.findViewById(R.id.backButton4);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -283,638 +296,663 @@ public class CricketScoreCardFragment extends Fragment {
         mScoreDatabaseReference21 = mFirebaseDatabase.getReference().child("BatsmanBowler");
         mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOf");
         toggle = (ToggleButton) view.findViewById(R.id.toggleButton);
+        mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
 
 
 
-        Query mHouseDatabaseReference23 =mFirebaseDatabase.getReference().child("onOf").limitToLast(1);;
+        if(isNetworkAvailable()) {
 
-        mHouseDatabaseReference23.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+            sadFace.setVisibility(View.GONE);
+            msg.setVisibility(View.GONE);
+            Query mHouseDatabaseReference23 = mFirebaseDatabase.getReference().child("onOf").limitToLast(1);
 
-                        if (issue.child("bit").getValue().equals("1")){
-                            l1.setVisibility(View.GONE);
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                            params.weight = 2.0f;
-                            params.gravity = Gravity.CENTER;
 
-                            matchUpdate.setText("No Match is in Progress");
-                            matchUpdate.setLayoutParams(params);
+            mHouseDatabaseReference23.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            mProgressBar.setVisibility(View.GONE);
+
+                            if (issue.child("bit").getValue().equals("1")) {
+
+                                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                params.weight = 2.0f;
+                                params.gravity = Gravity.CENTER;
+
+                                matchUpdate.setText("No Match is in Progress");
+                                matchUpdate.setLayoutParams(params);
+                            } else {
+                                l1.setVisibility(View.VISIBLE);
+                                matchUpdate.setText("");
+                            }
                         }
-                        else{
-                            l1.setVisibility(View.VISIBLE);
-                            matchUpdate.setText("");
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+
+            else{
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.weight=1.0f;
+            l1.setVisibility(View.GONE);
+            params.gravity = Gravity.CENTER;
+            sadFace.setVisibility(View.VISIBLE);
+            msg.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.GONE);
+            matchUpdate.setText(CapsFirst("Unfortunately, Polling is \n not available right now"));
+            msg.setText("Please Check your Internet Connection and try again.");
+            l2.setLayoutParams(params);
+
+            }
+
+            buttonEnable.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), FullScorecard2.class);
+                    i.putExtra("runs1", Runs1.getText().toString());
+                    i.putExtra("overs1", Overs1.getText().toString());
+                    i.putExtra("hamza", hamzaAhmed.getText().toString());
+                    i.putExtra("wickets1", Wicket1.getText().toString());
+                    i.putExtra("id", "1");
+                    startActivity(i);
+                }
+            });
+            buttonEnable2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), FullScorecard3.class);
+                    i.putExtra("runs2", Runs2.getText().toString());
+                    i.putExtra("overs2", Overs2.getText().toString());
+                    i.putExtra("overs22", Overs22.getText().toString());
+                    i.putExtra("wickets2", Wicket2.getText().toString());
+                    i.putExtra("id", "2");
+                    startActivity(i);
+                }
+            });
+
+            Query crick1 = mFirebaseDatabase.getReference().child("crick_team1").limitToLast(1);
+            ;
+
+            crick1.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
+
+                            System.out.println(issue.child("photoUrl").getValue());
+                            // if(issue.child("photoUrl").getValue().toString()!=null)
+                            url1 = issue.child("photoUrl").getValue().toString();
+                            Glide.with(imageView.getContext())
+                                    .load(url1)
+                                    .into(imageView);
+                            //mprogressBar.setVisibility(View.GONE);
+                            //   System.out.println();
+                            //array[i]=issue.child("username").getValue().toString();
+                            //i++;
+                        }
+
+                        //for(int j=0;j<i;j++){
+                        //  System.out.println(j+""+array[j]);
+                        // }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            Query crick2 = mFirebaseDatabase.getReference().child("crick_team2").limitToLast(1);
+            ;
+
+            crick2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
+
+                            System.out.println(issue.child("photoUrl").getValue());
+                            // if(issue.child("photoUrl").getValue().toString()!=null)
+                            url2 = issue.child("photoUrl").getValue().toString();
+                            Glide.with(imageView2.getContext())
+                                    .load(url2)
+                                    .into(imageView2);
+                            //mprogressBar.setVisibility(View.GONE);
+                            //   System.out.println();
+                            //array[i]=issue.child("username").getValue().toString();
+                            //i++;
+                        }
+
+                        //for(int j=0;j<i;j++){
+                        //  System.out.println(j+""+array[j]);
+                        // }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+            Query mHouseDatabaseReference22 = mFirebaseDatabase.getReference().child("BatsmanBowler").limitToLast(1);
+            ;
+
+            mHouseDatabaseReference22.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
+
+                            System.out.println("hamza here2" + issue.getValue());
+                            BatsmanOnCrease1.setText(issue.child("batsman1").getValue().toString());
+                            BatsmanOnCrease2.setText(issue.child("batsman2").getValue().toString());
+                            BowlerOnCrease1.setText(issue.child("bowler1").getValue().toString());
+                            //  BowlerOnCrease2.setText(issue.child("bowler2").getValue().toString());
+
+
+                            //   mprogressBar.setVisibility(View.GONE);
+                            //   System.out.println();
+                            //array[i]=issue.child("username").getValue().toString();
+                            //i++;
+                        }
+
+                        //for(int j=0;j<i;j++){
+                        //  System.out.println(j+""+array[j]);
+                        // }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            Query e1 = mFirebaseDatabase.getReference().child("db").limitToLast(1);
+
+            e1.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
+
+                            System.out.println("hello->" + issue.child("ball").getValue());
+                            hamza = Integer.parseInt(issue.child("ball").getValue().toString());
+                            hamzaAhmed.setText(issue.child("ball").getValue().toString());
+
                         }
                     }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
                 }
-            }
+            });
+            Query mHouseDatabaseReference16 = mFirebaseDatabase.getReference().child("Team1Overs").limitToLast(1);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+            mHouseDatabaseReference16.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-            }
-        });
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            OverIncOvers1 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Overs1.setText(issue.child("ball").getValue().toString());
 
-        buttonEnable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(),FullScorecard2.class);
-                i.putExtra("runs1",Runs1.getText().toString());
-                i.putExtra("overs1",Overs1.getText().toString());
-                i.putExtra("hamza",hamzaAhmed.getText().toString());
-                i.putExtra("wickets1",Wicket1.getText().toString());
-                i.putExtra("id","1");
-                startActivity(i);
-            }
-        });
-        buttonEnable2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(),FullScorecard3.class);
-                i.putExtra("runs2",Runs2.getText().toString());
-                i.putExtra("overs2",Overs2.getText().toString());
-                i.putExtra("overs22",Overs22.getText().toString());
-                i.putExtra("wickets2",Wicket2.getText().toString());
-                i.putExtra("id","2");
-                startActivity(i);
-            }
-        });
-
-        Query crick1 =mFirebaseDatabase.getReference().child("crick_team1").limitToLast(1);;
-
-        crick1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
-
-                        System.out.println(issue.child("photoUrl").getValue());
-                        // if(issue.child("photoUrl").getValue().toString()!=null)
-                        url1=issue.child("photoUrl").getValue().toString();
-                        Glide.with(imageView.getContext())
-                                .load(url1)
-                                .into(imageView);
-                        //mprogressBar.setVisibility(View.GONE);
-                        //   System.out.println();
-                        //array[i]=issue.child("username").getValue().toString();
-                        //i++;
-                    }
-
-                    //for(int j=0;j<i;j++){
-                    //  System.out.println(j+""+array[j]);
-                    // }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        Query crick2 =mFirebaseDatabase.getReference().child("crick_team2").limitToLast(1);;
-
-        crick2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
-
-                        System.out.println(issue.child("photoUrl").getValue());
-                        // if(issue.child("photoUrl").getValue().toString()!=null)
-                        url2=issue.child("photoUrl").getValue().toString();
-                        Glide.with(imageView2.getContext())
-                                .load(url2)
-                                .into(imageView2);
-                        //mprogressBar.setVisibility(View.GONE);
-                        //   System.out.println();
-                        //array[i]=issue.child("username").getValue().toString();
-                        //i++;
-                    }
-
-                    //for(int j=0;j<i;j++){
-                    //  System.out.println(j+""+array[j]);
-                    // }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-
-        Query mHouseDatabaseReference22 =mFirebaseDatabase.getReference().child("BatsmanBowler").limitToLast(1);;
-
-        mHouseDatabaseReference22.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
-
-                        System.out.println("hamza here2"+issue.getValue());
-                        BatsmanOnCrease1.setText(issue.child("batsman1").getValue().toString());
-                        BatsmanOnCrease2.setText(issue.child("batsman2").getValue().toString());
-                        BowlerOnCrease1.setText(issue.child("bowler1").getValue().toString());
-                        //  BowlerOnCrease2.setText(issue.child("bowler2").getValue().toString());
-
-
-                        //   mprogressBar.setVisibility(View.GONE);
-                        //   System.out.println();
-                        //array[i]=issue.child("username").getValue().toString();
-                        //i++;
-                    }
-
-                    //for(int j=0;j<i;j++){
-                    //  System.out.println(j+""+array[j]);
-                    // }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        Query e1=mFirebaseDatabase.getReference().child("db").limitToLast(1);
-
-        e1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
-
-                        System.out.println("hello->"+issue.child("ball").getValue());
-                        hamza=Integer.parseInt(issue.child("ball").getValue().toString());
-                        hamzaAhmed.setText(issue.child("ball").getValue().toString());
-
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference16 =mFirebaseDatabase.getReference().child("Team1Overs").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference17 = mFirebaseDatabase.getReference().child("Team2Overs").limitToLast(1);
 
-        mHouseDatabaseReference16.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference17.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        OverIncOvers1=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Overs1.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            OverIncOvers2 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Overs2.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference17 =mFirebaseDatabase.getReference().child("Team2Overs").limitToLast(1);
+                }
+            });
 
-        mHouseDatabaseReference17.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            Query mHouseDatabaseReference19 = mFirebaseDatabase.getReference().child("Team22Overs").limitToLast(1);
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        OverIncOvers2=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Overs2.setText(issue.child("ball").getValue().toString());
+            mHouseDatabaseReference19.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            OverIncOvers22 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Overs22.setText(issue.child("ball").getValue().toString());
+
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
-        Query mHouseDatabaseReference19 =mFirebaseDatabase.getReference().child("Team22Overs").limitToLast(1);
+            Query mHouseDatabaseReference11 = mFirebaseDatabase.getReference().child("Batsman1Runs").limitToLast(1);
 
-        mHouseDatabaseReference19.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference11.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        OverIncOvers22=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Overs22.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            BatsIncRuns1 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            BatsmanRuns1.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
-        Query mHouseDatabaseReference11 =mFirebaseDatabase.getReference().child("Batsman1Runs").limitToLast(1);
+            Query mHouseDatabaseReference12 = mFirebaseDatabase.getReference().child("Batsman2Runs").limitToLast(1);
 
-        mHouseDatabaseReference11.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference12.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        BatsIncRuns1=Integer.parseInt(issue.child("ball").getValue().toString());
-                        BatsmanRuns1.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            BatsIncRuns2 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            BatsmanRuns2.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+            Query mHouseDatabaseReference13 = mFirebaseDatabase.getReference().child("Batsman1Balls").limitToLast(1);
 
-        Query mHouseDatabaseReference12 =mFirebaseDatabase.getReference().child("Batsman2Runs").limitToLast(1);
+            mHouseDatabaseReference13.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-        mHouseDatabaseReference12.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            BatsIncBalls1 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            BatsmanBalls1.setText(issue.child("ball").getValue().toString());
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        BatsIncRuns2=Integer.parseInt(issue.child("ball").getValue().toString());
-                        BatsmanRuns2.setText(issue.child("ball").getValue().toString());
-
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });Query mHouseDatabaseReference13 =mFirebaseDatabase.getReference().child("Batsman1Balls").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference7 = mFirebaseDatabase.getReference().child("Batsman2Balls").limitToLast(1);
 
-        mHouseDatabaseReference13.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference7.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        BatsIncBalls1=Integer.parseInt(issue.child("ball").getValue().toString());
-                        BatsmanBalls1.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            BatsIncBalls2 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            BatsmanBalls2.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });Query mHouseDatabaseReference7 =mFirebaseDatabase.getReference().child("Batsman2Balls").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference14 = mFirebaseDatabase.getReference().child("BowlerRuns").limitToLast(1);
 
-        mHouseDatabaseReference7.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference14.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        BatsIncBalls2=Integer.parseInt(issue.child("ball").getValue().toString());
-                        BatsmanBalls2.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            BowlerIncBalls = Integer.parseInt(issue.child("ball").getValue().toString());
+                            BatsmanRuns3.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });Query mHouseDatabaseReference14 =mFirebaseDatabase.getReference().child("BowlerRuns").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference15 = mFirebaseDatabase.getReference().child("BowlerWicket").limitToLast(1);
 
-        mHouseDatabaseReference14.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference15.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        BowlerIncBalls=Integer.parseInt(issue.child("ball").getValue().toString());
-                        BatsmanRuns3.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            BowlerIncWickets = Integer.parseInt(issue.child("ball").getValue().toString());
+                            BatsmanBalls3.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });Query mHouseDatabaseReference15 =mFirebaseDatabase.getReference().child("BowlerWicket").limitToLast(1);
+                }
+            });
 
-        mHouseDatabaseReference15.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        BowlerIncWickets=Integer.parseInt(issue.child("ball").getValue().toString());
-                        BatsmanBalls3.setText(issue.child("ball").getValue().toString());
+            Query mHouseDatabaseReference9 = mFirebaseDatabase.getReference().child("Team1Wickets").limitToLast(1);
 
+            mHouseDatabaseReference9.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
+
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            WicketINCTeam1 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Wicket1.setText(issue.child("ball").getValue().toString());
+
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
+            Query mHouseDatabaseReference10 = mFirebaseDatabase.getReference().child("Team2Wickets").limitToLast(1);
 
+            mHouseDatabaseReference10.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-        Query mHouseDatabaseReference9 =mFirebaseDatabase.getReference().child("Team1Wickets").limitToLast(1);
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            WicketINCTeam2 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Wicket2.setText(issue.child("ball").getValue().toString());
 
-        mHouseDatabaseReference9.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
-
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        WicketINCTeam1=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Wicket1.setText(issue.child("ball").getValue().toString());
-
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+            Query mHouseDatabaseReferenc8 = mFirebaseDatabase.getReference().child("Team1Runs").limitToLast(1);
 
-        Query mHouseDatabaseReference10 =mFirebaseDatabase.getReference().child("Team2Wickets").limitToLast(1);
+            mHouseDatabaseReferenc8.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-        mHouseDatabaseReference10.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            RunsINCTeam1 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Runs1.setText(issue.child("ball").getValue().toString());
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        WicketINCTeam2=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Wicket2.setText(issue.child("ball").getValue().toString());
-
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReferenc8 =mFirebaseDatabase.getReference().child("Team1Runs").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference8 = mFirebaseDatabase.getReference().child("Team2Runs").limitToLast(1);
 
-        mHouseDatabaseReferenc8.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference8.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        RunsINCTeam1=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Runs1.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            RunsINCTeam2 = Integer.parseInt(issue.child("ball").getValue().toString());
+                            Runs2.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference8 =mFirebaseDatabase.getReference().child("Team2Runs").limitToLast(1);
+                }
+            });
 
-        mHouseDatabaseReference8.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            Query mHouseDatabaseReference = mFirebaseDatabase.getReference().child("Ball1").limitToLast(1);
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        RunsINCTeam2=Integer.parseInt(issue.child("ball").getValue().toString());
-                        Runs2.setText(issue.child("ball").getValue().toString());
+            mHouseDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            Ball1num = Integer.parseInt(issue.child("ball").getValue().toString());
+                            ball1.setText(issue.child("ball").getValue().toString());
+
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+            Query mHouseDatabaseReference2 = mFirebaseDatabase.getReference().child("Ball2").limitToLast(1);
 
-        Query mHouseDatabaseReference =mFirebaseDatabase.getReference().child("Ball1").limitToLast(1);
+            mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-        mHouseDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            Ball2num = Integer.parseInt(issue.child("ball").getValue().toString());
+                            ball2.setText(issue.child("ball").getValue().toString());
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        Ball1num=Integer.parseInt(issue.child("ball").getValue().toString());
-                        ball1.setText(issue.child("ball").getValue().toString());
-
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("Ball2").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference3 = mFirebaseDatabase.getReference().child("Ball3").limitToLast(1);
 
-        mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        Ball2num=Integer.parseInt(issue.child("ball").getValue().toString());
-                        ball2.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            Ball3num = Integer.parseInt(issue.child("ball").getValue().toString());
+                            ball3.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("Ball3").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference4 = mFirebaseDatabase.getReference().child("Ball4").limitToLast(1);
 
-        mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference4.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        Ball3num=Integer.parseInt(issue.child("ball").getValue().toString());
-                        ball3.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            Ball4num = Integer.parseInt(issue.child("ball").getValue().toString());
+                            ball4.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference4 =mFirebaseDatabase.getReference().child("Ball4").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference5 = mFirebaseDatabase.getReference().child("Ball5").limitToLast(1);
 
-        mHouseDatabaseReference4.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference5.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        Ball4num=Integer.parseInt(issue.child("ball").getValue().toString());
-                        ball4.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            Ball5num = Integer.parseInt(issue.child("ball").getValue().toString());
+                            ball5.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference5 =mFirebaseDatabase.getReference().child("Ball5").limitToLast(1);
+                }
+            });
+            Query mHouseDatabaseReference6 = mFirebaseDatabase.getReference().child("Ball6").limitToLast(1);
 
-        mHouseDatabaseReference5.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+            mHouseDatabaseReference6.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // dataSnapshot is the "issue" node with all children with id 0
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
 
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        Ball5num=Integer.parseInt(issue.child("ball").getValue().toString());
-                        ball5.setText(issue.child("ball").getValue().toString());
+                            System.out.println("hello" + issue.child("ball").getValue());
+                            Ball6num = Integer.parseInt(issue.child("ball").getValue().toString());
+                            ball6.setText(issue.child("ball").getValue().toString());
 
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-        Query mHouseDatabaseReference6 =mFirebaseDatabase.getReference().child("Ball6").limitToLast(1);
-
-        mHouseDatabaseReference6.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
-
-                        System.out.println("hello"+issue.child("ball").getValue());
-                        Ball6num=Integer.parseInt(issue.child("ball").getValue().toString());
-                        ball6.setText(issue.child("ball").getValue().toString());
-
-                    }
                 }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+            });
 
         IncrementBall1 = (ImageButton)view.findViewById(R.id.incrementBall1);
 
@@ -1431,6 +1469,25 @@ public class CricketScoreCardFragment extends Fragment {
 
         return view;
     }
+    String CapsFirst(String str) {
+        String[] words = str.split(" ");
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            ret.append(Character.toUpperCase(words[i].charAt(0)));
+            ret.append(words[i].substring(1));
+            if(i < words.length - 1) {
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
     @Override
     public void onActivityResult(int requestCode,int resultCode,Intent data){
         super.onActivityResult(requestCode,resultCode,data);

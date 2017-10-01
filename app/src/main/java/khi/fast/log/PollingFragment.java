@@ -92,11 +92,13 @@ public class PollingFragment extends Fragment {
     private static final int RC_PHOTO_PICKER =  2;
     private LinearLayout l2;
     private TextView msg;
+    private ProgressBar mProgressBar;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         FragmentManager fm = getFragmentManager();
         fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
@@ -124,6 +126,8 @@ public class PollingFragment extends Fragment {
         View view = inflater.inflate(R.layout.polling, container, false);
         firebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+
+        mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
         l1 = (LinearLayout)view.findViewById(R.id.hide);
         sadFace = (ImageView)view.findViewById(R.id.sadFace);
         l2= (LinearLayout)view.findViewById(R.id.l2);
@@ -184,6 +188,7 @@ public class PollingFragment extends Fragment {
                     if (dataSnapshot.exists()) {
                         // dataSnapshot is the "issue" node with all children with id 0
                         for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            mProgressBar.setVisibility(View.GONE);
 
                             if (issue.child("bit").getValue().equals("1")) {
                                 l1.setVisibility(View.GONE);
