@@ -64,7 +64,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/team2" />
+                    android:src="@drawable/stags" />
 
                     <Button
                         android:id="@+id/ButtonTeam"
@@ -91,7 +91,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/team4" />
+                    android:src="@drawable/dragons" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/team5" />
+                    android:src="@drawable/jaguar" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/team7" />
+                    android:src="@drawable/falcons" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -201,7 +201,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/team3" />
+                    android:src="@drawable/hunters" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -235,7 +235,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/team6" />
+                    android:src="@drawable/python" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

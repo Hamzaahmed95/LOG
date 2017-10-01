@@ -200,9 +200,9 @@ public class CricketFragment extends Fragment {
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent i = new Intent(getActivity(),Interview.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),MOM.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
 

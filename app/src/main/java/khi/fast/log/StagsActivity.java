@@ -38,7 +38,7 @@ import java.util.ArrayList;
 
 public class StagsActivity extends AppCompatActivity {
 
-    private static final String TAG = "ShaneNawaitActivity";
+    private static final String TAG = "StagsActivity";
     public static final String ANONYMOUS = "anonymous";
     public static final int RC_SIGN_IN =1;
     private TextView name;
