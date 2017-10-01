@@ -49,7 +49,6 @@ public class BasketballFragment extends Fragment {
     private LinearLayout PointsTable;
     private LinearLayout Matches;
     private LinearLayout Teams;
-    private ImageView signout;
     private String Name;
     String[] array;
     AnimatorSet set3;
@@ -64,7 +63,6 @@ public class BasketballFragment extends Fragment {
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
 
     private FirebaseStorage firebaseStorage;
 
@@ -80,6 +78,8 @@ public class BasketballFragment extends Fragment {
     AnimatorSet set8;
     AnimatorSet set9;
     Dialog dialog;
+
+    private ImageView backButton5;
     int i;
 
     @Override
@@ -93,24 +93,23 @@ public class BasketballFragment extends Fragment {
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
+
+
+        backButton5 =(ImageView) view.findViewById(R.id.backButton5);
+        backButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
+            }
+        });
         array = new String[100];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
 
-        showUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
-            }
-        });
 
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -124,12 +123,6 @@ public class BasketballFragment extends Fragment {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthUI.getInstance().signOut(getActivity());
-            }
-        });
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
@@ -270,12 +263,9 @@ public class BasketballFragment extends Fragment {
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
                     Name=user.getDisplayName();
-                    name.setText(user.getDisplayName());
+                    name.setText(CapsFirst(user.getDisplayName()));
                     Log.d("Name:",Name);
-                    if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
-                    }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");
                     Log.d("check",user.getDisplayName().substring(2,3));
@@ -302,6 +292,18 @@ public class BasketballFragment extends Fragment {
         return view;
 
 
+    }
+    String CapsFirst(String str) {
+        String[] words = str.split(" ");
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            ret.append(Character.toUpperCase(words[i].charAt(0)));
+            ret.append(words[i].substring(1));
+            if(i < words.length - 1) {
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
     }
     private boolean isFirstTime()
     {
