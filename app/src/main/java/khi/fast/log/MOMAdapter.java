@@ -3,6 +3,8 @@ package khi.fast.log;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +41,6 @@ public class MOMAdapter extends ArrayAdapter<MOMCLASS> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_mom, parent, false);
         }
         ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageViewMOM);
-        TextView name = (TextView) convertView.findViewById(R.id.messageTextViewMOM);
-        TextView runsAndwicket = (TextView) convertView.findViewById(R.id.nameTextViewMOM);
         mprogressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
         Log.d("position",""+getItem(position));
         MOMCLASS message = getItem(position);
@@ -48,25 +50,41 @@ public class MOMAdapter extends ArrayAdapter<MOMCLASS> {
         anim.setInterpolator(new DecelerateInterpolator());
         anim.start();
         boolean isPhoto = message.getPICTURE() != null;
-        if (isPhoto) {
-            Glide.with(photoImageView.getContext())
-                    .load(message.getPICTURE())
-                    .placeholder(R.drawable.circulr_screen)
-                    .into(photoImageView);
-            runsAndwicket.setText(message.getWicketsAndRuns());
-            name.setText(message.getNAME());
-            if(mprogressBar!=null)
-                mprogressBar.setVisibility(convertView.INVISIBLE);
+        if(isNetworkAvailable()) {
+            if (isPhoto) {
+                Picasso.with(getContext()).load(message.getPICTURE()).into(photoImageView);
 
+                if (mprogressBar != null)
+                    mprogressBar.setVisibility(convertView.INVISIBLE);
+
+            } else {
+
+
+            }
         }
         else{
+            if (isPhoto) {
+                Picasso.with(getContext()).load(message.getPICTURE()).networkPolicy(NetworkPolicy.OFFLINE).into(photoImageView);
 
+                if (mprogressBar != null)
+                    mprogressBar.setVisibility(convertView.INVISIBLE);
+
+            } else {
+
+
+            }
 
         }
-
 
 
 
         return convertView;
     }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 }

@@ -41,9 +41,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/linearLayout"
         android:stackFromBottom="true"
-        android:padding="10dp"
-        android:divider="@android:color/transparent"
-        android:transcriptMode="alwaysScroll"
+
         tools:listitem="@layout/item_mom"/>
 
     <LinearLayout

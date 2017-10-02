@@ -348,7 +348,7 @@ public class CricketScoreCardFragment extends Fragment {
             sadFace.setVisibility(View.VISIBLE);
             msg.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.GONE);
-            matchUpdate.setText(CapsFirst("Unfortunately, Polling is \n not available right now"));
+            matchUpdate.setText(CapsFirst("Unfortunately, Scoring is \n not available right now"));
             msg.setText("Please Check your Internet Connection and try again.");
             l2.setLayoutParams(params);
 

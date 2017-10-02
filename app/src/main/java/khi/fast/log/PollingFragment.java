@@ -214,6 +214,7 @@ public class PollingFragment extends Fragment {
             });
         }
         else{
+            mProgressBar.setVisibility(View.GONE);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.weight=1.0f;
             l1.setVisibility(View.GONE);

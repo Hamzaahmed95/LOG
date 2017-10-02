@@ -208,6 +208,8 @@ public class FanFavouriteActivity extends AppCompatActivity {
             });
         }
         else{
+            mProgressBar.setVisibility(View.GONE);
+            l1.setVisibility(View.VISIBLE);
             sharedPref = getPreferences(MODE_PRIVATE);
             String p1 = sharedPref.getString("poll1", "");
             String p2 = sharedPref.getString("poll2", "");
@@ -239,7 +241,7 @@ public class FanFavouriteActivity extends AppCompatActivity {
             params6.height =  Integer.parseInt(p7);
             v7.setLayoutParams(params6);
 
-            System.out.println("poll1-> "+p1);
+            System.out.println("poll1-> "+p4);
             t1.setText(String.valueOf(Integer.parseInt(p1)/4));
             t2.setText(String.valueOf(Integer.parseInt(p2)/4));
             t3.setText(String.valueOf(Integer.parseInt(p3)/4));

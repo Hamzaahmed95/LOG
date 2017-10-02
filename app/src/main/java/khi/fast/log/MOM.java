@@ -4,7 +4,10 @@ package khi.fast.log;
  * Created by Hamza Ahmed on 01-Oct-17.
  */
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -334,6 +337,7 @@ public class MOM extends AppCompatActivity {
                     MOMCLASS momclass = dataSnapshot.getValue(MOMCLASS.class);
                     if(momclass!=null)
                         mMOMAdapter.add(momclass);
+                    System.out.println(dataSnapshot.child("picture").getValue());
                     mProgressBar.setVisibility(View.GONE);
 
                 }
@@ -390,10 +394,16 @@ public class MOM extends AppCompatActivity {
             });
         }
     }
-    private void detachDatabaseReadListener(){
+   private void detachDatabaseReadListener(){
         if(mChildEventListener!=null)
             mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mChildEventListener=null;
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 
