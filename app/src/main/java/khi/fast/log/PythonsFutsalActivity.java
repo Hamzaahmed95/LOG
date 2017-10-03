@@ -37,9 +37,9 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 
 
-public class StagsActivity extends AppCompatActivity {
+public class PythonsFutsalActivity extends AppCompatActivity {
 
-    private static final String TAG = "StagsActivity";
+    private static final String TAG = "ShaneNawaitActivity";
     public static final String ANONYMOUS = "anonymous";
     public static final int RC_SIGN_IN =1;
     private TextView name;
@@ -64,8 +64,8 @@ public class StagsActivity extends AppCompatActivity {
     private String side2;
     private RecyclerView recyclerView;
     private ArrayList<Image> images;
-
     private LinearLayout stags;
+
 
 
     @Override
@@ -75,7 +75,7 @@ public class StagsActivity extends AppCompatActivity {
         setContentView(R.layout.stags);
 
         stags=(LinearLayout)findViewById(R.id.stags);
-        stags.setBackgroundResource(R.drawable.bg_gradient3);
+        stags.setBackgroundResource(R.drawable.bg_gradient5);
 
         recyclerView = (RecyclerView) findViewById(R.id.nawaitJanbaz);
         recyclerView.setHasFixedSize(true);
@@ -87,24 +87,23 @@ public class StagsActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stags");
-        mStoriesStorageReference =firebaseStorage.getReference().child("stags_team");
+        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("pythonsFutsal");
+        mStoriesStorageReference =firebaseStorage.getReference().child("pythons_teamFutsal");
         Button =(ImageView) findViewById(R.id.backButton);
 
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(StagsActivity.this,Teams.class);
+                Intent i = new Intent(PythonsFutsalActivity.this,TeamFutsal.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
                 startActivity(i);
-
+                finish();
             }
         });
 
         // Initialize references to views
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("stags");
+        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("pythonsFutsal");
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -119,7 +118,7 @@ public class StagsActivity extends AppCompatActivity {
                 }
 
                 //adapter.notifyDataSetChanged();
-                adapter = new TeamAdapter(StagsActivity.this, getmMatch());
+                adapter = new TeamAdapter(PythonsFutsalActivity.this, getmMatch());
                 recyclerView.setAdapter(adapter);
 
             }
@@ -164,7 +163,7 @@ public class StagsActivity extends AppCompatActivity {
 
 
 
-                    adapter = new TeamAdapter(StagsActivity.this, images);
+                    adapter = new TeamAdapter(PythonsFutsalActivity.this, images);
 
                     if (recyclerView != null)
                         recyclerView.setAdapter(adapter);
@@ -189,15 +188,16 @@ public class StagsActivity extends AppCompatActivity {
         };
 
     }
-    public ArrayList<Image> getmMatch(){
-
-        return images;
-    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
     }
+    public ArrayList<Image> getmMatch(){
+
+        return images;
+    }
+
 
     @Override
     protected void onPause(){

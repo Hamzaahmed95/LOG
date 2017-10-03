@@ -49,10 +49,10 @@ import static android.app.Activity.RESULT_OK;
  * Created by Hamza Ahmed on 18-Jul-17.
  */
 
-public class PointsTableFragment extends Fragment {
+public class PTFutsalFragment extends Fragment {
 
 
-    private LinearLayout pointstable;
+
     private FirebaseStorage firebaseStorage;
     public static final String PREFS_NAME1 = "MyAppSharedPrefs";
     private StorageReference PointsTableStorageReference;
@@ -70,6 +70,7 @@ public class PointsTableFragment extends Fragment {
     String url1;
     private ImageView backButton5;
     ProgressBar mprogressBar;
+    private LinearLayout pointstable;
     private static final int RC_PHOTO_PICKER =  2;
 
     @Override
@@ -104,16 +105,17 @@ public class PointsTableFragment extends Fragment {
         url="https://firebasestorage.googleapis.com/v0/b/npl2017-2bca3.appspot.com/o/point_table%2Fimage%3A7283?alt=media&token=053c4777-df68-46be-be6e-d504791385ce";
         firebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        PointsTableStorageReference =firebaseStorage.getReference().child("point_table");
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("pointstable");
+        PointsTableStorageReference =firebaseStorage.getReference().child("point_tableFutsal");
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("pointstableFutsal");
         imageView =(ImageView)view.findViewById(R.id.photoImageView2);
-        pointstable=(LinearLayout)view.findViewById(R.id.pointstable);
-        pointstable.setBackgroundResource(R.drawable.bg_gradient3);
+
+        pointstable = (LinearLayout)view.findViewById(R.id.pointstable);
+        pointstable.setBackgroundResource(R.drawable.bg_gradient5);
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(),CricketActivity.class);
+                Intent i = new Intent(getActivity(),FutsalActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);
@@ -135,7 +137,7 @@ public class PointsTableFragment extends Fragment {
             }
         }
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("pointstable").limitToLast(1);;
+        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("pointstableFutsal").limitToLast(1);;
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

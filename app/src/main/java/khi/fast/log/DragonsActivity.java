@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -63,6 +64,7 @@ public class DragonsActivity extends AppCompatActivity {
     private String side2;
     private RecyclerView recyclerView;
     private ArrayList<Image> images;
+    private LinearLayout stags;
 
 
 
@@ -72,6 +74,8 @@ public class DragonsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stags);
 
+        stags=(LinearLayout)findViewById(R.id.stags);
+        stags.setBackgroundResource(R.drawable.bg_gradient3);
         recyclerView = (RecyclerView) findViewById(R.id.nawaitJanbaz);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));

@@ -64,6 +64,7 @@ public class CricketFragment extends Fragment {
     private String mUsername;
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
+    private LinearLayout game;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
 
 
@@ -109,6 +110,8 @@ public class CricketFragment extends Fragment {
 
 
         View view = inflater.inflate(R.layout.cricket, container, false);
+        game=(LinearLayout)view.findViewById(R.id.game);
+        game.setBackgroundResource(R.drawable.bg_gradient3);
         polls = (LinearLayout)view.findViewById(R.id.layout1);
         Score = (LinearLayout)view.findViewById(R.id.layout2);
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);

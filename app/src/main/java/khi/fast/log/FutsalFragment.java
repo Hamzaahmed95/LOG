@@ -49,7 +49,7 @@ public class FutsalFragment extends Fragment {
     private LinearLayout PointsTable;
     private LinearLayout Matches;
     private LinearLayout Teams;
-    private ImageView signout;
+
     private String Name;
     String[] array;
     AnimatorSet set3;
@@ -64,7 +64,7 @@ public class FutsalFragment extends Fragment {
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
+
 
     private FirebaseStorage firebaseStorage;
 
@@ -80,38 +80,42 @@ public class FutsalFragment extends Fragment {
     AnimatorSet set8;
     AnimatorSet set9;
     Dialog dialog;
+    private LinearLayout game;
+    private ImageView backButton5;
     int i;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.futsal, container, false);
+        View view = inflater.inflate(R.layout.cricket, container, false);
+
+        game=(LinearLayout)view.findViewById(R.id.game);
+        game.setBackgroundResource(R.drawable.bg_gradient5);
         polls = (LinearLayout)view.findViewById(R.id.layout1);
         Score = (LinearLayout)view.findViewById(R.id.layout2);
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
+
+
         array = new String[100];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
 
-        showUsers.setOnClickListener(new View.OnClickListener() {
+        backButton5=(ImageView)view.findViewById(R.id.backButton5);
+        backButton5=(ImageView)view.findViewById(R.id.backButton5);
+        backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
+                Intent i = new Intent(getActivity(),Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
             }
         });
-
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -124,12 +128,7 @@ public class FutsalFragment extends Fragment {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthUI.getInstance().signOut(getActivity());
-            }
-        });
+
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
@@ -162,9 +161,10 @@ public class FutsalFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollsFutsalActivity.class);
+                i.putExtra("username",name.getText());
+                System.out.println("name: "+name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
@@ -178,18 +178,18 @@ public class FutsalFragment extends Fragment {
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),Interview.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                 Intent i = new Intent(getActivity(),MOMFutsal.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
 
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PTFutsalActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
@@ -203,8 +203,8 @@ public class FutsalFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                 Intent i = new Intent(getActivity(),TeamFutsal.class);
+                startActivity(i);
             }
         });
 
@@ -270,11 +270,11 @@ public class FutsalFragment extends Fragment {
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
                     Name=user.getDisplayName();
-                    name.setText(user.getDisplayName());
+                    name.setText(CapsFirst(user.getDisplayName()));
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
+
                     }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");
@@ -315,7 +315,18 @@ public class FutsalFragment extends Fragment {
         }
         return !ranBefore;
     }
-
+    String CapsFirst(String str) {
+        String[] words = str.split(" ");
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            ret.append(Character.toUpperCase(words[i].charAt(0)));
+            ret.append(words[i].substring(1));
+            if(i < words.length - 1) {
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
+    }
     @Override
     public void onPause(){
         super.onPause();

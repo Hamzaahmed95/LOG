@@ -47,7 +47,7 @@ import java.util.List;
  * Created by Hamza Ahmed on 19-Jul-17.
  */
 
-public class MOM extends AppCompatActivity {
+public class MOMFutsal extends AppCompatActivity {
 
     private static final String TAG = "MOM";
 
@@ -89,11 +89,11 @@ public class MOM extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListner;
 
     private FirebaseStorage firebaseStorage;
-
+    private RelativeLayout mom;
     private StorageReference mChatPhotoStorageReference;
     private String name;
     private String runs;
-    private RelativeLayout mom;
+
     ProgressBar mprogressBar;
 
 
@@ -104,7 +104,8 @@ public class MOM extends AppCompatActivity {
         setContentView(R.layout.mom);
 
         NAME=ANONYMOUS;
-
+        mom = (RelativeLayout)findViewById(R.id.mom);
+        mom.setBackgroundResource(R.drawable.bg_gradient5);
         notes = new ArrayList<String>();
         mUsername = ANONYMOUS;
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -113,10 +114,8 @@ public class MOM extends AppCompatActivity {
 
         closeButton = (ImageView) findViewById(R.id.backButtonMOM);
 
-        mom = (RelativeLayout)findViewById(R.id.mom);
-        mom.setBackgroundResource(R.drawable.bg_gradient3);
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("mom");
-        mChatPhotoStorageReference =firebaseStorage.getReference().child("mom_photos");
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("momFutsal");
+        mChatPhotoStorageReference =firebaseStorage.getReference().child("mom_photosFutsal");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
 
@@ -195,7 +194,7 @@ public class MOM extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MOM.this,CricketActivity.class);
+                Intent i = new Intent(MOMFutsal.this,FutsalActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -221,7 +220,7 @@ public class MOM extends AppCompatActivity {
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
                     final List<MOMCLASS> momclasses = new ArrayList<>();
-                    mMOMAdapter = new MOMAdapter(MOM.this, R.layout.item_message, momclasses);
+                    mMOMAdapter = new MOMAdapter(MOMFutsal.this, R.layout.item_message, momclasses);
                     if(mmessageListViewMOM!=null)
                         mmessageListViewMOM.setAdapter(mMOMAdapter);
 
@@ -397,7 +396,7 @@ public class MOM extends AppCompatActivity {
             });
         }
     }
-   private void detachDatabaseReadListener(){
+    private void detachDatabaseReadListener(){
         if(mChildEventListener!=null)
             mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mChildEventListener=null;

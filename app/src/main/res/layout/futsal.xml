@@ -3,27 +3,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+
     android:background="@drawable/bg_gradient5"
-    android:gravity="center"
-    android:padding="5dp"
+    android:gravity="top|center"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="15dp"
+        android:background="@android:color/black"
         android:orientation="horizontal">
+
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:id="@+id/logout"
-            android:src="@drawable/logout"/>
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:id="@+id/showUsers"
-            android:src="@drawable/users"/>
+            android:id="@+id/backButton5"
+            android:src="@drawable/left"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:typeface="serif"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:id="@+id/optionUsername"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -37,18 +45,6 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_height="70dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:padding="10dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:id="@+id/optionUsername"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
  * Created by Hamza Ahmed on 14-Jul-17.
  */
 
-public class Teams extends Activity {
+public class TeamFutsal extends Activity {
 
     private ImageView team1;
     private ImageView team2;
@@ -58,23 +58,22 @@ public class Teams extends Activity {
     Button Team11;
     private ImageView backButton6;
     String name1;
-    private LinearLayout team;
     private FirebaseAuth mFirebaseAuth;
+    private LinearLayout team;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teams);
-
         team=(LinearLayout)findViewById(R.id.team);
-        team.setBackgroundResource(R.drawable.bg_gradient3);
+        team.setBackgroundResource(R.drawable.bg_gradient5);
         backButton6=(ImageView)findViewById(R.id.backButton6);
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         backButton6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,CricketActivity.class);
+                Intent i = new Intent(TeamFutsal.this,FutsalActivity.class);
 
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -98,42 +97,42 @@ public class Teams extends Activity {
         Team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(TeamFutsal.this,StagsFutsalActivity.class);
                 startActivity(i);
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,DragonsActivity.class);
+                Intent i = new Intent(TeamFutsal.this,DragonsFutsalActivity.class);
                 startActivity(i);
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,DiresActivity.class);
+                Intent i = new Intent(TeamFutsal.this,JaguarsFutsalActivity.class);
                 startActivity(i);
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,PythonsActivity.class);
+                Intent i = new Intent(TeamFutsal.this,FalconsFutsalActivity.class);
                 startActivity(i);
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,HunterActivity.class);
+                Intent i = new Intent(TeamFutsal.this,HuntersFutsalActivity.class);
                 startActivity(i);
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,JaguarActivity.class);
+                Intent i = new Intent(TeamFutsal.this,PythonsFutsalActivity.class);
                 startActivity(i);
             }
         });
@@ -268,7 +267,7 @@ public class Teams extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(Teams.this,CricketActivity.class);
+        Intent i = new Intent(TeamFutsal.this,CricketActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }

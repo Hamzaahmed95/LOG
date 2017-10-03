@@ -53,7 +53,7 @@ import static android.app.Activity.RESULT_OK;
  * Created by Hamza Ahmed on 18-Jul-17.
  */
 
-public class PollingFragment extends Fragment {
+public class PollsFutsalFragment extends Fragment {
 
 
 
@@ -95,6 +95,7 @@ public class PollingFragment extends Fragment {
     private ProgressBar mProgressBar;
     private LinearLayout polling;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,30 +128,31 @@ public class PollingFragment extends Fragment {
         firebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         polling=(LinearLayout)view.findViewById(R.id.polling);
-
-        polling.setBackgroundResource(R.drawable.bg_gradient3);
+        polling.setBackgroundResource(R.drawable.bg_gradient5);
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
         l1 = (LinearLayout)view.findViewById(R.id.hide);
         sadFace = (ImageView)view.findViewById(R.id.sadFace);
         l2= (LinearLayout)view.findViewById(R.id.l2);
         msg= (TextView)view.findViewById(R.id.msg);
-        PointsTableStorageReference =firebaseStorage.getReference().child("polling_picture");
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("polling_2");
-        mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child("polling_1");
-        mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfPolling");
+        PointsTableStorageReference =firebaseStorage.getReference().child("polling_picture_futsal");
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("polling_2_futsal");
+        mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child("polling_1_futsal");
+        mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfPolling_futsal");
         date1 =(EditText)view.findViewById(R.id.date1);
         // date2 =(TextView)view.findViewById(R.id.date2);
         imageView =(ImageView)view.findViewById(R.id.photoImageView2);
-      //  username1 = ProfileActivity.ANONYMOUS;
-       // mUsername = ANONYMOUS;
+        //  username1 = ProfileActivity.ANONYMOUS;
+        // mUsername = ANONYMOUS;
         count1 = 0;
+        // mProgressBar.setVisibility(View.GONE);
+
         matchUpdate = (TextView) view.findViewById(R.id.status);
         toggle = (ToggleButton) view.findViewById(R.id.toggleButton);
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(),CricketActivity.class);
+                Intent i = new Intent(getActivity(),FutsalActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);
@@ -181,7 +183,7 @@ public class PollingFragment extends Fragment {
 
             sadFace.setVisibility(View.GONE);
             msg.setVisibility(View.GONE);
-            Query mHouseDatabaseReference23 = mFirebaseDatabase.getReference().child("onOfPolling").limitToLast(1);
+            Query mHouseDatabaseReference23 = mFirebaseDatabase.getReference().child("onOfPolling_futsal").limitToLast(1);
 
 
             mHouseDatabaseReference23.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -229,12 +231,12 @@ public class PollingFragment extends Fragment {
             l2.setLayoutParams(params);
 
 
-           // sadFace.setLayoutParams(params1);
+            // sadFace.setLayoutParams(params1);
 
 
         }
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("polling_1").limitToLast(1);;
+        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("polling_1_futsal").limitToLast(1);;
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -267,7 +269,7 @@ public class PollingFragment extends Fragment {
 
             }
         });
-        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("polling_2").orderByChild("mUsername");
+        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("polling_2_futsal").orderByChild("mUsername");
 
         mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
