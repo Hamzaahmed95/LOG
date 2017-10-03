@@ -170,9 +170,9 @@ public class FutsalFragment extends Fragment {
         Score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),MOM.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),FutsalScoreActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         OPCAPS.setOnClickListener(new View.OnClickListener() {
