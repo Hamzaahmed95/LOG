@@ -1,58 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_gradient5"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient5">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|top"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="10dp"
             android:layout_marginBottom="20dp"
             android:background="@android:color/black"
-            android:layout_height="wrap_content">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
             <ImageView
                 android:id="@+id/backButton4"
-                android:src="@drawable/left"
-                android:layout_gravity="center"
                 android:layout_width="20dp"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/left" />
+
             <TextView
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="25dp"
                 android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
                 android:paddingRight="10dp"
-                android:text="Score"/>
+                android:text="Score"
+                android:textColor="@android:color/white"
+                android:textSize="25dp" />
         </LinearLayout>
 
         <ToggleButton
+            android:id="@+id/toggleButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/toggleButton"/>
+            android:layout_height="wrap_content" />
+
         <ProgressBar
             android:id="@+id/progressBar"
-            android:indeterminateTint="@android:color/white"
-            android:foregroundGravity="center"
-            android:layout_gravity="center"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:indeterminateTint="@android:color/white" />
+
         <LinearLayout
+            android:id="@+id/hide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center|top"
-            android:id="@+id/hide"
             android:orientation="vertical">
 
 
@@ -66,15 +70,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <ImageView
+                        android:id="@+id/teamplaying1"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:fontFamily="sans-serif-condensed"
                         android:paddingBottom="10dp"
-                        android:id="@+id/teamplaying1"
                         android:paddingRight="10dp"
                         android:text="TEAM 1"
                         android:textColor="@android:color/white" />
+
+
+                    <TextView
+                        android:id="@+id/team1Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jaguars"
+                        android:paddingLeft="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="20dp"/>
                     <ImageButton
                         android:id="@+id/photoPickerTeam1"
                         android:layout_width="30dp"
@@ -83,6 +100,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/attach" />
 
+
                 </LinearLayout>
 
 
@@ -90,89 +108,123 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:orientation="vertical">
+
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:background="@null"
                             android:id="@+id/incrementruns1"
-                            android:padding="10dp"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/upincrement"/>
-                        <ImageButton
                             android:layout_width="wrap_content"
-                            android:background="@null"
-                            android:id="@+id/decrementruns1"
-                            android:padding="10dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/downincrement"/>
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/upincrement" />
+
+                        <ImageButton
+                            android:id="@+id/decrementruns1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/downincrement" />
 
                     </LinearLayout>
 
-
-                    <TextView
-                        android:id="@+id/livsScoreRuns1"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
-                        android:textSize="40dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/bg_gradient3"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="40dp" />
 
-                    <TextView
-                        android:id="@+id/livsScoreWicket1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
-                        android:textSize="40dp" />
+                        <TextView
+                            android:id="@+id/livsScoreRuns1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/white"
+                            android:textSize="40dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="-"
+                            android:textColor="@android:color/white"
+                            android:textSize="40dp" />
+
+                        <TextView
+                            android:id="@+id/livsScoreWicket1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/white"
+                            android:textSize="40dp" />
+
+                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:orientation="vertical">
+
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:background="@null"
                             android:id="@+id/incrementwicket1"
-                            android:padding="10dp"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/upincrement"/>
-                        <ImageButton
                             android:layout_width="wrap_content"
-                            android:background="@null"
-                            android:id="@+id/decrementwicket1"
-                            android:padding="10dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/downincrement"/>
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/upincrement" />
+
+                        <ImageButton
+                            android:id="@+id/decrementwicket1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/downincrement" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
 
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/teamplaying2"
-                    android:text="TEAM 2"
-                    android:textColor="@android:color/white"
-                    android:textSize="20dp" />
+                    <ImageView
+                        android:id="@+id/teamplaying2"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="TEAM 2"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp" />
+
+
+
+                    <TextView
+                        android:id="@+id/team2Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Stags"
+                        android:paddingLeft="25dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textStyle="bold"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="20dp"/>
                     <ImageButton
                         android:id="@+id/photoPickerTeam2"
                         android:layout_width="30dp"
@@ -184,94 +236,115 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="0dp"
-                android:background="#ffffff" />
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/teamNamesMiss"
                 android:orientation="horizontal">
-            <TextView
-                android:id="@+id/livsScoreOvers1"
+            <EditText
                 android:layout_width="wrap_content"
+                android:id="@+id/e1"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="30dp" />
-            <TextView
+                android:hint="Teams names separated by -"
+                android:textColorHint="@android:color/white"/>
+            <Button
                 android:layout_width="wrap_content"
+                android:id="@+id/send"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:textColor="@android:color/white"
-                android:text="'"/>
+                android:text="send"/>
             </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageButton
+
+                <TextView
+                    android:id="@+id/livsScoreOvers1"
                     android:layout_width="wrap_content"
-                    android:background="@null"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="'"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
                     android:id="@+id/incrementover1"
-                    android:padding="10dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/leftincrement"/>
-                <ImageButton
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@null"
                     android:padding="10dp"
+                    android:src="@drawable/leftincrement" />
+
+                <ImageButton
                     android:id="@+id/decrementover1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/rightincrement"/>
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:src="@drawable/rightincrement" />
             </LinearLayout>
+
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:background="#ffffff" />
-</LinearLayout>
 
 
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/l2"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/sadFace"
-                android:layout_marginBottom="30dp"
-                android:src="@drawable/sad"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:textStyle="normal"
-                android:textSize="25dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:id="@+id/status"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:textStyle="bold"
-                android:textSize="13dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:id="@+id/msg"/>
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    </LinearLayout></ScrollView>
+            <ImageView
+                android:id="@+id/sadFace"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/sad" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="25dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

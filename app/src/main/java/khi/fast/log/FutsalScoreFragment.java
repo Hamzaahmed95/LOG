@@ -74,10 +74,18 @@ public class FutsalScoreFragment extends Fragment {
     private DatabaseReference mScoreDatabaseReference1;
     private DatabaseReference mScoreDatabaseReference2;
     private DatabaseReference mScoreDatabaseReference3;
+    private DatabaseReference mScoreDatabaseReference4;
     private DatabaseReference mScoreDatabaseReference22;
     private LinearLayout l1;
+    private LinearLayout l3;
+    private EditText e1;
+    private TextView team;
+    private TextView team0;
+    private Button send;
+
     public static final int RC_SIGN_IN =1;
     private ChildEventListener mChildEventListener;
+    private ChildEventListener mChildEventListener2;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     String name;
     private ImageButton Incrementruns1;
@@ -130,10 +138,15 @@ public class FutsalScoreFragment extends Fragment {
         firebaseStorage = FirebaseStorage.getInstance();
         matchUpdate = (TextView)view.findViewById(R.id.status);
         sadFace = (ImageView)view.findViewById(R.id.sadFace);
+        l3=(LinearLayout)view.findViewById(R.id.teamNamesMiss) ;
+        e1=(EditText)view.findViewById(R.id.e1);
+        send=(Button)view.findViewById(R.id.send);
         mPhotoPickerButton1 = (ImageButton) view.findViewById(R.id.photoPickerTeam1);
         mPhotoPickerButton2 = (ImageButton) view.findViewById(R.id.photoPickerTeam2);
         imageView=(ImageView)view.findViewById(R.id.teamplaying1);
         imageView2=(ImageView)view.findViewById(R.id.teamplaying2);
+        team=(TextView)view.findViewById(R.id.team1Name);
+        team0=(TextView)view.findViewById(R.id.team2Name);
         Runs1 = (TextView) view.findViewById(R.id.livsScoreRuns1);
         Overs1 = (TextView) view.findViewById(R.id.livsScoreOvers1);
         Wicket1 = (TextView) view.findViewById(R.id.livsScoreWicket1);
@@ -152,6 +165,7 @@ public class FutsalScoreFragment extends Fragment {
         mScoreDatabaseReference2 = mFirebaseDatabase.getReference().child("futsalTeam2Goal");
         mScoreDatabaseReference3 = mFirebaseDatabase.getReference().child("futsalMatchTime");
         mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfFutsalScore");
+        mScoreDatabaseReference4 = mFirebaseDatabase.getReference().child("teamNames");
         toggle = (ToggleButton) view.findViewById(R.id.toggleButton);
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
 
@@ -295,9 +309,32 @@ public class FutsalScoreFragment extends Fragment {
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         // do something with the individual "issues"
 
-                        System.out.println("hello" + issue.child("ball").getValue());
-                        OverIncOvers1 = Integer.parseInt(issue.child("ball").getValue().toString());
-                        Overs1.setText(issue.child("ball").getValue().toString());
+                        System.out.println("hello" + issue.getValue());
+                      //  OverIncOvers1 = Integer.parseInt(issue.child("ball").getValue().toString());
+                       // Overs1.setText(issue.child("ball").getValue().toString());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query mHouseDatabaseReference4 = mFirebaseDatabase.getReference().child("teamNames").limitToLast(1);
+
+        mHouseDatabaseReference4.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        // do something with the individual "issues"
+
+                        System.out.println(issue.child("name1").getValue().toString());
+                        team.setText(issue.child("name1").getValue().toString());
+                        team0.setText(issue.child("name2").getValue().toString());
 
                     }
                 }
@@ -422,6 +459,18 @@ public class FutsalScoreFragment extends Fragment {
                 startActivity(i);
             }
         });
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String score = e1.getText().toString();
+                String[] arr = score.split("-");
+                String team1 = arr[0];
+                String team2 = arr[1];
+                TeamNames teamNames = new TeamNames(team1,team2);
+                mScoreDatabaseReference4.push().setValue(teamNames);
+
+            }
+        });
 
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -488,6 +537,8 @@ public class FutsalScoreFragment extends Fragment {
                         Incrementover1.setVisibility(View.GONE);
                         Decrementover1.setVisibility(View.GONE);
                         toggle.setVisibility(View.GONE);
+                        e1.setVisibility(View.GONE);
+                        send.setVisibility(View.GONE);
                      }
                 } else {
                     //user is signed out
@@ -647,12 +698,50 @@ public class FutsalScoreFragment extends Fragment {
 
                 }
             };
+
             mScoreDatabaseReference1.addChildEventListener(mChildEventListener);
             mScoreDatabaseReference2.addChildEventListener(mChildEventListener);
             mScoreDatabaseReference3.addChildEventListener(mChildEventListener);
+            mScoreDatabaseReference4.addChildEventListener(mChildEventListener);
             mScoreDatabaseReference22.addChildEventListener(mChildEventListener);
             mMessageDatabaseReference.addChildEventListener(mChildEventListener);
             mMessageDatabaseReference2.addChildEventListener(mChildEventListener);
+        }
+        if(mChildEventListener2==null) {
+            mChildEventListener2 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    TeamNames teamNames = dataSnapshot.getValue(TeamNames.class);
+                    System.out.println("team names: "+teamNames.getName1());
+
+                    team.setText(teamNames.getName1());
+                    team0.setText(teamNames.getName2());
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    //  FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    // Log.d("ooo = ",f.getName());
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mScoreDatabaseReference4.addChildEventListener(mChildEventListener2);
         }
     }
     private void detachDatabaseReadListener(){
@@ -660,6 +749,8 @@ public class FutsalScoreFragment extends Fragment {
             mScoreDatabaseReference1.removeEventListener(mChildEventListener);
         mScoreDatabaseReference2.removeEventListener(mChildEventListener);
         mScoreDatabaseReference3.removeEventListener(mChildEventListener);
+
+        mScoreDatabaseReference4.addChildEventListener(mChildEventListener);
         mScoreDatabaseReference22.removeEventListener(mChildEventListener);
         mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mMessageDatabaseReference2.removeEventListener(mChildEventListener);
