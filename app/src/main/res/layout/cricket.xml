@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:background="@android:color/black"
+        android:background="#70000000"
         android:orientation="horizontal">
 
         <ImageView
@@ -58,7 +58,7 @@
             android:id="@+id/layout1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#000000"
+            android:background="@drawable/circletest"
             android:layout_height="130dp">
             <ImageView
                 android:layout_width="50dp"
@@ -66,12 +66,13 @@
                 android:src="@drawable/votes"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="polls"/>
+                android:text="Polls"/>
 
         </LinearLayout>
 
@@ -79,7 +80,7 @@
             android:layout_width="134dp"
             android:id="@+id/layout2"
             android:gravity="center"
-            android:background="#20000061"
+            android:background="@drawable/circletest"
             android:orientation="vertical"
             android:layout_height="130dp">
 
@@ -89,7 +90,8 @@
                 android:src="@drawable/score"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -109,7 +111,7 @@
             android:layout_width="134dp"
             android:id="@+id/layout3"
             android:gravity="center"
-            android:background="#20000061"
+            android:background="@drawable/circletest"
             android:orientation="vertical"
             android:layout_height="130dp">
 
@@ -119,7 +121,8 @@
                 android:src="@drawable/star"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -130,7 +133,7 @@
             android:layout_width="134dp"
             android:id="@+id/layout4"
             android:gravity="center"
-            android:background="#000000"
+            android:background="@drawable/circletest"
             android:orientation="vertical"
             android:layout_height="130dp">
 
@@ -140,7 +143,8 @@
                 android:src="@drawable/rank"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -160,7 +164,7 @@
         <LinearLayout
             android:layout_width="134dp"
             android:id="@+id/layout5"
-            android:background="#000000"
+            android:background="@drawable/circletest"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_height="130dp">
@@ -171,7 +175,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="@android:color/white"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -182,7 +187,7 @@
             android:gravity="center"
             android:id="@+id/layout6"
             android:orientation="vertical"
-            android:background="#20000061"
+            android:background="@drawable/circletest"
             android:layout_height="130dp">
             <ImageView
                 android:layout_width="wrap_content"
@@ -190,7 +195,8 @@
                 android:src="@drawable/teams"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_gravity="center"

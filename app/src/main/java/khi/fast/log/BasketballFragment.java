@@ -80,13 +80,17 @@ public class BasketballFragment extends Fragment {
     Dialog dialog;
 
     private ImageView backButton5;
+    private LinearLayout game;
+
     int i;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.basketball, container, false);
+        View view = inflater.inflate(R.layout.cricket, container, false);
+        game=(LinearLayout)view.findViewById(R.id.game);
+        game.setBackgroundResource(R.drawable.bg_gradient4);
         polls = (LinearLayout)view.findViewById(R.id.layout1);
         Score = (LinearLayout)view.findViewById(R.id.layout2);
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);

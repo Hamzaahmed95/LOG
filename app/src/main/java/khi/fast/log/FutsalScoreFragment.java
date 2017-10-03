@@ -75,6 +75,10 @@ public class FutsalScoreFragment extends Fragment {
     private DatabaseReference mScoreDatabaseReference2;
     private DatabaseReference mScoreDatabaseReference3;
     private DatabaseReference mScoreDatabaseReference4;
+    private DatabaseReference mScoreDatabaseReference5;
+    private DatabaseReference mScoreDatabaseReference6;
+    private DatabaseReference mScoreDatabaseReference7;
+    private DatabaseReference mScoreDatabaseReference8;
     private DatabaseReference mScoreDatabaseReference22;
     private LinearLayout l1;
     private LinearLayout l3;
@@ -82,10 +86,17 @@ public class FutsalScoreFragment extends Fragment {
     private TextView team;
     private TextView team0;
     private Button send;
-
+    private ImageView f1;
+    private ImageView f2;
+    private ImageView f3;
+    private ImageView f4;
     public static final int RC_SIGN_IN =1;
     private ChildEventListener mChildEventListener;
     private ChildEventListener mChildEventListener2;
+    private ChildEventListener mChildEventListener3;
+    private ChildEventListener mChildEventListener4;
+    private ChildEventListener mChildEventListener5;
+    private ChildEventListener mChildEventListener6;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     String name;
     private ImageButton Incrementruns1;
@@ -104,7 +115,19 @@ public class FutsalScoreFragment extends Fragment {
     String url2;
     private ImageView sadFace;
     private LinearLayout l2;
+    private TextView player1;
+    private TextView player2;
+    private EditText e1player1;
+    private EditText e1player2;
+    private Button sendplayer1;
+    private Button sendplayer2;
 
+    private TextView player3;
+    private TextView player4;
+    private EditText e1player3;
+    private EditText e1player4;
+    private Button sendplayer3;
+    private Button sendplayer4;
 
     private ProgressBar mProgressBar;
     @Override
@@ -166,10 +189,31 @@ public class FutsalScoreFragment extends Fragment {
         mScoreDatabaseReference3 = mFirebaseDatabase.getReference().child("futsalMatchTime");
         mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfFutsalScore");
         mScoreDatabaseReference4 = mFirebaseDatabase.getReference().child("teamNames");
+        mScoreDatabaseReference5 = mFirebaseDatabase.getReference().child("player1");
+        mScoreDatabaseReference6 = mFirebaseDatabase.getReference().child("player2");
+        mScoreDatabaseReference7 = mFirebaseDatabase.getReference().child("player3");
+        mScoreDatabaseReference8 = mFirebaseDatabase.getReference().child("player4");
         toggle = (ToggleButton) view.findViewById(R.id.toggleButton);
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
 
+        player1=(TextView)view.findViewById(R.id.player1);
+        player2=(TextView)view.findViewById(R.id.player2);
+        e1player1=(EditText)view.findViewById(R.id.e1player1);
+        e1player2=(EditText)view.findViewById(R.id.e1player2);
+        sendplayer1=(Button)view.findViewById(R.id.sendplayer1);
+        sendplayer2=(Button)view.findViewById(R.id.sendplayer2);
 
+        player3=(TextView)view.findViewById(R.id.player3);
+        player4=(TextView)view.findViewById(R.id.player4);
+        e1player3=(EditText)view.findViewById(R.id.e1player3);
+        e1player4=(EditText)view.findViewById(R.id.e1player4);
+        sendplayer3=(Button)view.findViewById(R.id.sendplayer3);
+        sendplayer4=(Button)view.findViewById(R.id.sendplayer4);
+
+        f1 = (ImageView)view.findViewById(R.id.f1);
+        f2 = (ImageView)view.findViewById(R.id.f2);
+        f3 = (ImageView)view.findViewById(R.id.f3);
+        f4 = (ImageView)view.findViewById(R.id.f4);
 
         if(isNetworkAvailable()) {
 
@@ -211,6 +255,7 @@ public class FutsalScoreFragment extends Fragment {
         }
 
 
+
         else{
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.weight=1.0f;
@@ -228,7 +273,7 @@ public class FutsalScoreFragment extends Fragment {
 
 
         Query crick1 = mFirebaseDatabase.getReference().child("futsal_team1").limitToLast(1);
-        ;
+
 
         crick1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -244,6 +289,131 @@ public class FutsalScoreFragment extends Fragment {
                         Glide.with(imageView.getContext())
                                 .load(url1)
                                 .into(imageView);
+                        //mprogressBar.setVisibility(View.GONE);
+                        //   System.out.println();
+                        //array[i]=issue.child("username").getValue().toString();
+                        //i++;
+                    }
+
+                    //for(int j=0;j<i;j++){
+                    //  System.out.println(j+""+array[j]);
+                    // }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        Query player11 = mFirebaseDatabase.getReference().child("player1").limitToLast(1);
+
+
+        player11.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        // do something with the individual "issues"
+
+                        player1.setText(issue.child("name1").getValue().toString());
+                        f1.setVisibility(View.VISIBLE);
+                        //mprogressBar.setVisibility(View.GONE);
+                        //   System.out.println();
+                        //array[i]=issue.child("username").getValue().toString();
+                        //i++;
+                    }
+
+                    //for(int j=0;j<i;j++){
+                    //  System.out.println(j+""+array[j]);
+                    // }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query player33 = mFirebaseDatabase.getReference().child("player3").limitToLast(1);
+
+
+        player33.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        // do something with the individual "issues"
+
+                        player4.setText(issue.child("name1").getValue().toString());
+
+                        f4.setVisibility(View.VISIBLE);
+                        //mprogressBar.setVisibility(View.GONE);
+                        //   System.out.println();
+                        //array[i]=issue.child("username").getValue().toString();
+                        //i++;
+                    }
+
+                    //for(int j=0;j<i;j++){
+                    //  System.out.println(j+""+array[j]);
+                    // }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query player44 = mFirebaseDatabase.getReference().child("player4").limitToLast(1);
+
+
+        player44.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        // do something with the individual "issues"
+
+                        player3.setText(issue.child("name1").getValue().toString());
+
+                        f3.setVisibility(View.VISIBLE);
+                        //mprogressBar.setVisibility(View.GONE);
+                        //   System.out.println();
+                        //array[i]=issue.child("username").getValue().toString();
+                        //i++;
+                    }
+
+                    //for(int j=0;j<i;j++){
+                    //  System.out.println(j+""+array[j]);
+                    // }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        Query player22 = mFirebaseDatabase.getReference().child("player2").limitToLast(1);
+
+
+        player22.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        // do something with the individual "issues"
+
+                        player2.setText(issue.child("name1").getValue().toString());
+
+                        f2.setVisibility(View.VISIBLE);
                         //mprogressBar.setVisibility(View.GONE);
                         //   System.out.println();
                         //array[i]=issue.child("username").getValue().toString();
@@ -472,6 +642,45 @@ public class FutsalScoreFragment extends Fragment {
             }
         });
 
+        sendplayer1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                TeamNames teamNames = new TeamNames(e1player1.getText().toString(),"");
+                mScoreDatabaseReference5.push().setValue(teamNames);
+
+            }
+        });
+
+        sendplayer2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                TeamNames teamNames = new TeamNames(e1player2.getText().toString(),"");
+                mScoreDatabaseReference6.push().setValue(teamNames);
+
+            }
+        });
+        sendplayer4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                TeamNames teamNames = new TeamNames(e1player4.getText().toString(),"");
+                mScoreDatabaseReference7.push().setValue(teamNames);
+
+            }
+        });
+
+        sendplayer3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("333");
+                TeamNames teamNames = new TeamNames(e1player3.getText().toString(),"");
+                mScoreDatabaseReference8.push().setValue(teamNames);
+
+            }
+        });
+
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -539,6 +748,14 @@ public class FutsalScoreFragment extends Fragment {
                         toggle.setVisibility(View.GONE);
                         e1.setVisibility(View.GONE);
                         send.setVisibility(View.GONE);
+                        sendplayer1.setVisibility(View.GONE);
+                        sendplayer2.setVisibility(View.GONE);
+                        e1player1.setVisibility(View.GONE);
+                        e1player2.setVisibility(View.GONE);
+                        sendplayer3.setVisibility(View.GONE);
+                        sendplayer4.setVisibility(View.GONE);
+                        e1player3.setVisibility(View.GONE);
+                        e1player4.setVisibility(View.GONE);
                      }
                 } else {
                     //user is signed out
@@ -702,7 +919,6 @@ public class FutsalScoreFragment extends Fragment {
             mScoreDatabaseReference1.addChildEventListener(mChildEventListener);
             mScoreDatabaseReference2.addChildEventListener(mChildEventListener);
             mScoreDatabaseReference3.addChildEventListener(mChildEventListener);
-            mScoreDatabaseReference4.addChildEventListener(mChildEventListener);
             mScoreDatabaseReference22.addChildEventListener(mChildEventListener);
             mMessageDatabaseReference.addChildEventListener(mChildEventListener);
             mMessageDatabaseReference2.addChildEventListener(mChildEventListener);
@@ -743,6 +959,144 @@ public class FutsalScoreFragment extends Fragment {
 
             mScoreDatabaseReference4.addChildEventListener(mChildEventListener2);
         }
+        if(mChildEventListener3==null) {
+            mChildEventListener3 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    TeamNames teamNames = dataSnapshot.getValue(TeamNames.class);
+
+                    player1.setText(teamNames.getName1());
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    //  FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    // Log.d("ooo = ",f.getName());
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mScoreDatabaseReference5.addChildEventListener(mChildEventListener3);
+        }
+        if(mChildEventListener4==null) {
+            mChildEventListener4 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    TeamNames teamNames = dataSnapshot.getValue(TeamNames.class);
+                    System.out.println("team names: "+teamNames.getName1());
+
+                    player2.setText(teamNames.getName1());
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    //  FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    // Log.d("ooo = ",f.getName());
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mScoreDatabaseReference6.addChildEventListener(mChildEventListener4);
+        }
+        if(mChildEventListener5==null) {
+            mChildEventListener5 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    TeamNames teamNames = dataSnapshot.getValue(TeamNames.class);
+                    System.out.println("team names: "+teamNames.getName1());
+
+                    player4.setText(teamNames.getName1());
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    //  FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    // Log.d("ooo = ",f.getName());
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mScoreDatabaseReference7.addChildEventListener(mChildEventListener5);
+        }if(mChildEventListener6==null) {
+            mChildEventListener6 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    TeamNames teamNames = dataSnapshot.getValue(TeamNames.class);
+                    System.out.println("team names: "+teamNames.getName1());
+
+                    player3.setText(teamNames.getName1());
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    //  FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    // Log.d("ooo = ",f.getName());
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mScoreDatabaseReference8.addChildEventListener(mChildEventListener6);
+        }
     }
     private void detachDatabaseReadListener(){
         if(mChildEventListener!=null)
@@ -750,7 +1104,11 @@ public class FutsalScoreFragment extends Fragment {
         mScoreDatabaseReference2.removeEventListener(mChildEventListener);
         mScoreDatabaseReference3.removeEventListener(mChildEventListener);
 
-        mScoreDatabaseReference4.addChildEventListener(mChildEventListener);
+        mScoreDatabaseReference4.removeEventListener(mChildEventListener2);
+        mScoreDatabaseReference5.removeEventListener(mChildEventListener3);
+        mScoreDatabaseReference6.removeEventListener(mChildEventListener4);
+        mScoreDatabaseReference7.removeEventListener(mChildEventListener5);
+        mScoreDatabaseReference8.removeEventListener(mChildEventListener6);
         mScoreDatabaseReference22.removeEventListener(mChildEventListener);
         mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mMessageDatabaseReference2.removeEventListener(mChildEventListener);
