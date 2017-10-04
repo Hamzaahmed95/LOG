@@ -133,24 +133,24 @@ public class FantacyLOGActivity extends AppCompatActivity {
         platinum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent i = new Intent(FantacyLOGActivity.this,Platinum.class);
-                //startActivity(i);
+                Intent i = new Intent(FantacyLOGActivity.this,PlatinumPlayers.class);
+                startActivity(i);
             }
         });
 
         gold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   Intent i = new Intent(FantacyLOGActivity.this,Gold.class);
-               // startActivity(i);
+             Intent i = new Intent(FantacyLOGActivity.this,GoldPlayers.class);
+             startActivity(i);
             }
         });
 
         silver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   Intent i = new Intent(FantacyLOGActivity.this,Silver.class);
-               // startActivity(i);
+                Intent i = new Intent(FantacyLOGActivity.this,SilverPlayers.class);
+                startActivity(i);
             }
         });
     }
