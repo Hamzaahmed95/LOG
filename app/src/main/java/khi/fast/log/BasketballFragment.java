@@ -200,8 +200,8 @@ public class BasketballFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),TeamBB.class);
+                startActivity(i);
             }
         });
 

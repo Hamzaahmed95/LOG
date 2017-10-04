@@ -37,7 +37,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 
 
-public class HuntersFutsalActivity extends AppCompatActivity {
+public class DragonsBBActivity extends AppCompatActivity {
 
     private static final String TAG = "ShaneNawaitActivity";
     public static final String ANONYMOUS = "anonymous";
@@ -64,7 +64,7 @@ public class HuntersFutsalActivity extends AppCompatActivity {
     private String side2;
     private RecyclerView recyclerView;
     private ArrayList<Image> images;
-    private  LinearLayout stags;
+    private LinearLayout stags;
 
 
 
@@ -73,8 +73,9 @@ public class HuntersFutsalActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stags);
+
         stags=(LinearLayout)findViewById(R.id.stags);
-        stags.setBackgroundResource(R.drawable.bg_gradient5);
+        stags.setBackgroundResource(R.drawable.bg_gradient4);
 
         recyclerView = (RecyclerView) findViewById(R.id.nawaitJanbaz);
         recyclerView.setHasFixedSize(true);
@@ -86,14 +87,14 @@ public class HuntersFutsalActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("hunterFutsal");
-        mStoriesStorageReference =firebaseStorage.getReference().child("hunter_teamFutsal");
+        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("dragonsBB");
+        mStoriesStorageReference =firebaseStorage.getReference().child("dragons_teamBB");
         Button =(ImageView) findViewById(R.id.backButton);
 
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(HuntersFutsalActivity.this,TeamFutsal.class);
+                Intent i = new Intent(DragonsBBActivity.this,TeamBB.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
@@ -102,7 +103,7 @@ public class HuntersFutsalActivity extends AppCompatActivity {
 
         // Initialize references to views
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("hunterFutsal");
+        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("dragonsBB");
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -117,7 +118,7 @@ public class HuntersFutsalActivity extends AppCompatActivity {
                 }
 
                 //adapter.notifyDataSetChanged();
-                adapter = new TeamAdapter(HuntersFutsalActivity.this, getmMatch());
+                adapter = new TeamAdapter(DragonsBBActivity.this, getmMatch());
                 recyclerView.setAdapter(adapter);
 
             }
@@ -162,7 +163,7 @@ public class HuntersFutsalActivity extends AppCompatActivity {
 
 
 
-                    adapter = new TeamAdapter(HuntersFutsalActivity.this, images);
+                    adapter = new TeamAdapter(DragonsBBActivity.this, images);
 
                     if (recyclerView != null)
                         recyclerView.setAdapter(adapter);
@@ -192,11 +193,7 @@ public class HuntersFutsalActivity extends AppCompatActivity {
         return images;
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
+
     @Override
     protected void onPause(){
         super.onPause();
@@ -229,7 +226,13 @@ public class HuntersFutsalActivity extends AppCompatActivity {
                     });
         }
     }
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(DragonsBBActivity.this,Teams.class);
+        startActivity(i);
+        finish();
+    }
     @Override
     protected void onResume(){
         super.onResume();
