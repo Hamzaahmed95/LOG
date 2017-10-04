@@ -165,22 +165,23 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:gravity="center"
+            android:id="@+id/lay8"
             android:visibility="invisible"
-            android:paddingLeft="45dp"
-            android:paddingRight="45dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
-                android:layout_width="70dp"
+                android:layout_width="90dp"
                 android:id="@+id/layout8"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle2"
-                android:layout_height="70dp">
+                android:background="@drawable/circle11"
+                android:layout_height="90dp">
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/cricket"/>
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/flog"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -189,7 +190,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Cricket"/>
+                android:text="FLOG"/>
 
         </LinearLayout>
         <LinearLayout

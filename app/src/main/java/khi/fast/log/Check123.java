@@ -24,7 +24,6 @@ import com.google.firebase.database.ChildEventListener;
 public class Check123 extends AppCompatActivity {
 
 
-    Dialog dialog;
     LinearLayout layout2;
     LinearLayout layout3;
     LinearLayout layout1;
@@ -32,6 +31,7 @@ public class Check123 extends AppCompatActivity {
     LinearLayout layout4;
     LinearLayout layout5;
     LinearLayout layout6;
+    LinearLayout layout8;
     LinearLayout layout9;
     private ImageView signout;
     public static final int RC_SIGN_IN =1;
@@ -86,6 +86,15 @@ public class Check123 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        layout8 = (LinearLayout) findViewById(R.id.lay8);
+        layout8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Check123.this, FantacyLOGActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         layout6 = (LinearLayout) findViewById(R.id.lay6);
         layout6.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +182,12 @@ public class Check123 extends AppCompatActivity {
                     findViewById(R.id.lay7).setVisibility(View.VISIBLE);
                 }
             }, 1900);
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    //findViewById(R.id.layout1).setVisibility(View.GONE);
+                    findViewById(R.id.lay8).setVisibility(View.VISIBLE);
+                }
+            }, 2100);
 
         }
         else{
@@ -183,6 +198,7 @@ public class Check123 extends AppCompatActivity {
             findViewById(R.id.lay5).setVisibility(View.VISIBLE);
             findViewById(R.id.lay6).setVisibility(View.VISIBLE);
             findViewById(R.id.lay7).setVisibility(View.VISIBLE);
+            findViewById(R.id.lay8).setVisibility(View.VISIBLE);
             findViewById(R.id.lay9).setVisibility(View.VISIBLE);
         }
         mAuthStateListner = new FirebaseAuth.AuthStateListener() {
