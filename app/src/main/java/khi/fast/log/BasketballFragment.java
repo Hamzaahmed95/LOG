@@ -103,7 +103,7 @@ public class BasketballFragment extends Fragment {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), Check123.class);
+                Intent i = new Intent(getActivity(), BasketballActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);
@@ -159,9 +159,9 @@ public class BasketballFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollBBActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
@@ -175,18 +175,18 @@ public class BasketballFragment extends Fragment {
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),Interview.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                 Intent i = new Intent(getActivity(),MOMBB.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
 
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PTBBActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
