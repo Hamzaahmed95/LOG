@@ -1,69 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="left|right"
-    android:background="#75000000"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginStart="@dimen/activity_horizontal_margin"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/rightLayout"
-        android:padding="5dp"
-        android:layout_marginBottom="5dp">
+    android:layout_height="match_parent"
+    android:background="#75000000">
 
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
             <CheckBox
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="4dp"/>
 
             <TextView
                 android:id="@+id/messageTextView"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/checkBox1"
                 android:textSize="20dp"
+                android:padding="4dp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:layout_weight="0"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                tools:text="Message" />
+                android:textColor="#FFFFFF"/>
             <TextView
                 android:id="@+id/price"
                 android:gravity="right"
-                android:paddingLeft="10dp"
+                android:padding="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@android:color/white"
-                android:layout_weight="0"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_toLeftOf="@id/checkBox1"
+                android:layout_below="@id/messageEditText"
                 android:text="Rs.30" />
 
 
 
 
-        </LinearLayout>
-        <ImageView
-            android:id="@+id/photoImageView"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:adjustViewBounds="true" />
-
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

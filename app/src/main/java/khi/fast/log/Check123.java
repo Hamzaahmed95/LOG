@@ -90,7 +90,7 @@ public class Check123 extends AppCompatActivity {
         layout8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, FantacyLOGActivity.class);
+                Intent i = new Intent(Check123.this, SplashScreenFLOG.class);
                 startActivity(i);
             }
         });

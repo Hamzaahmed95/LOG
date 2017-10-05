@@ -43,7 +43,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_players, parent, false);
         }
 
-        ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
+      //  ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
         messageTextView = (TextView) convertView.findViewById(R.id.messageTextView);
         checkBox1 = (CheckBox)convertView.findViewById(R.id.checkBox1);
         checkBox1.setOnClickListener(new View.OnClickListener() {
@@ -65,20 +65,9 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
 
 
         FriendlyMessage message = getItem(position);
-        boolean isPhoto = message.getPhotoUrl()!= null;
-
-        if (isPhoto) {
-            messageTextView.setVisibility(View.GONE);
-            photoImageView.setVisibility(View.VISIBLE);
-            Glide.with(photoImageView.getContext())
-                    .load(message.getPhotoUrl())
-
-                    .into(photoImageView);
-        } else {
             messageTextView.setVisibility(View.VISIBLE);
-            photoImageView.setVisibility(View.GONE);
             messageTextView.setText(CapsFirst(message.getText()));
-        }
+
 
 
         return convertView;
