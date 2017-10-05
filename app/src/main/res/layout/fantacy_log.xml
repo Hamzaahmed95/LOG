@@ -3,52 +3,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#4C7D4C"
+    android:background="#80ffffff"
     android:gravity="center|top"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:background="#75000000"
+        android:padding="10dp"
         android:gravity="center"
-        android:paddingTop="30dp"
-        android:paddingBottom="10dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="60dp"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:layout_height="60dp"
             android:src="@drawable/flogg"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:paddingTop="20dp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:text="Fantacy League of Glory"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:paddingTop="10dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Fantasy League of Glory"/>
     </LinearLayout>
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="30dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/black"
-        android:text="Pick Team"
-        android:id="@+id/pickATeam"/>
-
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:id="@+id/mainTeams"
-        android:gravity="center"
+
         android:paddingTop="20dp"
         android:visibility="gone"
         android:background="@drawable/circle12"
@@ -136,6 +130,36 @@
 
 
     </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tagline"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:visibility="gone"
+            android:text="Select Your FLOG TEAM!"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@android:color/black"
+                android:text="Pick Team"
+                android:id="@+id/pickATeam"/>
+
+        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -143,40 +167,48 @@
         android:padding="30dp"
         android:orientation="vertical"
         android:gravity="center">
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content"
-            android:text="Platinum"
+            android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal Keeper"
             android:textColor="@android:color/black"
             android:fontFamily="sans-serif-condensed"
             android:visibility="gone"
             android:textStyle="bold"
             android:layout_margin="10dp"
-            android:background="@drawable/rectangle"
+            android:background="@drawable/circle13"
             android:id="@+id/platinum"/>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gold"
+            android:text="Defender"
             android:layout_margin="10dp"
             android:visibility="gone"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:fontFamily="sans-serif-condensed"
-            android:background="@drawable/rectangle"
+            android:background="@drawable/circle13"
             android:id="@+id/gold"/>
+        </LinearLayout>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Silver"
+            android:text="Attacker"
             android:layout_margin="10dp"
             android:textColor="@android:color/black"
             android:fontFamily="sans-serif-condensed"
             android:visibility="gone"
             android:textStyle="bold"
-            android:background="@drawable/rectangle"
+            android:background="@drawable/circle13"
             android:id="@+id/silver"/>
 
     </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

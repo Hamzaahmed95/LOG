@@ -11,9 +11,9 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
-    <size android:width="60dp"
-        android:height="60dp"/>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
+    <size android:width="100dp"
+        android:height="100dp"/>
 
     <stroke
         android:width="0.5dp"
@@ -24,5 +24,6 @@
         android:centerColor="#80ffffff"
         android:startColor="#65000000"
         android:type="linear" />
+
 
 </shape>

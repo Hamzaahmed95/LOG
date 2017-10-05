@@ -1,12 +1,19 @@
 package khi.fast.log;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 /**
  * Created by Hamza Ahmed on 04-Oct-17.
@@ -28,11 +35,14 @@ public class FantacyLOGActivity extends AppCompatActivity {
     private ImageView falcons;
     private ImageView dires;
     private String teamName;
+    private TextView tagline;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fantacy_log);
+        tagline=(TextView)findViewById(R.id.tagline);
         pickTeam=(Button)findViewById(R.id.pickATeam);
         platinum=(Button)findViewById(R.id.platinum);
         gold=(Button)findViewById(R.id.gold);
@@ -44,10 +54,10 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="stags";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
                 mainTeams.setVisibility(View.GONE);
+                tagline.setVisibility(View.GONE);
+                
 
             }
         });
@@ -56,9 +66,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="dragons";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
+                tagline.setVisibility(View.GONE);
                 mainTeams.setVisibility(View.GONE);
             }
         });
@@ -67,9 +76,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="jaguars";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
+                tagline.setVisibility(View.GONE);
                 mainTeams.setVisibility(View.GONE);
 
             }
@@ -79,9 +87,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="pythons";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
+                tagline.setVisibility(View.GONE);
                 mainTeams.setVisibility(View.GONE);
 
             }
@@ -92,9 +99,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="hunters";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
+                tagline.setVisibility(View.GONE);
                 mainTeams.setVisibility(View.GONE);
 
             }
@@ -104,9 +110,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="falcons";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
+                tagline.setVisibility(View.GONE);
                 mainTeams.setVisibility(View.GONE);
             }
         });
@@ -115,9 +120,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 teamName="dires";
-                platinum.setVisibility(View.VISIBLE);
-                silver.setVisibility(View.VISIBLE);
-                gold.setVisibility(View.VISIBLE);
+                showDialog();
+                tagline.setVisibility(View.GONE);
                 mainTeams.setVisibility(View.GONE);
             }
         });
@@ -126,7 +130,9 @@ public class FantacyLOGActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mainTeams.setVisibility(View.VISIBLE);
+                tagline.setVisibility(View.VISIBLE);
                 pickTeam.setVisibility(View.GONE);
+
             }
         });
 
@@ -153,5 +159,36 @@ public class FantacyLOGActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    private void showDialog() {
+        // custom dialog
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.text1);
+
+        // set the custom dialog components - text, image and button
+
+        // Close Button
+
+        // Buy Button
+
+        TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
+        t1.setText("You have 100 coins to buy 8 players \n 1 Goal Keeper \n 4 Defenders \n 3 Strikers");
+
+
+        ImageButton Close = (ImageButton) dialog.findViewById(R.id.close1);
+        Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+
+                platinum.setVisibility(View.VISIBLE);
+                silver.setVisibility(View.VISIBLE);
+                gold.setVisibility(View.VISIBLE);
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }
