@@ -24,7 +24,7 @@ public class SplashScreenFLOG extends AppCompatActivity {
             @Override
             public void run() {
 
-                startActivity(new Intent(SplashScreenFLOG.this, FantacyLOGActivity.class));
+                startActivity(new Intent(SplashScreenFLOG.this, FlogMainActivity.class));
                 finish();
 
             }
