@@ -28,7 +28,7 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="android:windowBackground">@drawable/bg_gradient9</item>
     </style>
 
     <style name="AppTheme.ActionBar" parent="AppTheme">

@@ -113,7 +113,7 @@ public class QuestionFragment extends Fragment {
         BestTeam = (Spinner) view.findViewById(R.id.favTeam);
 
         SendButtonQuestion = (Button) view.findViewById(R.id.sendButtonQuesion);
-        final String[] items = new String[]{"FAVOURITE TEAM","Falcons", "Jaguars", "Hunters", "Pythons", "Dires", "Dragons"};
+        final String[] items = new String[]{"FAVOURITE TEAM","Stags","Falcons", "Jaguars", "Hunters", "Pythons", "Dires", "Dragons"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_style, items);
         Log.d("quantity",""+adapter);
 
@@ -170,6 +170,10 @@ public class QuestionFragment extends Fragment {
                         favouriteTeam=items[position];
                         break;
 
+                    case 7:
+                        house="yellow";
+                        favouriteTeam=items[position];
+                        break;
                 }
             }
 
@@ -203,7 +207,7 @@ public class QuestionFragment extends Fragment {
                     House house1 = new House(mUsername, favouriteBatsman, favouriteTeam, house);
                     mHouseDatabaseReference.push().setValue(house1);
 
-                    Intent i = new Intent(getActivity(), Check123.class);
+                    Intent i = new Intent(getActivity(), SplashBack.class);
                     Bundle b = new Bundle();
                     b.putStringArray("users", array);
                     i.putExtra("batch", house);

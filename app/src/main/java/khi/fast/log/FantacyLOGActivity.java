@@ -174,8 +174,8 @@ public class FantacyLOGActivity extends AppCompatActivity {
         TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
         t1.setText("You have 100 coins to buy 8 players \n 1 Goal Keeper \n 4 Defenders \n 3 Strikers");
 
-
-        ImageButton Close = (ImageButton) dialog.findViewById(R.id.close1);
+        dialog.setCanceledOnTouchOutside (false);
+        Button Close = (Button) dialog.findViewById(R.id.close1);
         Close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
