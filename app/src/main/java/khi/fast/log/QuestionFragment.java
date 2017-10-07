@@ -260,7 +260,7 @@ public class QuestionFragment extends Fragment {
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
                                     .setTheme(R.style.FirebaseLoginTheme)
-                                    .setLogo(R.drawable.wb5)
+                                    .setLogo(R.drawable.floggg)
                                     .setProviders(
                                             AuthUI.GOOGLE_PROVIDER
                                     ).build(),

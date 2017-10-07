@@ -65,7 +65,7 @@
         android:paddingBottom="20dp"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/wb5"/>
+        android:src="@drawable/floggg"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

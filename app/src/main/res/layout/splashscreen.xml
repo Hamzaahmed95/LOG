@@ -24,9 +24,10 @@
 
     <ImageView
         android:layout_width="wrap_content"
+        android:layout_above="@id/progressBar"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src ="@drawable/wb5"
+        android:src ="@drawable/floggg"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
