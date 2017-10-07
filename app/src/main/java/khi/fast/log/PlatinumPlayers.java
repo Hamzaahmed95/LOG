@@ -6,14 +6,11 @@ package khi.fast.log;
  * Created by Hamza Ahmed on 14-Jul-17.
  */
         import android.content.Intent;
-        import android.graphics.Typeface;
         import android.media.MediaPlayer;
         import android.net.Uri;
         import android.os.Bundle;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.LinearLayoutManager;
-        import android.support.v7.widget.RecyclerView;
         import android.text.Editable;
         import android.text.InputFilter;
         import android.text.TextWatcher;
@@ -81,16 +78,47 @@ public class PlatinumPlayers extends AppCompatActivity {
 
     private ArrayList<Image> images;
     MediaPlayer mp;
+    private TextView defender;
+    private TextView striker;
+    private ImageView backButton5;
 
 
     @Override
     protected void onCreate( final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.flog_players);
+        setContentView(R.layout.flog_goalkeepers);
+        backButton5=(ImageView)findViewById(R.id.backButton);
+        backButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlatinumPlayers.this,FlogMainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
+                startActivity(i);
+            }
+        });
         NAME=ANONYMOUS;
         l1=(LinearLayout)findViewById(R.id.linearLayout);
+        defender=(TextView)findViewById(R.id.defender);
+        defender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlatinumPlayers.this,GoldPlayers.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+
+        striker=(TextView)findViewById(R.id.striker);
+        striker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlatinumPlayers.this,SilverPlayers.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
