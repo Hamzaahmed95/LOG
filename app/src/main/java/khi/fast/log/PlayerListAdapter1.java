@@ -99,7 +99,7 @@ public class PlayerListAdapter1 extends ArrayAdapter<FriendlyMessage> {
 
                                     issue.getRef().child("check").setValue(true);
                                     checkBox1.setChecked(true);
-                                    showDialog(issue.child("text").getValue().toString());
+                                    showDialog(issue.child("text").getValue().toString(),true);
                                     //i++;
 
                                 }
@@ -124,6 +124,7 @@ public class PlayerListAdapter1 extends ArrayAdapter<FriendlyMessage> {
 
 
                                     issue.getRef().child("check").setValue(false);
+                                    showDialog(issue.child("text").getValue().toString(),false);
 
                                     //i++;
 
@@ -235,7 +236,7 @@ public class PlayerListAdapter1 extends ArrayAdapter<FriendlyMessage> {
         }
         return ret.toString();
     }
-    private void showDialog(String name) {
+    private void showDialog(String name,Boolean check) {
         // custom dialog
         dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.text1);
@@ -246,11 +247,18 @@ public class PlayerListAdapter1 extends ArrayAdapter<FriendlyMessage> {
 
         // Buy Button
 
+        Button Close = (Button) dialog.findViewById(R.id.close1);
         TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
-        t1.setText(name+" is your goal keeper");
+        if(check) {
+            t1.setText(name + " is selected as striker");
+            Close.setText("Select ");
+        }
+        else {
+            Close.setText("Okay");
+            t1.setText("Are you sure to remove " + name + "?");
+        }
 
         dialog.setCanceledOnTouchOutside (false);
-        Button Close = (Button) dialog.findViewById(R.id.close1);
         Close.setText("Select ");
         Close.setOnClickListener(new View.OnClickListener() {
             @Override

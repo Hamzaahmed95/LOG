@@ -148,6 +148,8 @@ public class SilverPlayers extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
+
+        System.out.println("name:==> "+NAME);
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("silverPlayers");
         mTeamDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualTeams");
         mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stories");

@@ -73,7 +73,6 @@ public class PlayerListAdapter2 extends ArrayAdapter<FriendlyMessage> {
 
 
 
-
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("silverPlayers");
         //    System.out.println("called"+count+" position "+getItemId(position));
 
