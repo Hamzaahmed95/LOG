@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -172,14 +173,26 @@ public class SilverPlayers extends AppCompatActivity {
                             if(count==1){
                                 attacker1= issue.child("text").getValue().toString();
                             }
-                            else{
+                            else if(count==2){
 
                                 attacker2= issue.child("text").getValue().toString();
                             }
 
-
-
                         }
+
+                    }
+                    if(count==0) {
+                        attacker1 = "not selected";
+                        attacker2 = "not selected";
+                    }
+                    else if(count==1){
+                        attacker1 = "atleast 2 attackers should be selected";
+                        attacker2 = "atleast 2 attackers should be selected";
+                    }
+                    else if(count>2){
+                        attacker1="more than 2";
+                        attacker2="more than 2";
+
 
                     }
                 }
@@ -205,16 +218,32 @@ public class SilverPlayers extends AppCompatActivity {
 
                         for (DataSnapshot issue : dataSnapshot.getChildren()) {
                             System.out.println("issue"+issue.child("check").getValue());
-                            if(issue.child("check").getValue().equals(true))
-                                System.out.println("selected players: "+ issue.child("text").getValue());
-                            if(count==1){
-                                defender1= issue.child("text").getValue().toString();
-                            }
-                            else{
+                            if(issue.child("check").getValue().equals(true)) {
+                                System.out.println("selected players: " + issue.child("text").getValue());
+                                count++;
+                                if(count==1){
+                                    defender1= issue.child("text").getValue().toString();
+                                }
+                                else if(count==2){
 
-                                defender2= issue.child("text").getValue().toString();
+                                    defender2= issue.child("text").getValue().toString();
+                                }
+
                             }
-                            count++;
+                                }
+                        if(count==0) {
+                            defender1 = "not selected";
+                            defender2 = "not selected";
+                        }
+                        else if(count==1){
+                            defender1 = "atleast 2 defenders should be selected";
+                            defender2 = "atleast 2 defenders should be selected";
+                        }
+                        else if(count>2){
+                            defender1="more than 2";
+                            defender2="more than 2";
+
+
                         }
                     }
 
@@ -236,12 +265,19 @@ public class SilverPlayers extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-
+                    int count=0;
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         System.out.println("issue"+issue.child("check").getValue());
                         if(issue.child("check").getValue().equals(true)) {
+                            count++;
                             System.out.println("selected players: " + issue.child("text").getValue());
+                            if(count==1)
                             goalkeeper1= issue.child("text").getValue().toString();
+                            else
+                                goalkeeper1= "more than 1";
+                        }
+                        else{
+                            goalkeeper1="not selected";
                         }
 
                     }
@@ -370,14 +406,33 @@ public class SilverPlayers extends AppCompatActivity {
             showTeam.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(goalkeeper1.equals("more than 1"))
+                        Toast.makeText(SilverPlayers.this,"Only 1 Goal Keeper is allowed! ",Toast.LENGTH_SHORT).show();
+                    else if(goalkeeper1.equals("not selected"))
+                        Toast.makeText(SilverPlayers.this,"No Goal Keeper is selected ",Toast.LENGTH_SHORT).show();
+                    else if (defender1.equals("more than 2"))
+                        Toast.makeText(SilverPlayers.this,"Only 2 Defenders are allowed! ",Toast.LENGTH_SHORT).show();
+                    else if (defender1.equals("not selected"))
+                        Toast.makeText(SilverPlayers.this,"No Defender is selected",Toast.LENGTH_SHORT).show();
+                    else if(defender1.equals("atleast 2 defenders should be selected"))
+                        Toast.makeText(SilverPlayers.this,"atleast 2 Defenders should be selected",Toast.LENGTH_SHORT).show();
+                    else if (attacker1.equals("more than 2"))
+                        Toast.makeText(SilverPlayers.this,"Only 2 Attackers are allowed! ",Toast.LENGTH_SHORT).show();
+                    else if (attacker1.equals("not selected"))
+                        Toast.makeText(SilverPlayers.this,"No Attackers is selected",Toast.LENGTH_SHORT).show();
+                    else if(attacker1.equals("atleast 2 attackers should be selected"))
+                        Toast.makeText(SilverPlayers.this,"atleast 2 Attackers should be selected",Toast.LENGTH_SHORT).show();
+                    else {
 
-                    System.out.println("user"+NAME+"goalkeeper: "+goalkeeper1+" "+defender1+" "+defender2+" "+attacker1+" "+attacker2);
-                    UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME,goalkeeper1,defender1,defender2,attacker1,attacker2);
+
+                        System.out.println("user" + NAME + "goalkeeper: " + goalkeeper1 + " " + defender1 + " " + defender2 + " " + attacker1 + " " + attacker2);
+                        UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-                     mTeamDatabaseReference.push().setValue(usersFantacyTeam);
-                    String text=NAME+" \n"+goalkeeper1+" \n"+defender1+" \n"+defender2+" \n"+attacker1+" \n"+attacker2;
-                 showDialog(text);
+                        mTeamDatabaseReference.push().setValue(usersFantacyTeam);
+                        String text = NAME + " \n" + goalkeeper1 + " \n" + defender1 + " \n" + defender2 + " \n" + attacker1 + " \n" + attacker2;
+                        showDialog(text);
+                    }
                 }
             });
 
@@ -570,13 +625,7 @@ public class SilverPlayers extends AppCompatActivity {
             mChildEventListener1 = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
-
-
-                    mPlayerListAdapter2.add(friendlyMessage);
-                    mProgressBar.setVisibility(View.GONE);
-
-
+                    UsersFantacyTeam usersFantacyTeam = dataSnapshot.getValue(UsersFantacyTeam.class);
                 }
 
                 @Override
