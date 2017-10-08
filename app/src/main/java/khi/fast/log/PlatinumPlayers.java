@@ -41,7 +41,8 @@ package khi.fast.log;
 
         import java.util.ArrayList;
         import java.util.List;
-
+        import java.util.Random;
+        import java.util.UUID;
 
 
 public class PlatinumPlayers extends AppCompatActivity {
@@ -58,6 +59,7 @@ public class PlatinumPlayers extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
+    private EditText mPriceEditText;
     private Button mSendButton;
     public String NAME;
     private static final int RC_PHOTO_PICKER=2;
@@ -123,6 +125,7 @@ public class PlatinumPlayers extends AppCompatActivity {
         mMessageListView = (ListView) findViewById(R.id.messageListView);
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
+        mPriceEditText = (EditText) findViewById(R.id.priceEditText);
         mSendButton = (Button) findViewById(R.id.sendButton);
         mUsername = ANONYMOUS;
 
@@ -149,6 +152,32 @@ public class PlatinumPlayers extends AppCompatActivity {
                         Image image1 = new Image();
                         image1.setImage_ID(issue.child("image_ID").getValue().toString());
                         images.add(0,image1);
+                    }
+                }
+
+
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("check");
+
+        mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("issue"+issue.child("check").getValue());
+                        if(issue.child("check").getValue().equals(true))
+                        System.out.println("selected players: "+ issue.child("text").getValue());
+
                     }
                 }
 
@@ -200,12 +229,66 @@ public class PlatinumPlayers extends AppCompatActivity {
             });
             mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         }
+        if (mPriceEditText != null) {
+            mPriceEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if (charSequence.toString().trim().length() > 0) {
+                        mSendButton.setEnabled(true);
+                    } else {
+                        mSendButton.setEnabled(false);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                }
+
+            });
+            mPriceEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        }
         // Send button sends a message and clears the EditText
         if (mSendButton != null)
             mSendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null);
+                    String unique=mMessageEditText.getText().toString(); //Hamza Ahmed
+                    String concat1=unique.substring(unique.length() - 1).concat(unique); // dHamza Ahmed
+                    String string = concat1.replaceAll("\\s+"," "); //dHamzaAhmed
+                    String size = String.valueOf(concat1.length()); //dHamzaAhmed12
+                    String key=string.concat(size);
+                    String price=mPriceEditText.getText().toString();
+                    String finalKey=price.concat(key);
+                    System.out.println("key: "+key);
+                    final String alphabet = "0123456789ABCDE";
+                    final int N = alphabet.length();
+
+
+                    Random r = new Random();
+
+                    String randomAlpha1="";
+                    String randomAlpha2="";
+                    String randomAlpha3="";
+
+                    for (int i = 0; i < 50; i++) {
+                        randomAlpha1=String.valueOf(alphabet.charAt(r.nextInt(N)));
+                    }
+                    for (int i = 0; i < 50; i++) {
+                        randomAlpha2=String.valueOf(alphabet.charAt(r.nextInt(N)));
+                    }
+                    for (int i = 0; i < 50; i++) {
+                        randomAlpha3=String.valueOf(alphabet.charAt(r.nextInt(N)));
+                    }
+                    String ss=randomAlpha1.concat(randomAlpha2).concat(randomAlpha3);
+                    String ID=finalKey.concat(ss).concat(String.valueOf( r.nextInt(50) + 1));
+
+
+
+                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null,Integer.parseInt(mPriceEditText.getText().toString()),false, ID);
                     mMessageDatabaseReference.push().setValue(friendlyMessage);
                     mMessageEditText.setText("");
                 }
@@ -292,7 +375,7 @@ public class PlatinumPlayers extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
+                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString(),0,false,null);
                             mMessageDatabaseReference.push().setValue(friendlyMessage);
 
 
@@ -349,7 +432,10 @@ public class PlatinumPlayers extends AppCompatActivity {
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    mPlayerListAdapter.notifyDataSetChanged();
+//                    mPlayerListAdapter.notify();
+//                    mPlayerListAdapter.notifyAll();
 
                 }
 

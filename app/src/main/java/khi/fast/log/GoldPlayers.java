@@ -41,7 +41,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.UUID;
 
 
 public class GoldPlayers extends AppCompatActivity {
@@ -53,7 +53,7 @@ public class GoldPlayers extends AppCompatActivity {
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
     private TextView name;
-    private PlayerListAdapter mPlayerListAdapter;
+    private PlayerListAdapter1 mPlayerListAdapter1;
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
@@ -81,65 +81,66 @@ public class GoldPlayers extends AppCompatActivity {
     private TextView goalkeeper;
     private TextView striker;
     private ImageView backButton5;
-
+    private EditText mPriceEditText;
 
     @Override
     protected void onCreate( final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flog_defenders);
-        backButton5=(ImageView)findViewById(R.id.backButton);
+
+        mPriceEditText = (EditText) findViewById(R.id.priceEditText);
+        backButton5 = (ImageView) findViewById(R.id.backButton);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(GoldPlayers.this,FlogMainActivity.class);
+                Intent i = new Intent(GoldPlayers.this, FlogMainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(i);
             }
         });
-        goalkeeper=(TextView)findViewById(R.id.goalkeeper);
+        goalkeeper = (TextView) findViewById(R.id.goalkeeper);
         goalkeeper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(GoldPlayers.this,PlatinumPlayers.class);
+                Intent i = new Intent(GoldPlayers.this, PlatinumPlayers.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
 
-        striker=(TextView)findViewById(R.id.striker);
+        striker = (TextView) findViewById(R.id.striker);
         striker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(GoldPlayers.this,SilverPlayers.class);
+                Intent i = new Intent(GoldPlayers.this, SilverPlayers.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
 
-        NAME=ANONYMOUS;
-        l1=(LinearLayout)findViewById(R.id.linearLayout);
+        NAME = ANONYMOUS;
+        l1 = (LinearLayout) findViewById(R.id.linearLayout);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
         mSendButton = (Button) findViewById(R.id.sendButton);
         mUsername = ANONYMOUS;
-      //  checkInternet=(TextView)findViewById(R.id.checkInternet);
+        //  checkInternet=(TextView)findViewById(R.id.checkInternet);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("goldPlayers");
-        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stories");
-        mChatPhotoStorageReference =firebaseStorage.getReference().child("goldPhotos");
-        mStoriesStorageReference =firebaseStorage.getReference().child("stories_pictures");
-
+        mMessageDatabaseReference = mFirebaseDatabase.getReference().child("goldPlayers");
+        mStoriesDatabaseReference = mFirebaseDatabase.getReference().child("stories");
+        mChatPhotoStorageReference = firebaseStorage.getReference().child("goldPhotos");
+        mStoriesStorageReference = firebaseStorage.getReference().child("stories_pictures");
 
 
         // Initialize references to views
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("stories");
+        Query mHouseDatabaseReference2 = mFirebaseDatabase.getReference().child("stories");
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -149,7 +150,35 @@ public class GoldPlayers extends AppCompatActivity {
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         Image image1 = new Image();
                         image1.setImage_ID(issue.child("image_ID").getValue().toString());
-                        images.add(0,image1);
+                        images.add(0, image1);
+                    }
+                }
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("check");
+
+        mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("issue"+issue.child("check").getValue());
+                        if(!issue.child("check").getValue().equals(null)) {
+                            if (issue.child("check").getValue().equals(true)) {
+                                System.out.println("selected players: " + issue.child("text").getValue());
+                            }
+                        }
+
                     }
                 }
 
@@ -166,6 +195,8 @@ public class GoldPlayers extends AppCompatActivity {
         });
 
 
+
+
         if (mPhotoPickerButton != null)
             mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -178,7 +209,6 @@ public class GoldPlayers extends AppCompatActivity {
 
                 }
             });
-
 
 
         if (mMessageEditText != null) {
@@ -203,63 +233,93 @@ public class GoldPlayers extends AppCompatActivity {
             });
             mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         }
-        // Send button sends a message and clears the EditText
-        if (mSendButton != null)
-            mSendButton.setOnClickListener(new View.OnClickListener() {
+        if (mPriceEditText != null) {
+            mPriceEditText.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void onClick(View view) {
-                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null);
-                    mMessageDatabaseReference.push().setValue(friendlyMessage);
-                    mMessageEditText.setText("");
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if (charSequence.toString().trim().length() > 0) {
+                        mSendButton.setEnabled(true);
+                    } else {
+                        mSendButton.setEnabled(false);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                }
+
             });
 
-
-        mAuthStateListner = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    //user is signed in
-                    onSignedInInitialize(user.getDisplayName());
-                    NAME = user.getDisplayName();
-
-                    if (!NAME.equals("K142805 Hamza Ahmed")) {
-                        l1.setVisibility(View.GONE);
+            // Send button sends a message and clears the EditText
+            if (mSendButton != null)
+                mSendButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String unique=mMessageEditText.getText().toString(); //Hamza Ahmed
+                        String concat1=unique.substring(unique.length() - 1).concat(unique); // dHamza Ahmed
+                        String string = concat1.replaceAll("\\s+"," "); //dHamzaAhmed
+                        String size = String.valueOf(concat1.length()); //dHamzaAhmed12
+                        String key=string.concat(size);
+                        String price=mPriceEditText.getText().toString();
+                        String finalKey=price.concat(key);
+                        System.out.println("key: "+key);
+                        FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null,Integer.parseInt(mPriceEditText.getText().toString()),false, finalKey);
+                        mMessageDatabaseReference.push().setValue(friendlyMessage);
+                        mMessageEditText.setText("");
                     }
+                });
+
+
+            mAuthStateListner = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user != null) {
+                        //user is signed in
+                        onSignedInInitialize(user.getDisplayName());
+                        NAME = user.getDisplayName();
+
+                        if (!NAME.equals("K142805 Hamza Ahmed")) {
+                            l1.setVisibility(View.GONE);
+                        }
 
 //                    name.setText(user.getDisplayName());
-                    final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mPlayerListAdapter = new PlayerListAdapter(GoldPlayers.this, R.layout.item_players, friendlyMessages, NAME);
+                        final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
+                        mPlayerListAdapter1 = new PlayerListAdapter1(GoldPlayers.this, R.layout.item_players, friendlyMessages, NAME);
 
-                    if (mMessageListView != null)
-                        mMessageListView.setAdapter(mPlayerListAdapter);
+                        if (mMessageListView != null)
+                            mMessageListView.setAdapter(mPlayerListAdapter1);
 
-                    images = new ArrayList<>();
+                        images = new ArrayList<>();
 
-                    ;
+                        ;
 
 
-                } else {
-                    onSignedOutInitialize();
+                    } else {
+                        onSignedOutInitialize();
 
-                    startActivityForResult(
-                            AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setIsSmartLockEnabled(false)
-                                    .setTheme(R.style.FirebaseLoginTheme)
-                                    .setLogo(R.drawable.wb5)
-                                    .setProviders(
-                                            AuthUI.EMAIL_PROVIDER,
-                                            AuthUI.GOOGLE_PROVIDER
-                                    ).build(),
-                            RC_SIGN_IN);
+                        startActivityForResult(
+                                AuthUI.getInstance()
+                                        .createSignInIntentBuilder()
+                                        .setIsSmartLockEnabled(false)
+                                        .setTheme(R.style.FirebaseLoginTheme)
+                                        .setLogo(R.drawable.wb5)
+                                        .setProviders(
+                                                AuthUI.EMAIL_PROVIDER,
+                                                AuthUI.GOOGLE_PROVIDER
+                                        ).build(),
+                                RC_SIGN_IN);
+                    }
                 }
-            }
 
-            ;
-        };
+                ;
+            };
 
+        }
     }
     public ArrayList<Image> getmMatch(){
 
@@ -274,7 +334,7 @@ public class GoldPlayers extends AppCompatActivity {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mPlayerListAdapter.clear();
+        mPlayerListAdapter1.clear();
     }
 
     @Override
@@ -294,7 +354,7 @@ public class GoldPlayers extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
+                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString(),0,false,null);
                             mMessageDatabaseReference.push().setValue(friendlyMessage);
 
 
@@ -331,7 +391,7 @@ public class GoldPlayers extends AppCompatActivity {
     }
     private void  onSignedOutInitialize(){
         mUsername = ANONYMOUS;
-        mPlayerListAdapter.clear();
+        mPlayerListAdapter1.clear();
 
         detachDatabaseReadListener();
     }
@@ -343,7 +403,7 @@ public class GoldPlayers extends AppCompatActivity {
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
 
 
-                    mPlayerListAdapter.add(friendlyMessage);
+                    mPlayerListAdapter1.add(friendlyMessage);
                     mProgressBar.setVisibility(View.GONE);
 
 

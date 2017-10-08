@@ -38,7 +38,7 @@ import static com.facebook.GraphRequest.TAG;
  * Created by Hamza Ahmed on 14-Jul-17.
  */
 
-public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
+public class PlayerListAdapter1 extends ArrayAdapter<FriendlyMessage> {
 
     String Name;
     FirebaseUser user;
@@ -51,7 +51,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
     private DatabaseReference mMessageDatabaseReference;
     private int count=0;
     private List<FriendlyMessage> topicsList;
-    public PlayerListAdapter(Context context, int resource, List<FriendlyMessage> objects, String name) {
+    public PlayerListAdapter1(Context context, int resource, List<FriendlyMessage> objects, String name) {
         super(context, resource, objects);
         topicsList=objects;
         Name = name;
@@ -63,7 +63,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_players, parent, false);
         }
 
-      //  ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
+        //  ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         messageTextView = (TextView) convertView.findViewById(R.id.messageTextView);
@@ -74,8 +74,8 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
 
 
 
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("platinumPlayers");
-    //    System.out.println("called"+count+" position "+getItemId(position));
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("goldPlayers");
+        //    System.out.println("called"+count+" position "+getItemId(position));
 
         checkBox1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +89,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
 
                 if (checkBox.isChecked())
                 {
-                    mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -114,7 +114,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
                     });
                 }
                 else{
-                    mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -123,7 +123,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
                                     // do something with the individual "issues"
 
 
-                                              issue.getRef().child("check").setValue(false);
+                                    issue.getRef().child("check").setValue(false);
 
                                     //i++;
 
@@ -210,14 +210,14 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
             checkBox1.setChecked(true);
         else
             checkBox1.setChecked(false);
-            System.out.println("check or not-> "+position+" "+message.isCheck());
-            messageTextView.setVisibility(View.VISIBLE);
-            messageTextView.setText(CapsFirst(message.getText()));
+        System.out.println("check or not-> "+position+" "+message.isCheck());
+        messageTextView.setVisibility(View.VISIBLE);
+        messageTextView.setText(CapsFirst(message.getText()));
         priceTextView.setVisibility(View.VISIBLE);
         priceTextView.setText(String.valueOf(message.getPrice()));
         //if(message.isCheck())
         //checkBox1.setChecked(!checkBox1.isChecked());
-       // ;
+        // ;
 
 
 
@@ -257,7 +257,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
             public void onClick(View view) {
 
                 dialog.dismiss();
-                Intent i = new Intent(getContext(),PlatinumPlayers.class);
+                Intent i = new Intent(getContext(),GoldPlayers.class);
                 getContext().startActivity(i);
 
 

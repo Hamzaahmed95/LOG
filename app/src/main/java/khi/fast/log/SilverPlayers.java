@@ -5,7 +5,10 @@ package khi.fast.log;
 /**
  * Created by Hamza Ahmed on 14-Jul-17.
  */
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,7 +44,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.UUID;
 
 
 public class SilverPlayers extends AppCompatActivity {
@@ -53,7 +56,7 @@ public class SilverPlayers extends AppCompatActivity {
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
     private TextView name;
-    private PlayerListAdapter mPlayerListAdapter;
+    private PlayerListAdapter2 mPlayerListAdapter2;
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
@@ -65,22 +68,29 @@ public class SilverPlayers extends AppCompatActivity {
     private ImageView Button;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessageDatabaseReference;
+    private DatabaseReference mTeamDatabaseReference;
     private DatabaseReference mStoriesDatabaseReference;
     private ChildEventListener mChildEventListener;
+    private ChildEventListener mChildEventListener1;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-
+    private Button showTeam;
+    private EditText mPriceEditText;
     private FirebaseStorage firebaseStorage;
     FirebaseUser user;
     private StorageReference mChatPhotoStorageReference;
     private StorageReference mStoriesStorageReference;
     private String side2;
     private LinearLayout l1;
-
+    private Dialog dialog;
     private ArrayList<Image> images;
     MediaPlayer mp;
 
-
+    private String goalkeeper1;
+    private String defender1;
+    private String defender2;
+    private String attacker1;
+    private String attacker2;
     private TextView goalkeeper;
     private TextView defender;
     private TextView striker;
@@ -92,6 +102,9 @@ public class SilverPlayers extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flog_strikers);
+        mPriceEditText = (EditText) findViewById(R.id.priceEditText);
+
+
         backButton5=(ImageView)findViewById(R.id.backButton);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,11 +143,12 @@ public class SilverPlayers extends AppCompatActivity {
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
         mSendButton = (Button) findViewById(R.id.sendButton);
         mUsername = ANONYMOUS;
-
+        showTeam=(Button)findViewById(R.id.UserTeam);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("silverPlayers");
+        mTeamDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualTeams");
         mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stories");
         mChatPhotoStorageReference =firebaseStorage.getReference().child("silverPhotos");
         mStoriesStorageReference =firebaseStorage.getReference().child("stories_pictures");
@@ -142,6 +156,110 @@ public class SilverPlayers extends AppCompatActivity {
 
 
         // Initialize references to views
+        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
+
+        mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count =0;
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
+                        System.out.println("issue"+issue.child("check").getValue());
+                        if(issue.child("check").getValue().equals(true)) {
+                            System.out.println("selected players: " + issue.child("text").getValue());
+                            count++;
+                            if(count==1){
+                                attacker1= issue.child("text").getValue().toString();
+                            }
+                            else{
+
+                                attacker2= issue.child("text").getValue().toString();
+                            }
+
+
+
+                        }
+
+                    }
+                }
+
+
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query mHouseDatabaseReferencegold =mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("check");
+
+        mHouseDatabaseReferencegold.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        int count =0;
+
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            System.out.println("issue"+issue.child("check").getValue());
+                            if(issue.child("check").getValue().equals(true))
+                                System.out.println("selected players: "+ issue.child("text").getValue());
+                            if(count==1){
+                                defender1= issue.child("text").getValue().toString();
+                            }
+                            else{
+
+                                defender2= issue.child("text").getValue().toString();
+                            }
+                            count++;
+                        }
+                    }
+
+
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        Query mHouseDatabaseReferenceplatinum =mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("check");
+
+        mHouseDatabaseReferenceplatinum.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("issue"+issue.child("check").getValue());
+                        if(issue.child("check").getValue().equals(true)) {
+                            System.out.println("selected players: " + issue.child("text").getValue());
+                            goalkeeper1= issue.child("text").getValue().toString();
+                        }
+
+                    }
+                }
+
+
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("stories");
 
@@ -207,14 +325,72 @@ public class SilverPlayers extends AppCompatActivity {
             });
             mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
         }
+        if (mPriceEditText != null) {
+            mPriceEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if (charSequence.toString().trim().length() > 0) {
+                        mSendButton.setEnabled(true);
+                    } else {
+                        mSendButton.setEnabled(false);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                }
+
+            });
+            mPriceEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        }
         // Send button sends a message and clears the EditText
         if (mSendButton != null)
             mSendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null);
+                    String unique=mMessageEditText.getText().toString(); //Hamza Ahmed
+                    String concat1=unique.substring(unique.length() - 1).concat(unique); // dHamza Ahmed
+                    String string = concat1.replaceAll("\\s+"," "); //dHamzaAhmed
+                    String size = String.valueOf(concat1.length()); //dHamzaAhmed12
+                    String key=string.concat(size);
+                    String price=mPriceEditText.getText().toString();
+                    String finalKey=price.concat(key);
+                    System.out.println("key: "+key);
+                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null,Integer.parseInt(mPriceEditText.getText().toString()),false, finalKey);
                     mMessageDatabaseReference.push().setValue(friendlyMessage);
                     mMessageEditText.setText("");
+                }
+            });
+
+        if (showTeam != null)
+            showTeam.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    System.out.println("user"+NAME+"goalkeeper: "+goalkeeper1+" "+defender1+" "+defender2+" "+attacker1+" "+attacker2);
+                    UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME,goalkeeper1,defender1,defender2,attacker1,attacker2);
+
+
+                     mTeamDatabaseReference.push().setValue(usersFantacyTeam);
+                    String text=NAME+" \n"+goalkeeper1+" \n"+defender1+" \n"+defender2+" \n"+attacker1+" \n"+attacker2;
+                 showDialog(text);
+                }
+            });
+
+        if (mPhotoPickerButton != null)
+            mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO: Fire an intent to show an image picker
+                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                    intent.setType("image/*");
+                    intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                    startActivityForResult(intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
+
                 }
             });
 
@@ -236,10 +412,10 @@ public class SilverPlayers extends AppCompatActivity {
 
 //                    name.setText(user.getDisplayName());
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mPlayerListAdapter = new PlayerListAdapter(SilverPlayers.this, R.layout.item_players, friendlyMessages, NAME);
+                    mPlayerListAdapter2 = new PlayerListAdapter2(SilverPlayers.this, R.layout.item_players, friendlyMessages, NAME);
 
                     if (mMessageListView != null)
-                        mMessageListView.setAdapter(mPlayerListAdapter);
+                        mMessageListView.setAdapter(mPlayerListAdapter2);
 
                     images = new ArrayList<>();
 
@@ -280,7 +456,7 @@ public class SilverPlayers extends AppCompatActivity {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mPlayerListAdapter.clear();
+        mPlayerListAdapter2.clear();
     }
 
     @Override
@@ -300,7 +476,7 @@ public class SilverPlayers extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
+                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString(),0,false, null);
                             mMessageDatabaseReference.push().setValue(friendlyMessage);
 
 
@@ -337,7 +513,7 @@ public class SilverPlayers extends AppCompatActivity {
     }
     private void  onSignedOutInitialize(){
         mUsername = ANONYMOUS;
-        mPlayerListAdapter.clear();
+        mPlayerListAdapter2.clear();
 
         detachDatabaseReadListener();
     }
@@ -349,7 +525,7 @@ public class SilverPlayers extends AppCompatActivity {
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
 
 
-                    mPlayerListAdapter.add(friendlyMessage);
+                    mPlayerListAdapter2.add(friendlyMessage);
                     mProgressBar.setVisibility(View.GONE);
 
 
@@ -390,12 +566,95 @@ public class SilverPlayers extends AppCompatActivity {
                 }
             });
         }
+        if(mChildEventListener1==null) {
+            mChildEventListener1 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
+
+
+                    mPlayerListAdapter2.add(friendlyMessage);
+                    mProgressBar.setVisibility(View.GONE);
+
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+            mTeamDatabaseReference.addChildEventListener(mChildEventListener1);
+            mTeamDatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
 
     }
     private void detachDatabaseReadListener(){
         if(mChildEventListener!=null)
             mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mChildEventListener=null;
+        if(mChildEventListener1!=null)
+            mTeamDatabaseReference.removeEventListener(mChildEventListener1);
+        mChildEventListener1=null;
+    }
+    private void showDialog(String name) {
+        // custom dialog
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.pop_up_teams);
+
+        // set the custom dialog components - text, image and button
+
+        // Close Button
+
+        // Buy Button
+
+        TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
+        t1.setText(name);
+
+        dialog.setCanceledOnTouchOutside (false);
+        Button Close = (Button) dialog.findViewById(R.id.close1);
+        Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+                //Intent i = new Intent(Sil,GoldPlayers.class);
+                //getContext().startActivity(i);
+
+
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 
 

@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@android:color/white">
 
 
             <CheckBox
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
+                android:background="@drawable/circlecheckbox"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="5dp"
                 android:layout_alignParentRight="true"
-                android:padding="4dp"/>
+                />
 
             <TextView
                 android:id="@+id/messageTextView"
