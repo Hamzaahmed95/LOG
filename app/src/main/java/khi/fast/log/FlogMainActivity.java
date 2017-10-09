@@ -36,12 +36,23 @@ public class FlogMainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     private ImageView backbutton5;
     private String NAME;
+    private LinearLayout l1;
 
     private ChildEventListener mChildEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flog_main_activity);
+        l1=(LinearLayout)findViewById(R.id.selectedplayer);
+        l1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FlogMainActivity.this,SelectedTeams.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+            }
+        });
         mFirebaseAuth = FirebaseAuth.getInstance();
         pickTeam=(LinearLayout)findViewById(R.id.pickTeam);
         backbutton5=(ImageView)findViewById(R.id.backButton);

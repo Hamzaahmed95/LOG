@@ -1,10 +1,16 @@
 package khi.fast.log;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,6 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static khi.fast.log.SilverPlayers.RC_SIGN_IN;
 
 /**
  * Created by Hamza Ahmed on 09-Oct-17.
@@ -32,6 +43,7 @@ public class SelectedTeams extends AppCompatActivity {
     private TextView Striker1;
     private TextView Striker2;
 
+    private ChildEventListener mChildEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -90,10 +102,138 @@ public class SelectedTeams extends AppCompatActivity {
 
             }
         });
+        mAuthStateListner = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    //user is signed in
+                    onSignedInInitialize(user.getDisplayName());
+                    //NAME = user.getDisplayName();
+
+
+//
+
+                    ;
+
+
+                } else {
+                    onSignedOutInitialize();
+
+                    startActivityForResult(
+                            AuthUI.getInstance()
+                                    .createSignInIntentBuilder()
+                                    .setIsSmartLockEnabled(false)
+                                    .setTheme(R.style.FirebaseLoginTheme)
+                                    .setLogo(R.drawable.wb5)
+                                    .setProviders(
+                                            AuthUI.EMAIL_PROVIDER,
+                                            AuthUI.GOOGLE_PROVIDER
+                                    ).build(),
+                            RC_SIGN_IN);
+                }
+            }
+
+            ;
+        };
 
 
 
 
 
     }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if(mAuthStateListner!=null) {
+            mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
+        }
+        detachDatabaseReadListener();
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mFirebaseAuth.addAuthStateListener(mAuthStateListner);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(SelectedTeams.this,FlogMainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
+    }
+
+    private void  onSignedInInitialize(String username){
+        //mUsername = username;
+        attachDatabaseReadListener();
+
+    }
+    private void  onSignedOutInitialize(){
+       // mUsername = ANONYMOUS;
+        //mPlayerListAdapter.clear();
+
+        detachDatabaseReadListener();
+    }
+    private void detachDatabaseReadListener(){
+        if(mChildEventListener!=null)
+            mMessageDatabaseReference.removeEventListener(mChildEventListener);
+        mChildEventListener=null;
+
+    }
+    private void attachDatabaseReadListener(){
+        if(mChildEventListener==null) {
+            mChildEventListener = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    UsersFantacyTeam usersFantacyTeam = dataSnapshot.getValue(UsersFantacyTeam.class);
+                    GoalKeeper.setText(usersFantacyTeam.getGoalkeeper());
+                    Defender1.setText(usersFantacyTeam.getDefender1());
+                    Defender2.setText(usersFantacyTeam.getDefender2());
+                    Striker1.setText(usersFantacyTeam.getStriker1());
+                    Striker2.setText(usersFantacyTeam.getStriker2());
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+            mMessageDatabaseReference.addChildEventListener(mChildEventListener);
+            mMessageDatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+
+
+
+    }
+
+
 }
