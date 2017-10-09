@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -37,6 +38,7 @@ import java.util.List;
 public class FlogMainActivity extends AppCompatActivity {
 
     private LinearLayout pickTeam;
+    private ProgressBar p;
     private Dialog dialog;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseDatabase mFirebaseDatabase;
@@ -55,6 +57,7 @@ public class FlogMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flog_main_activity);
+        p=(ProgressBar)findViewById(R.id.progressBar);
         l1 = (LinearLayout) findViewById(R.id.selectedplayer);
         l2=(LinearLayout)findViewById(R.id.l1);
         textHide =(TextView)findViewById(R.id.textHide);
@@ -95,12 +98,14 @@ public class FlogMainActivity extends AppCompatActivity {
                     // dataSnapshot is the "issue" node with all children with id 0
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         if (issue.child("bit").getValue().equals("1")) {
+                            p.setVisibility(View.GONE);
 
                             textHide.setVisibility(View.VISIBLE);
 
 
                         } else {
                             l2.setVisibility(View.VISIBLE);
+                            p.setVisibility(View.GONE);
 
                         }
                     }
@@ -129,7 +134,7 @@ public class FlogMainActivity extends AppCompatActivity {
                     System.out.println("=>hamza here " + NAME);
                     onSignedInInitialize(user.getDisplayName());
                     NAME = user.getDisplayName();
-                    if(NAME.equals("K142805 Hamza Ahmed")){
+                    if(!NAME.equals("K142805 Hamza Ahmed")){
                         toggle.setVisibility(View.GONE);
                     }
                     //   onSignedInInitialize(NAME);

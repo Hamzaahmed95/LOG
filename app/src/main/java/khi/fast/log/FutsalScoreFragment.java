@@ -129,6 +129,7 @@ public class FutsalScoreFragment extends Fragment {
     private Button sendplayer3;
     private Button sendplayer4;
 
+
     private ProgressBar mProgressBar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
