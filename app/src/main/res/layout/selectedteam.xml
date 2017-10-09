@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center|top"
+    android:background="@drawable/footballfield"
+    android:layout_height="match_parent">
+
+
+        <TextView
+            android:textSize="15dp"
+            android:paddingTop="75dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal keeper"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="120dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="20dp"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:text="Defender 1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="20dp"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Defender 2"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="20dp"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Striker 1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="20dp"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Striker 2"/>
+    </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

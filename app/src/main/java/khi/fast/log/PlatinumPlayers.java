@@ -69,6 +69,7 @@ public class PlatinumPlayers extends AppCompatActivity {
     private ImageView Button;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessageDatabaseReference;
+    private DatabaseReference mMessageDatabaseReference2;
     private DatabaseReference mTeamDatabaseReference;
     private DatabaseReference mStoriesDatabaseReference;
     private ChildEventListener mChildEventListener;
@@ -97,7 +98,7 @@ public class PlatinumPlayers extends AppCompatActivity {
     private TextView striker;
     private ImageView backButton5;
 
-
+    private String house;
     @Override
     protected void onCreate( final Bundle savedInstanceState) {
 
@@ -148,15 +149,49 @@ public class PlatinumPlayers extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
+        Bundle extra =this.getIntent().getExtras();
+        if(extra!=null) {
+            house = extra.getString("username");
 
-        System.out.println("name:==> "+NAME);
+            System.out.println("name:==> " + house);
+        }
+        final String platinumPlayers=house+"platinumPlayers";
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("platinumPlayers");
+        mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child(platinumPlayers);
         mTeamDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualTeams");
         mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stories");
         mChatPhotoStorageReference =firebaseStorage.getReference().child("platinumPhotos");
         mStoriesStorageReference =firebaseStorage.getReference().child("stories_pictures");
 
+        mMessageDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                mMessageDatabaseReference2.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                        if (databaseError != null)
+                        {
+                            System.out.println("Copy failed");
+                        }
+                        else
+                        {
+                            System.out.println("Success");
+                        }
+                    }
 
+
+
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError)
+            {
+                System.out.println("Copy failed");
+            }
+        });
 
         // Initialize references to views
         Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
@@ -500,6 +535,41 @@ public class PlatinumPlayers extends AppCompatActivity {
         };
 
     }
+
+
+
+  /*  public void moveFirebaseRecord(DatabaseReference fromPath, final DatabaseReference toPath)
+    {
+        fromPath.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                toPath.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener()
+                {
+                    @Override
+                    public void onComplete(FirebaseError firebaseError, DatabaseReference firebase)
+                    {
+                        if (firebaseError != null)
+                        {
+                            System.out.println("Copy failed");
+                        }
+                        else
+                        {
+                            System.out.println("Success");
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError)
+            {
+                System.out.println("Copy failed");
+            }
+        });
+    }*/
+
     public ArrayList<Image> getmMatch(){
 
         return images;
@@ -693,6 +763,18 @@ public class PlatinumPlayers extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside (false);
         Button Close = (Button) dialog.findViewById(R.id.close1);
         Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(PlatinumPlayers.this,SelectedTeams.class);
+                startActivity(i);
+
+                dialog.dismiss();
+
+            }
+        });
+        Button Close1 = (Button) dialog.findViewById(R.id.close2);
+        Close1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

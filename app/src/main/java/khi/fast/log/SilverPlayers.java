@@ -696,9 +696,20 @@ public class SilverPlayers extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+                Intent i = new Intent(SilverPlayers.this,SelectedTeams.class);
+                startActivity(i);
                 dialog.dismiss();
-                //Intent i = new Intent(Sil,GoldPlayers.class);
-                //getContext().startActivity(i);
+
+
+            }
+        });
+        Button Close1 = (Button) dialog.findViewById(R.id.close2);
+        Close1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
 
 
             }
