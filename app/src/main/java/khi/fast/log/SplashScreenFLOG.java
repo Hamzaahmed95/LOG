@@ -31,4 +31,5 @@ public class SplashScreenFLOG extends AppCompatActivity {
         }, 3000);
 
     }
+
 }

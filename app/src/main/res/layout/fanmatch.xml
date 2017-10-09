@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient5">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="#80000000"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/backButton4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:text="Score"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:indeterminateTint="@android:color/black" />
+
+        <LinearLayout
+            android:id="@+id/hide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/teamplaying1"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:text="TEAM 1"
+                        android:textColor="@android:color/black" />
+
+
+                    <TextView
+                        android:id="@+id/team1Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jaguars"
+                        android:paddingLeft="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"/>
+                    <ImageButton
+                        android:id="@+id/photoPickerTeam1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/attach" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/incrementruns1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/upincrement" />
+
+                        <ImageButton
+                            android:id="@+id/decrementruns1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/downincrement" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="5dp">
+
+
+                            <TextView
+                                android:id="@+id/livsScoreRuns1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="40dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="-"
+                                android:textColor="@android:color/black"
+                                android:textSize="40dp" />
+
+                            <TextView
+                                android:id="@+id/livsScoreWicket1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="40dp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/livsScoreOvers1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="'"
+                                android:textColor="@android:color/black"
+                                android:textSize="30dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/incrementwicket1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/upincrement" />
+
+                        <ImageButton
+                            android:id="@+id/decrementwicket1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/downincrement" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/teamplaying2"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="TEAM 2"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp" />
+
+
+
+                    <TextView
+                        android:id="@+id/team2Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Stags"
+                        android:paddingLeft="25dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"/>
+                    <ImageButton
+                        android:id="@+id/photoPickerTeam2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/attach" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/teamNamesMiss"
+                android:orientation="horizontal">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:id="@+id/e1"
+                    android:layout_height="wrap_content"
+                    android:hint="Teams names separated by -"
+                    android:textColorHint="@android:color/black"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:id="@+id/send"
+                    android:layout_height="wrap_content"
+                    android:text="send"/>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/incrementover1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:src="@drawable/leftincrement" />
+
+                <ImageButton
+                    android:id="@+id/decrementover1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:src="@drawable/rightincrement" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="50dp"
+                android:background="#000000" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="30dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:id="@+id/f1"
+                            android:visibility="gone"
+                            android:paddingRight="5dp"
+                            android:src="@drawable/football"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/player1"
+                            android:textSize="20dp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:id="@+id/e1player1"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter player"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:text="send"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sendplayer1"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_gravity="right"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:visibility="gone"
+                                android:id="@+id/f4"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/football"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/player4"
+                                android:textSize="20dp"
+                                android:textColor="@android:color/black"
+                                android:fontFamily="sans-serif-condensed"
+                                android:layout_height="wrap_content" /></LinearLayout>
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:id="@+id/e1player4"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter player"/>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="send"
+                            android:id="@+id/sendplayer4"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:background="#000000"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_gravity="right"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingRight="5dp"
+                            android:id="@+id/f2"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/football"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/player2"
+                            android:textSize="20dp"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layout_height="wrap_content" /></LinearLayout>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:id="@+id/e1player2"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter player"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="send"
+                        android:id="@+id/sendplayer2"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_gravity="right"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/f3"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+
+                                android:visibility="gone"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/football"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/player3"
+                                android:textSize="20dp"
+                                android:textColor="@android:color/black"
+                                android:fontFamily="sans-serif-condensed"
+                                android:layout_height="wrap_content" /></LinearLayout>
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:id="@+id/e1player3"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter player"/>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="send"
+                            android:id="@+id/sendplayer3"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/sadFace"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/sad" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

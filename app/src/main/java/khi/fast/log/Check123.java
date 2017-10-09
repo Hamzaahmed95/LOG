@@ -87,13 +87,24 @@ public class Check123 extends AppCompatActivity {
             }
         });
         layout8 = (LinearLayout) findViewById(R.id.lay8);
-        layout8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Check123.this, SplashScreenFLOG.class);
-                startActivity(i);
-            }
-        });
+        if (isFirstTime()) {
+            layout8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Check123.this, SplashScreenFLOG.class);
+                    startActivity(i);
+                }
+            });
+        }else{
+            layout8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Check123.this, FlogMainActivity.class);
+                    startActivity(i);
+                }
+            });
+
+        }
 
 
         layout6 = (LinearLayout) findViewById(R.id.lay6);
