@@ -466,9 +466,9 @@ public class PlatinumPlayers extends AppCompatActivity {
                         UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-                        mTeamDatabaseReference.push().setValue(usersFantacyTeam);
+
                         String text = NAME + " \n" + goalkeeper1 + " \n" + defender1 + " \n" + defender2 + " \n" + attacker1 + " \n" + attacker2;
-                        showDialog(text);
+                        showDialog(text,usersFantacyTeam);
                     }
                 }
             });
@@ -746,7 +746,7 @@ public class PlatinumPlayers extends AppCompatActivity {
             mTeamDatabaseReference.removeEventListener(mChildEventListener1);
         mChildEventListener1=null;
     }
-    private void showDialog(String name) {
+    private void showDialog(String name,final UsersFantacyTeam usersFantacyTeam) {
         // custom dialog
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.pop_up_teams);
@@ -767,8 +767,9 @@ public class PlatinumPlayers extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(PlatinumPlayers.this,SelectedTeams.class);
+                i.putExtra("NAME",NAME);
                 startActivity(i);
-
+                mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                 dialog.dismiss();
 
             }

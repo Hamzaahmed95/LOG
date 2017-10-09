@@ -9,7 +9,8 @@
 
 
         <TextView
-            android:textSize="15dp"
+            android:id="@+id/goalkeeper1"
+            android:textSize="20dp"
             android:paddingTop="75dp"
             android:fontFamily="sans-serif-condensed"
             android:textColor="@android:color/white"
@@ -30,6 +31,7 @@
         android:gravity="center"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/defender1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
@@ -38,6 +40,7 @@
             android:textColor="@android:color/white"
             android:text="Defender 1"/>
         <TextView
+            android:id="@+id/defender2"
             android:layout_width="wrap_content"
             android:padding="10dp"
             android:fontFamily="sans-serif-condensed"
@@ -58,6 +61,8 @@
         android:orientation="horizontal">
 
         <TextView
+
+            android:id="@+id/striker1"
             android:layout_width="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"
@@ -66,6 +71,7 @@
             android:layout_height="wrap_content"
             android:text="Striker 1"/>
         <TextView
+            android:id="@+id/striker2"
             android:layout_width="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"

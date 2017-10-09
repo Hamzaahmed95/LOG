@@ -430,9 +430,8 @@ public class GoldPlayers extends AppCompatActivity {
                         UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-                        mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                         String text = NAME + " \n" + goalkeeper1 + " \n" + defender1 + " \n" + defender2 + " \n" + attacker1 + " \n" + attacker2;
-                        showDialog(text);
+                        showDialog(text,usersFantacyTeam);
                     }
                 }
             });
@@ -675,7 +674,7 @@ public class GoldPlayers extends AppCompatActivity {
             mTeamDatabaseReference.removeEventListener(mChildEventListener1);
         mChildEventListener1=null;
     }
-    private void showDialog(String name) {
+    private void showDialog(String name,final UsersFantacyTeam usersFantacyTeam) {
         // custom dialog
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.pop_up_teams);
@@ -697,14 +696,13 @@ public class GoldPlayers extends AppCompatActivity {
 
                 Intent i = new Intent(GoldPlayers.this,SelectedTeams.class);
                 startActivity(i);
+                mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                 dialog.dismiss();
-
 
             }
         });
-
-        Button Close2 = (Button) dialog.findViewById(R.id.close2);
-        Close2.setOnClickListener(new View.OnClickListener() {
+        Button Close1 = (Button) dialog.findViewById(R.id.close2);
+        Close1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

@@ -431,9 +431,8 @@ public class SilverPlayers extends AppCompatActivity {
                         UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-                        mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                         String text = NAME + " \n" + goalkeeper1 + " \n" + defender1 + " \n" + defender2 + " \n" + attacker1 + " \n" + attacker2;
-                        showDialog(text);
+                        showDialog(text,usersFantacyTeam);
                     }
                 }
             });
@@ -676,7 +675,7 @@ public class SilverPlayers extends AppCompatActivity {
             mTeamDatabaseReference.removeEventListener(mChildEventListener1);
         mChildEventListener1=null;
     }
-    private void showDialog(String name) {
+    private void showDialog(String name,final UsersFantacyTeam usersFantacyTeam) {
         // custom dialog
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.pop_up_teams);
@@ -696,11 +695,10 @@ public class SilverPlayers extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 Intent i = new Intent(SilverPlayers.this,SelectedTeams.class);
                 startActivity(i);
+                mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                 dialog.dismiss();
-
 
             }
         });
@@ -710,6 +708,8 @@ public class SilverPlayers extends AppCompatActivity {
             public void onClick(View view) {
 
                 dialog.dismiss();
+                //Intent i = new Intent(Sil,GoldPlayers.class);
+                //getContext().startActivity(i);
 
 
             }
