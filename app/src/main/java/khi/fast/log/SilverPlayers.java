@@ -398,7 +398,7 @@ public class SilverPlayers extends AppCompatActivity {
                     String price=mPriceEditText.getText().toString();
                     String finalKey=price.concat(key);
                     System.out.println("key: "+key);
-                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null,Integer.parseInt(mPriceEditText.getText().toString()),false, finalKey);
+                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null,mPriceEditText.getText().toString(),false, finalKey);
                     mMessageDatabaseReference.push().setValue(friendlyMessage);
                     mMessageEditText.setText("");
                 }
@@ -431,7 +431,7 @@ public class SilverPlayers extends AppCompatActivity {
                         UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-                        String text = NAME + " \n" + goalkeeper1 + " \n" + defender1 + " \n" + defender2 + " \n" + attacker1 + " \n" + attacker2;
+                        String text = NAME+" You set the team as: \n\n"+"GoalKeeper: "+goalkeeper1 + " \n Defender1: " + defender1 + " \n Defender2: " + defender2 + " \nStriker1: " + attacker1 + " \n Striker2: " + attacker2;
                         showDialog(text,usersFantacyTeam);
                     }
                 }
@@ -532,7 +532,7 @@ public class SilverPlayers extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString(),0,false, null);
+                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString(),null  ,false, null);
                             mMessageDatabaseReference.push().setValue(friendlyMessage);
 
 

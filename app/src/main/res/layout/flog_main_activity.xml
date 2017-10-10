@@ -50,6 +50,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/points"
             android:background="#293e6a"
             android:gravity="left"
             android:paddingRight="50dp"
@@ -57,9 +58,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:text="15,123 Points"/>
+            android:textStyle="bold"/>
         <TextView
+            android:id="@+id/ranks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -67,8 +68,7 @@
             android:background="#293e6a"
             android:fontFamily="sans-serif-condensed"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:text="Rank: 13"/>
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <ToggleButton

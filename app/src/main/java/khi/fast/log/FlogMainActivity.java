@@ -48,22 +48,39 @@ public class FlogMainActivity extends AppCompatActivity {
     private LinearLayout l1;
     private LinearLayout l2;
     private DatabaseReference mScoreDatabaseReference22;
+    private DatabaseReference mPointsDatabaseReference22;
+    private DatabaseReference mRanksDatabaseReference22;
     private ToggleButton toggle;
     private ChildEventListener mChildEventListener;
+    private ChildEventListener mChildEventListener1;
+    private ChildEventListener mChildEventListener2;
     private TextView textHide;
+    private TextView points;
+    private TextView ranks;
 
+    private String name1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flog_main_activity);
         p=(ProgressBar)findViewById(R.id.progressBar);
+        points=(TextView)findViewById(R.id.points);
+        ranks=(TextView)findViewById(R.id.ranks);
         l1 = (LinearLayout) findViewById(R.id.selectedplayer);
         l2=(LinearLayout)findViewById(R.id.l1);
         textHide =(TextView)findViewById(R.id.textHide);
         toggle = (ToggleButton) findViewById(R.id.toggleButton);
+
+        Bundle extra=this.getIntent().getExtras();
+        if(extra!=null){
+            name1=extra.getString("name1");
+        }
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfFantasy");
+        mPointsDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualPoints");
+        mRanksDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualRank");
         l2.setVisibility(View.GONE);
         l1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +135,65 @@ public class FlogMainActivity extends AppCompatActivity {
 
             }
         });
+        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
+
+        mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count = 0;
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("king" +name1);
+                        if( issue.child("name").getValue().equals(name1)){
+                            points.setText(issue.child("points").getValue().toString()+" Points");
+                            System.out.println("issue" + issue.child("points").getValue());
+                        }
+
+
+                    }
+
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query mHouseDatabaseReference4 =mFirebaseDatabase.getReference().child("IndivisualRank").orderByChild("name");
+
+        mHouseDatabaseReference4.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count = 0;
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("king" +name1);
+                        if( issue.child("name").getValue().equals(name1)){
+                            ranks.setText(issue.child("ranks").getValue().toString()+" Rank");
+                            System.out.println("issue" + issue.child("ranks").getValue());
+                        }
+
+
+                    }
+
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
         pickTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -222,6 +298,84 @@ public class FlogMainActivity extends AppCompatActivity {
 
 
             mScoreDatabaseReference22.addChildEventListener(mChildEventListener);
+        }
+        if (mChildEventListener1 == null) {
+            mChildEventListener1 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    IndivisualPoints indivisualPoints = dataSnapshot.getValue(IndivisualPoints.class);
+                    points.setText(String.valueOf(indivisualPoints.getPoints())+" Points");
+
+
+                    //mPlayerListAdapter2.add(friendlyMessage);
+                    //mProgressBar.setVisibility(View.GONE);
+
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+
+            mPointsDatabaseReference22.addChildEventListener(mChildEventListener1);
+        }
+        if (mChildEventListener2 == null) {
+            mChildEventListener2 = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    IndivisualRanks indivisualRanks = dataSnapshot.getValue(IndivisualRanks.class);
+                    ranks.setText(String.valueOf(indivisualRanks.getRanks())+" Ranks");
+
+
+                    //mPlayerListAdapter2.add(friendlyMessage);
+                    //mProgressBar.setVisibility(View.GONE);
+
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+
+            mRanksDatabaseReference22.addChildEventListener(mChildEventListener2);
         }
 
 

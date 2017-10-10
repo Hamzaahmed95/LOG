@@ -12,7 +12,7 @@ public class FriendlyMessage {
     private String text;
     private String name;
     private String photoUrl;
-    private int price;
+    private String price;
     private boolean check;
     private String id;
 
@@ -20,7 +20,7 @@ public class FriendlyMessage {
 
     }
 
-    public FriendlyMessage(String text, String name, String photoUrl,int price,boolean check,String id) {
+    public FriendlyMessage(String text, String name, String photoUrl,String price,boolean check,String id) {
         this.text = text;
         this.name = name;
         this.photoUrl = photoUrl;
@@ -46,11 +46,11 @@ public class FriendlyMessage {
         this.check = check;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

@@ -159,11 +159,10 @@
 
     <Button
         android:id="@+id/UserTeam"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="#293e6a"
-
+        android:background="@drawable/circle14"
         android:padding="10dp"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"
