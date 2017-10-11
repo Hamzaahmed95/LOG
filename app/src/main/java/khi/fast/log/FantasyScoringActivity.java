@@ -65,6 +65,10 @@ public class FantasyScoringActivity extends AppCompatActivity {
         mPointsDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualPoints");
         score = mFirebaseDatabase.getReference().child("Score");
 
+
+
+
+
         //mMessageDatabaseReference = mFirebaseDatabase.getReference().child("NAMEID");
         Query mHouseDatabaseReference30 =mFirebaseDatabase.getReference().child("NAMEID").orderByChild("name");
 
@@ -195,6 +199,7 @@ public class FantasyScoringActivity extends AppCompatActivity {
                                                                                 count = Integer.parseInt(issue.child("points").getValue().toString()) + 3;
                                                                                 System.out.println("count: "+count);
                                                                                 issue.getRef().child("points").setValue(count);
+                                                                                issue.getRef().child("count").setValue(Integer.parseInt(issue.child("count").getValue().toString())+1);
                                                                             }
 
                                                                         }

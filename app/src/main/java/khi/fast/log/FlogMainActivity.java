@@ -58,7 +58,7 @@ public class FlogMainActivity extends AppCompatActivity {
     private TextView textHide;
     private TextView points;
     private TextView ranks;
-
+    String goals;
     private String name1;
 
     @Override
@@ -90,7 +90,6 @@ public class FlogMainActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfFantasy");
         mPointsDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualPoints");
-        mPointsDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualPoints");
         mRanksDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualRank");
         l2.setVisibility(View.GONE);
         l1.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +114,170 @@ public class FlogMainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+
+
+        Query mHouseDatabaseReference10 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
+
+        mHouseDatabaseReference10.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count = 0;
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                       // System.out.println("king" + NAME);
+                        System.out.println("here!"+issue.child("name").getValue()+"=="+name1);
+
+                        if (issue.child("name").getValue().equals(name1)) {
+                            if (Integer.parseInt(issue.child("count").getValue().toString()) == 0) {
+                                issue.getRef().child("count").setValue(1);
+
+                                Query mHouseDatabaseReference33 = mFirebaseDatabase.getReference().child("FantasyScoringLineUp").limitToLast(1);
+
+                                mHouseDatabaseReference33.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.exists()) {
+
+                                            for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
+                                                // System.out.println("issue" + issue.child("userId").getValue());
+                                                goals=issue.child("goalScorer").getValue().toString();
+                                                final String[] arr = goals.split("-");
+                                                final int arr1=arr.length;
+                                                System.out.println("array: " + arr.length);
+                                                String a1[] = new String[arr.length];
+                                                for (int i = 0; i < arr.length; i++) {
+                                                    a1[i] = arr[i];
+                                                }
+                                                Query mHouseDatabaseReference03 = mFirebaseDatabase.getReference().child("IndivisualTeams").orderByChild("userId");
+
+                                                mHouseDatabaseReference03.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                                        if (dataSnapshot.exists()) {
+                                                            int count = 0;
+                                                            String d1="";
+                                                            String d2="";
+                                                            String s1="";
+                                                            String s2="";
+                                                            String g="";
+                                                            String test = "";
+                                                            for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
+                                                                System.out.println("issue" + issue.child("userId").getValue());
+
+                                                                if (issue.child("userId").getValue().equals(NAME)) {
+                                                                    test = issue.child("defender1").getValue() + "" + issue.child("defender2").getValue() + " " + issue.child("striker1").getValue() + " "
+                                                                            + issue.child("striker2").getValue() + " " + issue.child("goli").getValue();
+
+                                                                    d1=issue.child("defender1").getValue().toString();
+                                                                    d2=issue.child("defender2").getValue().toString();
+                                                                    s1=issue.child("striker1").getValue().toString();
+                                                                    s2=issue.child("striker2").getValue().toString();
+                                                                    g=issue.child("goalkeeper").getValue().toString();
+
+                                                                }
+                                                            }
+                                                            System.out.println("here1: ");
+                                                            for(int j=0;j<arr1;j++){
+                                                                System.out.println("here2: "+arr[j]+" "+d1);
+                                                                if(arr[j].equals(d1) ||arr[j].equals(d2) ||arr[j].equals(s1) ||arr[j].equals(s2) ||arr[j].equals(g)){
+
+                                                                    System.out.println("here3: ");
+
+
+                                                                    Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
+
+                                                                    mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                        @Override
+                                                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                            if (dataSnapshot.exists()) {
+                                                                                int count=0;
+                                                                                for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                                                                                    // do something with the individual "issues"
+                                                                                    if(issue.child("name").getValue().equals(NAME)) {
+                                                                                        count = Integer.parseInt(issue.child("points").getValue().toString()) + 3;
+                                                                                        System.out.println("count: "+count);
+                                                                                        issue.getRef().child("points").setValue(count);
+                                                                                    }
+
+                                                                                }
+
+
+                                                                            }
+                                                                        }
+
+
+                                                                        @Override
+                                                                        public void onCancelled(DatabaseError databaseError) {
+
+                                                                        }
+                                                                    });
+                                                                }
+
+                                                            }
+                                                            System.out.println("Team is :" + test);
+
+
+                                                        }
+                                                    }
+
+
+                                                    @Override
+                                                    public void onCancelled(DatabaseError databaseError) {
+
+                                                    }
+                                                });
+
+
+
+                                            }
+
+
+                                        }
+                                    }
+
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+
+
+
+                            } else {
+                                System.out.println("not exist");
+                            }
+
+
+                        }
+
+                    }
+
+
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
 
         Query mHouseDatabaseReference23 = mFirebaseDatabase.getReference().child("onOfFantasy").limitToLast(1);
 
@@ -157,7 +320,7 @@ public class FlogMainActivity extends AppCompatActivity {
                         System.out.println("king" +name1);
                         if( issue.child("name").getValue().equals(name1)){
                             points.setText(issue.child("points").getValue().toString()+" Points");
-                            System.out.println("issue" + issue.child("points").getValue());
+                            System.out.println("issue" + issue.child("points").getValue()+" "+name1);
                         }
 
 
@@ -316,8 +479,10 @@ public class FlogMainActivity extends AppCompatActivity {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     IndivisualPoints indivisualPoints = dataSnapshot.getValue(IndivisualPoints.class);
-                    points.setText(String.valueOf(indivisualPoints.getPoints())+" Points");
-
+                    if(indivisualPoints.getName().equals(name1)) {
+                        points.setText(String.valueOf(indivisualPoints.getPoints()) + " Points");
+                        System.out.println("String : " + String.valueOf(indivisualPoints.getPoints()));
+                    }
 
                     //mPlayerListAdapter2.add(friendlyMessage);
                     //mProgressBar.setVisibility(View.GONE);
@@ -327,7 +492,8 @@ public class FlogMainActivity extends AppCompatActivity {
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+                    IndivisualPoints indivisualPoints = dataSnapshot.getValue(IndivisualPoints.class);
+                    points.setText(String.valueOf(indivisualPoints.getPoints())+" Points");
 
                 }
 
