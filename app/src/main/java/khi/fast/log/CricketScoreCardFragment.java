@@ -55,7 +55,6 @@ public class CricketScoreCardFragment extends Fragment {
     private FirebaseStorage firebaseStorage;
     private StorageReference PointsTableStorageReference2;
     private DatabaseReference mMessageDatabaseReference2;
-
     private StorageReference PointsTableStorageReference;
     private DatabaseReference mMessageDatabaseReference;
     private ImageButton mPhotoPickerButton1;

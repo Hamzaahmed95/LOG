@@ -49,6 +49,7 @@ public class Check123 extends AppCompatActivity {
     private DatabaseReference mMessageDatabaseReference;
     private DatabaseReference mMessageDatabaseReference2;
     private FirebaseAuth mFirebaseAuth;
+    private String getcount;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,45 @@ public class Check123 extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualPoints");
         mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child("IndivisualRank");
+        Query mHouseDatabaseReference30 =mFirebaseDatabase.getReference().child("Score");
+
+        mHouseDatabaseReference30.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count = 0;
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
+                     getcount=issue.child("count").getValue().toString();
+
+
+
+                      /*  System.out.println("king" +NAME);
+                        if( issue.child("name").getValue().equals(NAME)){
+
+                            if(issue.child("id").getValue().equals("hamza123ABC")){
+                                System.out.println("hamza ahmed");
+                            }
+                        }
+                        else{
+                            System.out.println("not exist");
+                        }
+
+
+*/
+                    }
+
+
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         signout=(ImageView)findViewById(R.id.logout);
@@ -106,12 +146,13 @@ public class Check123 extends AppCompatActivity {
             layout8.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    IndivisualPoints indivisualPoints = new IndivisualPoints(name1,0);
+                    IndivisualPoints indivisualPoints = new IndivisualPoints(name1,0,0);
                     IndivisualRanks indivisualRank = new IndivisualRanks(name1,0);
                     mMessageDatabaseReference.push().setValue(indivisualPoints);
                     mMessageDatabaseReference2.push().setValue(indivisualRank);
                     Intent i = new Intent(Check123.this, SplashScreenFLOG.class);
                     startActivity(i);
+                    finish();
                 }
             });
         }else{

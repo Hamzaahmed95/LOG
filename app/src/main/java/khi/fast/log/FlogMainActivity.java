@@ -51,6 +51,7 @@ public class FlogMainActivity extends AppCompatActivity {
     private DatabaseReference mPointsDatabaseReference22;
     private DatabaseReference mRanksDatabaseReference22;
     private ToggleButton toggle;
+    private Button button;
     private ChildEventListener mChildEventListener;
     private ChildEventListener mChildEventListener1;
     private ChildEventListener mChildEventListener2;
@@ -71,6 +72,15 @@ public class FlogMainActivity extends AppCompatActivity {
         l2=(LinearLayout)findViewById(R.id.l1);
         textHide =(TextView)findViewById(R.id.textHide);
         toggle = (ToggleButton) findViewById(R.id.toggleButton);
+        button = (Button) findViewById(R.id.Button2);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FlogMainActivity.this,FantasyScoringActivity.class);
+                startActivity(i);
+            }
+        });
 
         Bundle extra=this.getIntent().getExtras();
         if(extra!=null){
@@ -79,6 +89,7 @@ public class FlogMainActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mScoreDatabaseReference22 = mFirebaseDatabase.getReference().child("onOfFantasy");
+        mPointsDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualPoints");
         mPointsDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualPoints");
         mRanksDatabaseReference22 = mFirebaseDatabase.getReference().child("IndivisualRank");
         l2.setVisibility(View.GONE);
@@ -212,6 +223,7 @@ public class FlogMainActivity extends AppCompatActivity {
                     NAME = user.getDisplayName();
                     if(!NAME.equals("K142805 Hamza Ahmed")){
                         toggle.setVisibility(View.GONE);
+                        button.setVisibility(View.GONE);
                     }
                     //   onSignedInInitialize(NAME);
 

@@ -98,6 +98,7 @@ public class PlatinumPlayers extends AppCompatActivity {
     private TextView striker;
     private ImageView backButton5;
 
+
     private String house;
     @Override
     protected void onCreate( final Bundle savedInstanceState) {
@@ -238,6 +239,47 @@ public class PlatinumPlayers extends AppCompatActivity {
 
 
             }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Query mHouseDatabaseReference03 =mFirebaseDatabase.getReference().child("IndivisualTeams").orderByChild("userId");
+
+        mHouseDatabaseReference03.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count = 0;
+                    String test = "";
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
+                        System.out.println("issue" + issue.child("userId").getValue());
+                        //   if(issue.child("check").getValue().equals(true)) {
+
+                        if (issue.child("userId").getValue().equals(NAME)) {
+                            test = issue.child("defender1").getValue() + "" + issue.child("defender2").getValue() + " " + issue.child("striker1").getValue() + " "
+                                    + issue.child("striker2").getValue() + " " + issue.child("goli").getValue();
+                        }
+                        // System.out.println("selected players: " + issue.child("text").getValue());
+                        //count++;
+                            /*if(count==1){
+                                attacker1= issue.child("text").getValue().toString();
+                            }
+                            else if(count==2){
+
+                                attacker2= issue.child("text").getValue().toString();
+                            }*/
+
+
+                }
+                System.out.println("Team is :" + test);
+
+
+            }
+        }
 
 
             @Override

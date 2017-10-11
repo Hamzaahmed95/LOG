@@ -8,13 +8,23 @@ public class IndivisualPoints {
 
     private String name;
     private int points;
+    private int count;
 
-    public IndivisualPoints(String name, int points) {
+    public IndivisualPoints(String name, int points,int count) {
         this.name = name;
         this.points = points;
+        this.count=count;
     }
 
     public IndivisualPoints() {
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public String getName() {
