@@ -59,7 +59,11 @@ public class FlogMainActivity extends AppCompatActivity {
     private TextView points;
     private TextView ranks;
     String goals;
+    private int count_goals;
+    private int count_assists;
+    String assists;
     private String name1;
+    private int countPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +156,15 @@ public class FlogMainActivity extends AppCompatActivity {
                                                 for (int i = 0; i < arr.length; i++) {
                                                     a1[i] = arr[i];
                                                 }
+                                                assists=issue.child("assist").getValue().toString();
+                                                final String[] assist = assists.split("-");
+                                                final int assistlength=assist.length;
+                                                System.out.println("array: " + assist.length);
+                                                String a2[] = new String[assist.length];
+                                                for (int i = 0; i < assist.length; i++) {
+                                                    a2[i] = assist[i];
+                                                }
+
                                                 Query mHouseDatabaseReference03 = mFirebaseDatabase.getReference().child("IndivisualTeams").orderByChild("userId");
 
                                                 mHouseDatabaseReference03.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -171,7 +184,7 @@ public class FlogMainActivity extends AppCompatActivity {
 
                                                                 if (issue.child("userId").getValue().equals(NAME)) {
                                                                     test = issue.child("defender1").getValue() + "" + issue.child("defender2").getValue() + " " + issue.child("striker1").getValue() + " "
-                                                                            + issue.child("striker2").getValue() + " " + issue.child("goli").getValue();
+                                                                            + issue.child("striker2").getValue() + " " + issue.child("goalkeeper").getValue();
 
                                                                     d1=issue.child("defender1").getValue().toString();
                                                                     d2=issue.child("defender2").getValue().toString();
@@ -181,12 +194,55 @@ public class FlogMainActivity extends AppCompatActivity {
 
                                                                 }
                                                             }
-                                                            System.out.println("here1: ");
+                                                            int count_test=0;
+                                                            count_goals=0;
                                                             for(int j=0;j<arr1;j++){
-                                                                System.out.println("here2: "+arr[j]+" "+d1);
+                                                               // System.out.println("here2: "+arr[j]+" "+d1);
                                                                 if(arr[j].equals(d1) ||arr[j].equals(d2) ||arr[j].equals(s1) ||arr[j].equals(s2) ||arr[j].equals(g)){
 
-                                                                    System.out.println("here3: ");
+
+                                                                    System.out.println("Goal Scored by: "+arr[j]);
+                                                                    count_test++;
+                                                                    count_goals=count_goals+3;
+                                                                    Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
+
+                                                                    mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                        @Override
+                                                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                            if (dataSnapshot.exists()) {
+
+                                                                                for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                                                                                    // do something with the individual "issues"
+                                                                                    if(issue.child("name").getValue().equals(NAME)) {
+                                                                                        countPoints = Integer.parseInt(issue.child("points").getValue().toString()) + count_goals;
+                                                                                        System.out.println("count: "+countPoints);
+                                                                                        issue.getRef().child("points").setValue(countPoints);
+                                                                                    }
+
+                                                                                }
+
+
+                                                                            }
+                                                                        }
+
+
+                                                                        @Override
+                                                                        public void onCancelled(DatabaseError databaseError) {
+
+                                                                        }
+                                                                    });
+                                                                }
+
+                                                            }
+                                                            System.out.println("Team is :" + test);
+                                                            if(count_test==arr.length)
+                                                                count_assists=0;
+                                                            for(int j=0;j<assistlength;j++){
+                                                                System.out.println("assist: "+assist[j]+" "+d1);
+                                                                if(assist[j].equals(d1) ||assist[j].equals(d2) ||assist[j].equals(s1) ||assist[j].equals(s2) ||assist[j].equals(g)){
+
+                                                                    System.out.println("assist by: "+assist[j]);
+                                                                    count_assists=count_assists+2;
 
 
                                                                     Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
@@ -199,7 +255,8 @@ public class FlogMainActivity extends AppCompatActivity {
                                                                                 for (DataSnapshot issue : dataSnapshot.getChildren()) {
                                                                                     // do something with the individual "issues"
                                                                                     if(issue.child("name").getValue().equals(NAME)) {
-                                                                                        count = Integer.parseInt(issue.child("points").getValue().toString()) + 3;
+                                                                                    //    count = Integer.parseInt(issue.child("points").getValue().toString()) + count_assists;
+                                                                                      count=countPoints+count_assists;
                                                                                         System.out.println("count: "+count);
                                                                                         issue.getRef().child("points").setValue(count);
                                                                                     }
@@ -219,7 +276,6 @@ public class FlogMainActivity extends AppCompatActivity {
                                                                 }
 
                                                             }
-                                                            System.out.println("Team is :" + test);
 
 
                                                         }
@@ -483,11 +539,6 @@ public class FlogMainActivity extends AppCompatActivity {
                         points.setText(String.valueOf(indivisualPoints.getPoints()) + " Points");
                         System.out.println("String : " + String.valueOf(indivisualPoints.getPoints()));
                     }
-
-                    //mPlayerListAdapter2.add(friendlyMessage);
-                    //mProgressBar.setVisibility(View.GONE);
-
-
                 }
 
                 @Override
