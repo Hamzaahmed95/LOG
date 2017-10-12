@@ -61,9 +61,15 @@ public class FlogMainActivity extends AppCompatActivity {
     String goals;
     private int count_goals;
     private int count_assists;
+    private int count_cleansheets;
     String assists;
+    String cleansheets;
+    String savePenaltyGolkeeper;
     private String name1;
     private int countPoints;
+    private int countPoints2;
+    private int countPoints3;
+    private int countPoints4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,6 +170,15 @@ public class FlogMainActivity extends AppCompatActivity {
                                                 for (int i = 0; i < assist.length; i++) {
                                                     a2[i] = assist[i];
                                                 }
+                                                cleansheets=issue.child("cleanSheets").getValue().toString();
+                                                final String [] cleansheet=cleansheets.split("-");
+                                                final int cleansheetsLength=cleansheet.length;
+                                                String a3[] = new String[cleansheetsLength];
+                                                for (int i = 0; i < cleansheetsLength; i++) {
+                                                    a3[i] = cleansheet[i];
+                                                }
+                                                savePenaltyGolkeeper=issue.child("savePenaltyGolkeeper").getValue().toString();
+
 
                                                 Query mHouseDatabaseReference03 = mFirebaseDatabase.getReference().child("IndivisualTeams").orderByChild("userId");
 
@@ -215,7 +230,7 @@ public class FlogMainActivity extends AppCompatActivity {
                                                                                     // do something with the individual "issues"
                                                                                     if(issue.child("name").getValue().equals(NAME)) {
                                                                                         countPoints = Integer.parseInt(issue.child("points").getValue().toString()) + count_goals;
-                                                                                        System.out.println("count: "+countPoints);
+                                                                                        System.out.println("countGoals: "+countPoints);
                                                                                         issue.getRef().child("points").setValue(countPoints);
                                                                                     }
 
@@ -238,7 +253,7 @@ public class FlogMainActivity extends AppCompatActivity {
                                                             if(count_test==arr.length)
                                                                 count_assists=0;
                                                             for(int j=0;j<assistlength;j++){
-                                                                System.out.println("assist: "+assist[j]+" "+d1);
+                                                                //System.out.println("assist: "+assist[j]+" "+d1);
                                                                 if(assist[j].equals(d1) ||assist[j].equals(d2) ||assist[j].equals(s1) ||assist[j].equals(s2) ||assist[j].equals(g)){
 
                                                                     System.out.println("assist by: "+assist[j]);
@@ -256,10 +271,19 @@ public class FlogMainActivity extends AppCompatActivity {
                                                                                     // do something with the individual "issues"
                                                                                     if(issue.child("name").getValue().equals(NAME)) {
                                                                                     //    count = Integer.parseInt(issue.child("points").getValue().toString()) + count_assists;
-                                                                                      count=countPoints+count_assists;
-                                                                                        System.out.println("count: "+count);
-                                                                                        issue.getRef().child("points").setValue(count);
-                                                                                    }
+
+                                                                                        if(countPoints==0){
+
+                                                                                            countPoints2=Integer.parseInt(issue.child("points").getValue().toString())+count_assists;
+                                                                                            issue.getRef().child("points").setValue(countPoints2);
+                                                                                        }
+                                                                                        else {
+                                                                                            countPoints2 = countPoints + count_assists;
+                                                                                            System.out.println("countAssist: " + countPoints2);
+                                                                                            issue.getRef().child("points").setValue(countPoints2);
+                                                                                        }
+
+                                                                                        }
 
                                                                                 }
 
@@ -276,6 +300,126 @@ public class FlogMainActivity extends AppCompatActivity {
                                                                 }
 
                                                             }
+                                                            count_cleansheets=0;
+                                                            for(int j=0;j<cleansheetsLength;j++){
+                                                                System.out.println("cleansheets: "+cleansheet[j]+" ");
+                                                                if(cleansheet[j].equals(d1) ||cleansheet[j].equals(d2) ||cleansheet[j].equals(s1) ||cleansheet[j].equals(s2) ||cleansheet[j].equals(g)){
+
+                                                                    System.out.println("cleansheets by: "+cleansheet[j]);
+                                                                    count_cleansheets=count_cleansheets+2;
+
+
+                                                                    Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
+
+                                                                    mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                        @Override
+                                                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                            if (dataSnapshot.exists()) {
+
+                                                                                for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                                                                                    // do something with the individual "issues"
+                                                                                    if(issue.child("name").getValue().equals(NAME)) {
+                                                                                        //    count = Integer.parseInt(issue.child("points").getValue().toString()) + count_assists;
+
+                                                                                        if(countPoints2==0){
+                                                                                            if(countPoints==0) {
+
+                                                                                                countPoints3 = Integer.parseInt(issue.child("points").getValue().toString()) + count_cleansheets;
+                                                                                                issue.getRef().child("points").setValue(countPoints3);
+                                                                                            }
+                                                                                            else{
+                                                                                                countPoints3 = countPoints + count_cleansheets;
+                                                                                                issue.getRef().child("points").setValue(countPoints3);
+
+                                                                                            }
+                                                                                        }
+                                                                                        else {
+                                                                                            countPoints3 = countPoints2 + count_cleansheets;
+                                                                                            System.out.println("cleansheets: " + countPoints3);
+                                                                                            System.out.println("countPoints2: " + countPoints2);
+                                                                                            issue.getRef().child("points").setValue(countPoints3);
+
+                                                                                        }
+                                                                                        }
+
+                                                                                }
+
+
+                                                                            }
+                                                                        }
+
+
+                                                                        @Override
+                                                                        public void onCancelled(DatabaseError databaseError) {
+
+                                                                        }
+                                                                    });
+                                                                }
+
+                                                            }
+                                                            System.out.println("save p"+savePenaltyGolkeeper);
+                                                            if(savePenaltyGolkeeper.equals(d1) ||savePenaltyGolkeeper.equals(d2) ||savePenaltyGolkeeper.equals(s1) ||savePenaltyGolkeeper.equals(s2) ||savePenaltyGolkeeper.equals(g)){
+
+                                                                System.out.println("savePenalty: "+savePenaltyGolkeeper);
+
+
+
+                                                                Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
+
+                                                                mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                    @Override
+                                                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                        if (dataSnapshot.exists()) {
+                                                                            for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                                                                                // do something with the individual "issues"
+                                                                                if(issue.child("name").getValue().equals(NAME)) {
+                                                                                    //    count = Integer.parseInt(issue.child("points").getValue().toString()) + count_assists;
+
+                                                                                    if(countPoints3==0){
+                                                                                        if(countPoints2==0) {
+                                                                                            if (countPoints == 0) {
+
+                                                                                                countPoints4 = Integer.parseInt(issue.child("points").getValue().toString()) + 3;
+                                                                                                issue.getRef().child("points").setValue(countPoints4);
+                                                                                                System.out.println("countPoint3=0 and countPoints4: " + countPoints4);
+                                                                                            } else {
+                                                                                                countPoints4 = countPoints + 3;
+                                                                                                issue.getRef().child("points").setValue(countPoints4);
+                                                                                                System.out.println("countPoint3=0 and countPoints4: " + countPoints4);
+
+                                                                                            }
+                                                                                        }
+                                                                                        else{
+                                                                                            countPoints4 = countPoints2 + 3;
+                                                                                            issue.getRef().child("points").setValue(countPoints4);
+                                                                                            System.out.println("countPoint3=0 and countPoints4: " + countPoints4);
+                                                                                        }
+
+                                                                                    }
+                                                                                    else {
+                                                                                        countPoints4 = countPoints3 + 3;
+                                                                                      //  System.out.println("savePenalty: " + countPoints4);
+                                                                                        System.out.println("countPoints4: " + countPoints4);
+                                                                                        issue.getRef().child("points").setValue(countPoints4);
+
+                                                                                    }
+                                                                                }
+
+                                                                            }
+
+
+                                                                        }
+                                                                    }
+
+
+                                                                    @Override
+                                                                    public void onCancelled(DatabaseError databaseError) {
+
+                                                                    }
+                                                                });
+                                                            }
+
+
 
 
                                                         }
