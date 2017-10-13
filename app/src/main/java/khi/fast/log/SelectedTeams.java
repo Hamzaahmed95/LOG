@@ -42,6 +42,7 @@ public class SelectedTeams extends AppCompatActivity {
     private TextView Defender2;
     private TextView Striker1;
     private TextView Striker2;
+    String name;
 
     private ChildEventListener mChildEventListener;
     @Override
@@ -109,7 +110,7 @@ public class SelectedTeams extends AppCompatActivity {
                 if (user != null) {
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
-                    //NAME = user.getDisplayName();
+                    name = user.getDisplayName();
 
 
 //
@@ -160,6 +161,7 @@ public class SelectedTeams extends AppCompatActivity {
     public void onBackPressed() {
         Intent i = new Intent(SelectedTeams.this,FlogMainActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.putExtra("name1",name);
         startActivity(i);
         finish();
     }

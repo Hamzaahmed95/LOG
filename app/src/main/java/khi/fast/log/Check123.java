@@ -146,10 +146,10 @@ public class Check123 extends AppCompatActivity {
             layout8.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    IndivisualPoints indivisualPoints = new IndivisualPoints(name1,0,0);
-                    IndivisualRanks indivisualRank = new IndivisualRanks(name1,0);
+                    IndivisualPoints indivisualPoints = new IndivisualPoints(name1,0,0,0);
+                  //  IndivisualRanks indivisualRank = new IndivisualRanks(name1,0);
                     mMessageDatabaseReference.push().setValue(indivisualPoints);
-                    mMessageDatabaseReference2.push().setValue(indivisualRank);
+                    //mMessageDatabaseReference2.push().setValue(indivisualRank);
                     Intent i = new Intent(Check123.this, SplashScreenFLOG.class);
                     startActivity(i);
                     finish();

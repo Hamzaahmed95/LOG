@@ -29,6 +29,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -70,6 +71,8 @@ public class FlogMainActivity extends AppCompatActivity {
     private int countPoints2;
     private int countPoints3;
     private int countPoints4;
+    private String Ranks="";
+    private LinearLayout result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,11 +86,19 @@ public class FlogMainActivity extends AppCompatActivity {
         textHide =(TextView)findViewById(R.id.textHide);
         toggle = (ToggleButton) findViewById(R.id.toggleButton);
         button = (Button) findViewById(R.id.Button2);
+        result = (LinearLayout) findViewById(R.id.result);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(FlogMainActivity.this,FantasyScoringActivity.class);
+                startActivity(i);
+            }
+        });
+        result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FlogMainActivity.this,ResultFantasyActivity.class);
                 startActivity(i);
             }
         });
@@ -473,6 +484,56 @@ public class FlogMainActivity extends AppCompatActivity {
         });
 
 
+        Query mHouseDatabaseReference233 = mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("points").limitToLast(3);
+
+
+        mHouseDatabaseReference233.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    ArrayList a1 = new ArrayList();
+
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("sheryy pagal"+issue.child("name").getValue());
+                        a1.add(issue.child("name").getValue());
+
+                    }
+                    Collections.reverse(a1);
+
+                    StringBuffer text = new StringBuffer();
+
+                    for(int i=0;i<a1.size();i++){
+                        Ranks=Ranks.concat(a1.get(i).toString()+"-");
+
+                    }
+
+
+
+                  //  markdisplayTextArea.setText(text.toString());
+                    System.out.println("After Reverse Order, ArrayList Contains : " + Ranks);
+                    int count=0;
+                    for (int i=0;i<Ranks.length();i++){
+
+                        if(Ranks.charAt(i)=='-'){
+                            Ranks=Ranks.replace(Ranks.charAt(i),'\n');
+                        }
+                    }
+                    System.out.println("After Reverse : " + Ranks);
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
 
 
 
@@ -518,8 +579,10 @@ public class FlogMainActivity extends AppCompatActivity {
                     int count = 0;
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         System.out.println("king" +name1);
+                        System.out.println("true or false "+issue.child("name").getValue().equals(name1));
                         if( issue.child("name").getValue().equals(name1)){
                             points.setText(issue.child("points").getValue().toString()+" Points");
+                            ranks.setText(issue.child("rank").getValue().toString()+" Rank");
                             System.out.println("issue" + issue.child("points").getValue()+" "+name1);
                         }
 
@@ -536,7 +599,7 @@ public class FlogMainActivity extends AppCompatActivity {
 
             }
         });
-        Query mHouseDatabaseReference4 =mFirebaseDatabase.getReference().child("IndivisualRank").orderByChild("name");
+      /*  Query mHouseDatabaseReference4 =mFirebaseDatabase.getReference().child("IndivisualRank").orderByChild("name");
 
         mHouseDatabaseReference4.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -566,7 +629,7 @@ public class FlogMainActivity extends AppCompatActivity {
 
 
 
-
+*/
 
         pickTeam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -613,6 +676,14 @@ public class FlogMainActivity extends AppCompatActivity {
         });
 
 
+    }
+    private static String myReverse(String str) {
+        String reverse = "";
+        int length = str.length();
+        for( int i = length - 1 ; i >= 0 ; i-- ) {
+            reverse = reverse + str.charAt(i);
+        }
+        return reverse;
     }
 
     @Override
@@ -689,6 +760,7 @@ public class FlogMainActivity extends AppCompatActivity {
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     IndivisualPoints indivisualPoints = dataSnapshot.getValue(IndivisualPoints.class);
                     points.setText(String.valueOf(indivisualPoints.getPoints())+" Points");
+                    ranks.setText(String.valueOf(indivisualPoints.getRank())+" Rank");
 
                 }
 
@@ -716,7 +788,7 @@ public class FlogMainActivity extends AppCompatActivity {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     IndivisualRanks indivisualRanks = dataSnapshot.getValue(IndivisualRanks.class);
-                    ranks.setText(String.valueOf(indivisualRanks.getRanks())+" Ranks");
+                  //  ranks.setText(String.valueOf(indivisualP)+" Ranks");
 
 
                     //mPlayerListAdapter2.add(friendlyMessage);

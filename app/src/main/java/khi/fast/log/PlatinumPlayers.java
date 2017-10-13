@@ -114,6 +114,7 @@ public class PlatinumPlayers extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(PlatinumPlayers.this,FlogMainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("name1",NAME);
                 startActivity(i);
             }
         });
