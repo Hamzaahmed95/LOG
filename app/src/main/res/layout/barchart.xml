@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    android:padding="10dp"
+    android:background="@drawable/bg_gradient9"
     android:orientation="vertical">
 
 
@@ -42,12 +41,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         android:id="@+id/layoutMiss">
-    <LinearLayout
+            <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:paddingTop="50dp"
-        android:layout_gravity="bottom"
+        android:layout_height="250dp"
+        android:layout_gravity="left"
         android:orientation="horizontal">
 
         <View
@@ -76,12 +75,11 @@
             android:layout_width="35dp"
             android:layout_height="0dp"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
             android:background="#ff00" /></LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="bottom"
+            android:gravity="center"
             android:layout_gravity="bottom"
             android:orientation="vertical">
             <TextView
@@ -224,506 +222,124 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:paddingTop="10dp"
-        android:paddingLeft="20dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="horizontal">
+
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:background="@drawable/bg_gradient"
-            android:padding="5dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
+            android:gravity="bottom"
+            android:layout_margin="5dp"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
+            <ImageView
+                android:layout_width="40dp"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@android:color/white"
-                android:gravity="center"
-                android:text="T"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:text="A"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:text="G"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-
+                android:layout_height="40dp"
+                android:src="@drawable/stags"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:padding="5dp"
-            android:background="@drawable/bg_gradient"
+            android:gravity="bottom"
+            android:layout_margin="2dp"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="10dp"
+            <ImageView
+                android:layout_width="40dp"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="D"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="R"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="A"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="G"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="O"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="N"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-
+                android:layout_height="40dp"
+                android:src="@drawable/dragons"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_gradient"
-            android:layout_marginRight="30dp"
-            android:padding="5dp"
+            android:gravity="bottom"
+            android:layout_margin="2dp"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
+            <ImageView
+                android:layout_width="40dp"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="D"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="I"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="R"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="E"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:background="@drawable/bg_gradient"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-
-            android:padding="5dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="F"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="A"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="L"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="C"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="O"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="N"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/bg_gradient"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="P"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="Y"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="T"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="H"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="O"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="N"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-
+                android:layout_height="40dp"
+                android:src="@drawable/dires"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_gradient"
-            android:layout_marginRight="30dp"
-            android:padding="5dp"
+            android:gravity="bottom"
+            android:layout_margin="2dp"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
+            <ImageView
+                android:layout_width="40dp"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="H"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="U"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="N"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="T"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="E"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="R"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
+                android:layout_height="40dp"
+                android:src="@drawable/falcons"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-
-            android:padding="5dp"
-            android:background="@drawable/bg_gradient"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:layout_margin="2dp"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
+            <ImageView
+                android:layout_width="40dp"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="J"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
                 android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="A"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="G"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="U"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="A"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="R"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="S"
-                />
-
+                android:layout_height="40dp"
+                android:src="@drawable/python"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
         </LinearLayout>
-
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_margin="2dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@android:color/white"
+                android:layout_height="40dp"
+                android:src="@drawable/hunters"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_margin="2dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@android:color/white"
+                android:layout_height="40dp"
+                android:src="@drawable/jaguar"
+                android:gravity="center_horizontal"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
+    </LinearLayout>
 
-
-</LinearLayout></LinearLayout>
+</LinearLayout>
