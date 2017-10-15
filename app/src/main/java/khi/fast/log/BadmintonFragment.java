@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -49,7 +50,6 @@ public class BadmintonFragment extends Fragment {
     private LinearLayout PointsTable;
     private LinearLayout Matches;
     private LinearLayout Teams;
-    private ImageView signout;
     private String Name;
     String[] array;
     AnimatorSet set3;
@@ -64,7 +64,9 @@ public class BadmintonFragment extends Fragment {
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
+    private ImageView backbutton;
+
+
 
     private FirebaseStorage firebaseStorage;
 
@@ -93,24 +95,22 @@ public class BadmintonFragment extends Fragment {
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
+        backbutton = (ImageView)view.findViewById(R.id.backButton5);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
+            }
+        });
         array = new String[100];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
 
-        showUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
-            }
-        });
+
 
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -124,12 +124,6 @@ public class BadmintonFragment extends Fragment {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthUI.getInstance().signOut(getActivity());
-            }
-        });
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
@@ -162,9 +156,9 @@ public class BadmintonFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollsBadmintonActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
@@ -178,18 +172,18 @@ public class BadmintonFragment extends Fragment {
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),Interview.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                 Intent i = new Intent(getActivity(),MOMBadminton.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
 
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),BadmintonPTActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
@@ -203,8 +197,8 @@ public class BadmintonFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),TeamBadminton.class);
+                startActivity(i);
             }
         });
 
@@ -274,7 +268,7 @@ public class BadmintonFragment extends Fragment {
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
+                      //  showUsers.setVisibility(View.GONE);
                     }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");

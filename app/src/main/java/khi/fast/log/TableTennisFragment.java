@@ -49,7 +49,6 @@ public class TableTennisFragment extends Fragment {
     private LinearLayout PointsTable;
     private LinearLayout Matches;
     private LinearLayout Teams;
-    private ImageView signout;
     private String Name;
     String[] array;
     AnimatorSet set3;
@@ -64,7 +63,8 @@ public class TableTennisFragment extends Fragment {
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
+
+    private ImageView backbutton;
 
     private FirebaseStorage firebaseStorage;
 
@@ -93,25 +93,12 @@ public class TableTennisFragment extends Fragment {
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
+     //   signout =(ImageView)view.findViewById(R.id.logout);
+     //   showUsers=(ImageView)view.findViewById(R.id.showUsers);
         array = new String[100];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
-
-        showUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
-            }
-        });
-
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -123,14 +110,16 @@ public class TableTennisFragment extends Fragment {
         mPollsPhotoStorageReference =firebaseStorage.getReference().child("Polls_photos");
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
-
-        signout.setOnClickListener(new View.OnClickListener() {
+        backbutton = (ImageView)view.findViewById(R.id.backButton5);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AuthUI.getInstance().signOut(getActivity());
+                Intent i = new Intent(getActivity(),Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
             }
         });
-
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -170,9 +159,9 @@ public class TableTennisFragment extends Fragment {
         Score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),MOM.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),TTScore.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         OPCAPS.setOnClickListener(new View.OnClickListener() {
@@ -274,7 +263,7 @@ public class TableTennisFragment extends Fragment {
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
+                     //   showUsers.setVisibility(View.GONE);
                     }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");
