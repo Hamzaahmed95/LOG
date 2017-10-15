@@ -192,8 +192,8 @@ public class TableTennisFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),TeamsTT.class);
+                startActivity(i);
             }
         });
 
