@@ -49,7 +49,6 @@ public class ThrowballFragment extends Fragment {
     private LinearLayout PointsTable;
     private LinearLayout Matches;
     private LinearLayout Teams;
-    private ImageView signout;
     private String Name;
     String[] array;
     AnimatorSet set3;
@@ -64,8 +63,6 @@ public class ThrowballFragment extends Fragment {
     private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
-
     private FirebaseStorage firebaseStorage;
 
     private StorageReference mPollsPhotoStorageReference;
@@ -93,24 +90,11 @@ public class ThrowballFragment extends Fragment {
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
         array = new String[100];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
 
-        showUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
-            }
-        });
 
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -124,12 +108,6 @@ public class ThrowballFragment extends Fragment {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthUI.getInstance().signOut(getActivity());
-            }
-        });
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
@@ -162,34 +140,34 @@ public class ThrowballFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollsThrowballActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),MOM.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),ThrowballScoreActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),Interview.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),MOMThrowball.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
 
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PTThrowballActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
@@ -203,8 +181,8 @@ public class ThrowballFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                 Intent i = new Intent(getActivity(),TeamsThrowball.class);
+                startActivity(i);
             }
         });
 
@@ -274,7 +252,7 @@ public class ThrowballFragment extends Fragment {
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
+                       // showUsers.setVisibility(View.GONE);
                     }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");
