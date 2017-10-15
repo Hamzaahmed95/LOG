@@ -195,6 +195,8 @@ public class DragonsThrowballActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(DragonsThrowballActivity.this,TeamsThrowball.class);
+        startActivity(i);
         finish();
     }
 

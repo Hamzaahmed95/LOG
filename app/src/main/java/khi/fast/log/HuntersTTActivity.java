@@ -195,6 +195,8 @@ public class HuntersTTActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(HuntersTTActivity.this,TeamsTT.class);
+        startActivity(i);
         finish();
     }
     @Override

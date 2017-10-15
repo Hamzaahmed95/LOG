@@ -195,6 +195,8 @@ public class HuntersFutsalActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(HuntersFutsalActivity.this,TeamFutsal.class);
+        startActivity(i);
         finish();
     }
     @Override

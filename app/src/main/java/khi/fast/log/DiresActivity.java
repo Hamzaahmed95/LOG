@@ -192,6 +192,8 @@ public class DiresActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(DiresActivity.this,Teams.class);
+        startActivity(i);
         finish();
     }
 

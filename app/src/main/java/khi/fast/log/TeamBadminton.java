@@ -98,42 +98,54 @@ public class TeamBadminton extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamBadminton.this,StagsBadmintonActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamBadminton.this,DragonsBadmintonActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamBadminton.this,JaguarsBadmintonActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamBadminton.this,FalconsBadmintonActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamBadminton.this,HuntersBadmintonActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamBadminton.this,DiresBadmintonActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 

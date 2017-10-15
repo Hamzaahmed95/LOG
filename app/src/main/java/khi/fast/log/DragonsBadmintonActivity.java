@@ -229,7 +229,7 @@ public class DragonsBadmintonActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(DragonsBadmintonActivity.this,Teams.class);
+        Intent i = new Intent(DragonsBadmintonActivity.this,TeamBadminton.class);
         startActivity(i);
         finish();
     }

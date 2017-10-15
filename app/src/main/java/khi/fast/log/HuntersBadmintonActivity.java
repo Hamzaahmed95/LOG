@@ -195,6 +195,8 @@ public class HuntersBadmintonActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(HuntersBadmintonActivity.this,TeamBadminton.class);
+        startActivity(i);
         finish();
     }
     @Override

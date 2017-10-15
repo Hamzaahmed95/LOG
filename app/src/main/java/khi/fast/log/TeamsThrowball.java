@@ -98,42 +98,54 @@ public class TeamsThrowball extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsThrowball.this,StagsThrowballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsThrowball.this,DragonsThrowballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsThrowball.this,JaguarsThrowballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsThrowball.this,FalconsThrowballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsThrowball.this,HuntersThrowballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsThrowball.this,DiresThrowballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 

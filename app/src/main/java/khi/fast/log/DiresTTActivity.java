@@ -193,6 +193,8 @@ public class DiresTTActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(DiresTTActivity.this,TeamsTT.class);
+        startActivity(i);
         finish();
     }
     @Override

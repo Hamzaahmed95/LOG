@@ -190,6 +190,8 @@ public class JaguarsBadmintonActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(JaguarsBadmintonActivity.this,TeamBadminton.class);
+        startActivity(i);
         finish();
     }
     public ArrayList<Image> getmMatch(){

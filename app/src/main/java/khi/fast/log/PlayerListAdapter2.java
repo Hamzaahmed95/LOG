@@ -248,7 +248,7 @@ public class PlayerListAdapter2 extends ArrayAdapter<FriendlyMessage> {
         Button Close = (Button) dialog.findViewById(R.id.close1);
         TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
         if(check) {
-            t1.setText(name + " is selected as striker");
+            t1.setText(name + " is selected as Striker");
             Close.setText("Select ");
         }
         else {

@@ -98,42 +98,54 @@ public class TeamsVolleyball extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsVolleyball.this,StagsVolleyballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsVolleyball.this,DragonsVolleyballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsVolleyball.this,JaguarsVolleyballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsVolleyball.this,FalconsVolleyballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsVolleyball.this,HuntersVolleyballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamsVolleyball.this,FalconsVolleyballActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,DiresVolleyballActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 

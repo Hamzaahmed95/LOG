@@ -193,6 +193,8 @@ public class FalconsFutsalActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(FalconsFutsalActivity.this,TeamFutsal.class);
+        startActivity(i);
         finish();
     }
     @Override

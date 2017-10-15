@@ -195,6 +195,8 @@ public class StagsFutsalActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(StagsFutsalActivity.this,TeamFutsal.class);
+        startActivity(i);
         finish();
     }
 

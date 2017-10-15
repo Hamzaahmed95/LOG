@@ -194,6 +194,8 @@ public class FalconsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(FalconsActivity.this,Teams.class);
+        startActivity(i);
         finish();
     }
     @Override

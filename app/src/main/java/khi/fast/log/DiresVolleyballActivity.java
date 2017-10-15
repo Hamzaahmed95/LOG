@@ -193,6 +193,8 @@ public class DiresVolleyballActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(DiresVolleyballActivity.this,TeamsVolleyball.class);
+        startActivity(i);
         finish();
     }
     @Override

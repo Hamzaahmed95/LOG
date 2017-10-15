@@ -193,7 +193,10 @@ public class FalconsThrowballActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(FalconsThrowballActivity.this,TeamsThrowball.class);
+        startActivity(i);
         finish();
+
     }
     @Override
     protected void onPause(){

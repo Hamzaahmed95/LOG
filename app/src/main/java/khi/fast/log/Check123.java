@@ -3,6 +3,8 @@ package khi.fast.log;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +53,7 @@ public class Check123 extends AppCompatActivity {
     private DatabaseReference mMessageDatabaseReference2;
     private FirebaseAuth mFirebaseAuth;
     private String getcount;
+    private Dialog dialog;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,8 +125,7 @@ public class Check123 extends AppCompatActivity {
         layout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, BasketballActivity.class);
-                startActivity(i);
+                showDialog();
             }
         });
         layout1 = (LinearLayout) findViewById(R.id.lay1);
@@ -449,5 +452,34 @@ public class Check123 extends AppCompatActivity {
         if(mChildEventListener2!=null)
             mMessageDatabaseReference.removeEventListener(mChildEventListener2);
         mChildEventListener2=null;
+    }
+    private void showDialog() {
+        // custom dialog
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.text1);
+
+        // set the custom dialog components - text, image and button
+
+        // Close Button
+
+        // Buy Button
+
+        TextView t1 = (TextView) dialog.findViewById(R.id.dialogText);
+        t1.setText("Due to Some reasons, Basketball matches will not be played!");
+
+        dialog.setCanceledOnTouchOutside(false);
+
+        Button Close = (Button) dialog.findViewById(R.id.close1);
+        Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+            }
+        });
+        Close.setText("Close");
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }

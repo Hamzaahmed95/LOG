@@ -94,7 +94,7 @@ public class DiresBadmintonActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DiresBadmintonActivity.this,TeamFutsal.class);
+                Intent i = new Intent(DiresBadmintonActivity.this,TeamBadminton.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
@@ -229,7 +229,7 @@ public class DiresBadmintonActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(DiresBadmintonActivity.this,Teams.class);
+        Intent i = new Intent(DiresBadmintonActivity.this,TeamBadminton.class);
         startActivity(i);
         finish();
     }

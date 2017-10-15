@@ -98,42 +98,54 @@ public class TeamsTT extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsTT.this,StagsTTActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsTT.this,DragonsTTActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsTT.this,JaguarsTTActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsTT.this,FalconsTTActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsTT.this,HuntersTTActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamsTT.this,DiresTTActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 

@@ -52,7 +52,7 @@ public class ThrowballFragment extends Fragment {
     String[] array;
     AnimatorSet set3;
     private FirebaseDatabase mFirebaseDatabase;
-
+    private ImageView backbutton;
     private DatabaseReference mMessageDatabaseReference;
     private DatabaseReference mUsersDatabaseReference;
     public static final int RC_SIGN_IN =1;
@@ -136,7 +136,16 @@ public class ThrowballFragment extends Fragment {
 
             }
         });
-
+        backbutton = (ImageView)view.findViewById(R.id.backButton5);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
+            }
+        });
 
         polls.setOnClickListener(new View.OnClickListener() {
             @Override

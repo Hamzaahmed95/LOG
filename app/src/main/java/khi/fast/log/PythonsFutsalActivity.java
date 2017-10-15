@@ -191,6 +191,8 @@ public class PythonsFutsalActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(PythonsFutsalActivity.this,TeamFutsal.class);
+        startActivity(i);
         finish();
     }
     public ArrayList<Image> getmMatch(){

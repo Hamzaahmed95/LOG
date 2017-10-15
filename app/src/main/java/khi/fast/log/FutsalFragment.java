@@ -163,6 +163,8 @@ public class FutsalFragment extends Fragment {
                 Intent i = new Intent(getActivity(),PollsFutsalActivity.class);
                 i.putExtra("username",name.getText());
                 System.out.println("name: "+name.getText());
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
                 startActivity(i);
             }
         });
@@ -171,6 +173,8 @@ public class FutsalFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),FutsalScoreActivity.class);
                 i.putExtra("username",name.getText());
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
                 startActivity(i);
             }
         });
@@ -179,6 +183,8 @@ public class FutsalFragment extends Fragment {
             public void onClick(View view) {
                  Intent i = new Intent(getActivity(),MOMFutsal.class);
                 i.putExtra("username",name.getText());
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
                 startActivity(i);
             }
         });
@@ -188,6 +194,8 @@ public class FutsalFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),PTFutsalActivity.class);
                 i.putExtra("username",name.getText());
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
                 startActivity(i);
             }
         });
@@ -196,6 +204,8 @@ public class FutsalFragment extends Fragment {
             @Override
             public void onClick(View view) {
                  Intent i = new Intent(getActivity(),TeamFutsal.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
                 startActivity(i);
             }
         });

@@ -737,7 +737,10 @@ public class FutsalScoreFragment extends Fragment {
                     onSignedInInitialize(user.getDisplayName());
                     Log.d("user: ", user.getDisplayName());
                     name=user.getDisplayName();
-                    if (!user.getDisplayName().equals("K142805 Hamza Ahmed")) {
+                    if (!user.getDisplayName().equals("K142805 Hamza Ahmed")&& !user.getDisplayName().equals("K153608 Safiullah Javaid")
+                            && !user.getDisplayName().equals("K163634 Ali Ahmed") && !user.getDisplayName().equals("K163745 Taha Bin Nadeem")
+                            && !user.getDisplayName().equals("K162413 Syed Wasif Raza")&& !user.getDisplayName().equals("K152885 HAFIZ MUHAMMAD HAMMAD")) {
+
                         mPhotoPickerButton1.setVisibility(View.GONE);
                         mPhotoPickerButton2.setVisibility(View.GONE);
                         Incrementruns1.setVisibility(View.GONE);

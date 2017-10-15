@@ -98,42 +98,54 @@ public class TeamFutsal extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamFutsal.this,StagsFutsalActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamFutsal.this,DragonsFutsalActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamFutsal.this,JaguarsFutsalActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamFutsal.this,FalconsFutsalActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamFutsal.this,HuntersFutsalActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TeamFutsal.this,PythonsFutsalActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 

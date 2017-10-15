@@ -229,7 +229,7 @@ public class DragonsFutsalActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(DragonsFutsalActivity.this,Teams.class);
+        Intent i = new Intent(DragonsFutsalActivity.this,TeamFutsal.class);
         startActivity(i);
         finish();
     }

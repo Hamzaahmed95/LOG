@@ -7,16 +7,27 @@
     android:background="@drawable/footballfield"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="25dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/goalkeeper"/>
 
         <TextView
             android:id="@+id/goalkeeper1"
             android:textSize="20dp"
-            android:paddingTop="75dp"
             android:fontFamily="sans-serif-condensed"
             android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Goal keeper"/>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,28 +38,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="120dp"
         android:gravity="center"
+        android:padding="10dp"
         android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/player"/>
         <TextView
             android:id="@+id/defender1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"
-            android:layout_margin="20dp"
+
             android:textColor="@android:color/white"
-            android:text="Defender 1"/>
+            android:text="Defender 1"/></LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/player"/>
         <TextView
             android:id="@+id/defender2"
             android:layout_width="wrap_content"
-            android:padding="10dp"
+
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"
-            android:layout_margin="20dp"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content"
-            android:text="Defender 2"/>
+            android:text="Defender 2"/></LinearLayout>
 
 
     </LinearLayout>
@@ -59,6 +91,17 @@
         android:gravity="center"
         android:paddingBottom="100dp"
         android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:paddingTop="25dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/player"/>
 
         <TextView
 
@@ -66,19 +109,28 @@
             android:layout_width="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"
-            android:layout_margin="20dp"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content"
-            android:text="Striker 1"/>
+            android:text="Striker 1"/></LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="25dp"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/player"/>
         <TextView
             android:id="@+id/striker2"
             android:layout_width="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"
-            android:layout_margin="20dp"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content"
-            android:text="Striker 2"/>
+            android:text="Striker 2"/></LinearLayout>
     </LinearLayout>
 
     </LinearLayout>

@@ -99,6 +99,7 @@ public class Teams extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
@@ -106,35 +107,45 @@ public class Teams extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,DragonsActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,JaguarActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,FalconsActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,HunterActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,DiresActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -271,6 +282,7 @@ public class Teams extends Activity {
         Intent i = new Intent(Teams.this,CricketActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
+        finish();
     }
     @Override
     public void onPause(){

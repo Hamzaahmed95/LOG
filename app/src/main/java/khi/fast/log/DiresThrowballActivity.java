@@ -94,7 +94,7 @@ public class DiresThrowballActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DiresThrowballActivity.this,TeamFutsal.class);
+                Intent i = new Intent(DiresThrowballActivity.this,TeamsThrowball.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
@@ -229,7 +229,7 @@ public class DiresThrowballActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(DiresThrowballActivity.this,Teams.class);
+        Intent i = new Intent(DiresThrowballActivity.this,TeamsThrowball.class);
         startActivity(i);
         finish();
     }
