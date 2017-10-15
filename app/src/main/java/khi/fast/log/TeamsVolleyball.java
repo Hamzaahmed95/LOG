@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
  * Created by Hamza Ahmed on 14-Jul-17.
  */
 
-public class TeamBadminton extends Activity {
+public class TeamsVolleyball extends Activity {
 
     private ImageView team1;
     private ImageView team2;
@@ -66,14 +66,14 @@ public class TeamBadminton extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teams);
         team=(LinearLayout)findViewById(R.id.team);
-        team.setBackgroundResource(R.drawable.bg_gradient6);
+        team.setBackgroundResource(R.drawable.bg_gradient7);
         backButton6=(ImageView)findViewById(R.id.backButton6);
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         backButton6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,BadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,VolleyballActivity.class);
 
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -97,42 +97,42 @@ public class TeamBadminton extends Activity {
         Team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,StagsBadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,StagsVolleyballActivity.class);
                 startActivity(i);
             }
         });
         Team1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,DragonsBadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,DragonsVolleyballActivity.class);
                 startActivity(i);
             }
         });
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,JaguarsBadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,JaguarsVolleyballActivity.class);
                 startActivity(i);
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,FalconsBadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,FalconsVolleyballActivity.class);
                 startActivity(i);
             }
         });
         Team4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,HuntersBadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,HuntersVolleyballActivity.class);
                 startActivity(i);
             }
         });
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamBadminton.this,DiresBadmintonActivity.class);
+                Intent i = new Intent(TeamsVolleyball.this,FalconsVolleyballActivity.class);
                 startActivity(i);
             }
         });
@@ -267,7 +267,7 @@ public class TeamBadminton extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(TeamBadminton.this,BadmintonActivity.class);
+        Intent i = new Intent(TeamsVolleyball.this,VolleyballActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }

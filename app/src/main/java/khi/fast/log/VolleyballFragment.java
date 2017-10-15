@@ -61,11 +61,9 @@ public class VolleyballFragment extends Fragment {
     public static final String ANONYMOUS = "anonymous";
     private ChildEventListener mChildEventListener;
     private String mUsername;
-    private String UserName;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageView showUsers;
-
+    private ImageView backbutton;
     private FirebaseStorage firebaseStorage;
 
     private StorageReference mPollsPhotoStorageReference;
@@ -93,26 +91,21 @@ public class VolleyballFragment extends Fragment {
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        signout =(ImageView)view.findViewById(R.id.logout);
-        showUsers=(ImageView)view.findViewById(R.id.showUsers);
         array = new String[100];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
 
-        showUsers.setOnClickListener(new View.OnClickListener() {
+        backbutton = (ImageView)view.findViewById(R.id.backButton5);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //   Intent ii = new Intent(getActivity(),Users.class);
-                Bundle b=new Bundle();
-                b.putStringArray("users",array);
-                // ii.putExtra("count",i);
-                //ii.putExtras(b);
-                //startActivity(ii);
+                Intent i = new Intent(getActivity(),Check123.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getActivity().finish();
+                startActivity(i);
             }
         });
-
-
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -124,12 +117,6 @@ public class VolleyballFragment extends Fragment {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());
 
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthUI.getInstance().signOut(getActivity());
-            }
-        });
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
 
@@ -162,34 +149,34 @@ public class VolleyballFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollsVolleyballActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),MOM.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),VolleyballScore.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),Interview.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),MOMVolleyball.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
 
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PTVolleyballActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
@@ -203,8 +190,8 @@ public class VolleyballFragment extends Fragment {
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),PollingActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),TeamsVolleyball.class);
+                startActivity(i);
             }
         });
 
@@ -274,7 +261,7 @@ public class VolleyballFragment extends Fragment {
                     Log.d("Name:",Name);
                     if(!Name.equals("K142805 Hamza Ahmed")){
 
-                        showUsers.setVisibility(View.GONE);
+                      //  showUsers.setVisibility(View.GONE);
                     }
                     //name.setText(user.getDisplayName().toUpperCase());
                     Log.d("hamza here","this");
