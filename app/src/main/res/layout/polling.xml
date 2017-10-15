@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:padding="10dp"
-        android:background="#000000"
+        android:background="#23355b"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/backButton5"
@@ -81,9 +81,9 @@
         android:background="@android:drawable/ic_menu_gallery" />
     <EditText
         android:layout_width="match_parent"
-        android:textColorHint="@android:color/black"
+        android:textColorHint="@android:color/white"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
 
         android:singleLine="true"
         android:hint="Enter Your Answer"
@@ -121,7 +121,7 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:id="@+id/status"/>
         <TextView
             android:layout_width="match_parent"
@@ -131,7 +131,7 @@
             android:textStyle="bold"
             android:textSize="13dp"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:id="@+id/msg"/>
     </LinearLayout>
 </LinearLayout>

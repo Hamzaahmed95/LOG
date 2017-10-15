@@ -47,11 +47,11 @@ public class TableTennisFragment extends Fragment {
     private LinearLayout Score;
     private LinearLayout OPCAPS;
     private LinearLayout PointsTable;
-    private LinearLayout Matches;
     private LinearLayout Teams;
     private String Name;
     String[] array;
     AnimatorSet set3;
+    private LinearLayout game;
     private FirebaseDatabase mFirebaseDatabase;
 
     private DatabaseReference mMessageDatabaseReference;
@@ -86,12 +86,13 @@ public class TableTennisFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.tabletennis, container, false);
+        View view = inflater.inflate(R.layout.cricket, container, false);
+        game=(LinearLayout)view.findViewById(R.id.game);
+        game.setBackgroundResource(R.drawable.bg_gradient14);
         polls = (LinearLayout)view.findViewById(R.id.layout1);
         Score = (LinearLayout)view.findViewById(R.id.layout2);
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
-        Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
      //   signout =(ImageView)view.findViewById(R.id.logout);
      //   showUsers=(ImageView)view.findViewById(R.id.showUsers);
@@ -181,14 +182,7 @@ public class TableTennisFragment extends Fragment {
                 startActivity(i);
             }
         });
-        Matches.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),OP.class);
 
-                //startActivity(i);
-            }
-        });
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:id="@+id/linearLayout"
         android:layout_height="wrap_content"
-        android:background="@android:color/black">
+        android:background="#23355b">
         <ImageView
             android:id="@+id/backButtonMOM"
             android:src="@drawable/left"
@@ -25,7 +25,7 @@
             android:fontFamily="sans-serif-condensed"
             android:textSize="25dp"
             android:gravity="center"
-            android:text="Star Of The Day"/></LinearLayout>
+            android:text="Star of The Day"/></LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"

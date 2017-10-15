@@ -16,6 +16,7 @@
         android:padding="15dp"
         android:textColor="@android:color/white"
         android:text="Note that"
+        android:fontFamily="sans-serif-condensed"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
         android:background="#3b5998"/>
@@ -32,7 +33,7 @@
         android:paddingTop="10dp"
         android:layout_gravity="center"
         android:foregroundGravity="center"
-        android:src="@drawable/coins"/>
+        android:src="@drawable/iconn"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +41,7 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
-        android:textColor="@android:color/black"
+        android:textColor="#3b5998"
         android:textStyle="bold"
         android:textSize="15dp"
         android:fontFamily="sans-serif-condensed"

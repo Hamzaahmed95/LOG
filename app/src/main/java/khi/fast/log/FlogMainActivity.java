@@ -839,7 +839,7 @@ public class FlogMainActivity extends AppCompatActivity {
         // Buy Button
 
         TextView t1 = (TextView) dialog.findViewById(R.id.dialogText);
-        t1.setText("You have 100 coins to buy 8 players \n 1 Goal Keeper \n 4 Defenders \n 3 Strikers");
+        t1.setText("You have to select 5 players \n 1 Goal Keeper \n 2 Defenders \n 2 Strikers");
 
         dialog.setCanceledOnTouchOutside(false);
         System.out.println("name:==> " + NAME);

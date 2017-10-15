@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/black"
+        android:background="#23355b"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="10dp">
@@ -36,7 +36,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="One Team, One Dream!"
-        android:textColor="@android:color/white"
+        android:textColor="#9023355b"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="@color/pink1"
+                        android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -103,7 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="0dp"
                         android:layout_height="30dp"
-                        android:background="@color/pink1"
+                        android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -142,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="@color/pink1"
+                        android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -175,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="@color/pink1"
+                        android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -214,7 +214,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="@color/pink1"
+                        android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -235,7 +235,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:src="@drawable/python" />
+                    android:src="@drawable/dires" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -248,7 +248,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="@color/pink1"
+                        android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />

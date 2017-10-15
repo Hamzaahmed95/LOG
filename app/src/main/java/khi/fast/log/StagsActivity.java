@@ -75,7 +75,7 @@ public class StagsActivity extends AppCompatActivity {
         setContentView(R.layout.stags);
 
         stags=(LinearLayout)findViewById(R.id.stags);
-        stags.setBackgroundResource(R.drawable.bg_gradient3);
+        stags.setBackgroundResource(R.drawable.bg_gradient14);
 
         recyclerView = (RecyclerView) findViewById(R.id.nawaitJanbaz);
         recyclerView.setHasFixedSize(true);

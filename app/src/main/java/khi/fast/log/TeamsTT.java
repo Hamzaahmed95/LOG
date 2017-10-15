@@ -66,7 +66,7 @@ public class TeamsTT extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teams);
         team=(LinearLayout)findViewById(R.id.team);
-        team.setBackgroundResource(R.drawable.bg_gradient9);
+        team.setBackgroundResource(R.drawable.bg_gradient14);
         backButton6=(ImageView)findViewById(R.id.backButton6);
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -132,7 +132,7 @@ public class TeamsTT extends Activity {
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamsTT.this,FalconsTTActivity.class);
+                Intent i = new Intent(TeamsTT.this,DiresTTActivity.class);
                 startActivity(i);
             }
         });

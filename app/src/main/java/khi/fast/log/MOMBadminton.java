@@ -105,7 +105,7 @@ public class MOMBadminton extends AppCompatActivity {
 
         NAME=ANONYMOUS;
         mom = (RelativeLayout)findViewById(R.id.mom);
-        mom.setBackgroundResource(R.drawable.bg_gradient6);
+        mom.setBackgroundResource(R.drawable.bg_gradient14);
         notes = new ArrayList<String>();
         mUsername = ANONYMOUS;
         mFirebaseDatabase = FirebaseDatabase.getInstance();

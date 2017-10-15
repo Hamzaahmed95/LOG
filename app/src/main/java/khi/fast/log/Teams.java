@@ -67,7 +67,7 @@ public class Teams extends Activity {
         setContentView(R.layout.teams);
 
         team=(LinearLayout)findViewById(R.id.team);
-        team.setBackgroundResource(R.drawable.bg_gradient3);
+        team.setBackgroundResource(R.drawable.bg_gradient14);
         backButton6=(ImageView)findViewById(R.id.backButton6);
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -112,14 +112,14 @@ public class Teams extends Activity {
         Team2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,DiresActivity.class);
+                Intent i = new Intent(Teams.this,JaguarActivity.class);
                 startActivity(i);
             }
         });
         Team3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,PythonsActivity.class);
+                Intent i = new Intent(Teams.this,FalconsActivity.class);
                 startActivity(i);
             }
         });
@@ -133,7 +133,7 @@ public class Teams extends Activity {
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,JaguarActivity.class);
+                Intent i = new Intent(Teams.this,DiresActivity.class);
                 startActivity(i);
             }
         });

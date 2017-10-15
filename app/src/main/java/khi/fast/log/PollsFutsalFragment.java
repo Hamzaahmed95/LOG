@@ -128,7 +128,7 @@ public class PollsFutsalFragment extends Fragment {
         firebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         polling=(LinearLayout)view.findViewById(R.id.polling);
-        polling.setBackgroundResource(R.drawable.bg_gradient5);
+        polling.setBackgroundResource(R.drawable.bg_gradient14);
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
         l1 = (LinearLayout)view.findViewById(R.id.hide);
         sadFace = (ImageView)view.findViewById(R.id.sadFace);

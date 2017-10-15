@@ -66,7 +66,7 @@ public class TeamsThrowball extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teams);
         team=(LinearLayout)findViewById(R.id.team);
-        team.setBackgroundResource(R.drawable.bg_gradient8);
+        team.setBackgroundResource(R.drawable.bg_gradient14);
         backButton6=(ImageView)findViewById(R.id.backButton6);
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -132,7 +132,7 @@ public class TeamsThrowball extends Activity {
         Team5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamsThrowball.this,FalconsThrowballActivity.class);
+                Intent i = new Intent(TeamsThrowball.this,DiresThrowballActivity.class);
                 startActivity(i);
             }
         });

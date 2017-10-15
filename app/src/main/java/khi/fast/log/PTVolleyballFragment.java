@@ -110,7 +110,7 @@ public class PTVolleyballFragment extends Fragment {
         imageView =(ImageView)view.findViewById(R.id.photoImageView2);
 
         pointstable = (LinearLayout)view.findViewById(R.id.pointstable);
-        pointstable.setBackgroundResource(R.drawable.bg_gradient7);
+        pointstable.setBackgroundResource(R.drawable.bg_gradient14);
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override

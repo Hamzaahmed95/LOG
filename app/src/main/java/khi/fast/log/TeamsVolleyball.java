@@ -66,7 +66,7 @@ public class TeamsVolleyball extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teams);
         team=(LinearLayout)findViewById(R.id.team);
-        team.setBackgroundResource(R.drawable.bg_gradient7);
+        team.setBackgroundResource(R.drawable.bg_gradient14);
         backButton6=(ImageView)findViewById(R.id.backButton6);
         mFirebaseAuth = FirebaseAuth.getInstance();
 

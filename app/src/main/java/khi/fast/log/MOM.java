@@ -114,7 +114,7 @@ public class MOM extends AppCompatActivity {
         closeButton = (ImageView) findViewById(R.id.backButtonMOM);
 
         mom = (RelativeLayout)findViewById(R.id.mom);
-        mom.setBackgroundResource(R.drawable.bg_gradient3);
+        mom.setBackgroundResource(R.drawable.bg_gradient14);
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("mom");
         mChatPhotoStorageReference =firebaseStorage.getReference().child("mom_photos");
         Log.d("oncreate ",mMessageDatabaseReference.getDatabase().toString());

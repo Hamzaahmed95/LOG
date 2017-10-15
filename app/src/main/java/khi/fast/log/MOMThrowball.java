@@ -105,7 +105,7 @@ public class MOMThrowball extends AppCompatActivity {
 
         NAME=ANONYMOUS;
         mom = (RelativeLayout)findViewById(R.id.mom);
-        mom.setBackgroundResource(R.drawable.bg_gradient8);
+        mom.setBackgroundResource(R.drawable.bg_gradient14);
         notes = new ArrayList<String>();
         mUsername = ANONYMOUS;
         mFirebaseDatabase = FirebaseDatabase.getInstance();

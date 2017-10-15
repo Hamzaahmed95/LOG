@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient7">
+    android:background="@drawable/bg_gradient14">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:background="#80000000"
+            android:background="#23355b"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="10dp">
@@ -82,7 +82,7 @@
                         android:paddingBottom="10dp"
                         android:paddingRight="10dp"
                         android:text="TEAM 1"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/white" />
 
 
                     <TextView
@@ -93,7 +93,7 @@
                         android:paddingLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20dp"/>
                     <ImageButton
                         android:id="@+id/photoPickerTeam1"
@@ -124,7 +124,7 @@
                         android:paddingBottom="10dp"
                         android:paddingRight="10dp"
                         android:text="TEAM 1"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/white" />
 
 
                     <TextView
@@ -135,7 +135,7 @@
                         android:paddingLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20dp"/>
                     <ImageButton
                         android:id="@+id/photoPickerTeam2"
@@ -160,7 +160,7 @@
                     android:id="@+id/e1"
                     android:layout_height="wrap_content"
                     android:hint="Teams names separated by -"
-                    android:textColorHint="@android:color/black"/>
+                    android:textColorHint="@android:color/white"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:id="@+id/send"
@@ -188,7 +188,7 @@
                         android:paddingBottom="10dp"
                         android:paddingRight="10dp"
                         android:text="TEAM 1"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/white" />
 
                     <ImageButton
                         android:id="@+id/photoPickerPlayer1"
@@ -255,7 +255,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed"
-                                android:textColor="@android:color/black"
+                                android:textColor="@android:color/white"
                                 android:textSize="40dp" />
 
                             <TextView
@@ -263,7 +263,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="-"
-                                android:textColor="@android:color/black"
+                                android:textColor="@android:color/white"
                                 android:textSize="40dp" />
 
                             <TextView
@@ -271,7 +271,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed"
-                                android:textColor="@android:color/black"
+                                android:textColor="@android:color/white"
                                 android:textSize="40dp" />
                         </LinearLayout>
 
@@ -316,7 +316,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:paddingBottom="10dp"
                         android:paddingLeft="10dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20dp" />
 
                     <ImageButton
@@ -384,7 +384,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="20dp" />
 
                         <TextView
@@ -392,7 +392,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:text="-"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="10dp" />
 
                         <TextView
@@ -400,7 +400,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="20dp" />
 
                     </LinearLayout>
@@ -487,7 +487,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="20dp" />
 
                         <TextView
@@ -495,7 +495,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:text="-"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="10dp" />
 
                         <TextView
@@ -503,7 +503,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="20dp" />
 
                     </LinearLayout>
@@ -588,7 +588,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="20dp" />
 
                         <TextView
@@ -596,7 +596,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:text="-"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="10dp" />
 
                         <TextView
@@ -604,7 +604,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/black"
+                            android:textColor="@android:color/white"
                             android:textSize="20dp" />
 
                     </LinearLayout>
@@ -658,7 +658,7 @@
                     android:background="@null"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="25dp"
                     android:textStyle="normal" />
 
@@ -669,7 +669,7 @@
                     android:background="@null"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="13dp"
                     android:textStyle="bold" />
             </LinearLayout>

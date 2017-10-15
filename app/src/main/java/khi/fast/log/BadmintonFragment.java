@@ -48,7 +48,6 @@ public class BadmintonFragment extends Fragment {
     private LinearLayout Score;
     private LinearLayout OPCAPS;
     private LinearLayout PointsTable;
-    private LinearLayout Matches;
     private LinearLayout Teams;
     private String Name;
     String[] array;
@@ -65,6 +64,7 @@ public class BadmintonFragment extends Fragment {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     private ImageView backbutton;
+    private LinearLayout game;
 
 
 
@@ -88,12 +88,13 @@ public class BadmintonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.badminton, container, false);
+        View view = inflater.inflate(R.layout.cricket, container, false);
+        game=(LinearLayout)view.findViewById(R.id.game);
+        game.setBackgroundResource(R.drawable.bg_gradient14);
         polls = (LinearLayout)view.findViewById(R.id.layout1);
         Score = (LinearLayout)view.findViewById(R.id.layout2);
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
-        Matches = (LinearLayout)view.findViewById(R.id.layout5);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
         backbutton = (ImageView)view.findViewById(R.id.backButton5);
         backbutton.setOnClickListener(new View.OnClickListener() {
@@ -186,14 +187,7 @@ public class BadmintonFragment extends Fragment {
                 startActivity(i);
             }
         });
-        Matches.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Intent i = new Intent(getActivity(),OP.class);
 
-                //startActivity(i);
-            }
-        });
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
