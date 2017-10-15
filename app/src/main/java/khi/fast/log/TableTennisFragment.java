@@ -151,9 +151,9 @@ public class TableTennisFragment extends Fragment {
         polls.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),Sponsor.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PollsTTActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Score.setOnClickListener(new View.OnClickListener() {
@@ -176,9 +176,9 @@ public class TableTennisFragment extends Fragment {
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getActivity(),HashtagActivity.class);
-                //i.putExtra("username",name.getText());
-                //startActivity(i);
+                Intent i = new Intent(getActivity(),PTTTActivity.class);
+                i.putExtra("username",name.getText());
+                startActivity(i);
             }
         });
         Matches.setOnClickListener(new View.OnClickListener() {
