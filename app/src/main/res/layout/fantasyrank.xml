@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient14"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
-        android:background="@drawable/bg_gradient14"
         android:layout_width="match_parent"
         android:gravity="center|top|left"
         android:layout_height="match_parent">
@@ -246,7 +252,281 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="4th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank4"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point4"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="5th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank5"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point5"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="6th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank6"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point6"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="7th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank7"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point7"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="8th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank8"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point8"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="9th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank9"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point9"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:text="10th"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/rank10"
+                android:textSize="15dp"
+                android:text="Compititors"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/point10"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>

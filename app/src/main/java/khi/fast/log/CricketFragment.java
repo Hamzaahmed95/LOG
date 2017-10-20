@@ -118,7 +118,7 @@ public class CricketFragment extends Fragment {
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
       //  signout =(ImageView)view.findViewById(R.id.logout);
 
-        array = new String[100];
+        array = new String[1000];
         i=0;
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
         backButton5.setOnClickListener(new View.OnClickListener() {

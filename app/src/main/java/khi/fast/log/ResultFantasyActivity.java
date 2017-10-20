@@ -33,6 +33,20 @@ public class ResultFantasyActivity extends AppCompatActivity {
     private TextView t4;
     private TextView t5;
     private TextView t6;
+    private TextView t7;
+    private TextView t8;
+    private TextView t9;
+    private TextView t10;
+    private TextView t11;
+    private TextView t12;
+    private TextView t13;
+    private TextView t14;
+    private TextView t15;
+    private TextView t16;
+    private TextView t17;
+    private TextView t18;
+    private TextView t19;
+    private TextView t20;
     String name="";
     String name1;
     int count=0;
@@ -53,6 +67,20 @@ public class ResultFantasyActivity extends AppCompatActivity {
         t4=(TextView)findViewById(R.id.point1);
         t5=(TextView)findViewById(R.id.point2);
         t6=(TextView)findViewById(R.id.point3);
+        t7=(TextView)findViewById(R.id.rank4);
+        t8=(TextView)findViewById(R.id.rank5);
+        t9=(TextView)findViewById(R.id.point4);
+        t10=(TextView)findViewById(R.id.point5);
+        t11=(TextView)findViewById(R.id.rank6);
+        t12=(TextView)findViewById(R.id.point6);
+        t13=(TextView)findViewById(R.id.rank7);
+        t14=(TextView)findViewById(R.id.point7);
+        t15=(TextView)findViewById(R.id.rank8);
+        t16=(TextView)findViewById(R.id.point8);
+        t17=(TextView)findViewById(R.id.rank9);
+        t18=(TextView)findViewById(R.id.point9);
+        t19=(TextView)findViewById(R.id.rank10);
+        t20=(TextView)findViewById(R.id.point10);
         backbutton5 = (ImageView) findViewById(R.id.backButton);
         backbutton5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +94,7 @@ public class ResultFantasyActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
-        Query mHouseDatabaseReference233 = mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("points").limitToLast(3);
+        Query mHouseDatabaseReference233 = mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("points").limitToLast(10);
 
 
         mHouseDatabaseReference233.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -78,16 +106,51 @@ public class ResultFantasyActivity extends AppCompatActivity {
                     // dataSnapshot is the "issue" node with all children with id 0
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         count++;
-                        System.out.println("sadia "+issue.child("points").getValue().toString());
-                        System.out.println("sadia2 "+issue.child("name").getValue().toString());
+                        System.out.println("points: "+issue.child("points").getValue().toString());
+                        System.out.println("name: "+issue.child("name").getValue().toString());
                         if(count==1){
+
+                            t19.setText(issue.child("name").getValue().toString());
+                            t20.setText(issue.child("points").getValue().toString());
+                        }
+                        else if(count==2){
+                            t17.setText(issue.child("name").getValue().toString());
+                            t18.setText(issue.child("points").getValue().toString());
+                        }
+                        else if(count==3){
+
+                            t15.setText(issue.child("name").getValue().toString());
+                            t16.setText(issue.child("points").getValue().toString());
+                        }
+                        else if(count==4){
+                            t13.setText(issue.child("name").getValue().toString());
+                            t14.setText(issue.child("points").getValue().toString());
+
+                        }
+                        else if(count==5){
+                            t11.setText(issue.child("name").getValue().toString());
+                            t12.setText(issue.child("points").getValue().toString());
+
+                        }
+                        else if(count==6){
+                            t8.setText(issue.child("name").getValue().toString());
+                            t10.setText(issue.child("points").getValue().toString());
+
+                        }
+                        else if(count==7){
+                            t7.setText(issue.child("name").getValue().toString());
+                            t9.setText(issue.child("points").getValue().toString());
+
+                        }
+                        else if(count==8){
                             t3.setText(issue.child("name").getValue().toString());
                             t6.setText(issue.child("points").getValue().toString());
 
                         }
-                        else if(count==2){
+                        else if(count==9){
                             t2.setText(issue.child("name").getValue().toString());
                             t5.setText(issue.child("points").getValue().toString());
+
                         }
                         else{
                             t1.setText(issue.child("name").getValue().toString());

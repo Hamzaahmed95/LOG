@@ -118,6 +118,7 @@ public class FlogMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(FlogMainActivity.this, SelectedTeams.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("NAME",NAME);
                 startActivity(i);
                 finish();
             }

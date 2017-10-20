@@ -92,7 +92,7 @@ public class VolleyballFragment extends Fragment {
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
-        array = new String[100];
+        array = new String[1000];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");

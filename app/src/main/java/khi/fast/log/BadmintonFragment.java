@@ -106,7 +106,7 @@ public class BadmintonFragment extends Fragment {
                 startActivity(i);
             }
         });
-        array = new String[100];
+        array = new String[1000];
         i=0;
         Name =ANONYMOUS;
         //  mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");

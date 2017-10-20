@@ -52,7 +52,7 @@ public class SelectedTeams extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
-        Bundle extra =this.getIntent().getExtras();
+
 
         GoalKeeper=(TextView)findViewById(R.id.goalkeeper1);
         Defender1=(TextView)findViewById(R.id.defender1);
@@ -61,7 +61,7 @@ public class SelectedTeams extends AppCompatActivity {
         Striker1 =(TextView)findViewById(R.id.striker1);
         Striker2 =(TextView)findViewById(R.id.striker2);
 
-
+        Bundle extra =this.getIntent().getExtras();
         if(extra!=null) {
             house = extra.getString("NAME");
 
@@ -79,6 +79,7 @@ public class SelectedTeams extends AppCompatActivity {
                     int count = 0;
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         //System.out.println("issue"+issue.child("check").getValue());
+                        System.out.println("house "+house+" userID: "+issue.child("userId").getValue()+" = "+issue.child("userId").getValue().equals(house));
                         if (issue.child("userId").getValue().equals(house)) {
 
                             System.out.println("Defender1 " + issue.child("defender1").getValue());
@@ -189,11 +190,13 @@ public class SelectedTeams extends AppCompatActivity {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     UsersFantacyTeam usersFantacyTeam = dataSnapshot.getValue(UsersFantacyTeam.class);
-                    GoalKeeper.setText(usersFantacyTeam.getGoalkeeper());
-                    Defender1.setText(usersFantacyTeam.getDefender1());
-                    Defender2.setText(usersFantacyTeam.getDefender2());
-                    Striker1.setText(usersFantacyTeam.getStriker1());
-                    Striker2.setText(usersFantacyTeam.getStriker2());
+                    if(usersFantacyTeam.getUserId().equals(house)) {
+                        GoalKeeper.setText(usersFantacyTeam.getGoalkeeper());
+                        Defender1.setText(usersFantacyTeam.getDefender1());
+                        Defender2.setText(usersFantacyTeam.getDefender2());
+                        Striker1.setText(usersFantacyTeam.getStriker1());
+                        Striker2.setText(usersFantacyTeam.getStriker2());
+                    }
                 }
 
                 @Override
