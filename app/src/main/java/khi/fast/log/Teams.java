@@ -6,16 +6,13 @@ package khi.fast.log;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -25,37 +22,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Teams extends Activity {
 
-    private ImageView team1;
-    private ImageView team2;
-    private ImageView team3;
-    private ImageView team4;
-    private ImageView team5;
-    private ImageView team6;
-    private String nawaitUnited;
-    private String ShanENawait;
-    private String NawaitJanbaz;
-    private String NawaitRoyals;
-    private String NawaitAces;
-    private String NawaitSultan;
+    private LinearLayout stags;
+    private LinearLayout dragons;
+    private LinearLayout jaguars;
+    private LinearLayout falcons;
+    private LinearLayout hunters;
+    private LinearLayout dires;
 
     ProgressBar mprogressBar;
-    ProgressBar mprogressBar1;
-    ProgressBar mprogressBar2;
-    ProgressBar mprogressBar3;
-    ProgressBar mprogressBar4;
-    ProgressBar mprogressBar5;
-    Button Team;
-    Button Team1;
-    Button Team2;
-    Button Team3;
-    Button Team4;
-    Button Team5;
-    Button Team6;
-    Button Team7;
-    Button Team8;
-    Button Team9;
-    Button Team10;
-    Button Team11;
     private ImageView backButton6;
     String name1;
     private LinearLayout team;
@@ -64,7 +38,8 @@ public class Teams extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.teams);
+        setContentView(R.layout.teams_overview);
+        System.out.println("Teams: here");
 
         team=(LinearLayout)findViewById(R.id.team);
         team.setBackgroundResource(R.drawable.bg_gradient14);
@@ -81,21 +56,16 @@ public class Teams extends Activity {
                 finish();
             }
         });
-        team1 = (ImageView)findViewById(R.id.team1);
-        team2 = (ImageView)findViewById(R.id.team2);
-        team3 = (ImageView)findViewById(R.id.team3);
-        team4 = (ImageView)findViewById(R.id.team4);
-        team5 = (ImageView)findViewById(R.id.team5);
-        team6 = (ImageView)findViewById(R.id.team6);
-        Team = (Button)findViewById(R.id.ButtonTeam);
-        Team1 = (Button)findViewById(R.id.ButtonTeam1);
-        Team2 = (Button)findViewById(R.id.ButtonTeam2);
-        Team3 = (Button)findViewById(R.id.ButtonTeam3);
-        Team4 = (Button)findViewById(R.id.ButtonTeam4);
-        Team5 = (Button)findViewById(R.id.ButtonTeam5);
+        stags = (LinearLayout) findViewById(R.id.stags);
+        dragons = (LinearLayout) findViewById(R.id.dragons);
+        jaguars = (LinearLayout) findViewById(R.id.jaguars);
+        falcons = (LinearLayout) findViewById(R.id.falcons);
+        hunters = (LinearLayout) findViewById(R.id.hunters);
+        dires = (LinearLayout) findViewById(R.id.dires);
 
 
-        Team.setOnClickListener(new View.OnClickListener() {
+
+        stags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
@@ -103,46 +73,46 @@ public class Teams extends Activity {
                 startActivity(i);
             }
         });
-        Team1.setOnClickListener(new View.OnClickListener() {
+        dragons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,DragonsActivity.class);
+                Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
             }
         });
-        Team2.setOnClickListener(new View.OnClickListener() {
+        jaguars.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,JaguarActivity.class);
+                Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
             }
         });
-        Team3.setOnClickListener(new View.OnClickListener() {
+        falcons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,FalconsActivity.class);
+                Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
             }
         });
-        Team4.setOnClickListener(new View.OnClickListener() {
+        hunters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,HunterActivity.class);
+                Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
             }
         });
-        Team5.setOnClickListener(new View.OnClickListener() {
+        dires.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,DiresActivity.class);
+                Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
@@ -154,128 +124,13 @@ public class Teams extends Activity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                if(user!=null){
-                    //user is signed in
-                    name1 =user.getDisplayName();
-                  /*  Team9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Teams.this,RoyalStatsActivity.class);
-                            i.putExtra("username",name1);
-                            startActivity(i);
-                        }
-                    });
-                    Team6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Teams.this,UnitedStatsActivity.class);
-                            i.putExtra("username",name1);
-                            startActivity(i);
-                        }
-                    });
-                    Team7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Teams.this,ShanStatsActivity.class);
-                            i.putExtra("username",name1);
-                            startActivity(i);
-                        }
-                    });
-                    Team8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Teams.this,JanbazStatsActivity.class);
-                            i.putExtra("username",name1);
-                            startActivity(i);
-                        }
-                    });
-                    ;
-                    Team10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Teams.this,AcesStatsActivity.class);
-                            i.putExtra("username",name1);
-                            startActivity(i);
-                        }
-                    });
-                    Team11.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Teams.this,SultanStatsActivity.class);
-                            i.putExtra("username",name1);
-                            startActivity(i);
-                        }
-                    });
-*/
-
+                if(user!=null) {
+                    name1 = user.getDisplayName();
                 }
-                else{
-                    //user is signed out
-
-
-
-                }
-            };
+            }
         };
-
-
-    }
-    private boolean isFirstTime()
-    {
-        SharedPreferences preferences = this.getPreferences(MODE_PRIVATE);
-        boolean ranBefore = preferences.getBoolean("RanBefore", false);
-        if (!ranBefore) {
-            // first time
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("RanBefore", true);
-            editor.commit();
-        }
-        return !ranBefore;
-    }
-    private void loadImages(){if(NawaitSultan!=null){
-        Glide.with(team6.getContext())
-                .load(NawaitSultan)
-                .into(team6);
-
-//        mprogressBar5.setVisibility(View.INVISIBLE);
     }
 
-        if(nawaitUnited!=null){
-            Glide.with(team1.getContext())
-                    .load(nawaitUnited)
-                    .into(team1);
-            //          mprogressBar.setVisibility(View.INVISIBLE);
-        }
-        if(ShanENawait!=null) {
-            Glide.with(team2.getContext())
-                    .load(ShanENawait)
-                    .into(team2);
-
-            //        mprogressBar1.setVisibility(View.INVISIBLE);
-        }
-        if(NawaitJanbaz!=null) {
-            Glide.with(team3.getContext())
-                    .load(NawaitJanbaz)
-                    .into(team3);
-            //      mprogressBar2.setVisibility(View.INVISIBLE);
-        }
-
-        if(NawaitRoyals!=null) {
-            Glide.with(team4.getContext())
-                    .load(NawaitRoyals)
-                    .into(team4);
-
-            //    mprogressBar3.setVisibility(View.INVISIBLE);
-        }
-        if(NawaitAces!=null) {
-            Glide.with(team5.getContext())
-                    .load(NawaitAces)
-                    .into(team5);
-
-            //  mprogressBar4.setVisibility(View.INVISIBLE);
-        }
-
-    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

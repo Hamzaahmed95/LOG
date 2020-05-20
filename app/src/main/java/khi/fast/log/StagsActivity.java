@@ -102,7 +102,6 @@ public class StagsActivity extends AppCompatActivity {
             }
         });
 
-        // Initialize references to views
 
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("stags");
 

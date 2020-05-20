@@ -205,7 +205,6 @@ public class LogOverviewActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     public void onPause() {
         System.out.println("Hamza Ahmed: onPause");
