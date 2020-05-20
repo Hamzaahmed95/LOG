@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,12 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * Created by Hamza Ahmed on 25-Sep-17.
- */
-
 public class LogOverviewActivity extends AppCompatActivity {
-
 
     LinearLayout cricket;
     LinearLayout basketball;
@@ -68,15 +62,12 @@ public class LogOverviewActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if (user != null) {
-                    System.out.println("Hamza Ahmed: user signedIn" + user.getDisplayName());
-                    //user is signed in
                     onSignedInInitialize(user.getDisplayName());
                     name1 = user.getDisplayName();
 
                 } else {
-                    //user is signed out
                     onSignedOutInitialize();
-                    System.out.println("Hamza Ahmed: user signed out");
+
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
