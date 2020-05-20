@@ -165,12 +165,12 @@ public class BadmintonScoreFragment extends Fragment {
             public void onBackStackChanged() {
                 if(getFragmentManager().getBackStackEntryCount() == 0) {
 
-                    Intent i = new Intent(getActivity(),BadmintonActivity.class);
+                    Intent i = new Intent(getActivity(),CricketActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
                 else{
-                    Intent i = new Intent(getActivity(),BadmintonActivity.class);
+                    Intent i = new Intent(getActivity(),CricketActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
 
@@ -825,7 +825,7 @@ public class BadmintonScoreFragment extends Fragment {
         backButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), BadmintonActivity.class);
+                Intent i = new Intent(getActivity(), CricketActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);

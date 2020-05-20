@@ -194,7 +194,7 @@ public class MOMVolleyball extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MOMVolleyball.this,VolleyballActivity.class);
+                Intent i = new Intent(MOMVolleyball.this,CricketActivity.class);
                 startActivity(i);
                 finish();
             }

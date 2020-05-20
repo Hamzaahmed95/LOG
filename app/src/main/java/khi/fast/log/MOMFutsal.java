@@ -194,7 +194,7 @@ public class MOMFutsal extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MOMFutsal.this,FutsalActivity.class);
+                Intent i = new Intent(MOMFutsal.this,CricketActivity.class);
                 startActivity(i);
                 finish();
             }

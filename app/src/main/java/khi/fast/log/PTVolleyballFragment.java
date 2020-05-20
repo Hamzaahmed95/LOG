@@ -76,7 +76,7 @@ public class PTVolleyballFragment extends Fragment {
             @Override
             public void onBackStackChanged() {
                 if(getFragmentManager().getBackStackEntryCount() == 0) {
-                    Intent i = new Intent(getActivity(),VolleyballActivity.class);
+                    Intent i = new Intent(getActivity(),CricketActivity.class);
                     getActivity().finish();
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
@@ -110,7 +110,7 @@ public class PTVolleyballFragment extends Fragment {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(),VolleyballActivity.class);
+                Intent i = new Intent(getActivity(),CricketActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);

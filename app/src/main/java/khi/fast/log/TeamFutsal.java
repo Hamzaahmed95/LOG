@@ -73,7 +73,7 @@ public class TeamFutsal extends Activity {
         backButton6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TeamFutsal.this,FutsalActivity.class);
+                Intent i = new Intent(TeamFutsal.this,CricketActivity.class);
 
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -279,7 +279,7 @@ public class TeamFutsal extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(TeamFutsal.this,FutsalActivity.class);
+        Intent i = new Intent(TeamFutsal.this,CricketActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }

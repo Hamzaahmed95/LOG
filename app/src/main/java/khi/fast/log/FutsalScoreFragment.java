@@ -624,7 +624,7 @@ public class FutsalScoreFragment extends Fragment {
         backButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), FutsalActivity.class);
+                Intent i = new Intent(getActivity(), CricketActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);

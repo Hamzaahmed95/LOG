@@ -152,7 +152,7 @@ public class PollsThrowballFragment extends Fragment {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(),ThrowballActivity.class);
+                Intent i = new Intent(getActivity(),CricketActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);
