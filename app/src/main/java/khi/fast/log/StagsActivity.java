@@ -145,8 +145,6 @@ public class StagsActivity extends AppCompatActivity {
             });
 
 
-
-
         mAuthStateListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {

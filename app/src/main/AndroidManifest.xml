@@ -112,44 +112,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".JaguarActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".DiresActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".DragonsActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-        <activity android:name=".FalconsActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-        <activity android:name=".HunterActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-
-
-    <activity android:name=".PythonsActivity"
+        <activity android:name=".PythonsActivity"
         android:screenOrientation="portrait">
         <intent-filter>
 
