@@ -126,7 +126,6 @@ public class CricketFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),Check123.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                getActivity().finish();
                 startActivity(i);
             }
         });
@@ -136,9 +135,10 @@ public class CricketFragment extends Fragment {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
 
         name=(TextView)view.findViewById(R.id.optionUsername);
-        firebaseStorage = FirebaseStorage.getInstance();
+
         mUsername = ANONYMOUS;
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("messages");
         mPollsPhotoStorageReference =firebaseStorage.getReference().child("Polls_photos");
@@ -391,7 +391,6 @@ public class CricketFragment extends Fragment {
         }
 */
     }
-
 
 
     @Override

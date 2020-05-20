@@ -142,7 +142,6 @@ public class FlogMainActivity extends AppCompatActivity {
 
 
         Query mHouseDatabaseReference10 =mFirebaseDatabase.getReference().child("IndivisualPoints").orderByChild("name");
-        System.out.println("here!"+mHouseDatabaseReference10);
 
         mHouseDatabaseReference10.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -151,7 +150,7 @@ public class FlogMainActivity extends AppCompatActivity {
                     int count = 0;
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                        // System.out.println("king" + NAME);
-
+                        System.out.println("here!"+issue);
                         if(name1!=null){
 
 

@@ -133,7 +133,7 @@ public class Check123 extends AppCompatActivity {
         layout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, FutsalActivity.class);
+                Intent i = new Intent(Check123.this, CricketActivity.class);
                 startActivity(i);
             }
         });
@@ -141,7 +141,7 @@ public class Check123 extends AppCompatActivity {
         layout7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, BadmintonActivity.class);
+                Intent i = new Intent(Check123.this, CricketActivity.class);
                 startActivity(i);
             }
         });
@@ -178,7 +178,7 @@ public class Check123 extends AppCompatActivity {
         layout6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, TableTennisActivity.class);
+                Intent i = new Intent(Check123.this, CricketActivity.class);
                 startActivity(i);
             }
         });
@@ -195,7 +195,7 @@ public class Check123 extends AppCompatActivity {
         layout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, VolleyballActivity.class);
+                Intent i = new Intent(Check123.this, CricketActivity.class);
                 startActivity(i);
             }
         });
@@ -204,7 +204,7 @@ public class Check123 extends AppCompatActivity {
         layout5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Check123.this, ThrowballActivity.class);
+                Intent i = new Intent(Check123.this, CricketActivity.class);
                 startActivity(i);
             }
         });
