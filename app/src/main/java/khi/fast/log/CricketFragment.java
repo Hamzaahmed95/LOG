@@ -6,6 +6,7 @@ package khi.fast.log;
 
 import android.animation.AnimatorSet;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Hamza Ahmed on 16-Jul-17.
@@ -37,8 +40,10 @@ public class CricketFragment extends Fragment {
     private FirebaseAuth mFirebaseAuth;
     private LinearLayout game;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
+    private String TAG = "";
 
 
+    SharedPreferences settings;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,8 +90,21 @@ public class CricketFragment extends Fragment {
                 startActivity(i);
             }
         });
+        settings = getActivity().getPreferences(MODE_PRIVATE);
 
 
+        settings = getActivity().getSharedPreferences("teams",0);
+        SharedPreferences.Editor editor = settings.edit();
+
+
+
+        Bundle extra =getActivity().getIntent().getExtras();
+        if(extra!=null) {
+            TAG = extra.getString("TAG");
+            editor.putString("TAG",TAG);
+            editor.commit();
+
+        }
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -134,6 +152,7 @@ public class CricketFragment extends Fragment {
 
                 Intent i = new Intent(getActivity(),Teams.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TAG",TAG);
                 getActivity().finish();
                 startActivity(i);
             }

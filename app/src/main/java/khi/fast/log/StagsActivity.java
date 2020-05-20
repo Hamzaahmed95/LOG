@@ -5,6 +5,7 @@ package khi.fast.log;
  */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,6 +67,10 @@ public class StagsActivity extends AppCompatActivity {
     private ArrayList<Image> images;
 
     private LinearLayout stags;
+    private String TAGS = "";
+    private String storageReference = "";
+    private String databaseReference = "";
+    private String Team="";
 
 
     @Override
@@ -91,6 +96,19 @@ public class StagsActivity extends AppCompatActivity {
         mStoriesStorageReference =firebaseStorage.getReference().child("stags_team");
         Button =(ImageView) findViewById(R.id.backButton);
 
+
+        SharedPreferences settings = getSharedPreferences("teams",0);
+
+
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!= null) {
+            Team= extras.getString("TEAM");
+        }
+        TAGS = settings.getString("TAG", "CRIC");
+        System.out.println("hamzaaa: "+TAGS+" "+Team);
+
+
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +121,7 @@ public class StagsActivity extends AppCompatActivity {
         });
 
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("stags");
+        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child(Team);
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -111,13 +129,16 @@ public class StagsActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
 
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        Image image1 = new Image();
-                        image1.setImage_ID(issue.child("image_ID").getValue().toString());
-                        images.add(image1);
+
+                        if(issue.child("game").getValue().toString().equalsIgnoreCase(TAGS)){
+                            Image image1 = new Image();
+                            image1.setImage_ID(issue.child("image_ID").getValue().toString());
+                            images.add(image1);
+                        }
+
                     }
                 }
 
-                //adapter.notifyDataSetChanged();
                 adapter = new TeamAdapter(StagsActivity.this, getmMatch());
                 recyclerView.setAdapter(adapter);
 
@@ -227,6 +248,7 @@ public class StagsActivity extends AppCompatActivity {
                         }
                     });
         }
+
     }
 
     @Override

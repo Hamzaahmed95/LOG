@@ -70,6 +70,7 @@ public class Teams extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TEAM" ,"stags");
                 startActivity(i);
             }
         });
@@ -78,6 +79,8 @@ public class Teams extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TEAM" ,"dragons");
+
                 startActivity(i);
                 finish();
             }
@@ -87,6 +90,7 @@ public class Teams extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TEAM" ,"jaguars");
                 startActivity(i);
                 finish();
             }
@@ -96,6 +100,7 @@ public class Teams extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TEAM" ,"falcons");
                 startActivity(i);
                 finish();
             }
@@ -105,6 +110,7 @@ public class Teams extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TEAM" ,"hunters");
                 startActivity(i);
                 finish();
             }
@@ -114,6 +120,7 @@ public class Teams extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Teams.this,StagsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("TEAM" ,"dires");
                 startActivity(i);
                 finish();
             }

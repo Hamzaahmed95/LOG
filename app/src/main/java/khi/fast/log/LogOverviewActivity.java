@@ -103,6 +103,7 @@ public class LogOverviewActivity extends AppCompatActivity {
     }
 
     private void handleClickListener() {
+
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,6 +116,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, CricketActivity.class);
+                i.putExtra("TAG","cricket");
                 startActivity(i);
             }
         });
@@ -131,6 +133,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, CricketActivity.class);
+                i.putExtra("TAG","futsal");
                 startActivity(i);
             }
         });
@@ -139,6 +142,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, CricketActivity.class);
+                i.putExtra("TAG","badminton");
                 startActivity(i);
             }
         });
@@ -174,6 +178,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, CricketActivity.class);
+                i.putExtra("TAG","tt");
                 startActivity(i);
             }
         });
@@ -183,6 +188,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, FanFavouriteActivity.class);
+
                 startActivity(i);
             }
         });
@@ -191,6 +197,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, CricketActivity.class);
+                i.putExtra("TAG","volley");
                 startActivity(i);
             }
         });
@@ -200,6 +207,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, CricketActivity.class);
+                i.putExtra("TAG","throwball");
                 startActivity(i);
             }
         });
