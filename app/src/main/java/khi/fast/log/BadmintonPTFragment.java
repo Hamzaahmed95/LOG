@@ -12,22 +12,17 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -173,7 +168,7 @@ public class BadmintonPTFragment extends Fragment {
 
 
 
-        pointTablePicture pointTablePicture1 = new pointTablePicture();
+        PointTablePicture pointTablePicture1 = new PointTablePicture();
 
 
 
@@ -205,7 +200,7 @@ public class BadmintonPTFragment extends Fragment {
                 if(user!=null){
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
-                    pointTablePicture p1 = new pointTablePicture();
+                    PointTablePicture p1 = new PointTablePicture();
                     Log.d("hamza ahmed",user.getDisplayName());
                     if(!user.getDisplayName().equals("K142805 Hamza Ahmed")){
                         imageView.setVisibility(View.GONE);
@@ -256,8 +251,8 @@ public class BadmintonPTFragment extends Fragment {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL =taskSnapshot.getDownloadUrl();
-                            pointTablePicture pointTablePicture = new pointTablePicture(downloadURL.toString(),null);
-                            //Log.d("Musername","here-> "+pointTablePicture.getName().substring(7));
+                            PointTablePicture pointTablePicture = new PointTablePicture(downloadURL.toString(),null);
+                            //Log.d("Musername","here-> "+PointTablePicture.getName().substring(7));
 
                             boolean isPhoto = downloadURL.toString() != null;
                             if (isPhoto) {
@@ -295,7 +290,7 @@ public class BadmintonPTFragment extends Fragment {
             mChildEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    pointTablePicture pointTablePicture1 = dataSnapshot.getValue(pointTablePicture.class);
+                    PointTablePicture pointTablePicture1 = dataSnapshot.getValue(PointTablePicture.class);
 
                     imageView.setVisibility(View.VISIBLE);
                     Glide.with(imageView.getContext())
@@ -306,7 +301,7 @@ public class BadmintonPTFragment extends Fragment {
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    pointTablePicture f =dataSnapshot.getValue(pointTablePicture.class);
+                    PointTablePicture f =dataSnapshot.getValue(PointTablePicture.class);
                 }
 
                 @Override
@@ -330,7 +325,7 @@ public class BadmintonPTFragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
-                        pointTablePicture note = noteDataSnapshot.getValue(pointTablePicture.class);
+                        PointTablePicture note = noteDataSnapshot.getValue(PointTablePicture.class);
 
 
                     }

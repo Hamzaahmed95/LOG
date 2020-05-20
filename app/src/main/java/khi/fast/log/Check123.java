@@ -62,6 +62,7 @@ public class Check123 extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualPoints");
         mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child("IndivisualRank");
+        System.out.println("Hamza Ahmed: Check123");
         Query mHouseDatabaseReference30 =mFirebaseDatabase.getReference().child("Score");
 
         mHouseDatabaseReference30.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -288,6 +289,7 @@ public class Check123 extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if(user!=null){
+                    System.out.println("Hamza Ahmed: user signedIn"+user.getDisplayName());
                     //user is signed in
                     onSignedInInitialize(user.getDisplayName());
                     name1=user.getDisplayName();
@@ -295,7 +297,7 @@ public class Check123 extends AppCompatActivity {
                 }else{
                     //user is signed out
                     onSignedOutInitialize();
-
+                    System.out.println("Hamza Ahmed: user signed out");
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
@@ -313,8 +315,10 @@ public class Check123 extends AppCompatActivity {
 
 
     }
+
     @Override
     public void onPause(){
+        System.out.println("Hamza Ahmed: onPause");
         super.onPause();
         if(mAuthStateListner!=null) {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
@@ -324,16 +328,21 @@ public class Check123 extends AppCompatActivity {
 
     @Override
     public void onResume(){
+        System.out.println("Hamza Ahmed: onResume");
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
 
     private void  onSignedInInitialize(String username){
         //mUsername = username;
+
+        System.out.println("Hamza Ahmed: onSignedInInitialize");
         attachDatabaseReadListener();
 
     }
     private void  onSignedOutInitialize(){
+
+        System.out.println("Hamza Ahmed: onSignedOutInitialize");
         //mUsername = ANONYMOUS;
 
        // detachDatabaseReadListener();
@@ -353,6 +362,8 @@ public class Check123 extends AppCompatActivity {
         return !ranBefore;
     }
     private void attachDatabaseReadListener() {
+
+        System.out.println("Hamza Ahmed: attachDatabaseReadListener");
         if (mChildEventListener == null) {
             mChildEventListener = new ChildEventListener() {
                 @Override
@@ -446,6 +457,8 @@ public class Check123 extends AppCompatActivity {
 
 
     private void detachDatabaseReadListener(){
+
+        System.out.println("Hamza Ahmed: detachDatabaseReadListener");
         if(mChildEventListener!=null)
             mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mChildEventListener=null;
@@ -464,6 +477,7 @@ public class Check123 extends AppCompatActivity {
 
         // Buy Button
 
+        System.out.println("Hamza Ahmed: showDialog");
         TextView t1 = (TextView) dialog.findViewById(R.id.dialogText);
         t1.setText("Due to Some reasons, Basketball matches will not be played!");
 

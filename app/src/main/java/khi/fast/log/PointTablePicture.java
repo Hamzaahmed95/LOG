@@ -4,15 +4,15 @@ package khi.fast.log;
  * Created by Hamza Ahmed on 27-Sep-17.
  */
 
-public class pointTablePicture {
+public class PointTablePicture {
     private String photoUrl;
     private String updatedDate;
 
-    public pointTablePicture(){
+    public PointTablePicture(){
 
     }
 
-    public pointTablePicture(String url,String date){
+    public PointTablePicture(String url, String date){
         photoUrl=url;
         updatedDate=date;
     }

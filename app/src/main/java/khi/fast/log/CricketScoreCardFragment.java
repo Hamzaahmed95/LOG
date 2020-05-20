@@ -1503,7 +1503,7 @@ public class CricketScoreCardFragment extends Fragment {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL =taskSnapshot.getDownloadUrl();
                             TeamsPicture pointTablePicture = new TeamsPicture(downloadURL.toString(),null);
-                            //Log.d("Musername","here-> "+pointTablePicture.getName().substring(7));
+                            //Log.d("Musername","here-> "+PointTablePicture.getName().substring(7));
 
                             boolean isPhoto = downloadURL.toString() != null;
                             if (isPhoto) {
@@ -1515,7 +1515,7 @@ public class CricketScoreCardFragment extends Fragment {
                                         .into(imageView);
                                 mMessageDatabaseReference.push().setValue(pointTablePicture);
                             }
-                            //checking=pointTablePicture.getPhotoUrl();
+                            //checking=PointTablePicture.getPhotoUrl();
 
                             //Log.d("pointTablePicture1",""+checking);
                         }
@@ -1532,7 +1532,7 @@ public class CricketScoreCardFragment extends Fragment {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL =taskSnapshot.getDownloadUrl();
                             TeamsPicture pointTablePicture = new TeamsPicture(downloadURL.toString(),null);
-                            //Log.d("Musername","here-> "+pointTablePicture.getName().substring(7));
+                            //Log.d("Musername","here-> "+PointTablePicture.getName().substring(7));
 
                             boolean isPhoto = downloadURL.toString() != null;
                             if (isPhoto) {
@@ -1544,7 +1544,7 @@ public class CricketScoreCardFragment extends Fragment {
                                         .into(imageView2);
                                 mMessageDatabaseReference2.push().setValue(pointTablePicture);
                             }
-                            //checking=pointTablePicture.getPhotoUrl();
+                            //checking=PointTablePicture.getPhotoUrl();
 
                             //Log.d("pointTablePicture1",""+checking);
                         }

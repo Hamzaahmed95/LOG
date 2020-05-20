@@ -1,4 +1,5 @@
 package khi.fast.log;
+
 public class MOMCLASS {
     private String NAME;
     private String PICTURE;

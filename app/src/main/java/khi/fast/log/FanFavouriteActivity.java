@@ -114,14 +114,18 @@ public class FanFavouriteActivity extends AppCompatActivity {
 
         if(isNetworkAvailable()) {
             Query mHouseDatabaseReference23 = mFirebaseDatabase.getReference().child("house");
+            System.out.println("Hamza Ahmed1 : we here 0 "+mHouseDatabaseReference23);
 
 
             mHouseDatabaseReference23.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+
                     if (dataSnapshot.exists()) {
+                        System.out.println("Hamza Ahmed1 : we here 1 "+dataSnapshot);
                         // dataSnapshot is the "issue" node with all children with id 0
                         for (DataSnapshot issue : dataSnapshot.getChildren()) {
+
                             mProgressBar.setVisibility(View.GONE);
                             l1.setVisibility(View.VISIBLE);
 
@@ -203,11 +207,12 @@ public class FanFavouriteActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    System.out.println("Hamza Ahmed1 : we here 4 "+databaseError);
                 }
             });
         }
         else{
+            System.out.println("Hamza Ahmed1 : we here 2");
             mProgressBar.setVisibility(View.GONE);
             l1.setVisibility(View.VISIBLE);
             sharedPref = getPreferences(MODE_PRIVATE);

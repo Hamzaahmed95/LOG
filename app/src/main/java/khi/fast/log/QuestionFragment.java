@@ -75,7 +75,7 @@ public class QuestionFragment extends Fragment {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
-        array = new String[100];
+        array = new String[250];
         i=0;
         mHouseDatabaseReference =mFirebaseDatabase.getReference().child("house");
         Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("house").orderByChild("username");
