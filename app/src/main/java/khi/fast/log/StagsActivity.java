@@ -41,78 +41,62 @@ import java.util.ArrayList;
 public class StagsActivity extends AppCompatActivity {
 
     private static final String TAG = "StagsActivity";
-    public static final String ANONYMOUS = "anonymous";
-    public static final int RC_SIGN_IN =1;
-    private TextView name;
-    private ImageButton mPhotoPickerButton;
-    private EditText mMessageEditText;
-    private Button mSendButton;
-    public String NAME;
-    private static final int RC_PHOTO_PICKERStories=3;
-    private String mUsername;
+    public static final int RC_SIGN_IN = 1;
     private ImageView Button;
     private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mStoriesDatabaseReference;
-    private ChildEventListener mChildEventListener;
     private FirebaseAuth mFirebaseAuth;
     private TeamAdapter adapter;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
-    private ImageButton photoPickerButtonStories;
-    private FirebaseStorage firebaseStorage;
     FirebaseUser user;
-    private StorageReference mChatPhotoStorageReference;
-    private StorageReference mStoriesStorageReference;
-    private String side2;
     private RecyclerView recyclerView;
     private ArrayList<Image> images;
 
     private LinearLayout stags;
     private String TAGS = "";
-    private String storageReference = "";
-    private String databaseReference = "";
-    private String Team="";
+    private String Team = "";
+    SharedPreferences settings;
+    Bundle extras;
 
 
     @Override
-    protected void onCreate( final Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stags);
-
-        stags=(LinearLayout)findViewById(R.id.stags);
+        initialization();
+        handleClickListener();
+        queryingData();
+    }
+    private void initialization() {
+        stags = (LinearLayout) findViewById(R.id.stags);
         stags.setBackgroundResource(R.drawable.bg_gradient14);
 
         recyclerView = (RecyclerView) findViewById(R.id.nawaitJanbaz);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        photoPickerButtonStories=(ImageButton)findViewById(R.id.photoPickerButtonStories);
-        NAME=ANONYMOUS;
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
         images = new ArrayList<>();
-        mUsername = ANONYMOUS;
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
-        firebaseStorage = FirebaseStorage.getInstance();
-        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stags");
-        mStoriesStorageReference =firebaseStorage.getReference().child("stags_team");
-        Button =(ImageView) findViewById(R.id.backButton);
 
+        Button = (ImageView) findViewById(R.id.backButton);
+        settings = getSharedPreferences("teams", 0);
+        extras = getIntent().getExtras();
 
-        SharedPreferences settings = getSharedPreferences("teams",0);
-
-
-
-        Bundle extras = getIntent().getExtras();
-        if(extras!= null) {
-            Team= extras.getString("TEAM");
+        if (extras != null) {
+            Team = extras.getString("TEAM");
         }
         TAGS = settings.getString("TAG", "CRIC");
-        System.out.println("hamzaaa: "+TAGS+" "+Team);
 
 
+    }
+
+    private void handleClickListener() {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(StagsActivity.this,Teams.class);
+                Intent i = new Intent(StagsActivity.this, Teams.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(i);
@@ -121,7 +105,10 @@ public class StagsActivity extends AppCompatActivity {
         });
 
 
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child(Team);
+    }
+
+    private void queryingData() {
+        Query mHouseDatabaseReference2 = mFirebaseDatabase.getReference().child(Team);
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -130,7 +117,7 @@ public class StagsActivity extends AppCompatActivity {
 
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
 
-                        if(issue.child("game").getValue().toString().equalsIgnoreCase(TAGS)){
+                        if (issue.child("game").getValue().toString().equalsIgnoreCase(TAGS)) {
                             Image image1 = new Image();
                             image1.setImage_ID(issue.child("image_ID").getValue().toString());
                             images.add(image1);
@@ -138,10 +125,8 @@ public class StagsActivity extends AppCompatActivity {
 
                     }
                 }
-
                 adapter = new TeamAdapter(StagsActivity.this, getmMatch());
                 recyclerView.setAdapter(adapter);
-
             }
 
 
@@ -151,43 +136,19 @@ public class StagsActivity extends AppCompatActivity {
             }
         });
 
-
-        if (photoPickerButtonStories != null)
-            photoPickerButtonStories.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: Fire an intent to show an image picker
-                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                    intent.setType("image/*");
-                    intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-                    startActivityForResult(intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKERStories);
-
-                }
-            });
-
-
         mAuthStateListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     //user is signed in
-                    onSignedInInitialize(user.getDisplayName());
-                    NAME = user.getDisplayName();
-
-                    if (!NAME.equals("K142805 Hamza Ahmed")) {
-                        photoPickerButtonStories.setVisibility(View.GONE);
-                    }
-
-
-
 
                     adapter = new TeamAdapter(StagsActivity.this, images);
 
                     if (recyclerView != null)
                         recyclerView.setAdapter(adapter);
                 } else {
-                    onSignedOutInitialize();
+
 
                     startActivityForResult(
                             AuthUI.getInstance()
@@ -205,12 +166,14 @@ public class StagsActivity extends AppCompatActivity {
 
             ;
         };
-
     }
-    public ArrayList<Image> getmMatch(){
+
+
+    public ArrayList<Image> getmMatch() {
 
         return images;
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -218,105 +181,19 @@ public class StagsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
-        if(mAuthStateListner!=null) {
+        if (mAuthStateListner != null) {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
-        detachDatabaseReadListener();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            if (resultCode == RESULT_OK) {
-            } else if (resultCode == RESULT_CANCELED) {
-            }
-        }
-        else if (requestCode == RC_PHOTO_PICKERStories && resultCode == RESULT_OK) {
-            Uri selectedImageUri = data.getData();
-            StorageReference photoRef =
-                    mStoriesStorageReference.child(selectedImageUri.getLastPathSegment());
-            photoRef.putFile(selectedImageUri).addOnSuccessListener
-                    (this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            Image image = new Image(null, downloadURL.toString());
-                            mStoriesDatabaseReference.push().setValue(image);
-                        }
-                    });
-        }
 
     }
 
+
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
-    }
-
-    private void  onSignedInInitialize(String username){
-        mUsername = username;
-        attachDatabaseReadListener();
-
-    }
-    private void  onSignedOutInitialize(){
-        mUsername = ANONYMOUS;
-        detachDatabaseReadListener();
-    }
-    private void attachDatabaseReadListener(){
-        if(mChildEventListener==null) {
-            mChildEventListener = new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    recyclerView.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-
-                }
-
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
-
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            };
-            mStoriesDatabaseReference.addChildEventListener(mChildEventListener);
-            mStoriesDatabaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-    }
-    private void detachDatabaseReadListener(){
-        if(mChildEventListener!=null)
-            mStoriesDatabaseReference.removeEventListener(mChildEventListener);
-        mChildEventListener=null;
     }
 
 

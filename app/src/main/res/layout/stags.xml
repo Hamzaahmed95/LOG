@@ -34,6 +34,7 @@
     <ImageButton
         android:id="@+id/photoPickerButtonStories"
         android:layout_width="30dp"
+        android:visibility="gone"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
