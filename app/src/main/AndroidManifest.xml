@@ -52,14 +52,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BasketballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <activity android:name=".PollingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -104,7 +96,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StagsActivity"
+        <activity android:name=".SelectTeamsActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -113,13 +105,6 @@
         </activity>
 
 
-        <activity android:name=".PythonsActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
         <activity android:name=".FanFavouriteActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -162,52 +147,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TeamFutsal"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".StagsFutsalActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".DragonsFutsalActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity> <activity android:name=".JaguarsFutsalActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity> <activity android:name=".HuntersFutsalActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity> <activity android:name=".FalconsFutsalActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-        <activity android:name=".PythonsFutsalActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
 
         <activity android:name=".FutsalScoreActivity"
             android:screenOrientation="portrait">
@@ -231,55 +170,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MOMBB"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".TeamBB"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".StagsBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".DragonsBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".FalconsBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".JaguarBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".HuntersBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".PythonsBBActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -381,55 +271,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TeamBadminton"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".StagsBadmintonActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity><activity android:name=".DragonsBadmintonActivity"
-        android:screenOrientation="portrait">
-        <intent-filter>
-            <category android:name="android.intent.category.LAUNCHER" />
-
-        </intent-filter>
-    </activity>
-        <activity android:name=".JaguarsBadmintonActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".HuntersBadmintonActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".FalconsBadmintonActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".DiresBadmintonActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
         <activity android:name=".PollsTTActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -459,61 +300,8 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".TeamsTT"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".StagsTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".DragonsTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
 
 
-        <activity android:name=".HuntersTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".JaguarsTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".FalconsTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".DiresTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
         <activity android:name=".VolleyballScore"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -544,56 +332,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TeamsVolleyball"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".StagsVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".DragonsVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".HuntersVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".JaguarsVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".FalconsVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".DiresVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
         <activity android:name=".ThrowballScoreActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -622,73 +360,6 @@
 
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".TeamsThrowball"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-
-        <activity android:name=".StagsThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".DragonsThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".JaguarsThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".HuntersThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".FalconsThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".DiresThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-
-
-
-
-
-
-
-
 
 
     </application>

@@ -151,10 +151,10 @@ public class PollBBFragment extends Fragment {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(),BasketballActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                getActivity().finish();
-                startActivity(i);
+//                Intent i = new Intent(getActivity(),BasketballActivity.class);
+//                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                getActivity().finish();
+//                startActivity(i);
             }
         });
         mprogressBar = (ProgressBar) view.findViewById(R.id.progressBarPT);

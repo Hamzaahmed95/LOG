@@ -6,41 +6,30 @@ package khi.fast.log;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 
 
-public class StagsActivity extends AppCompatActivity {
+public class SelectTeamsActivity extends AppCompatActivity {
 
-    private static final String TAG = "StagsActivity";
+    private static final String TAG = "SelectTeamsActivity";
     public static final int RC_SIGN_IN = 1;
     private ImageView Button;
     private FirebaseDatabase mFirebaseDatabase;
@@ -96,7 +85,7 @@ public class StagsActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(StagsActivity.this, Teams.class);
+                Intent i = new Intent(SelectTeamsActivity.this, Teams.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(i);
@@ -116,16 +105,18 @@ public class StagsActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
 
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
-
-                        if (issue.child("game").getValue().toString().equalsIgnoreCase(TAGS)) {
-                            Image image1 = new Image();
-                            image1.setImage_ID(issue.child("image_ID").getValue().toString());
-                            images.add(image1);
+                        if((issue.child("game").getValue()!=null)){
+                            if (issue.child("game").getValue().toString().equalsIgnoreCase(TAGS)) {
+                                Image image1 = new Image();
+                                image1.setImage_ID(issue.child("image_ID").getValue().toString());
+                                images.add(image1);
+                            }
                         }
+
 
                     }
                 }
-                adapter = new TeamAdapter(StagsActivity.this, getmMatch());
+                adapter = new TeamAdapter(SelectTeamsActivity.this, getmMatch());
                 recyclerView.setAdapter(adapter);
             }
 
@@ -143,7 +134,7 @@ public class StagsActivity extends AppCompatActivity {
                 if (user != null) {
                     //user is signed in
 
-                    adapter = new TeamAdapter(StagsActivity.this, images);
+                    adapter = new TeamAdapter(SelectTeamsActivity.this, images);
 
                     if (recyclerView != null)
                         recyclerView.setAdapter(adapter);

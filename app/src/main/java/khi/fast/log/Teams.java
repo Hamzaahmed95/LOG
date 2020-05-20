@@ -68,7 +68,7 @@ public class Teams extends Activity {
         stags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(Teams.this, SelectTeamsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("TEAM" ,"stags");
                 startActivity(i);
@@ -77,7 +77,7 @@ public class Teams extends Activity {
         dragons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(Teams.this, SelectTeamsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("TEAM" ,"dragons");
 
@@ -88,7 +88,7 @@ public class Teams extends Activity {
         jaguars.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(Teams.this, SelectTeamsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("TEAM" ,"jaguars");
                 startActivity(i);
@@ -98,7 +98,7 @@ public class Teams extends Activity {
         falcons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(Teams.this, SelectTeamsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("TEAM" ,"falcons");
                 startActivity(i);
@@ -108,7 +108,7 @@ public class Teams extends Activity {
         hunters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(Teams.this, SelectTeamsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("TEAM" ,"hunters");
                 startActivity(i);
@@ -118,7 +118,7 @@ public class Teams extends Activity {
         dires.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Teams.this,StagsActivity.class);
+                Intent i = new Intent(Teams.this, SelectTeamsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("TEAM" ,"dires");
                 startActivity(i);

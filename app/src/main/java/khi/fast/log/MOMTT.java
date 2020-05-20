@@ -194,9 +194,9 @@ public class MOMTT extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MOMTT.this,BasketballActivity.class);
-                startActivity(i);
-                finish();
+//                Intent i = new Intent(MOMTT.this,BasketballActivity.class);
+//                startActivity(i);
+//                finish();
             }
         });
         Bundle extra =getIntent().getExtras();
