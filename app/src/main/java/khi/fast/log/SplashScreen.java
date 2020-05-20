@@ -57,7 +57,7 @@ public class SplashScreen extends Activity {
             @Override
             public void run() {
 
-                startActivity(new Intent(SplashScreen.this, Check123.class));
+                startActivity(new Intent(SplashScreen.this, LogOverviewActivity.class));
                 finish();
 
             }

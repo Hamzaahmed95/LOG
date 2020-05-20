@@ -4,7 +4,6 @@ package khi.fast.log;
  * Created by Hamza Ahmed on 26-Sep-17.
  */
 
-import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.app.Dialog;
 import android.content.Intent;
@@ -101,7 +100,7 @@ public class BasketballFragment extends Fragment {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), Check123.class);
+                Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);

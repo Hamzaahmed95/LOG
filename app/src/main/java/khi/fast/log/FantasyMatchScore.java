@@ -41,8 +41,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import org.w3c.dom.Text;
-
 import static android.app.Activity.RESULT_OK;
 
 
@@ -623,7 +621,7 @@ public class FantasyMatchScore extends Fragment {
         backButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), Check123.class);
+                Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().finish();
                 startActivity(i);

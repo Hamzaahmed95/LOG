@@ -7,7 +7,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -17,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -30,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by Hamza Ahmed on 07-Oct-17.
@@ -130,7 +127,7 @@ public class FlogMainActivity extends AppCompatActivity {
         backbutton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(FlogMainActivity.this, Check123.class);
+                Intent i = new Intent(FlogMainActivity.this, LogOverviewActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(i);

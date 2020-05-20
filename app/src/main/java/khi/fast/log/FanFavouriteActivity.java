@@ -7,7 +7,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,9 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-
-import static android.R.attr.width;
-import static khi.fast.log.R.attr.height;
 
 /**
  * Created by Hamza Ahmed on 30-Sep-17.
@@ -103,7 +99,7 @@ public class FanFavouriteActivity extends AppCompatActivity {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(FanFavouriteActivity.this,Check123.class);
+                Intent i = new Intent(FanFavouriteActivity.this, LogOverviewActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(i);

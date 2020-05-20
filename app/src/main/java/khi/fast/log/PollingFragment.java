@@ -4,7 +4,6 @@ package khi.fast.log;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -110,7 +109,7 @@ public class PollingFragment extends Fragment {
                     startActivity(i);
                 }
                 else{
-                    Intent i = new Intent(getActivity(),Check123.class);
+                    Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                     startActivity(i);
 
                 }

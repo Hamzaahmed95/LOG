@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Check123"
+        <activity android:name=".LogOverviewActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 

@@ -35,7 +35,7 @@ public class SplashBack extends AppCompatActivity {
                 @Override
                 public void run() {
 
-                    startActivity(new Intent(SplashBack.this, Check123.class));
+                    startActivity(new Intent(SplashBack.this, LogOverviewActivity.class));
                     finish();
 
                 }

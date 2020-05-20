@@ -4,16 +4,12 @@ package khi.fast.log;
  * Created by Hamza Ahmed on 26-Sep-17.
  */
 
-import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
-import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,20 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Hamza Ahmed on 16-Jul-17.
@@ -65,12 +49,12 @@ public class CricketFragment extends Fragment {
             public void onBackStackChanged() {
                 if(getFragmentManager().getBackStackEntryCount() == 0) {
                     getActivity().finish();
-                    Intent i = new Intent(getActivity(),Check123.class);
+                    Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
                 else{
-                    Intent i = new Intent(getActivity(),Check123.class);
+                    Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                     startActivity(i);
 
                 }
@@ -96,7 +80,7 @@ public class CricketFragment extends Fragment {
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(),Check123.class);
+                Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
