@@ -126,13 +126,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PTFutsalActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity android:name=".FutsalScoreActivity"
             android:screenOrientation="portrait">
@@ -142,13 +135,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".PollBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".PTBBActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -235,14 +221,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PTTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
         <activity android:name=".TTScore"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -259,22 +237,8 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".PTVolleyballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
 
         <activity android:name=".ThrowballScoreActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".PTThrowballActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
