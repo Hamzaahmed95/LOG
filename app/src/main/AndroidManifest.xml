@@ -133,13 +133,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MOMFutsal"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity android:name=".FutsalScoreActivity"
             android:screenOrientation="portrait">
@@ -156,13 +149,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".PTBBActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MOMBB"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -249,22 +235,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MOMBadminton"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
         <activity android:name=".PTTTActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".MOMTT"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -296,14 +267,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MOMVolleyball"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
         <activity android:name=".ThrowballScoreActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -312,13 +275,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".PTThrowballActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".MOMThrowball"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
