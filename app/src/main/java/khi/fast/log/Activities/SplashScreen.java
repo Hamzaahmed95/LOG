@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import khi.fast.log.R;
+import khi.fast.log.Utils.Utils;
 
 
 /**
@@ -26,24 +27,36 @@ import khi.fast.log.R;
 public class SplashScreen extends Activity {
 
     ProgressBar mprogressBar;
+    Utils utils;
+    Animation anim1;
+    ImageView appLogo;
+    ObjectAnimator anim;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
-        Animation anim1 = AnimationUtils.loadAnimation(this,R.anim.anim_down);
-        ImageView img =(ImageView)findViewById(R.id.imageView);
-        img.setAnimation(anim1);
+        initialization();
+        launchingActivity();
+    }
 
+    public void initialization() {
+        anim1 = AnimationUtils.loadAnimation(this, R.anim.anim_down);
+        appLogo = (ImageView) findViewById(R.id.app_logo);
+        appLogo.setAnimation(anim1);
+        utils = new Utils(this);
         mprogressBar = (ProgressBar) findViewById(R.id.progressBar);
-        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
+        anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
         anim.setDuration(4000);
         anim.setInterpolator(new DecelerateInterpolator());
         anim.start();
+        handler = new Handler();
+    }
 
-        Handler handler = new Handler();
-        if (isFirstTime()) {
+    public void launchingActivity() {
 
+        if (utils.isFirstTime()) {
 
             handler.postDelayed(new Runnable() {
                 @Override
@@ -54,29 +67,18 @@ public class SplashScreen extends Activity {
 
                 }
             }, 3000);
-        }
-        else{ handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        } else {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 
-                startActivity(new Intent(SplashScreen.this, LogOverviewActivity.class));
-                finish();
+                    startActivity(new Intent(SplashScreen.this, LogOverviewActivity.class));
+                    finish();
 
-            }
-        }, 0);
+                }
+            }, 0);
 
         }
     }
-    private boolean isFirstTime()
-    {
-        SharedPreferences preferences = this.getPreferences(MODE_PRIVATE);
-        boolean ranBefore = preferences.getBoolean("RanBefore", false);
-        if (!ranBefore) {
-            // first time
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("RanBefore", true);
-            editor.commit();
-        }
-        return !ranBefore;
-    }
+
 }
