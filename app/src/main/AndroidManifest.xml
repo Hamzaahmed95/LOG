@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:noHistory="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen"
+        <activity android:name=".Activities.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,14 +22,14 @@
                 />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".Activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuestionActivity"
+        <activity android:name=".Activities.QuestionActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -37,22 +37,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LogOverviewActivity"
+        <activity android:name=".Activities.LogOverviewActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CricketActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".PollingActivity"
+        <activity android:name=".Activities.LogDetailsActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -60,21 +52,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CricketScoreCardActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".FullScorecard2"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".FullScorecard3"
+        <activity android:name=".Activities.PollingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -82,44 +60,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PointsTableActivity"
+        <activity android:name=".Scoring.CricketScoreCardActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Teams"
+        <activity android:name=".Activities.FullScorecard2"
             android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelectTeamsActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-        <activity android:name=".FanFavouriteActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MOM"
-            android:screenOrientation="portrait">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".BBScoreCardActivity"
+        <activity android:name=".Activities.FullScorecard3"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -127,21 +82,59 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FutsalScoreActivity"
+        <activity android:name=".Activities.PointsTableActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PollBBActivity"
+        <activity android:name=".Activities.TeamsOverview"
             android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FantacyLOGActivity"
+        <activity android:name=".Activities.SelectTeamsActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".Activities.FanFavouriteActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.MOM"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Scoring.BBScoreCardActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Scoring.FutsalScoreActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.FantacyLOGActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -150,70 +143,63 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".PlatinumPlayers"
+        <activity android:name=".Activities.PlatinumPlayers"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GoldPlayers"
+        <activity android:name=".Activities.GoldPlayers"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SilverPlayers"
+        <activity android:name=".Activities.SilverPlayers"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreenFLOG"
+        <activity android:name=".Activities.SplashScreenFLOG"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashBack"
+        <activity android:name=".Activities.SplashBack"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FlogMainActivity"
+        <activity android:name=".Activities.FlogMainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelectedTeams"
+        <activity android:name=".Activities.SelectedTeams"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FantasyScoringActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".ResultFantasyActivity"
+        <activity android:name=".Activities.FantasyScoringActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
             </intent-filter>
         </activity>
-        <activity android:name=".BadmintonScore"
+        <activity android:name=".Activities.ResultFantasyActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
             </intent-filter>
         </activity>
-        <activity android:name=".BadmintonPTActivity"
+        <activity android:name=".Scoring.BadmintonScore"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -221,7 +207,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TTScore"
+        <activity android:name=".Scoring.TTScore"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -230,7 +216,7 @@
         </activity>
 
 
-        <activity android:name=".VolleyballScore"
+        <activity android:name=".Scoring.VolleyballScore"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -238,7 +224,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ThrowballScoreActivity"
+        <activity android:name=".Scoring.ThrowballScoreActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
