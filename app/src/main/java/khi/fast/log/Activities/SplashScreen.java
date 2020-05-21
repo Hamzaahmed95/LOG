@@ -26,11 +26,8 @@ import khi.fast.log.Utils.Utils;
 
 public class SplashScreen extends Activity {
 
-    ProgressBar mprogressBar;
+    ProgressBar progressBar;
     Utils utils;
-    Animation anim1;
-    ImageView appLogo;
-    ObjectAnimator anim;
     Handler handler;
 
     @Override
@@ -42,15 +39,9 @@ public class SplashScreen extends Activity {
     }
 
     public void initialization() {
-        anim1 = AnimationUtils.loadAnimation(this, R.anim.anim_down);
-        appLogo = (ImageView) findViewById(R.id.app_logo);
-        appLogo.setAnimation(anim1);
+
         utils = new Utils(this);
-        mprogressBar = (ProgressBar) findViewById(R.id.progressBar);
-        anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
-        anim.setDuration(4000);
-        anim.setInterpolator(new DecelerateInterpolator());
-        anim.start();
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         handler = new Handler();
     }
 
@@ -66,7 +57,7 @@ public class SplashScreen extends Activity {
                     finish();
 
                 }
-            }, 3000);
+            }, 2500);
         } else {
             handler.postDelayed(new Runnable() {
                 @Override
