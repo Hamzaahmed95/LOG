@@ -19,4 +19,18 @@ public class Constants {
     public static final String[] QUESTION_ACTIVITY_FAV_TEAM = new String[]{"FAVOURITE TEAM","Stags","Falcons", "Jaguars", "Hunters", "Pythons", "Dires", "Dragons"};
 
 
+    public static final String LOG_OVERVIEW_FLOG_TEXT = "FLOG";
+    public static final String LOG_OVERVIEW_CRICKET_TEXT = "Cricket";
+    public static final String LOG_OVERVIEW_FUTSAL_TEXT = "Futsal";
+    public static final String LOG_OVERVIEW_BASKETBALL_TEXT = "Basketball";
+    public static final String LOG_OVERVIEW_FFT_TEXT = "FFT";
+    public static final String LOG_OVERVIEW_TABLE_TEXT = "Table";
+    public static final String LOG_OVERVIEW_THROW_TEXT = "Throw";
+    public static final String LOG_OVERVIEW_VOLLEY_TEXT = "Volley";
+    public static final String LOG_OVERVIEW_BADMINTON_TEXT = "Badminton";
+    public static final String LOG_OVERVIEW_TAG = "TAG";
+    public static final String LOG_OVERVIEW_BASKETBALL_MESSAGE = "Due to Some reasons, Basketball matches will not be played!";
+
+
+
 }
