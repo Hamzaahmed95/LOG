@@ -1,7 +1,10 @@
 package khi.fast.log.Utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 
 
 import static android.content.Context.MODE_PRIVATE;
@@ -19,5 +22,17 @@ public class Utils {
             editor.commit();
         }
         return !ranBefore;
+    }
+
+    public static final void startingActivity1(Context context, final Class<? extends Activity> ActivityToOpen, String extraKey,String extraMsg){
+        if(extraKey==""){
+            Intent i = new Intent(context, ActivityToOpen);
+            context.startActivity(i);
+        }
+        else{
+            Intent i = new Intent(context, ActivityToOpen);
+            i.putExtra(extraKey,extraMsg);
+            context.startActivity(i);
+        }
     }
 }

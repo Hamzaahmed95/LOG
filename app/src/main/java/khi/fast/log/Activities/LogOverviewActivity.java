@@ -162,9 +162,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         cricket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra(LOG_OVERVIEW_TAG,"cricket");
-                startActivity(i);
+                startingActivity("cricket");
             }
         });
 
@@ -179,18 +177,14 @@ public class LogOverviewActivity extends AppCompatActivity {
         futsal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra(LOG_OVERVIEW_TAG,"futsal");
-                startActivity(i);
+                startingActivity("futsal");
             }
         });
 
         badminton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra(LOG_OVERVIEW_TAG,"badminton");
-                startActivity(i);
+                startingActivity("badminton");
             }
         });
 
@@ -224,9 +218,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         tabletennis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra(LOG_OVERVIEW_TAG,"tt");
-                startActivity(i);
+                startingActivity("tt");
             }
         });
 
@@ -243,9 +235,8 @@ public class LogOverviewActivity extends AppCompatActivity {
         volley.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra(LOG_OVERVIEW_TAG,"volley");
-                startActivity(i);
+                startingActivity("volley");
+
             }
         });
 
@@ -253,9 +244,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         throwball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra(LOG_OVERVIEW_TAG,"throwball");
-                startActivity(i);
+                startingActivity("throwball");
             }
         });
     }
@@ -281,9 +270,11 @@ public class LogOverviewActivity extends AppCompatActivity {
         attachDatabaseReadListener();
     }
 
+    private void startingActivity(String extra){
+        Utils.startingActivity1(LogOverviewActivity.this, LogDetailsActivity.class,LOG_OVERVIEW_TAG,extra);
+    }
 
     private void attachDatabaseReadListener() {
-
 
         if (mChildEventListener == null) {
             mChildEventListener = new ChildEventListener() {
