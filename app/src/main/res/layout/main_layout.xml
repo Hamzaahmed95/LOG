@@ -62,7 +62,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Futsal"/>
+                android:id="@+id/Futsal"/>
 
         </LinearLayout>
         <LinearLayout
@@ -94,7 +94,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Cricket"/>
+                android:id="@+id/Cricket"/>
 
         </LinearLayout>
         <LinearLayout
@@ -124,7 +124,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Basketball"/>
+                android:id="@+id/Basketball"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -164,7 +164,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Badminton"/>
+                android:id="@+id/Badminton"/>
 
         </LinearLayout>
         <LinearLayout
@@ -195,7 +195,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="FLOG"/>
+                android:id="@+id/FLOG"/>
 
         </LinearLayout>
         <LinearLayout
@@ -217,14 +217,15 @@
                     android:layout_height="50dp"
                     android:src="@drawable/ffr"/>
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="FFT"/>
+                android:fontFamily="sans-serif-condensed"
+                android:id="@+id/FFT"
+                android:textColor="@android:color/white"
+                android:textSize="15dp" />
 
         </LinearLayout>
     </LinearLayout>
@@ -263,7 +264,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Volley"/>
+                android:id="@+id/Volley"/>
 
         </LinearLayout>
         <LinearLayout
@@ -294,7 +295,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Throw"/>
+                android:id="@+id/Throw"/>
 
         </LinearLayout>
         <LinearLayout
@@ -324,7 +325,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Table"/>
+                android:id="@+id/Table"/>
 
         </LinearLayout>
 

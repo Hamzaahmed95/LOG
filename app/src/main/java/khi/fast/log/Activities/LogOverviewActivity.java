@@ -2,7 +2,6 @@ package khi.fast.log.Activities;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -25,6 +24,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import khi.fast.log.POJO.IndivisualPoints;
 import khi.fast.log.R;
+import khi.fast.log.Utils.Utils;
+
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_BADMINTON_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_BASKETBALL_MESSAGE;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_BASKETBALL_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_CRICKET_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_FFT_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_FLOG_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_FUTSAL_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_TABLE_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_TAG;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_THROW_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_OVERVIEW_VOLLEY_TEXT;
 
 public class LogOverviewActivity extends AppCompatActivity {
 
@@ -38,21 +50,33 @@ public class LogOverviewActivity extends AppCompatActivity {
     LinearLayout flog;
     LinearLayout fanfav;
     String name1;
+    TextView Cricket;
+    TextView Futsal;
+    TextView Basketball;
+    TextView Badminton;
+    TextView Volley;
+    TextView TableTennis;
+    TextView Throw;
+    TextView FFT;
+    TextView Flog;
+
 
     private FirebaseDatabase mFirebaseDatabase;
     private ImageView signout;
     public static final int RC_SIGN_IN = 1;
     private ChildEventListener mChildEventListener;
-    private DatabaseReference mMessageDatabaseReference;
+    private DatabaseReference IndivisualPointsDB;
     private FirebaseAuth mFirebaseAuth;
     private Dialog dialog;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         initialization();
+        settingValue();
         handleClickListener();
         AuthListener();
     }
@@ -69,7 +93,7 @@ public class LogOverviewActivity extends AppCompatActivity {
                     name1 = user.getDisplayName();
 
                 } else {
-                    onSignedOutInitialize();
+
 
                     startActivityForResult(
                             AuthUI.getInstance()
@@ -88,10 +112,9 @@ public class LogOverviewActivity extends AppCompatActivity {
     }
 
     private void initialization() {
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mMessageDatabaseReference = mFirebaseDatabase.getReference().child("IndivisualPoints");
-
-
+        IndivisualPointsDB = mFirebaseDatabase.getReference().child("IndivisualPoints");
         mFirebaseAuth = FirebaseAuth.getInstance();
         signout = (ImageView) findViewById(R.id.logout);
         flog = (LinearLayout) findViewById(R.id.flog);
@@ -103,6 +126,27 @@ public class LogOverviewActivity extends AppCompatActivity {
         fanfav = (LinearLayout) findViewById(R.id.fanfav);
         volley = (LinearLayout) findViewById(R.id.volley);
         throwball = (LinearLayout) findViewById(R.id.throwball);
+        Cricket = (TextView) findViewById(R.id.Cricket);
+        Futsal = (TextView) findViewById(R.id.Futsal);
+        Basketball = (TextView) findViewById(R.id.Basketball);
+        FFT = (TextView) findViewById(R.id.FFT);
+        TableTennis = (TextView) findViewById(R.id.Table);
+        Throw = (TextView) findViewById(R.id.Throw);
+        Volley = (TextView) findViewById(R.id.Volley);
+        Badminton = (TextView) findViewById(R.id.Badminton);
+        Flog = (TextView) findViewById(R.id.FLOG);
+    }
+
+    private void settingValue(){
+        Cricket.setText(LOG_OVERVIEW_CRICKET_TEXT);
+        Futsal.setText(LOG_OVERVIEW_FUTSAL_TEXT);
+        Basketball.setText(LOG_OVERVIEW_BASKETBALL_TEXT);
+        FFT.setText(LOG_OVERVIEW_FFT_TEXT);
+        TableTennis.setText(LOG_OVERVIEW_TABLE_TEXT);
+        Throw.setText(LOG_OVERVIEW_THROW_TEXT);
+        Volley.setText(LOG_OVERVIEW_VOLLEY_TEXT);
+        Badminton.setText(LOG_OVERVIEW_BADMINTON_TEXT);
+        Flog.setText(LOG_OVERVIEW_FLOG_TEXT);
     }
 
     private void handleClickListener() {
@@ -119,7 +163,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra("TAG","cricket");
+                i.putExtra(LOG_OVERVIEW_TAG,"cricket");
                 startActivity(i);
             }
         });
@@ -136,7 +180,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra("TAG","futsal");
+                i.putExtra(LOG_OVERVIEW_TAG,"futsal");
                 startActivity(i);
             }
         });
@@ -145,18 +189,18 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra("TAG","badminton");
+                i.putExtra(LOG_OVERVIEW_TAG,"badminton");
                 startActivity(i);
             }
         });
 
 
-        if (isFirstTime()) {
+        if (Utils.isFirstTime(this)) {
             flog.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     IndivisualPoints indivisualPoints = new IndivisualPoints(name1, 0, 0, 0);
-                    mMessageDatabaseReference.push().setValue(indivisualPoints);
+                    IndivisualPointsDB.push().setValue(indivisualPoints);
                     Intent i = new Intent(LogOverviewActivity.this, SplashScreenFLOG.class);
                     startActivity(i);
                     finish();
@@ -181,7 +225,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra("TAG","tt");
+                i.putExtra(LOG_OVERVIEW_TAG,"tt");
                 startActivity(i);
             }
         });
@@ -200,7 +244,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra("TAG","volley");
+                i.putExtra(LOG_OVERVIEW_TAG,"volley");
                 startActivity(i);
             }
         });
@@ -210,7 +254,7 @@ public class LogOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogOverviewActivity.this, LogDetailsActivity.class);
-                i.putExtra("TAG","throwball");
+                i.putExtra(LOG_OVERVIEW_TAG,"throwball");
                 startActivity(i);
             }
         });
@@ -218,7 +262,7 @@ public class LogOverviewActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        System.out.println("Hamza Ahmed: onPause");
+
         super.onPause();
         if (mAuthStateListner != null) {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
@@ -228,41 +272,19 @@ public class LogOverviewActivity extends AppCompatActivity {
 
     @Override
     public void onResume() {
-        System.out.println("Hamza Ahmed: onResume");
+
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
 
     private void onSignedInInitialize(String username) {
-        //mUsername = username;
-
-        System.out.println("Hamza Ahmed: onSignedInInitialize");
         attachDatabaseReadListener();
-
     }
 
-    private void onSignedOutInitialize() {
-
-        System.out.println("Hamza Ahmed: onSignedOutInitialize");
-
-    }
-
-
-    private boolean isFirstTime() {
-        SharedPreferences preferences = this.getPreferences(MODE_PRIVATE);
-        boolean ranBefore = preferences.getBoolean("RanBefore", false);
-        if (!ranBefore) {
-            // first time
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("RanBefore", true);
-            editor.commit();
-        }
-        return !ranBefore;
-    }
 
     private void attachDatabaseReadListener() {
 
-        System.out.println("Hamza Ahmed: attachDatabaseReadListener");
+
         if (mChildEventListener == null) {
             mChildEventListener = new ChildEventListener() {
                 @Override
@@ -294,8 +316,8 @@ public class LogOverviewActivity extends AppCompatActivity {
                 }
             };
 
-            mMessageDatabaseReference.addChildEventListener(mChildEventListener);
-            mMessageDatabaseReference.addValueEventListener(new ValueEventListener() {
+            IndivisualPointsDB.addChildEventListener(mChildEventListener);
+            IndivisualPointsDB.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -314,9 +336,9 @@ public class LogOverviewActivity extends AppCompatActivity {
 
     private void detachDatabaseReadListener() {
 
-        System.out.println("Hamza Ahmed: detachDatabaseReadListener");
+
         if (mChildEventListener != null)
-            mMessageDatabaseReference.removeEventListener(mChildEventListener);
+            IndivisualPointsDB.removeEventListener(mChildEventListener);
         mChildEventListener = null;
 
     }
@@ -327,10 +349,8 @@ public class LogOverviewActivity extends AppCompatActivity {
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.text1);
 
-
-        System.out.println("Hamza Ahmed: showDialog");
         TextView t1 = (TextView) dialog.findViewById(R.id.dialogText);
-        t1.setText("Due to Some reasons, Basketball matches will not be played!");
+        t1.setText(LOG_OVERVIEW_BASKETBALL_MESSAGE);
 
         dialog.setCanceledOnTouchOutside(false);
 
