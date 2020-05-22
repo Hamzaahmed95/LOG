@@ -27,7 +27,6 @@ import khi.fast.log.Utils.Utils;
 public class SplashScreen extends Activity {
 
     ProgressBar progressBar;
-    Utils utils;
     Handler handler;
 
     @Override
@@ -40,14 +39,13 @@ public class SplashScreen extends Activity {
 
     public void initialization() {
 
-        utils = new Utils(this);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         handler = new Handler();
     }
 
     public void launchingActivity() {
 
-        if (utils.isFirstTime()) {
+        if (Utils.isFirstTime(this)) {
 
             handler.postDelayed(new Runnable() {
                 @Override
