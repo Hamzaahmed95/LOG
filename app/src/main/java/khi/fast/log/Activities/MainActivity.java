@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView paragraph2;
     private TextView paragraph3;
     private TextView paragraph4;
+    private TextView paragraph5;
+    private TextView paragraph6;
+    private TextView paragraph7;
 
 
     @Override
@@ -43,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         paragraph2 = (TextView)findViewById(R.id.paragraph2);
         paragraph3 = (TextView)findViewById(R.id.paragraph3);
         paragraph4 = (TextView)findViewById(R.id.paragraph4);
+        paragraph5 = (TextView)findViewById(R.id.paragraph5);
+        paragraph6 = (TextView)findViewById(R.id.paragraph6);
+        paragraph7 = (TextView)findViewById(R.id.paragraph7);
     }
     private void settingValue(){
         heading.setText(Constants.MAIN_ACTIVITY_HEADING);
@@ -53,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
         paragraph1.setText(Constants.MAIN_ACTIVITY_PARAGRAPH1);
         paragraph2.setText(Constants.MAIN_ACTIVITY_PARAGRAPH2);
         paragraph3.setText(Constants.MAIN_ACTIVITY_PARAGRAPH3);
-        paragraph4.setText(Constants.MAIN_ACTIVITY_PARAGRAPH4);
+        paragraph4.setText(Constants.MAIN_ACTIVITY_PARAGRAPH0);
+        paragraph5.setText(Constants.MAIN_ACTIVITY_PARAGRAPH1);
+        paragraph6.setText(Constants.MAIN_ACTIVITY_PARAGRAPH4);
+        paragraph7.setText(Constants.MAIN_ACTIVITY_PARAGRAPH5);
+
         getStarted.setText(Constants.MAIN_ACTIVITY_BUTTON_TEXT);
     }
     private void handleClickListener(){
