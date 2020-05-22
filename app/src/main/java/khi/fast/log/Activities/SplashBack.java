@@ -15,7 +15,6 @@ public class SplashBack extends AppCompatActivity {
 
 
     ProgressBar mprogressBar;
-    ObjectAnimator anim;
     Handler handler;
 
     @Override
@@ -28,10 +27,6 @@ public class SplashBack extends AppCompatActivity {
 
     private void initialization(){
         mprogressBar = (ProgressBar) findViewById(R.id.progressBar);
-        anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
-        anim.setDuration(4000);
-        anim.setInterpolator(new DecelerateInterpolator());
-        anim.start();
         handler = new Handler();
 
     }
