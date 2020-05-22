@@ -32,5 +32,12 @@ public class Constants {
     public static final String LOG_OVERVIEW_BASKETBALL_MESSAGE = "Due to Some reasons, Basketball matches will not be played!";
 
 
+    public static final String LOG_Details_POLLS_TEXT = "Polls";
+    public static final String LOG_Details_SCORE_TEXT = "Score";
+    public static final String LOG_Details_MOM_TEXT = "Man of the match";
+    public static final String LOG_Details_POINTS_TABLE_TEXT = "Points table";
+    public static final String LOG_Details_TEAMS_TEXT = "Teams";
+
+
 
 }

@@ -39,4 +39,29 @@ public class Utils {
             ((Activity)context).finish();
         }
     }
+
+    public static final void startingActivity(Context context, final Class<? extends Activity> ActivityToOpen,boolean isClearTop){
+
+        if(isClearTop){
+            Intent i = new Intent(context, ActivityToOpen);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(i);
+        }
+        else{
+            Intent i = new Intent(context, ActivityToOpen);
+            context.startActivity(i);
+        }
+    }
+   public static final String CapsFirst(String str) {
+        String[] words = str.split(" ");
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            ret.append(Character.toUpperCase(words[i].charAt(0)));
+            ret.append(words[i].substring(1));
+            if(i < words.length - 1) {
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
+    }
 }

@@ -4,7 +4,6 @@ package khi.fast.log.Fragments;
  * Created by Hamza Ahmed on 26-Sep-17.
  */
 
-import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,28 +27,40 @@ import khi.fast.log.Activities.PollingActivity;
 import khi.fast.log.Activities.TeamsOverview;
 import khi.fast.log.R;
 import khi.fast.log.Scoring.CricketScoreCardActivity;
+import khi.fast.log.Utils.Utils;
 
-import static android.content.Context.MODE_PRIVATE;
+import static khi.fast.log.Utils.Constants.LOG_Details_MOM_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_Details_POINTS_TABLE_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_Details_POLLS_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_Details_SCORE_TEXT;
+import static khi.fast.log.Utils.Constants.LOG_Details_TEAMS_TEXT;
 
 /**
  * Created by Hamza Ahmed on 16-Jul-17.
  */
 
 public class LogDetailsFragment extends Fragment {
-    AnimatorSet set;
+
     private TextView name;
-    private LinearLayout polls;
+    private LinearLayout Polls;
     private LinearLayout Score;
     private LinearLayout OPCAPS;
     private LinearLayout PointsTable;
     private LinearLayout Teams;
+
+    private TextView polls;
+    private TextView score;
+    private TextView man_of_the_match;
+    private TextView points_table;
+    private TextView teams;
 
     private ImageView backButton5;
     private FirebaseAuth mFirebaseAuth;
     private LinearLayout game;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     private String TAG = "";
-
+    SharedPreferences.Editor editor;
+    Bundle extra;
 
     SharedPreferences settings;
 
@@ -77,96 +88,96 @@ public class LogDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.log_details, container, false);
+        initialization(view);
+        settingValues();
+        handleClickListener();
 
-        View view = inflater.inflate(R.layout.cricket, container, false);
+        return view;
+    }
+
+    public void initialization(View view){
+        mFirebaseAuth = FirebaseAuth.getInstance();
         game=(LinearLayout)view.findViewById(R.id.game);
-        game.setBackgroundResource(R.drawable.bg_gradient14);
-        polls = (LinearLayout)view.findViewById(R.id.layout1);
+        Polls = (LinearLayout)view.findViewById(R.id.layout1);
         Score = (LinearLayout)view.findViewById(R.id.layout2);
         OPCAPS = (LinearLayout)view.findViewById(R.id.layout3);
         PointsTable = (LinearLayout)view.findViewById(R.id.layout4);
         Teams = (LinearLayout)view.findViewById(R.id.layout6);
         name=(TextView)view.findViewById(R.id.optionUsername);
-
-
+        polls=(TextView)view.findViewById(R.id.polls);
+        score=(TextView)view.findViewById(R.id.score) ;
+        man_of_the_match=(TextView)view.findViewById(R.id.man_of_the_match);
+        points_table = (TextView)view.findViewById(R.id.points_table);
+        teams=(TextView)view.findViewById(R.id.teams);
         backButton5=(ImageView)view.findViewById(R.id.backButton5);
-        backButton5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), LogOverviewActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-            }
-        });
-        settings = getActivity().getPreferences(MODE_PRIVATE);
-
-
         settings = getActivity().getSharedPreferences("teams",0);
-        SharedPreferences.Editor editor = settings.edit();
+        editor = settings.edit();
+        extra =getActivity().getIntent().getExtras();
+    }
 
+    private void settingValues(){
+        game.setBackgroundResource(R.drawable.bg_gradient14);
 
-
-        Bundle extra =getActivity().getIntent().getExtras();
         if(extra!=null) {
             TAG = extra.getString("TAG");
             editor.putString("TAG",TAG);
             editor.commit();
-
         }
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        polls.setText(LOG_Details_POLLS_TEXT);
+        score.setText(LOG_Details_SCORE_TEXT);
+        man_of_the_match.setText(LOG_Details_MOM_TEXT);
+        points_table.setText(LOG_Details_POINTS_TABLE_TEXT);
+        teams.setText(LOG_Details_TEAMS_TEXT);
+    }
 
 
 
-        polls.setOnClickListener(new View.OnClickListener() {
+    private void handleClickListener(){
+
+        backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), PollingActivity.class);
-                i.putExtra("username",name.getText());
-
-                startActivity(i);
+                Utils.startingActivity(getActivity(),LogOverviewActivity.class,true);
             }
         });
+
+        Polls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.startingActivity(getActivity(),PollingActivity.class,"username",name.getText().toString(),false);
+            }
+        });
+
         Score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), CricketScoreCardActivity.class);
-                i.putExtra("username",name.getText());
-
-                startActivity(i);
+                Utils.startingActivity(getActivity(),CricketScoreCardActivity.class,"username",name.getText().toString(),false);
             }
         });
+
         OPCAPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), MOM.class);
-                i.putExtra("username",name.getText());
-                startActivity(i);
+                Utils.startingActivity(getActivity(),MOM.class,"username",name.getText().toString(),false);
             }
         });
 
         PointsTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), PointsTableActivity.class);
-                i.putExtra("username",name.getText());
-                startActivity(i);
+                Utils.startingActivity(getActivity(),PointsTableActivity.class,"username",name.getText().toString(),false);
+
             }
         });
 
         Teams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent i = new Intent(getActivity(), TeamsOverview.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.putExtra("TAG",TAG);
-                getActivity().finish();
-                startActivity(i);
+                Utils.startingActivity(getActivity(),TeamsOverview.class,"username",name.getText().toString(),false);
             }
         });
-
-
 
         mAuthStateListner = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -174,34 +185,11 @@ public class LogDetailsFragment extends Fragment {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if(user!=null){
-                    //user is signed in
-
-
-                    name.setText(CapsFirst(user.getDisplayName()));
-
-
+                    name.setText(Utils.CapsFirst(user.getDisplayName()));
                 }
-            };
-        };
-
-        return view;
-
-
-    }
-    String CapsFirst(String str) {
-        String[] words = str.split(" ");
-        StringBuilder ret = new StringBuilder();
-        for(int i = 0; i < words.length; i++) {
-            ret.append(Character.toUpperCase(words[i].charAt(0)));
-            ret.append(words[i].substring(1));
-            if(i < words.length - 1) {
-                ret.append(' ');
             }
-        }
-        return ret.toString();
+        };
     }
-
-
 
     public void onStart() {
         super.onStart();

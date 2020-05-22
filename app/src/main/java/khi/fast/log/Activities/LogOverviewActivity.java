@@ -163,7 +163,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         cricket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "cricket", false);
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "log_details", false);
             }
         });
 
