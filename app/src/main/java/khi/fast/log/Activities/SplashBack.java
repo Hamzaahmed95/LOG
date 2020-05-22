@@ -10,40 +10,40 @@ import android.widget.ProgressBar;
 
 import khi.fast.log.R;
 
-/**
- * Created by Hamza Ahmed on 06-Oct-17.
- */
 
 public class SplashBack extends AppCompatActivity {
 
 
     ProgressBar mprogressBar;
+    ObjectAnimator anim;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashback);
+        initialization();
+        startingActivity();
+    }
+
+    private void initialization(){
         mprogressBar = (ProgressBar) findViewById(R.id.progressBar);
-        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
+        anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
         anim.setDuration(4000);
         anim.setInterpolator(new DecelerateInterpolator());
         anim.start();
+        handler = new Handler();
 
-        Handler handler = new Handler();
+    }
+    private void startingActivity(){
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
+                startActivity(new Intent(SplashBack.this, LogOverviewActivity.class));
+                finish();
 
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-
-                    startActivity(new Intent(SplashBack.this, LogOverviewActivity.class));
-                    finish();
-
-                }
-            }, 3000);
-
-
-
+            }
+        }, 3000);
     }
 }
