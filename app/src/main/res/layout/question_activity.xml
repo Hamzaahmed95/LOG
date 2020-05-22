@@ -5,6 +5,7 @@
     android:background="@drawable/bg_gradient9"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
@@ -33,9 +34,7 @@
             android:fontFamily="sans-serif-condensed"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:hint="FAVOURITE PLAYER OF LOG 2017 ?"
             android:id="@+id/FavPlayer"/>
-
 
         <Spinner
             android:id="@+id/favTeam"
@@ -54,7 +53,6 @@
             android:background="@drawable/bg_gradient9"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/button_text_send"
             android:id="@+id/sendButtonQuesion"/>
     </LinearLayout>
 </LinearLayout>

@@ -14,4 +14,9 @@ public class Constants {
     public static final String MAIN_ACTIVITY_PARAGRAPH5 = "REAM\"";
     public static final String MAIN_ACTIVITY_BUTTON_TEXT = "Get it on!";
 
+    public static final String QUESTION_ACTIVITY_FAV_PLAYER_TEXT="FAVOURITE PLAYER OF LOG 2017 ?";
+    public static final String QUESTION_ACTIVITY_BUTTON="SEND";
+    public static final String[] QUESTION_ACTIVITY_FAV_TEAM = new String[]{"FAVOURITE TEAM","Stags","Falcons", "Jaguars", "Hunters", "Pythons", "Dires", "Dragons"};
+
+
 }
