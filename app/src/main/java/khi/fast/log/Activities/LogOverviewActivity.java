@@ -271,7 +271,7 @@ public class LogOverviewActivity extends AppCompatActivity {
     }
 
     private void startingActivity(String extra){
-        Utils.startingActivity1(LogOverviewActivity.this, LogDetailsActivity.class,LOG_OVERVIEW_TAG,extra);
+        Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class,LOG_OVERVIEW_TAG,extra,false);
     }
 
     private void attachDatabaseReadListener() {

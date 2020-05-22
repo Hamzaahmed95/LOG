@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 
 import khi.fast.log.R;
+import khi.fast.log.Utils.Utils;
 
 
 public class SplashBack extends AppCompatActivity {
@@ -33,8 +34,7 @@ public class SplashBack extends AppCompatActivity {
             @Override
             public void run() {
 
-                startActivity(new Intent(SplashBack.this, LogOverviewActivity.class));
-                finish();
+                Utils.startingActivity(SplashBack.this,LogOverviewActivity.class,"","",true);
 
             }
         }, 3000);

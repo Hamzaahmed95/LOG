@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import khi.fast.log.R;
 import khi.fast.log.Utils.Constants;
+import khi.fast.log.Utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,17 +64,13 @@ public class MainActivity extends AppCompatActivity {
         paragraph5.setText(Constants.MAIN_ACTIVITY_PARAGRAPH1);
         paragraph6.setText(Constants.MAIN_ACTIVITY_PARAGRAPH4);
         paragraph7.setText(Constants.MAIN_ACTIVITY_PARAGRAPH5);
-
         getStarted.setText(Constants.MAIN_ACTIVITY_BUTTON_TEXT);
     }
     private void handleClickListener(){
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, QuestionActivity.class);
-                startActivity(i);
-                finish();
-
+                Utils.startingActivity(MainActivity.this, QuestionActivity.class,"","",true);
             }
         });
     }

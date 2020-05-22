@@ -24,7 +24,8 @@ public class Utils {
         return !ranBefore;
     }
 
-    public static final void startingActivity1(Context context, final Class<? extends Activity> ActivityToOpen, String extraKey,String extraMsg){
+    public static final void startingActivity(Context context, final Class<? extends Activity> ActivityToOpen, String extraKey,String extraMsg,boolean isFinish){
+
         if(extraKey==""){
             Intent i = new Intent(context, ActivityToOpen);
             context.startActivity(i);
@@ -33,6 +34,9 @@ public class Utils {
             Intent i = new Intent(context, ActivityToOpen);
             i.putExtra(extraKey,extraMsg);
             context.startActivity(i);
+        }
+        if(isFinish){
+            ((Activity)context).finish();
         }
     }
 }
