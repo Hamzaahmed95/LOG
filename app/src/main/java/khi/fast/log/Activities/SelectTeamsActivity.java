@@ -4,7 +4,6 @@ package khi.fast.log.Activities;
  * Created by Hamza Ahmed on 28-Sep-17.
  */
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -29,6 +28,7 @@ import java.util.ArrayList;
 import khi.fast.log.Adapter.TeamAdapter;
 import khi.fast.log.POJO.Image;
 import khi.fast.log.R;
+import khi.fast.log.Utils.Utils;
 
 
 public class SelectTeamsActivity extends AppCompatActivity {
@@ -55,7 +55,7 @@ public class SelectTeamsActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stags);
+        setContentView(R.layout.selected_teams);
         initialization();
         handleClickListener();
         queryingData();
@@ -82,22 +82,15 @@ public class SelectTeamsActivity extends AppCompatActivity {
         }
         TAGS = settings.getString("TAG", "CRIC");
 
-
     }
 
     private void handleClickListener() {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(SelectTeamsActivity.this, TeamsOverview.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
-                startActivity(i);
-
+                Utils.startingActivity(SelectTeamsActivity.this,TeamsOverview.class,true);
             }
         });
-
-
     }
 
     private void queryingData() {

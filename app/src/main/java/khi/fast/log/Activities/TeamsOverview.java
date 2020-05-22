@@ -72,7 +72,7 @@ public class TeamsOverview extends Activity {
         stags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(TeamsOverview.this,SelectTeamsActivity.class,"TEAM","stags",true);
+                Utils.startingActivity(TeamsOverview.this,SelectTeamsActivity.class,"TEAM","selected_teams",true);
             }
         });
         dragons.setOnClickListener(new View.OnClickListener() {

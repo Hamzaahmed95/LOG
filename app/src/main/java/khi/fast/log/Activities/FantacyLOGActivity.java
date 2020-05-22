@@ -52,7 +52,7 @@ public class FantacyLOGActivity extends AppCompatActivity {
         stags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                teamName="stags";
+                teamName="selected_teams";
                 showDialog();
                 mainTeams.setVisibility(View.GONE);
                 tagline.setVisibility(View.GONE);
