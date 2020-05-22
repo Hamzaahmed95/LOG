@@ -18,12 +18,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
 import khi.fast.log.Activities.SplashBack;
 import khi.fast.log.POJO.House;
 import khi.fast.log.R;
@@ -167,8 +169,6 @@ public class QuestionFragment extends Fragment {
         SendButtonQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 favouriteBatsman = FavPlayer.getText().toString();
                 System.out.println("QuestionFragment: " + favouriteBatsman + " " + favouriteTeam);
                 if (!favouriteBatsman.equals("") && !favouriteTeam.equals("FAVOURITE TEAM")) {
