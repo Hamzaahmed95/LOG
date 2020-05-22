@@ -1,11 +1,9 @@
 package khi.fast.log.Activities;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 
 import khi.fast.log.R;
