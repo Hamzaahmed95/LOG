@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -137,7 +138,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         Flog = (TextView) findViewById(R.id.FLOG);
     }
 
-    private void settingValue(){
+    private void settingValue() {
         Cricket.setText(LOG_OVERVIEW_CRICKET_TEXT);
         Futsal.setText(LOG_OVERVIEW_FUTSAL_TEXT);
         Basketball.setText(LOG_OVERVIEW_BASKETBALL_TEXT);
@@ -162,7 +163,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         cricket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startingActivity("cricket");
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "cricket", false);
             }
         });
 
@@ -177,48 +178,37 @@ public class LogOverviewActivity extends AppCompatActivity {
         futsal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startingActivity("futsal");
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "futsal", false);
             }
         });
 
         badminton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startingActivity("badminton");
+                Utils.startingActivity(LogOverviewActivity.this, FlogMainActivity.class, LOG_OVERVIEW_TAG, "badminton", false);
             }
         });
 
-
-        if (Utils.isFirstTime(this)) {
-            flog.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        flog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Utils.isFirstTime(view.getContext())) {
                     IndivisualPoints indivisualPoints = new IndivisualPoints(name1, 0, 0, 0);
                     IndivisualPointsDB.push().setValue(indivisualPoints);
-                    Intent i = new Intent(LogOverviewActivity.this, SplashScreenFLOG.class);
-                    startActivity(i);
-                    finish();
+                    Utils.startingActivity(LogOverviewActivity.this, SplashScreenFLOG.class, "", "", false);
+
+                } else {
+                    Utils.startingActivity(LogOverviewActivity.this, FlogMainActivity.class, "name1", name1, false);
                 }
-            });
-        } else {
 
-            flog.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent i = new Intent(LogOverviewActivity.this, FlogMainActivity.class);
-                    i.putExtra("name1", name1);
-                    startActivity(i);
-                }
-            });
-
-        }
+            }
+        });
 
 
         tabletennis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startingActivity("tt");
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "tt", false);
             }
         });
 
@@ -226,17 +216,14 @@ public class LogOverviewActivity extends AppCompatActivity {
         fanfav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LogOverviewActivity.this, FanFavouriteActivity.class);
-
-                startActivity(i);
+                Utils.startingActivity(LogOverviewActivity.this, FanFavouriteActivity.class, "", "", false);
             }
         });
 
         volley.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startingActivity("volley");
-
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "volley", false);
             }
         });
 
@@ -244,7 +231,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         throwball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startingActivity("throwball");
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "throwball", false);
             }
         });
     }
@@ -270,8 +257,8 @@ public class LogOverviewActivity extends AppCompatActivity {
         attachDatabaseReadListener();
     }
 
-    private void startingActivity(String extra){
-        Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class,LOG_OVERVIEW_TAG,extra,false);
+    private void startingActivity(String extra) {
+        Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, extra, false);
     }
 
     private void attachDatabaseReadListener() {
