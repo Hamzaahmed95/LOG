@@ -40,4 +40,15 @@ public class Constants {
 
 
 
+    public static final String FLOG_MAIN_HEADING_TEXT = "FANTASY LEAGUE OF GLORY 2017";
+    public static final String FLOG_MAIN_PICK_YOUR_TEAM_TEXT = "Pick your Team";
+    public static final String FLOG_MAIN_YOUR_PLAYERS_TEXT = "Your Players";
+    public static final String FLOG_MAIN_RESULT_TEXT = "Result";
+    public static final String FLOG_MAIN_RANK_TEXT = "Rank";
+    public static final String FLOG_MAIN_POINT_TEXT = "Point";
+
+
+
+
+
 }
