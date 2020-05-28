@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_gradient14"
+    android:background="@drawable/new_background"
     android:gravity="center"
     android:padding="5dp"
     android:layout_height="match_parent"
@@ -80,7 +80,8 @@
                 android:id="@+id/layout2"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle2"
+
+                android:background="@drawable/circle"
                 android:layout_height="70dp">
                 <ImageView
                     android:layout_width="40dp"
@@ -110,7 +111,7 @@
                 android:id="@+id/layout3"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle3"
+                android:background="@drawable/circle"
                 android:layout_height="70dp">
                 <ImageView
                     android:layout_width="40dp"
@@ -186,7 +187,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/flog"/>
+                    android:src="@drawable/logo_flog"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -210,7 +211,8 @@
                 android:id="@+id/layout9"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle9"
+
+                android:background="@drawable/circle"
                 android:layout_height="70dp">
                 <ImageView
                     android:layout_width="50dp"
@@ -250,7 +252,7 @@
                 android:id="@+id/layout4"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle4"
+                android:background="@drawable/circle7"
                 android:layout_height="70dp">
                 <ImageView
                     android:layout_width="40dp"
@@ -281,7 +283,7 @@
                 android:id="@+id/layout5"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle5"
+                android:background="@drawable/circle7"
                 android:layout_height="70dp">
                 <ImageView
                     android:layout_width="60dp"
@@ -311,7 +313,7 @@
                 android:id="@+id/layout6"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@drawable/circle6"
+                android:background="@drawable/circle7"
                 android:layout_height="70dp">
                 <ImageView
                     android:layout_width="40dp"
