@@ -9,6 +9,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,6 +67,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout2"
@@ -102,6 +104,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border"

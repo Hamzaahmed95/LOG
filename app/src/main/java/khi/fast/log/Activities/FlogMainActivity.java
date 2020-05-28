@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import khi.fast.log.FlogPlayers.FlogPlayersActivity;
 import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.POJO.IndivisualPoints;
 import khi.fast.log.POJO.IndivisualRanks;
@@ -237,7 +238,7 @@ public class FlogMainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 dialog.dismiss();
-                Intent i = new Intent(FlogMainActivity.this, PlatinumPlayers.class);
+                Intent i = new Intent(FlogMainActivity.this, FlogPlayersActivity.class);
 
 
                 i.putExtra("username", NAME);

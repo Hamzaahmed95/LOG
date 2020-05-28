@@ -13,11 +13,14 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -52,8 +55,11 @@ import khi.fast.log.POJO.Image;
 import khi.fast.log.POJO.UsersFantacyTeam;
 import khi.fast.log.R;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
-public class PlatinumPlayers extends AppCompatActivity {
+
+public class PlatinumPlayers extends Fragment {
 
     private static final String TAG = "ProfileActivity";
 
@@ -105,39 +111,45 @@ public class PlatinumPlayers extends AppCompatActivity {
 
 
     private String house;
+
+    public PlatinumPlayers() {
+        // Required empty public constructor
+    }
+
     @Override
-    protected void onCreate( final Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.flog_goalkeepers);
-        mPriceEditText = (EditText) findViewById(R.id.priceEditText);
+        View view = inflater.inflate(R.layout.flog_goalkeepers, container, false);
+        mPriceEditText = (EditText) view.findViewById(R.id.priceEditText);
 
 
-        backButton5=(ImageView)findViewById(R.id.backButton);
+        backButton5=(ImageView) view.findViewById(R.id.backButton);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(PlatinumPlayers.this, FlogMainActivity.class);
+                Intent i = new Intent(getActivity(), FlogMainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("name1",NAME);
                 startActivity(i);
             }
         });
-        goalkeeper=(TextView)findViewById(R.id.striker);
+        goalkeeper=(TextView) view.findViewById(R.id.striker);
         goalkeeper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(PlatinumPlayers.this, SilverPlayers.class);
+                Intent i = new Intent(getActivity(), SilverPlayers.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
 
-        defender=(TextView)findViewById(R.id.defender);
+        defender=(TextView) view.findViewById(R.id.defender);
         defender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(PlatinumPlayers.this, GoldPlayers.class);
+                Intent i = new Intent(getActivity(), GoldPlayers.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -145,18 +157,18 @@ public class PlatinumPlayers extends AppCompatActivity {
 
 
         NAME=ANONYMOUS;
-        l1=(LinearLayout)findViewById(R.id.linearLayout);
-        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-        mMessageListView = (ListView) findViewById(R.id.messageListView);
-        mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
-        mMessageEditText = (EditText) findViewById(R.id.messageEditText);
-        mSendButton = (Button) findViewById(R.id.sendButton);
+        l1=(LinearLayout)view.findViewById(R.id.linearLayout);
+        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        mMessageListView = (ListView) view.findViewById(R.id.messageListView);
+        mPhotoPickerButton = (ImageButton) view.findViewById(R.id.photoPickerButton);
+        mMessageEditText = (EditText) view.findViewById(R.id.messageEditText);
+        mSendButton = (Button) view.findViewById(R.id.sendButton);
         mUsername = ANONYMOUS;
-        showTeam=(Button)findViewById(R.id.UserTeam);
+        showTeam=(Button) view.findViewById(R.id.UserTeam);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        Bundle extra =this.getIntent().getExtras();
+        Bundle extra =getActivity().getIntent().getExtras();
         if(extra!=null) {
             house = extra.getString("username");
 
@@ -280,12 +292,12 @@ public class PlatinumPlayers extends AppCompatActivity {
                             }*/
 
 
+                    }
+                    System.out.println("Team is :" + test);
+
+
                 }
-                System.out.println("Team is :" + test);
-
-
             }
-        }
 
 
             @Override
@@ -492,21 +504,21 @@ public class PlatinumPlayers extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if(goalkeeper1.equals("more than 1"))
-                        Toast.makeText(PlatinumPlayers.this,"Only 1 Goal Keeper is allowed! ",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Only 1 Goal Keeper is allowed! ",Toast.LENGTH_SHORT).show();
                     else if(goalkeeper1.equals("not selected"))
-                        Toast.makeText(PlatinumPlayers.this,"No Goal Keeper is selected ",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"No Goal Keeper is selected ",Toast.LENGTH_SHORT).show();
                     else if (defender1.equals("more than 2"))
-                        Toast.makeText(PlatinumPlayers.this,"Only 2 Defenders are allowed! ",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Only 2 Defenders are allowed! ",Toast.LENGTH_SHORT).show();
                     else if (defender1.equals("not selected"))
-                        Toast.makeText(PlatinumPlayers.this,"No Defender is selected",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"No Defender is selected",Toast.LENGTH_SHORT).show();
                     else if(defender1.equals("atleast 2 defenders should be selected"))
-                        Toast.makeText(PlatinumPlayers.this,"atleast 2 Defenders should be selected",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"atleast 2 Defenders should be selected",Toast.LENGTH_SHORT).show();
                     else if (attacker1.equals("more than 2"))
-                        Toast.makeText(PlatinumPlayers.this,"Only 2 Attackers are allowed! ",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Only 2 Attackers are allowed! ",Toast.LENGTH_SHORT).show();
                     else if (attacker1.equals("not selected"))
-                        Toast.makeText(PlatinumPlayers.this,"No Attackers is selected",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"No Attackers is selected",Toast.LENGTH_SHORT).show();
                     else if(attacker1.equals("atleast 2 attackers should be selected"))
-                        Toast.makeText(PlatinumPlayers.this,"atleast 2 Attackers should be selected",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"atleast 2 Attackers should be selected",Toast.LENGTH_SHORT).show();
                     else {
 
 
@@ -552,7 +564,7 @@ public class PlatinumPlayers extends AppCompatActivity {
 
 //                    name.setText(user.getDisplayName());
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mPlayerListAdapter = new PlayerListAdapter(PlatinumPlayers.this, R.layout.item_players, friendlyMessages, NAME);
+                    mPlayerListAdapter = new PlayerListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME);
 
                     if (mMessageListView != null)
                         mMessageListView.setAdapter(mPlayerListAdapter);
@@ -581,8 +593,10 @@ public class PlatinumPlayers extends AppCompatActivity {
 
             ;
         };
-
+       
+        return view;
     }
+
 
 
 
@@ -625,7 +639,7 @@ public class PlatinumPlayers extends AppCompatActivity {
 
 
     @Override
-    protected void onPause(){
+    public void onPause(){
         super.onPause();
         if(mAuthStateListner!=null) {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
@@ -647,7 +661,7 @@ public class PlatinumPlayers extends AppCompatActivity {
             StorageReference photoRef =
                     mChatPhotoStorageReference.child(selectedImageUri.getLastPathSegment());
             photoRef.putFile(selectedImageUri).addOnSuccessListener
-                    (this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    (getActivity(), new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL = taskSnapshot.getDownloadUrl();
@@ -664,7 +678,7 @@ public class PlatinumPlayers extends AppCompatActivity {
             StorageReference photoRef =
                     mStoriesStorageReference.child(selectedImageUri.getLastPathSegment());
             photoRef.putFile(selectedImageUri).addOnSuccessListener
-                    (this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    (getActivity(), new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadURL = taskSnapshot.getDownloadUrl();
@@ -676,7 +690,7 @@ public class PlatinumPlayers extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
@@ -796,7 +810,7 @@ public class PlatinumPlayers extends AppCompatActivity {
     }
     private void showDialog(String name,final UsersFantacyTeam usersFantacyTeam) {
         // custom dialog
-        dialog = new Dialog(this);
+        dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.pop_up_teams);
 
         // set the custom dialog components - text, image and button
@@ -814,7 +828,7 @@ public class PlatinumPlayers extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(PlatinumPlayers.this, SelectedTeams.class);
+                Intent i = new Intent(getActivity(), SelectedTeams.class);
                 i.putExtra("NAME",NAME);
                 startActivity(i);
                 mTeamDatabaseReference.push().setValue(usersFantacyTeam);
