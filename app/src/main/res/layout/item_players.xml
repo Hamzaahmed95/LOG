@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
 
+    android:paddingBottom="15dp"
+    android:layout_height="wrap_content"
     android:background="#17161B">
-
 
     <CheckBox
         android:id="@+id/checkBox1"
@@ -23,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/checkBox1"
         android:textSize="20dp"
+        android:text="HAMZA AHMED"
         android:padding="4dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
@@ -30,6 +30,7 @@
     <TextView
         android:id="@+id/price"
         android:gravity="right"
+
         android:padding="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,10 +39,11 @@
         android:fontFamily="sans-serif-condensed"
         android:textColor="#FFFFFF"
         android:layout_toLeftOf="@id/checkBox1"
-        android:layout_below="@id/messageEditText"
         android:text="Rs.30" />
 
-
-
-
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"/>
 </RelativeLayout>

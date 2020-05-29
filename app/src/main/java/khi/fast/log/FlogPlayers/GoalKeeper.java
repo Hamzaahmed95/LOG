@@ -4,29 +4,18 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -36,23 +25,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import khi.fast.log.Activities.FlogMainActivity;
 import khi.fast.log.Activities.SelectedTeams;
 import khi.fast.log.Adapter.FlogPlayersAdapter;
 import khi.fast.log.POJO.FriendlyMessage;
-import khi.fast.log.POJO.Image;
 import khi.fast.log.POJO.UsersFantacyTeam;
 import khi.fast.log.R;
 
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
 public class GoalKeeper extends Fragment {
 
     public static final String ANONYMOUS = "anonymous";
@@ -66,9 +48,7 @@ public class GoalKeeper extends Fragment {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     private Button showTeam;
-
     private Dialog dialog;
-
     private String goalkeeper1;
     private String defender1;
     private String defender2;
@@ -85,7 +65,7 @@ public class GoalKeeper extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.flog_goalkeepers, container, false);
+        View view = inflater.inflate(R.layout.flog_players, container, false);
 
         initialization(view);
         settingValue();
@@ -96,7 +76,6 @@ public class GoalKeeper extends Fragment {
 
     private void initialization(View view){
         NAME=ANONYMOUS;
-
         mMessageListView = (ListView) view.findViewById(R.id.messageListView);
         showTeam=(Button) view.findViewById(R.id.UserTeam);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -105,7 +84,6 @@ public class GoalKeeper extends Fragment {
         mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
         mHouseDatabaseReferencegold =mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("check");
         mHouseDatabaseReferenceplatinum =mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("check");
-
     }
     private void settingValue(){
 
@@ -303,7 +281,7 @@ public class GoalKeeper extends Fragment {
         }
         detachDatabaseReadListener();
         System.out.println("FLOGMAINACTIVITY: 2");
-       // mFlogPlayersAdapter.clear();
+        mFlogPlayersAdapter.clear();
     }
 
     @Override
@@ -410,6 +388,4 @@ public class GoalKeeper extends Fragment {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
-
-
 }
