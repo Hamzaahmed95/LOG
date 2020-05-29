@@ -35,7 +35,7 @@ import khi.fast.log.R;
  * Created by Hamza Ahmed on 14-Jul-17.
  */
 
-public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
+public class FlogPlayersAdapter extends ArrayAdapter<FriendlyMessage> {
 
     String Name;
     FirebaseUser user;
@@ -49,7 +49,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
     private int count=0;
     private String dbName="";
     private List<FriendlyMessage> topicsList;
-    public PlayerListAdapter(Context context, int resource, List<FriendlyMessage> objects, String name,String dbName) {
+    public FlogPlayersAdapter(Context context, int resource, List<FriendlyMessage> objects, String name, String dbName) {
         super(context, resource, objects);
         topicsList=objects;
         Name = name;
@@ -215,12 +215,6 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
         messageTextView.setText(CapsFirst(message.getText()));
         priceTextView.setVisibility(View.VISIBLE);
         priceTextView.setText(String.valueOf(message.getPrice()));
-        //if(message.isCheck())
-        //checkBox1.setChecked(!checkBox1.isChecked());
-        // ;
-
-
-
         return convertView;
     }
     String CapsFirst(String str) {

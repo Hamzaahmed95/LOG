@@ -52,7 +52,7 @@ import java.util.List;
 
 import khi.fast.log.Activities.FlogMainActivity;
 import khi.fast.log.Activities.SelectedTeams;
-import khi.fast.log.Adapter.PlayerListAdapter;
+import khi.fast.log.Adapter.FlogPlayersAdapter;
 import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.POJO.Image;
 import khi.fast.log.POJO.UsersFantacyTeam;
@@ -64,55 +64,28 @@ import static android.app.Activity.RESULT_OK;
 
 public class Striker extends Fragment {
 
-    private static final String TAG = "ProfileActivity";
-
-    public static final String ANONYMOUS = "anonymous";
-    public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
-    private TextView name;
-    private PlayerListAdapter mPlayerListAdapter;
+    private FlogPlayersAdapter mFlogPlayersAdapter;
     private ProgressBar mProgressBar;
-    private ImageButton mPhotoPickerButton;
-    private EditText mMessageEditText;
-    private Button mSendButton;
-    public String NAME;
-    private static final int RC_PHOTO_PICKER=2;
-    private static final int RC_PHOTO_PICKERStories=3;
-    private String mUsername;
-    private ImageView Button;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessageDatabaseReference;
-    private DatabaseReference mTeamDatabaseReference;
-    private DatabaseReference mStoriesDatabaseReference;
     private ChildEventListener mChildEventListener;
-    private ChildEventListener mChildEventListener1;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     private Button showTeam;
-    private EditText mPriceEditText;
-    private FirebaseStorage firebaseStorage;
-    FirebaseUser user;
-    private StorageReference mChatPhotoStorageReference;
-    private StorageReference mStoriesStorageReference;
-    private String side2;
-    private LinearLayout l1;
     private Dialog dialog;
-    private ArrayList<Image> images;
-    MediaPlayer mp;
-
     private String goalkeeper1;
     private String defender1;
     private String defender2;
     private String attacker1;
     private String attacker2;
-    private TextView goalkeeper;
-    private TextView defender;
-    private TextView striker;
-    private ImageView backButton5;
+    String NAME;
+    Query mHouseDatabaseReference3;
+    Query mHouseDatabaseReferencegold;
+    Query mHouseDatabaseReferenceplatinum;
 
     public Striker() {
-        // Required empty public constructor
     }
 
 
@@ -122,64 +95,29 @@ public class Striker extends Fragment {
 
         View view = inflater.inflate(R.layout.flog_strikers, container, false);
 
-        mPriceEditText = (EditText) view.findViewById(R.id.priceEditText);
+        initialization(view);
+        settingValue();
+        handleClickListener();
+        AuthListener();
+        return view;
+    }
 
-
-        backButton5=(ImageView)view.findViewById(R.id.backButton);
-        backButton5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), FlogMainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-            }
-        });
-        goalkeeper=(TextView)view.findViewById(R.id.goalkeeper);
-        goalkeeper.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), GoalKeeper.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-            }
-        });
-
-        defender=(TextView)view.findViewById(R.id.defender);
-        defender.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), Defender.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-            }
-        });
-
-
-        NAME=ANONYMOUS;
-        l1=(LinearLayout)view.findViewById(R.id.linearLayout);
+    private void initialization(View view) {
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         mMessageListView = (ListView) view.findViewById(R.id.messageListView);
-        mPhotoPickerButton = (ImageButton) view.findViewById(R.id.photoPickerButton);
-        mMessageEditText = (EditText) view.findViewById(R.id.messageEditText);
-        mSendButton = (Button) view.findViewById(R.id.sendButton);
-        mUsername = ANONYMOUS;
         showTeam=(Button)view.findViewById(R.id.UserTeam);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
-        firebaseStorage = FirebaseStorage.getInstance();
-
-        System.out.println("name:==> "+NAME);
         mMessageDatabaseReference =mFirebaseDatabase.getReference().child("silverPlayers");
-        mTeamDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualTeams");
-        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stories");
-        mChatPhotoStorageReference =firebaseStorage.getReference().child("silverPhotos");
-        mStoriesStorageReference =firebaseStorage.getReference().child("stories_pictures");
+        mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
+        mHouseDatabaseReferencegold =mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("check");
+        mHouseDatabaseReferenceplatinum =mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("check");
+    }
 
+    private void settingValue() {
 
-
-        // Initialize references to views
-        Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
-
+    }
+    private void handleClickListener() {
         mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -195,12 +133,9 @@ public class Striker extends Fragment {
                                 attacker1= issue.child("text").getValue().toString();
                             }
                             else if(count==2){
-
                                 attacker2= issue.child("text").getValue().toString();
                             }
-
                         }
-
                     }
                     if(count==0) {
                         attacker1 = "not selected";
@@ -213,23 +148,14 @@ public class Striker extends Fragment {
                     else if(count>2){
                         attacker1="more than 2";
                         attacker2="more than 2";
-
-
                     }
                 }
-
-
-
-
             }
-
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        Query mHouseDatabaseReferencegold =mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("check");
 
         mHouseDatabaseReferencegold.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -280,8 +206,6 @@ public class Striker extends Fragment {
             }
         });
 
-        Query mHouseDatabaseReferenceplatinum =mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("check");
-
         mHouseDatabaseReferenceplatinum.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -300,128 +224,13 @@ public class Striker extends Fragment {
                         else{
                             goalkeeper1="not selected";
                         }
-
                     }
                 }
-
-
-
-
             }
-
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
-
-
-
-        Query mHouseDatabaseReference2 =mFirebaseDatabase.getReference().child("stories");
-
-        mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        Image image1 = new Image();
-                        image1.setImage_ID(issue.child("image_ID").getValue().toString());
-                        images.add(0,image1);
-                    }
-                }
-
-
-
-
-            }
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-        if (mPhotoPickerButton != null)
-            mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: Fire an intent to show an image picker
-                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                    intent.setType("image/*");
-                    intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-                    startActivityForResult(intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
-
-                }
-            });
-
-
-
-        if (mMessageEditText != null) {
-            mMessageEditText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                }
-
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if (charSequence.toString().trim().length() > 0) {
-                        mSendButton.setEnabled(true);
-                    } else {
-                        mSendButton.setEnabled(false);
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable editable) {
-                }
-
-            });
-            mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        }
-        if (mPriceEditText != null) {
-            mPriceEditText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                }
-
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if (charSequence.toString().trim().length() > 0) {
-                        mSendButton.setEnabled(true);
-                    } else {
-                        mSendButton.setEnabled(false);
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable editable) {
-                }
-
-            });
-            mPriceEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        }
-        // Send button sends a message and clears the EditText
-        if (mSendButton != null)
-            mSendButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String unique=mMessageEditText.getText().toString(); //Hamza Ahmed
-                    String concat1=unique.substring(unique.length() - 1).concat(unique); // dHamza Ahmed
-                    String string = concat1.replaceAll("\\s+"," "); //dHamzaAhmed
-                    String size = String.valueOf(concat1.length()); //dHamzaAhmed12
-                    String key=string.concat(size);
-                    String price=mPriceEditText.getText().toString();
-                    String finalKey=price.concat(key);
-                    System.out.println("key: "+key);
-                    FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null,mPriceEditText.getText().toString(),false, finalKey);
-                    mMessageDatabaseReference.push().setValue(friendlyMessage);
-                    mMessageEditText.setText("");
-                }
-            });
 
         if (showTeam != null)
             showTeam.setOnClickListener(new View.OnClickListener() {
@@ -456,47 +265,20 @@ public class Striker extends Fragment {
                 }
             });
 
-        if (mPhotoPickerButton != null)
-            mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: Fire an intent to show an image picker
-                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                    intent.setType("image/*");
-                    intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-                    startActivityForResult(intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
 
-                }
-            });
-
-
+    }
+    private void AuthListener() {
         mAuthStateListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    //user is signed in
-                    onSignedInInitialize(user.getDisplayName());
+                    onSignedInInitialize();
                     NAME = user.getDisplayName();
-
-                    if (!NAME.equals("K142805 Hamza Ahmed")) {
-
-                        l1.setVisibility(View.GONE);
-
-                    }
-
-//                    name.setText(user.getDisplayName());
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mPlayerListAdapter = new PlayerListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
-
+                    mFlogPlayersAdapter = new FlogPlayersAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
                     if (mMessageListView != null)
-                        mMessageListView.setAdapter(mPlayerListAdapter);
-
-                    images = new ArrayList<>();
-
-                    ;
-
-
+                        mMessageListView.setAdapter(mFlogPlayersAdapter);
                 } else {
                     onSignedOutInitialize();
 
@@ -516,14 +298,7 @@ public class Striker extends Fragment {
 
             ;
         };
-        return view;
-
     }
-    public ArrayList<Image> getmMatch(){
-
-        return images;
-    }
-
 
     @Override
     public void onPause(){
@@ -532,65 +307,20 @@ public class Striker extends Fragment {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mPlayerListAdapter.clear();
+        mFlogPlayersAdapter.clear();
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            if (resultCode == RESULT_OK) {
-            } else if (resultCode == RESULT_CANCELED) {
-            }
-        }
-        else if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK) {
-            Uri selectedImageUri = data.getData();
-            StorageReference photoRef =
-                    mChatPhotoStorageReference.child(selectedImageUri.getLastPathSegment());
-            photoRef.putFile(selectedImageUri).addOnSuccessListener
-                    (getActivity(), new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString(),null  ,false, null);
-                            mMessageDatabaseReference.push().setValue(friendlyMessage);
-
-
-
-                        }
-                    });
-        }
-        else if (requestCode == RC_PHOTO_PICKERStories && resultCode == RESULT_OK) {
-            Uri selectedImageUri = data.getData();
-            StorageReference photoRef =
-                    mStoriesStorageReference.child(selectedImageUri.getLastPathSegment());
-            photoRef.putFile(selectedImageUri).addOnSuccessListener
-                    (getActivity(), new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Uri downloadURL = taskSnapshot.getDownloadUrl();
-                            Image image = new Image(null, downloadURL.toString());
-                            mStoriesDatabaseReference.push().setValue(image);
-                        }
-                    });
-        }
-    }
-
     @Override
     public void onResume(){
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
 
-    private void  onSignedInInitialize(String username){
-        mUsername = username;
+    private void  onSignedInInitialize(){
         attachDatabaseReadListener();
-
     }
     private void  onSignedOutInitialize(){
-        mUsername = ANONYMOUS;
-        mPlayerListAdapter.clear();
 
+        mFlogPlayersAdapter.clear();
         detachDatabaseReadListener();
     }
     private void attachDatabaseReadListener(){
@@ -599,18 +329,13 @@ public class Striker extends Fragment {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
-
-
-                    mPlayerListAdapter.add(friendlyMessage);
+                    mFlogPlayersAdapter.add(friendlyMessage);
                     mProgressBar.setVisibility(View.GONE);
-
-
                 }
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
-
                 }
 
                 @Override
@@ -632,80 +357,23 @@ public class Striker extends Fragment {
             mMessageDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-
-
                 }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
                 }
             });
         }
-        if(mChildEventListener1==null) {
-            mChildEventListener1 = new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    UsersFantacyTeam usersFantacyTeam = dataSnapshot.getValue(UsersFantacyTeam.class);
-                }
-
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
-
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            };
-            mTeamDatabaseReference.addChildEventListener(mChildEventListener1);
-            mTeamDatabaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-
     }
     private void detachDatabaseReadListener(){
         if(mChildEventListener!=null)
             mMessageDatabaseReference.removeEventListener(mChildEventListener);
         mChildEventListener=null;
-        if(mChildEventListener1!=null)
-            mTeamDatabaseReference.removeEventListener(mChildEventListener1);
-        mChildEventListener1=null;
     }
     private void showDialog(String name,final UsersFantacyTeam usersFantacyTeam) {
-        // custom dialog
+
         dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.pop_up_teams);
-
-        // set the custom dialog components - text, image and button
-
-        // Close Button
-
-        // Buy Button
-
         TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
         t1.setText(name);
 
@@ -717,7 +385,6 @@ public class Striker extends Fragment {
 
                 Intent i = new Intent(getActivity(), SelectedTeams.class);
                 startActivity(i);
-                mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                 dialog.dismiss();
 
             }
@@ -726,18 +393,11 @@ public class Striker extends Fragment {
         Close1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 dialog.dismiss();
-                //Intent i = new Intent(Sil,GoldPlayers.class);
-                //getContext().startActivity(i);
-
-
             }
         });
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
-
-
 }
