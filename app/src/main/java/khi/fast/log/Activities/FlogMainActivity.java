@@ -221,12 +221,6 @@ public class FlogMainActivity extends AppCompatActivity {
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.text1);
 
-        // set the custom dialog components - text, image and button
-
-        // Close Button
-
-        // Buy Button
-
         TextView t1 = (TextView) dialog.findViewById(R.id.dialogText);
         t1.setText("You have to select 5 players \n 1 Goal Keeper \n 2 Defenders \n 2 Strikers");
 

@@ -1,5 +1,12 @@
 package khi.fast.log.FlogPlayers;
 
+
+
+
+
+/**
+ * Created by Hamza Ahmed on 14-Jul-17.
+ */
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,16 +43,16 @@ import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.POJO.UsersFantacyTeam;
 import khi.fast.log.R;
 
-public class GoalKeeper extends Fragment {
 
-    public static final String ANONYMOUS = "anonymous";
+public class StrikersFragment extends Fragment {
+
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
     private FlogPlayersAdapter mFlogPlayersAdapter;
-    private ChildEventListener mChildEventListener;
-    private DatabaseReference mMessageDatabaseReference;
-    public String NAME;
+    private ProgressBar mProgressBar;
     private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mMessageDatabaseReference;
+    private ChildEventListener mChildEventListener;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListner;
     private Button showTeam;
@@ -54,13 +62,13 @@ public class GoalKeeper extends Fragment {
     private String defender2;
     private String attacker1;
     private String attacker2;
+    String NAME;
     Query mHouseDatabaseReference3;
     Query mHouseDatabaseReferencegold;
     Query mHouseDatabaseReferenceplatinum;
 
-    public GoalKeeper() {
+    public StrikersFragment() {
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,21 +82,21 @@ public class GoalKeeper extends Fragment {
         return view;
     }
 
-    private void initialization(View view){
-        NAME=ANONYMOUS;
+    private void initialization(View view) {
+        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         mMessageListView = (ListView) view.findViewById(R.id.messageListView);
-        showTeam=(Button) view.findViewById(R.id.UserTeam);
+        showTeam=(Button)view.findViewById(R.id.UserTeam);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("platinumPlayers");
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("silverPlayers");
         mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
         mHouseDatabaseReferencegold =mFirebaseDatabase.getReference().child("goldPlayers").orderByChild("check");
         mHouseDatabaseReferenceplatinum =mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("check");
     }
-    private void settingValue(){
+    private void settingValue() {
 
     }
-    private void handleClickListener(){
+    private void handleClickListener() {
         mHouseDatabaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -104,7 +112,6 @@ public class GoalKeeper extends Fragment {
                                 attacker1= issue.child("text").getValue().toString();
                             }
                             else if(count==2){
-
                                 attacker2= issue.child("text").getValue().toString();
                             }
                         }
@@ -120,8 +127,6 @@ public class GoalKeeper extends Fragment {
                     else if(count>2){
                         attacker1="more than 2";
                         attacker2="more than 2";
-
-
                     }
                 }
             }
@@ -130,6 +135,7 @@ public class GoalKeeper extends Fragment {
 
             }
         });
+
         mHouseDatabaseReferencegold.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -159,12 +165,19 @@ public class GoalKeeper extends Fragment {
                         defender1 = "atleast 2 defenders should be selected";
                         defender2 = "atleast 2 defenders should be selected";
                     }
-                    else if(count>2) {
-                        defender1 = "more than 2";
-                        defender2 = "more than 2";
+                    else if(count>2){
+                        defender1="more than 2";
+                        defender2="more than 2";
+
+
                     }
                 }
+
+
+
+
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -175,10 +188,7 @@ public class GoalKeeper extends Fragment {
         mHouseDatabaseReferenceplatinum.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 if (dataSnapshot.exists()) {
-
-
                     int count=0;
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         System.out.println("issue"+issue.child("check").getValue());
@@ -193,14 +203,11 @@ public class GoalKeeper extends Fragment {
                         else{
                             goalkeeper1="not selected";
                         }
-
                     }
                 }
-
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 
@@ -231,14 +238,15 @@ public class GoalKeeper extends Fragment {
                         UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-
                         String text = NAME+" You set the team as: \n\n"+"GoalKeeper: "+goalkeeper1 + " \n Defender1: " + defender1 + " \n Defender2: " + defender2 + " \nStriker1: " + attacker1 + " \n Striker2: " + attacker2;
                         showDialog(text,usersFantacyTeam);
                     }
                 }
             });
+
+
     }
-    private void AuthListener(){
+    private void AuthListener() {
         mAuthStateListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -247,15 +255,12 @@ public class GoalKeeper extends Fragment {
                     onSignedInInitialize();
                     NAME = user.getDisplayName();
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mFlogPlayersAdapter = new FlogPlayersAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"platinumPlayers");
-
-                    System.out.println("FLOGMAINACTIVITY: 1");
+                    mFlogPlayersAdapter = new FlogPlayersAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
                     if (mMessageListView != null)
                         mMessageListView.setAdapter(mFlogPlayersAdapter);
-
-
                 } else {
                     onSignedOutInitialize();
+
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
@@ -269,8 +274,9 @@ public class GoalKeeper extends Fragment {
                             RC_SIGN_IN);
                 }
             }
-        };
 
+            ;
+        };
     }
 
     @Override
@@ -280,45 +286,35 @@ public class GoalKeeper extends Fragment {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        System.out.println("FLOGMAINACTIVITY: 2");
-        mFlogPlayersAdapter.clear();
-    }
 
+    }
     @Override
     public void onResume(){
         super.onResume();
-        System.out.println("FLOGMAINACTIVITY: 3");
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
 
-
     private void  onSignedInInitialize(){
-
         attachDatabaseReadListener();
-
     }
     private void  onSignedOutInitialize(){
 
         mFlogPlayersAdapter.clear();
-
         detachDatabaseReadListener();
     }
-    private void attachDatabaseReadListener() {
-        if (mChildEventListener == null) {
+    private void attachDatabaseReadListener(){
+        if(mChildEventListener==null) {
             mChildEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
-                    System.out.println("FLOGMAINACTIVITY: 4");
                     mFlogPlayersAdapter.add(friendlyMessage);
-
+                    mProgressBar.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
-
                 }
 
                 @Override
@@ -337,7 +333,15 @@ public class GoalKeeper extends Fragment {
                 }
             };
             mMessageDatabaseReference.addChildEventListener(mChildEventListener);
+            mMessageDatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
+                }
+            });
         }
     }
     private void detachDatabaseReadListener(){
@@ -346,16 +350,9 @@ public class GoalKeeper extends Fragment {
         mChildEventListener=null;
     }
     private void showDialog(String name,final UsersFantacyTeam usersFantacyTeam) {
-        // custom dialog
+
         dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.pop_up_teams);
-
-        // set the custom dialog components - text, image and button
-
-        // Close Button
-
-        // Buy Button
-
         TextView t1 =(TextView)dialog.findViewById(R.id.dialogText);
         t1.setText(name);
 
@@ -366,7 +363,6 @@ public class GoalKeeper extends Fragment {
             public void onClick(View view) {
 
                 Intent i = new Intent(getActivity(), SelectedTeams.class);
-                i.putExtra("NAME",NAME);
                 startActivity(i);
                 dialog.dismiss();
 
@@ -376,12 +372,7 @@ public class GoalKeeper extends Fragment {
         Close1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 dialog.dismiss();
-                //Intent i = new Intent(Sil,GoldPlayers.class);
-                //getContext().startActivity(i);
-
-
             }
         });
 

@@ -37,7 +37,7 @@ import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.POJO.UsersFantacyTeam;
 import khi.fast.log.R;
 
-public class Defender extends Fragment {
+public class DefendersFragment extends Fragment {
 
     private static final String TAG = "ProfileActivity";
 
@@ -64,7 +64,7 @@ public class Defender extends Fragment {
     Query mHouseDatabaseReferenceplatinum;
 
 
-    public Defender() {
+    public DefendersFragment() {
     }
 
 

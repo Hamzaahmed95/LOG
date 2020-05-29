@@ -19,21 +19,12 @@
         android:fontFamily="sans-serif-condensed"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:background="#3b5998"/>
+        android:background="#F1294A"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:paddingTop="10dp"
-        android:layout_gravity="center"
-        android:foregroundGravity="center"
-        android:src="@drawable/iconn"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +32,7 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
-        android:textColor="#3b5998"
+        android:textColor="#17161B"
         android:textStyle="bold"
         android:textSize="15dp"
         android:fontFamily="sans-serif-condensed"
@@ -59,7 +50,7 @@
         android:id="@+id/close1"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="#3b5998"
+        android:background="#17161B"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"

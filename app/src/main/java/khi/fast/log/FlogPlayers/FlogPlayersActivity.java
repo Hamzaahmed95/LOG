@@ -56,9 +56,9 @@ public class FlogPlayersActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new GoalKeeper(), "GOAL Keeper");
-        adapter.addFragment(new Defender(), "Defender");
-        adapter.addFragment(new Striker(), "Striker");
+        adapter.addFragment(new GoalKeepersFragment(), "GOAL Keeper");
+        adapter.addFragment(new DefendersFragment(), "Defender");
+        adapter.addFragment(new StrikersFragment(), "Striker");
         viewPager.setAdapter(adapter);
     }
 

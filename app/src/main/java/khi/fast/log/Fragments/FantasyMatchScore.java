@@ -153,7 +153,6 @@ public class FantasyMatchScore extends Fragment {
                     Intent i = new Intent(getActivity(), LogDetailsActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
-
                 }
             }
         });

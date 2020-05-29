@@ -3,8 +3,6 @@ package khi.fast.log.Adapter;
 /**
  * Created by Hamza Ahmed on 05-Oct-17.
  */
-
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -22,7 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.List;
-import khi.fast.log.FlogPlayers.GoalKeeper;
+import khi.fast.log.FlogPlayers.GoalKeepersFragment;
 import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.R;
 
@@ -150,7 +148,7 @@ public class FlogPlayersAdapter extends ArrayAdapter<FriendlyMessage> {
             public void onClick(View view) {
 
                 dialog.dismiss();
-                Intent i = new Intent(getContext(), GoalKeeper.class);
+                Intent i = new Intent(getContext(), GoalKeepersFragment.class);
                 getContext().startActivity(i);
             }
         });
