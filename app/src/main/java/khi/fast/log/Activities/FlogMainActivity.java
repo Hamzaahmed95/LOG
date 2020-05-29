@@ -87,7 +87,7 @@ public class FlogMainActivity extends AppCompatActivity {
 
 
         result = (LinearLayout) findViewById(R.id.result);
-        flog_text = (TextView) findViewById(R.id.flog_text);
+        flog_text = (TextView) findViewById(R.id.optionUsername);
         pick_a_team = (TextView) findViewById(R.id.pick_a_team);
         your_players = (TextView) findViewById(R.id.your_players);
         results = (TextView) findViewById(R.id.results);
@@ -97,7 +97,7 @@ public class FlogMainActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         extra = this.getIntent().getExtras();
         pickTeam = (LinearLayout) findViewById(R.id.pickTeam);
-        backbutton5 = (ImageView) findViewById(R.id.backButton);
+        backbutton5 = (ImageView) findViewById(R.id.backButton5);
         l2.setVisibility(View.GONE);
     }
 

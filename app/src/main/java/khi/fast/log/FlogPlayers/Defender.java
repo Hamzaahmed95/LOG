@@ -1,10 +1,6 @@
-package khi.fast.log.Activities;
+package khi.fast.log.FlogPlayers;
 
 
-
-/**
- * Created by Hamza Ahmed on 14-Jul-17.
- */
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -49,6 +44,8 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.List;
 
+import khi.fast.log.Activities.FlogMainActivity;
+import khi.fast.log.Activities.SelectedTeams;
 import khi.fast.log.Adapter.PlayerListAdapter;
 import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.POJO.Image;
@@ -59,7 +56,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 
-public class PlatinumPlayers extends Fragment {
+public class Defender extends Fragment {
 
     private static final String TAG = "ProfileActivity";
 
@@ -80,7 +77,6 @@ public class PlatinumPlayers extends Fragment {
     private ImageView Button;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessageDatabaseReference;
-    private DatabaseReference mMessageDatabaseReference2;
     private DatabaseReference mTeamDatabaseReference;
     private DatabaseReference mStoriesDatabaseReference;
     private ChildEventListener mChildEventListener;
@@ -105,51 +101,48 @@ public class PlatinumPlayers extends Fragment {
     private String attacker1;
     private String attacker2;
     private TextView goalkeeper;
-    private TextView defender;
     private TextView striker;
     private ImageView backButton5;
 
 
-    private String house;
-
-    public PlatinumPlayers() {
+    public Defender() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.flog_goalkeepers, container, false);
-        mPriceEditText = (EditText) view.findViewById(R.id.priceEditText);
+        View view = inflater.inflate(R.layout.flog_defenders, container, false);
+
+        mPriceEditText = (EditText)view.findViewById(R.id.priceEditText);
 
 
-        backButton5=(ImageView) view.findViewById(R.id.backButton);
+        backButton5=(ImageView)view.findViewById(R.id.backButton);
         backButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), FlogMainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.putExtra("name1",NAME);
                 startActivity(i);
             }
         });
-        goalkeeper=(TextView) view.findViewById(R.id.striker);
+        goalkeeper=(TextView)view.findViewById(R.id.goalkeeper);
         goalkeeper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), SilverPlayers.class);
+                Intent i = new Intent(getActivity(), GoalKeeper.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
 
-        defender=(TextView) view.findViewById(R.id.defender);
-        defender.setOnClickListener(new View.OnClickListener() {
+        striker=(TextView)view.findViewById(R.id.striker);
+        striker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), GoldPlayers.class);
+                Intent i = new Intent(getActivity(), Striker.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -158,59 +151,25 @@ public class PlatinumPlayers extends Fragment {
 
         NAME=ANONYMOUS;
         l1=(LinearLayout)view.findViewById(R.id.linearLayout);
-        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        mMessageListView = (ListView) view.findViewById(R.id.messageListView);
-        mPhotoPickerButton = (ImageButton) view.findViewById(R.id.photoPickerButton);
-        mMessageEditText = (EditText) view.findViewById(R.id.messageEditText);
-        mSendButton = (Button) view.findViewById(R.id.sendButton);
+        mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
+        mMessageListView = (ListView)view.findViewById(R.id.messageListView);
+        mPhotoPickerButton = (ImageButton)view.findViewById(R.id.photoPickerButton);
+        mMessageEditText = (EditText)view.findViewById(R.id.messageEditText);
+        mSendButton = (Button)view.findViewById(R.id.sendButton);
         mUsername = ANONYMOUS;
-        showTeam=(Button) view.findViewById(R.id.UserTeam);
+        showTeam=(Button)view.findViewById(R.id.UserTeam);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        Bundle extra =getActivity().getIntent().getExtras();
-        if(extra!=null) {
-            house = extra.getString("username");
 
-            System.out.println("name:==> " + house);
-        }
-        final String platinumPlayers=house+"platinumPlayers";
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("platinumPlayers");
-        mMessageDatabaseReference2 =mFirebaseDatabase.getReference().child(platinumPlayers);
+        System.out.println("name:==> "+NAME);
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("goldPlayers");
         mTeamDatabaseReference =mFirebaseDatabase.getReference().child("IndivisualTeams");
         mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stories");
-        mChatPhotoStorageReference =firebaseStorage.getReference().child("platinumPhotos");
+        mChatPhotoStorageReference =firebaseStorage.getReference().child("goldPhotos");
         mStoriesStorageReference =firebaseStorage.getReference().child("stories_pictures");
 
-        mMessageDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                mMessageDatabaseReference2.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                        if (databaseError != null)
-                        {
-                            System.out.println("Copy failed");
-                        }
-                        else
-                        {
-                            System.out.println("Success");
-                        }
-                    }
 
-
-
-                });
-            }
-
-            @Override
-            public void onCancelled(DatabaseError firebaseError)
-            {
-                System.out.println("Copy failed");
-            }
-        });
 
         // Initialize references to views
         Query mHouseDatabaseReference3 =mFirebaseDatabase.getReference().child("silverPlayers").orderByChild("check");
@@ -256,47 +215,6 @@ public class PlatinumPlayers extends Fragment {
 
 
 
-            }
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        Query mHouseDatabaseReference03 =mFirebaseDatabase.getReference().child("IndivisualTeams").orderByChild("userId");
-
-        mHouseDatabaseReference03.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    int count = 0;
-                    String test = "";
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-
-                        System.out.println("issue" + issue.child("userId").getValue());
-                        //   if(issue.child("check").getValue().equals(true)) {
-
-                        if (issue.child("userId").getValue().equals(NAME)) {
-                            test = issue.child("defender1").getValue() + "" + issue.child("defender2").getValue() + " " + issue.child("striker1").getValue() + " "
-                                    + issue.child("striker2").getValue() + " " + issue.child("goli").getValue();
-                        }
-                        // System.out.println("selected players: " + issue.child("text").getValue());
-                        //count++;
-                            /*if(count==1){
-                                attacker1= issue.child("text").getValue().toString();
-                            }
-                            else if(count==2){
-
-                                attacker2= issue.child("text").getValue().toString();
-                            }*/
-
-
-                    }
-                    System.out.println("Team is :" + test);
-
-
-                }
             }
 
 
@@ -526,7 +444,6 @@ public class PlatinumPlayers extends Fragment {
                         UsersFantacyTeam usersFantacyTeam = new UsersFantacyTeam(NAME, goalkeeper1, defender1, defender2, attacker1, attacker2);
 
 
-
                         String text = NAME+" You set the team as: \n\n"+"GoalKeeper: "+goalkeeper1 + " \n Defender1: " + defender1 + " \n Defender2: " + defender2 + " \nStriker1: " + attacker1 + " \n Striker2: " + attacker2;
                         showDialog(text,usersFantacyTeam);
                     }
@@ -564,7 +481,7 @@ public class PlatinumPlayers extends Fragment {
 
 //                    name.setText(user.getDisplayName());
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mPlayerListAdapter = new PlayerListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME);
+                    mPlayerListAdapter = new PlayerListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
 
                     if (mMessageListView != null)
                         mMessageListView.setAdapter(mPlayerListAdapter);
@@ -593,45 +510,9 @@ public class PlatinumPlayers extends Fragment {
 
             ;
         };
-       
         return view;
+
     }
-
-
-
-
-  /*  public void moveFirebaseRecord(DatabaseReference fromPath, final DatabaseReference toPath)
-    {
-        fromPath.addListenerForSingleValueEvent(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                toPath.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener()
-                {
-                    @Override
-                    public void onComplete(FirebaseError firebaseError, DatabaseReference firebase)
-                    {
-                        if (firebaseError != null)
-                        {
-                            System.out.println("Copy failed");
-                        }
-                        else
-                        {
-                            System.out.println("Success");
-                        }
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError)
-            {
-                System.out.println("Copy failed");
-            }
-        });
-    }*/
-
     public ArrayList<Image> getmMatch(){
 
         return images;
@@ -829,7 +710,6 @@ public class PlatinumPlayers extends Fragment {
             public void onClick(View view) {
 
                 Intent i = new Intent(getActivity(), SelectedTeams.class);
-                i.putExtra("NAME",NAME);
                 startActivity(i);
                 mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                 dialog.dismiss();
@@ -842,7 +722,7 @@ public class PlatinumPlayers extends Fragment {
             public void onClick(View view) {
 
                 dialog.dismiss();
-                //Intent i = new Intent(Sil,GoldPlayers.class);
+                //Intent i = new Intent(Sil,Defender.class);
                 //getContext().startActivity(i);
 
 

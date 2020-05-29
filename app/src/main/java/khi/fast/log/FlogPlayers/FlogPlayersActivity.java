@@ -12,9 +12,6 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-import khi.fast.log.Activities.GoldPlayers;
-import khi.fast.log.Activities.PlatinumPlayers;
-import khi.fast.log.Activities.SilverPlayers;
 import khi.fast.log.R;
 
 public class FlogPlayersActivity extends AppCompatActivity {
@@ -42,9 +39,9 @@ public class FlogPlayersActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new PlatinumPlayers(), "ONE");
-        adapter.addFragment(new GoldPlayers(), "TWO");
-        adapter.addFragment(new SilverPlayers(), "THREE");
+        adapter.addFragment(new GoalKeeper(), "GOAL Keeper");
+        adapter.addFragment(new Defender(), "Defender");
+        adapter.addFragment(new Striker(), "Striker");
         viewPager.setAdapter(adapter);
     }
 

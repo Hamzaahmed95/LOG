@@ -132,15 +132,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.FantacyLOGActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-
-
-            </intent-filter>
-        </activity>
         <activity android:name=".Activities.PlatinumPlayers"
             android:screenOrientation="fullSensor">
             <intent-filter>

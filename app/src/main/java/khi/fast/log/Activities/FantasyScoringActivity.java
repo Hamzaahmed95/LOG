@@ -23,7 +23,8 @@ import khi.fast.log.POJO.FantasyScoring;
 import khi.fast.log.POJO.IndivisualPoints;
 import khi.fast.log.R;
 
-import static khi.fast.log.Activities.PlatinumPlayers.RC_SIGN_IN;
+import static khi.fast.log.Activities.MOM.RC_SIGN_IN;
+
 
 /**
  * Created by Hamza Ahmed on 11-Oct-17.

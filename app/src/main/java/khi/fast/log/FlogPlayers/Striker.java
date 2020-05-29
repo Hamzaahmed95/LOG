@@ -1,4 +1,6 @@
-package khi.fast.log.Activities;
+package khi.fast.log.FlogPlayers;
+
+
 
 
 
@@ -14,7 +16,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -49,7 +50,9 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.List;
 
-import khi.fast.log.Adapter.PlayerListAdapter2;
+import khi.fast.log.Activities.FlogMainActivity;
+import khi.fast.log.Activities.SelectedTeams;
+import khi.fast.log.Adapter.PlayerListAdapter;
 import khi.fast.log.POJO.FriendlyMessage;
 import khi.fast.log.POJO.Image;
 import khi.fast.log.POJO.UsersFantacyTeam;
@@ -59,7 +62,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 
-public class SilverPlayers extends Fragment {
+public class Striker extends Fragment {
 
     private static final String TAG = "ProfileActivity";
 
@@ -68,7 +71,7 @@ public class SilverPlayers extends Fragment {
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
     private TextView name;
-    private PlayerListAdapter2 mPlayerListAdapter2;
+    private PlayerListAdapter mPlayerListAdapter;
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
@@ -108,7 +111,7 @@ public class SilverPlayers extends Fragment {
     private TextView striker;
     private ImageView backButton5;
 
-    public SilverPlayers() {
+    public Striker() {
         // Required empty public constructor
     }
 
@@ -118,7 +121,7 @@ public class SilverPlayers extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.flog_strikers, container, false);
-        
+
         mPriceEditText = (EditText) view.findViewById(R.id.priceEditText);
 
 
@@ -135,7 +138,7 @@ public class SilverPlayers extends Fragment {
         goalkeeper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), PlatinumPlayers.class);
+                Intent i = new Intent(getActivity(), GoalKeeper.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -145,7 +148,7 @@ public class SilverPlayers extends Fragment {
         defender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), GoldPlayers.class);
+                Intent i = new Intent(getActivity(), Defender.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -231,39 +234,39 @@ public class SilverPlayers extends Fragment {
         mHouseDatabaseReferencegold.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        int count =0;
+                if (dataSnapshot.exists()) {
+                    int count =0;
 
-                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                            System.out.println("issue"+issue.child("check").getValue());
-                            if(issue.child("check").getValue().equals(true)) {
-                                System.out.println("selected players: " + issue.child("text").getValue());
-                                count++;
-                                if(count==1){
-                                    defender1= issue.child("text").getValue().toString();
-                                }
-                                else if(count==2){
-
-                                    defender2= issue.child("text").getValue().toString();
-                                }
-
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        System.out.println("issue"+issue.child("check").getValue());
+                        if(issue.child("check").getValue().equals(true)) {
+                            System.out.println("selected players: " + issue.child("text").getValue());
+                            count++;
+                            if(count==1){
+                                defender1= issue.child("text").getValue().toString();
                             }
-                                }
-                        if(count==0) {
-                            defender1 = "not selected";
-                            defender2 = "not selected";
-                        }
-                        else if(count==1){
-                            defender1 = "atleast 2 defenders should be selected";
-                            defender2 = "atleast 2 defenders should be selected";
-                        }
-                        else if(count>2){
-                            defender1="more than 2";
-                            defender2="more than 2";
+                            else if(count==2){
 
+                                defender2= issue.child("text").getValue().toString();
+                            }
 
                         }
                     }
+                    if(count==0) {
+                        defender1 = "not selected";
+                        defender2 = "not selected";
+                    }
+                    else if(count==1){
+                        defender1 = "atleast 2 defenders should be selected";
+                        defender2 = "atleast 2 defenders should be selected";
+                    }
+                    else if(count>2){
+                        defender1="more than 2";
+                        defender2="more than 2";
+
+
+                    }
+                }
 
 
 
@@ -290,7 +293,7 @@ public class SilverPlayers extends Fragment {
                             count++;
                             System.out.println("selected players: " + issue.child("text").getValue());
                             if(count==1)
-                            goalkeeper1= issue.child("text").getValue().toString();
+                                goalkeeper1= issue.child("text").getValue().toString();
                             else
                                 goalkeeper1= "more than 1";
                         }
@@ -484,10 +487,10 @@ public class SilverPlayers extends Fragment {
 
 //                    name.setText(user.getDisplayName());
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mPlayerListAdapter2 = new PlayerListAdapter2(getActivity(), R.layout.item_players, friendlyMessages, NAME);
+                    mPlayerListAdapter = new PlayerListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
 
                     if (mMessageListView != null)
-                        mMessageListView.setAdapter(mPlayerListAdapter2);
+                        mMessageListView.setAdapter(mPlayerListAdapter);
 
                     images = new ArrayList<>();
 
@@ -529,7 +532,7 @@ public class SilverPlayers extends Fragment {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mPlayerListAdapter2.clear();
+        mPlayerListAdapter.clear();
     }
 
     @Override
@@ -586,7 +589,7 @@ public class SilverPlayers extends Fragment {
     }
     private void  onSignedOutInitialize(){
         mUsername = ANONYMOUS;
-        mPlayerListAdapter2.clear();
+        mPlayerListAdapter.clear();
 
         detachDatabaseReadListener();
     }
@@ -598,7 +601,7 @@ public class SilverPlayers extends Fragment {
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
 
 
-                    mPlayerListAdapter2.add(friendlyMessage);
+                    mPlayerListAdapter.add(friendlyMessage);
                     mProgressBar.setVisibility(View.GONE);
 
 
@@ -712,7 +715,7 @@ public class SilverPlayers extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getActivity(),SelectedTeams.class);
+                Intent i = new Intent(getActivity(), SelectedTeams.class);
                 startActivity(i);
                 mTeamDatabaseReference.push().setValue(usersFantacyTeam);
                 dialog.dismiss();

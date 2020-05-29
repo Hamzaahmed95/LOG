@@ -117,7 +117,7 @@ public class LogDetailsFragment extends Fragment {
     }
 
     private void settingValues(){
-        game.setBackgroundResource(R.drawable.bg_gradient14);
+      //  game.setBackgroundResource(R.drawable.bg_gradient14);
 
         if(extra!=null) {
             TAG = extra.getString("TAG");

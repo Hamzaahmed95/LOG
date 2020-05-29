@@ -27,8 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
+import khi.fast.log.FlogPlayers.GoalKeeper;
 import khi.fast.log.POJO.FriendlyMessage;
-import khi.fast.log.Activities.PlatinumPlayers;
 import khi.fast.log.R;
 
 /**
@@ -47,11 +47,13 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
     private Dialog dialog;
     private DatabaseReference mMessageDatabaseReference;
     private int count=0;
+    private String dbName="";
     private List<FriendlyMessage> topicsList;
-    public PlayerListAdapter(Context context, int resource, List<FriendlyMessage> objects, String name) {
+    public PlayerListAdapter(Context context, int resource, List<FriendlyMessage> objects, String name,String dbName) {
         super(context, resource, objects);
         topicsList=objects;
         Name = name;
+        this.dbName = dbName;
     }
 
     @Override
@@ -71,7 +73,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
 
 
 
-        mMessageDatabaseReference =mFirebaseDatabase.getReference().child("platinumPlayers");
+        mMessageDatabaseReference =mFirebaseDatabase.getReference().child(dbName);
         //    System.out.println("called"+count+" position "+getItemId(position));
 
         checkBox1.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +88,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
 
                 if (checkBox.isChecked())
                 {
-                    mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    mFirebaseDatabase.getReference().child(dbName).orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -111,7 +113,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
                     });
                 }
                 else{
-                    mFirebaseDatabase.getReference().child("platinumPlayers").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    mFirebaseDatabase.getReference().child("dbName").orderByChild("id").equalTo(getItem(position).getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -262,7 +264,7 @@ public class PlayerListAdapter extends ArrayAdapter<FriendlyMessage> {
             public void onClick(View view) {
 
                 dialog.dismiss();
-                Intent i = new Intent(getContext(), PlatinumPlayers.class);
+                Intent i = new Intent(getContext(), GoalKeeper.class);
                 getContext().startActivity(i);
 
 
