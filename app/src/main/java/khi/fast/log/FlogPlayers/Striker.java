@@ -307,7 +307,7 @@ public class Striker extends Fragment {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mFlogPlayersAdapter.clear();
+
     }
     @Override
     public void onResume(){

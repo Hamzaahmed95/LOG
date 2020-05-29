@@ -279,7 +279,7 @@ public class Defender extends Fragment {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mFlogPlayersAdapter.clear();
+
     }
 
     @Override

@@ -79,7 +79,6 @@ public class GoalKeeper extends Fragment {
     Query mHouseDatabaseReferenceplatinum;
 
     public GoalKeeper() {
-        // Required empty public constructor
     }
 
     @Override
@@ -272,6 +271,7 @@ public class GoalKeeper extends Fragment {
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
                     mFlogPlayersAdapter = new FlogPlayersAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"platinumPlayers");
 
+                    System.out.println("FLOGMAINACTIVITY: 1");
                     if (mMessageListView != null)
                         mMessageListView.setAdapter(mFlogPlayersAdapter);
 
@@ -302,14 +302,17 @@ public class GoalKeeper extends Fragment {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListner);
         }
         detachDatabaseReadListener();
-        mFlogPlayersAdapter.clear();
+        System.out.println("FLOGMAINACTIVITY: 2");
+       // mFlogPlayersAdapter.clear();
     }
 
     @Override
     public void onResume(){
         super.onResume();
+        System.out.println("FLOGMAINACTIVITY: 3");
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
     }
+
 
     private void  onSignedInInitialize(){
 
@@ -327,7 +330,9 @@ public class GoalKeeper extends Fragment {
             mChildEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
+                    System.out.println("FLOGMAINACTIVITY: 4");
                     mFlogPlayersAdapter.add(friendlyMessage);
 
                 }
