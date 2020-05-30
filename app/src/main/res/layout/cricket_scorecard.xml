@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_gradient14"
+    android:background="#16171b"
     android:layout_height="match_parent">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,6 +11,7 @@
     android:gravity="center|top"
     android:orientation="vertical">
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_gravity="center"
@@ -38,6 +39,7 @@
     </LinearLayout>
 
     <ToggleButton
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/toggleButton"/>
@@ -475,9 +477,10 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:id="@+id/scorecard1"
-                    android:background="@color/white"
+                    android:background="#F1294A"
                     android:text="ScoreCard"
-                    android:textColor="@android:color/black"
+
+                    android:textColor="@android:color/white"
                     android:layout_height="wrap_content" />
                 <View
                     android:layout_width="1dp"
@@ -487,8 +490,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:text="ScoreCard"
-                    android:background="@color/white"
-                    android:textColor="@android:color/black"
+                    android:background="#F1294A"
+                    android:textColor="@android:color/white"
                     android:id="@+id/scorecard2"
                     android:layout_height="wrap_content" />
 

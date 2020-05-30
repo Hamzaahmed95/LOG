@@ -69,6 +69,7 @@ public class FullScorecard2 extends AppCompatActivity {
     public String NAME;
     private EditText editExtras;
     private TextView extras;
+    private TextView optionUsername;
     @Override
     protected void onCreate( final Bundle savedInstanceState) {
 
@@ -87,6 +88,8 @@ public class FullScorecard2 extends AppCompatActivity {
         extras = (TextView) findViewById(R.id.extras);
         mUsername = ANONYMOUS;
         editExtras = (EditText) findViewById(R.id.editExtras);
+        optionUsername = (TextView)findViewById(R.id.optionUsername);
+        optionUsername.setText("Scorecard");
         firebaseStorage = FirebaseStorage.getInstance();
         mMessageDatabaseReference = mFirebaseDatabase.getReference().child("liveScoring");
         mMessageDatabaseReference2 = mFirebaseDatabase.getReference().child("liveScoring2");
