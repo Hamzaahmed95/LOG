@@ -103,7 +103,7 @@
         </activity>
 
 
-        <activity android:name=".activities.FanFavouriteActivity"
+        <activity android:name=".fan_favourite.FanFavouriteActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
 
@@ -174,13 +174,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.FantasyScoringActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
         <activity android:name=".activities.ResultFantasyActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
@@ -227,7 +220,13 @@
 
             </intent-filter>
         </activity>
+        <activity android:name=".log_details.LogDetailsActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
 
+            </intent-filter>
+        </activity>
 
     </application>
 

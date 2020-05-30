@@ -1,11 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/team"
     android:layout_width="match_parent"
+    android:background="#17161B"
     android:layout_height="match_parent"
     android:gravity="top|center"
     android:orientation="vertical">
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#23355b"
@@ -30,20 +33,11 @@
             android:textSize="25dp" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="One Team, One Dream!"
-        android:textColor="#9023355b"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:paddingTop="50dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -73,7 +67,7 @@
                     android:gravity="center"
                     android:layout_height="30dp"
                     android:layout_marginLeft="0dp"
-                    android:background="#23355b"
+                    android:background="#F1294A"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Players"
                     android:textColor="@android:color/white" />
@@ -107,7 +101,7 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#23355b"
+                        android:background="#F1294A"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -148,7 +142,7 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#23355b"
+                        android:background="#F1294A"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -183,7 +177,7 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#23355b"
+                        android:background="#F1294A"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -224,7 +218,7 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#23355b"
+                        android:background="#F1294A"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />
@@ -260,7 +254,7 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#23355b"
+                        android:background="#F1294A"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
                         android:textColor="@android:color/white" />

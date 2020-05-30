@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#17161B"
-
     android:gravity="center|top"
     android:orientation="vertical">
 
@@ -16,10 +15,10 @@
 
         <ListView
             android:id="@+id/messageListView"
-            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@android:color/transparent"
+            android:padding="15dp"
             android:stackFromBottom="true"
             android:transcriptMode="alwaysScroll"
             tools:listitem="@layout/item_players" />

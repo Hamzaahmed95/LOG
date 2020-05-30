@@ -110,21 +110,21 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
             // Buy Button
 
-            ImageView v1 = (ImageView) dialog.findViewById(R.id.janbaz);
+//            ImageView v1 = (ImageView) dialog.findViewById(R.id.janbaz);
+//
+//            Glide.with(v1.getContext())
+//                    .load(url)
+//                    .into(v1);
 
-            Glide.with(v1.getContext())
-                    .load(url)
-                    .into(v1);
 
-
-            ImageButton Close = (ImageButton) dialog.findViewById(R.id.close1);
-            Close.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    dialog.dismiss();
-                }
-            });
+//            ImageButton Close = (ImageButton) dialog.findViewById(R.id.close1);
+//            Close.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                    dialog.dismiss();
+//                }
+//            });
 
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             dialog.show();

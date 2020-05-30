@@ -22,9 +22,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import khi.fast.log.fan_favourite.FanFavouriteActivity;
 import khi.fast.log.model.IndivisualPoints;
 import khi.fast.log.R;
 import khi.fast.log.utils.Utils;
+import khi.fast.log.log_details.LogDetailsActivity;
 
 import static khi.fast.log.utils.Constants.LOG_OVERVIEW_BADMINTON_TEXT;
 import static khi.fast.log.utils.Constants.LOG_OVERVIEW_BASKETBALL_MESSAGE;
@@ -157,7 +159,6 @@ public class LogOverviewActivity extends AppCompatActivity {
                 AuthUI.getInstance().signOut(LogOverviewActivity.this);
             }
         });
-
 
         cricket.setOnClickListener(new View.OnClickListener() {
             @Override

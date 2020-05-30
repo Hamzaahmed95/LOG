@@ -1,4 +1,4 @@
-package khi.fast.log.activities;
+package khi.fast.log.fan_favourite;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import khi.fast.log.R;
+import khi.fast.log.activities.LogOverviewActivity;
 
 /**
  * Created by Hamza Ahmed on 30-Sep-17.
@@ -37,7 +38,6 @@ public class FanFavouriteActivity extends AppCompatActivity {
     View v5;
     View v6;
     View v7;
-
 
     private FirebaseDatabase mFirebaseDatabase;
 
