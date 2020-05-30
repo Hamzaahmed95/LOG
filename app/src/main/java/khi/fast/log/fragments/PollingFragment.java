@@ -146,8 +146,8 @@ public class PollingFragment extends Fragment {
         date1 =(EditText)view.findViewById(R.id.date1);
         // date2 =(TextView)view.findViewById(R.id.date2);
         imageView =(ImageView)view.findViewById(R.id.photoImageView2);
-      //  username1 = ProfileActivity.ANONYMOUS;
-       // mUsername = ANONYMOUS;
+        //  username1 = ProfileActivity.ANONYMOUS;
+        // mUsername = ANONYMOUS;
         count1 = 0;
         matchUpdate = (TextView) view.findViewById(R.id.status);
         toggle = (ToggleButton) view.findViewById(R.id.toggleButton);
@@ -234,7 +234,7 @@ public class PollingFragment extends Fragment {
             l2.setLayoutParams(params);
 
 
-           // sadFace.setLayoutParams(params1);
+            // sadFace.setLayoutParams(params1);
 
 
         }
