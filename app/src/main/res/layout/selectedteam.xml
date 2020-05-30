@@ -1,137 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center|top"
-    android:background="@drawable/footballfield"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="25dp"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/goalkeeper"/>
-
-        <TextView
-            android:id="@+id/goalkeeper1"
-            android:textSize="20dp"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Goal keeper"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:background="@drawable/footballfield"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:orientation="horizontal">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="15dp"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="25dp">
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/player"/>
-        <TextView
-            android:id="@+id/defender1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="20dp"
+                android:src="@drawable/goalkeeper" />
 
-            android:textColor="@android:color/white"
-            android:text="Defender 1"/></LinearLayout>
+            <TextView
+                android:id="@+id/goalkeeper1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Goal keeper"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingTop="15dp"
-            android:layout_margin="20dp"
             android:orientation="vertical">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/player"/>
-        <TextView
-            android:id="@+id/defender2"
-            android:layout_width="wrap_content"
-
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content"
-            android:text="Defender 2"/></LinearLayout>
 
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="100dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:paddingTop="25dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/player"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
 
-        <TextView
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/player" />
 
-            android:id="@+id/striker1"
-            android:layout_width="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content"
-            android:text="Striker 1"/></LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="25dp"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/player"/>
-        <TextView
-            android:id="@+id/striker2"
-            android:layout_width="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content"
-            android:text="Striker 2"/></LinearLayout>
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/defender1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Defender 1"
 
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/player" />
+
+                    <TextView
+                        android:id="@+id/defender2"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Defender 2"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="100dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="25dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/player" />
+
+                    <TextView
+
+                        android:id="@+id/striker1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Striker 1"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="25dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/player" />
+
+                    <TextView
+                        android:id="@+id/striker2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Striker 2"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

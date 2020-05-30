@@ -13,182 +13,21 @@
         android:supportsRtl="true"
         android:noHistory="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.SplashScreen"
+        <activity android:name=".activities.SplashScreen"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity"
+        <activity android:name=".activities.MainActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.QuestionActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".Activities.LogOverviewActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.LogDetailsActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".Activities.PollingActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".Scoring.CricketScoreCardActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.FullScorecard2"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.FullScorecard3"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".Activities.PointsTableActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.TeamsOverview"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.SelectTeamsActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-        <activity android:name=".Activities.FanFavouriteActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.MOM"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Scoring.BBScoreCardActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".Scoring.FutsalScoreActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.PlatinumPlayers"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.GoldPlayers"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.SilverPlayers"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.SplashScreenFLOG"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.SplashBack"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.FlogMainActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.SelectedTeams"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.FantasyScoringActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.ResultFantasyActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-        </activity>
-        <activity android:name=".Scoring.BadmintonScore"
+        <activity android:name=".activities.QuestionActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -196,7 +35,168 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Scoring.TTScore"
+        <activity android:name=".activities.LogOverviewActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.LogDetailsActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.PollingActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".scoring.CricketScoreCardActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.FullScorecard2"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.FullScorecard3"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.PointsTableActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.TeamsOverview"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.SelectTeamsActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".activities.FanFavouriteActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.MOM"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".scoring.BBScoreCardActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".scoring.FutsalScoreActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.PlatinumPlayers"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.GoldPlayers"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.SilverPlayers"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.SplashScreenFLOG"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.SplashBack"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.FlogMainActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.SelectedTeams"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.FantasyScoringActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ResultFantasyActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+        <activity android:name=".scoring.BadmintonScore"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".scoring.TTScore"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -205,7 +205,7 @@
         </activity>
 
 
-        <activity android:name=".Scoring.VolleyballScore"
+        <activity android:name=".scoring.VolleyballScore"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -213,14 +213,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FlogPlayers.FlogPlayersActivity"
+        <activity android:name=".flog_players.FlogPlayersActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
             </intent-filter>
         </activity>
-        <activity android:name=".Scoring.ThrowballScoreActivity"
+        <activity android:name=".scoring.ThrowballScoreActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
