@@ -207,7 +207,8 @@ public class FlogMainActivity extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside(false);
         System.out.println("name:==> " + NAME);
         Button Close = (Button) dialog.findViewById(R.id.close1);
-        Close.setOnClickListener(new View.OnClickListener() {
+        Button GoOn = (Button) dialog.findViewById(R.id.goOn);
+        GoOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -219,6 +220,12 @@ public class FlogMainActivity extends AppCompatActivity {
                 startActivity(i);
 
 
+            }
+        });
+        Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
 

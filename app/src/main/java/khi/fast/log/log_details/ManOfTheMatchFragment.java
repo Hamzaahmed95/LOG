@@ -44,7 +44,7 @@ import java.util.List;
 
 import khi.fast.log.R;
 import khi.fast.log.activities.LogDetailsActivity;
-import khi.fast.log.activities.MOM;
+
 import khi.fast.log.adapter.MOMAdapter;
 import khi.fast.log.model.MOMCLASS;
 

@@ -23,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import khi.fast.log.model.UsersFantacyTeam;
 import khi.fast.log.R;
 
-import static khi.fast.log.activities.MOM.RC_SIGN_IN;
 import static khi.fast.log.utils.Constants.FLOG_SELECTED_TEAM;
 
 public class SelectedTeams extends AppCompatActivity {
@@ -35,6 +34,7 @@ public class SelectedTeams extends AppCompatActivity {
     private String house;
     private TextView GoalKeeper;
     private TextView Defender1;
+    public static final int RC_SIGN_IN =1;
     private TextView Defender2;
     private TextView Striker1;
     private TextView Striker2;
