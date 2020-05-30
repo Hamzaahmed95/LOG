@@ -59,7 +59,7 @@ public class LogDetailsActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        LogDetailsActivity.ViewPagerAdapter adapter = new LogDetailsActivity.ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new LogDetailsActivity.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new TeamsFragment(), "Teams");
         adapter.addFragment(new ScoreFragment(), "Score");
         adapter.addFragment(new ManOfTheMatchFragment(), "MOM");

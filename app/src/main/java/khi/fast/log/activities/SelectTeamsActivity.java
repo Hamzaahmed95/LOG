@@ -62,7 +62,7 @@ public class SelectTeamsActivity extends AppCompatActivity {
     }
     private void initialization() {
         stags = (LinearLayout) findViewById(R.id.stags);
-        stags.setBackgroundResource(R.drawable.bg_gradient14);
+       // stags.setBackgroundResource(R.drawable.bg_gradient14);
 
         recyclerView = (RecyclerView) findViewById(R.id.nawaitJanbaz);
         recyclerView.setHasFixedSize(true);
@@ -88,7 +88,7 @@ public class SelectTeamsActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(SelectTeamsActivity.this,TeamsOverview.class,true);
+                Utils.startingActivity(SelectTeamsActivity.this,LogDetailsActivity.class,true);
             }
         });
     }

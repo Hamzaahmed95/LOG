@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="0dp"
     android:gravity="center|top"
-    android:background="@drawable/bg_gradient4"
+    android:background="#17161B"
     android:id="@+id/rightLayoutMOM"
     android:orientation="vertical">
 
