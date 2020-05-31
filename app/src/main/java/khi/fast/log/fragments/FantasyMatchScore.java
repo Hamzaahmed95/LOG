@@ -41,8 +41,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import khi.fast.log.activities.LogDetailsActivity;
 import khi.fast.log.activities.LogOverviewActivity;
+import khi.fast.log.log_details.LogDetailsActivity;
 import khi.fast.log.model.Ball;
 import khi.fast.log.model.TeamNames;
 import khi.fast.log.model.TeamsPicture;

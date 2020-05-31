@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import khi.fast.log.adapter.TeamAdapter;
+import khi.fast.log.log_details.LogDetailsActivity;
 import khi.fast.log.model.Image;
 import khi.fast.log.R;
 import khi.fast.log.utils.Utils;
@@ -88,7 +89,7 @@ public class SelectTeamsActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(SelectTeamsActivity.this,LogDetailsActivity.class,true);
+                Utils.startingActivity(SelectTeamsActivity.this, LogDetailsActivity.class,true);
             }
         });
     }

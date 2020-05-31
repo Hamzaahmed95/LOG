@@ -1,6 +1,5 @@
 package khi.fast.log.log_details;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -16,9 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import khi.fast.log.R;
-import khi.fast.log.log_details.LogDetailsActivity;
 import khi.fast.log.activities.SelectTeamsActivity;
-import khi.fast.log.activities.TeamsOverview;
 import khi.fast.log.utils.Utils;
 
 public class TeamsFragment extends Fragment {

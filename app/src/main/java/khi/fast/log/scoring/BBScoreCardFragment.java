@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import khi.fast.log.activities.LogDetailsActivity;
 import khi.fast.log.R;
+import khi.fast.log.log_details.LogDetailsActivity;
 
 /**
  * Created by Hamza Ahmed on 01-Oct-17.

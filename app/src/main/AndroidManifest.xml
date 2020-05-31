@@ -42,21 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LogDetailsActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".activities.PollingActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity android:name=".scoring.CricketScoreCardActivity"
             android:screenOrientation="fullSensor">
@@ -80,20 +65,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.PointsTableActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.TeamsOverview"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".activities.SelectTeamsActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
@@ -104,13 +75,6 @@
 
 
         <activity android:name=".fan_favourite.FanFavouriteActivity"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.MOM"
             android:screenOrientation="fullSensor">
             <intent-filter>
 
@@ -145,18 +109,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.SilverPlayers"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".pre_login.SplashScreenFLOG"
-            android:screenOrientation="fullSensor">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".pre_login.SplashBack"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />

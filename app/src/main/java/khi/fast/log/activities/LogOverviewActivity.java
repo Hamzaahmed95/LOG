@@ -30,7 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 import khi.fast.log.fan_favourite.FanFavouriteActivity;
 import khi.fast.log.model.IndivisualPoints;
 import khi.fast.log.R;
-import khi.fast.log.pre_login.SplashScreenFLOG;
 import khi.fast.log.utils.Utils;
 import khi.fast.log.log_details.LogDetailsActivity;
 
@@ -234,11 +233,8 @@ public class LogOverviewActivity extends AppCompatActivity {
                 if (Utils.isFirstTime(view.getContext())) {
                     IndivisualPoints indivisualPoints = new IndivisualPoints(name1, 0, 0, 0);
                     IndivisualPointsDB.push().setValue(indivisualPoints);
-                    Utils.startingActivity(LogOverviewActivity.this, SplashScreenFLOG.class, "", "", false);
-
-                } else {
-                    Utils.startingActivity(LogOverviewActivity.this, FlogMainActivity.class, "name1", name1, false);
                 }
+                Utils.startingActivity(LogOverviewActivity.this, FlogMainActivity.class, "name1", name1, false);
 
             }
         });
