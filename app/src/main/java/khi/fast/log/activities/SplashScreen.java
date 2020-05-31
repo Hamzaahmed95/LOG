@@ -5,6 +5,7 @@ package khi.fast.log.activities;
  */
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +24,8 @@ public class SplashScreen extends Activity {
 
     ProgressBar progressBar;
     Handler handler;
+    public static Context APPLICATION_CONTEXT;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,15 @@ public class SplashScreen extends Activity {
     }
 
     public void initialization() {
-        System.out.println("SPLASHSCREEN: called?");
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        APPLICATION_CONTEXT = this;
+
+        if (Utils.getBooleanPref("NIGHT_MODE")) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        }
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         handler = new Handler();

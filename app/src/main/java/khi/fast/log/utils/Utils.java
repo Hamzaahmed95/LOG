@@ -5,9 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+
+import khi.fast.log.activities.LogOverviewActivity;
+import khi.fast.log.activities.SplashScreen;
+
 import static android.content.Context.MODE_PRIVATE;
 
 public class Utils {
+
+    private static final String PREFS_NAME = "log_my_preferences";
 
     public static final boolean isFirstTime(Context context)
     {
@@ -62,4 +70,21 @@ public class Utils {
         }
         return ret.toString();
     }
+    private static SharedPreferences getPreference() {
+        return SplashScreen.APPLICATION_CONTEXT.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+    }
+
+    public static void saveBoolean(String key, boolean val) {
+        SharedPreferences prefs = getPreference();
+        SharedPreferences.Editor e = prefs.edit();
+        try {
+            e.putBoolean(new String(key.getBytes("UTF-8"), Charset.defaultCharset()), val).apply();
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+    }
+    public static boolean getBooleanPref(String key) {
+        return getPreference().getBoolean(key, false);
+    }
+
 }

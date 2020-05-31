@@ -1,6 +1,7 @@
 package khi.fast.log.activities;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.bumptech.glide.util.Util;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -81,6 +83,7 @@ public class LogOverviewActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListner;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,6 +126,7 @@ public class LogOverviewActivity extends AppCompatActivity {
 
     private void initialization() {
 
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         IndivisualPointsDB = mFirebaseDatabase.getReference().child("IndivisualPoints");
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -147,6 +151,13 @@ public class LogOverviewActivity extends AppCompatActivity {
         Flog = (TextView) findViewById(R.id.FLOG);
         switch_button = (SwitchCompat) findViewById(R.id.switch_button);
         handler = new Handler();
+        if (Utils.getBooleanPref("NIGHT_MODE")) {
+           switch_button.setChecked(true);
+
+        } else {
+            switch_button.setChecked(false);
+        }
+
     }
 
     private void settingValue() {
@@ -159,6 +170,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         Volley.setText(LOG_OVERVIEW_VOLLEY_TEXT);
         Badminton.setText(LOG_OVERVIEW_BADMINTON_TEXT);
         Flog.setText(LOG_OVERVIEW_FLOG_TEXT);
+
     }
 
     private void handleClickListener() {
@@ -202,8 +214,10 @@ public class LogOverviewActivity extends AppCompatActivity {
         switch_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    Utils.saveBoolean("NIGHT_MODE", true);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }else{
+                    Utils.saveBoolean("NIGHT_MODE", false);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
                 handler.postDelayed(new Runnable() {
@@ -213,7 +227,7 @@ public class LogOverviewActivity extends AppCompatActivity {
                         finish();
                         startActivity(intent);
                     }
-                }, 1500);
+                }, 500);
             }
         });
         flog.setOnClickListener(new View.OnClickListener() {

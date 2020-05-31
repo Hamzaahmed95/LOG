@@ -8,16 +8,35 @@
     android:padding="5dp"
     android:weightSum="1">
 
-    <android.support.v7.widget.SwitchCompat
+    <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="left"
-        android:id="@+id/switch_button"
-        android:paddingTop="25dp"
-        android:paddingRight="25dp"
-        android:layout_height="100dp"
-        android:layout_alignParentRight="true"
-        android:checked="false"
-        android:theme="@style/SCBSwitch" />
+        android:gravity="right"
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:textColor="@color/common_text_color"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:layout_height="match_parent"
+            android:text="Change mode" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:paddingRight="25dp"
+            android:theme="@style/SCBSwitch" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
