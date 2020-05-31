@@ -16,7 +16,7 @@
             android:textSize="15dp"
             android:layout_marginRight="20dp"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="3dip" />
         <TextView
             android:text="hello"
@@ -24,42 +24,42 @@
             android:id="@+id/Type1"
             android:textSize="10dp"
             android:gravity="left"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="3dip" />
         <TextView
             android:text="hello"
             android:id="@+id/R1"
             android:gravity="right"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="7dip" />
         <TextView
             android:text="hello"
             android:gravity="right"
             android:id="@+id/B"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="7dip" />
         <TextView
             android:text="hello"
             android:id="@+id/f4"
             android:fontFamily="sans-serif-condensed"
             android:gravity="right"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="7dip" />
         <TextView
             android:text="hello"
             android:id="@+id/s6"
             android:fontFamily="sans-serif-condensed"
             android:gravity="right"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="7dip" />
         <TextView
             android:text="hello"
             android:gravity="right"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/SS"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="7dip" />
     </TableRow>
     <View

@@ -2,6 +2,7 @@ package khi.fast.log.log_details;
 
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import khi.fast.log.activities.FlogMainActivity;
 import khi.fast.log.R;
 import khi.fast.log.activities.LogOverviewActivity;
 
+import static khi.fast.log.utils.Constants.LOG_Details_TEXT;
 import static khi.fast.log.utils.Constants.LOG_OVERVIEW_FLOG_TEXT;
 
 public class LogDetailsActivity extends AppCompatActivity {
@@ -36,11 +38,14 @@ public class LogDetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(LOG_OVERVIEW_FLOG_TEXT);
+        getSupportActionBar().setTitle(LOG_Details_TEXT);
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.common_text_color));
+        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.common_text_color), PorterDuff.Mode.SRC_ATOP);
         tabLayout.setupWithViewPager(viewPager);
     }
     @Override
@@ -59,7 +64,7 @@ public class LogDetailsActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new LogDetailsActivity.ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new TeamsFragment(), "Teams");
         adapter.addFragment(new ScoreFragment(), "Score");
         adapter.addFragment(new ManOfTheMatchFragment(), "MOM");

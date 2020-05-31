@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:id="@+id/game"
     android:gravity="top|center"
     android:layout_height="match_parent">
@@ -43,7 +43,7 @@
                 android:src="@drawable/votes"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                 android:src="@drawable/score"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                 android:src="@drawable/caps"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="15dp"
                 android:text="Man of teh match"
                 android:fontFamily="sans-serif-condensed"
@@ -118,7 +118,7 @@
                 android:src="@drawable/rank"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                 android:src="@drawable/teams"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_gravity="center"

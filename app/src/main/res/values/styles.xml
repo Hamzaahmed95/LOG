@@ -14,7 +14,6 @@
         <item name="colorSwitchThumbNormal">#ffffff</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">true</item>
-
     </style>
     <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
         <item name="android:windowContentOverlay">@null</item>
@@ -33,6 +32,14 @@
 
     <style name="AppTheme.ActionBar" parent="AppTheme">
         <item name="windowActionBarOverlay">false</item>
+    </style>
+
+    <style name="MyTheme" parent="Theme.AppCompat.DayNight">
+        <!-- Blah blah -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">#ffffff</item>
     </style>
 
 </resources>

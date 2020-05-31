@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:gravity="center|top"
     android:orientation="vertical">
 
@@ -34,7 +34,7 @@
             android:fontFamily="sans-serif-condensed"
             android:padding="10dp"
             android:text="Show Team"
-            android:textColor="@android:color/white" />
+             android:textColor="@color/common_text_color_night" />
     </RelativeLayout>
 
 

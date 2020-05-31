@@ -211,10 +211,12 @@ public class PollsFragment extends Fragment {
                                 params.weight = 1.0f;
                                 params.gravity = Gravity.CENTER;
                                 matchUpdate.setText("Polling Time has closed!");
+                                matchUpdate.setTextColor(getResources().getColor(R.color.common_text_color_night));
                                 matchUpdate.setLayoutParams(params);
                             } else {
                                 l1.setVisibility(View.VISIBLE);
                                 matchUpdate.setText("Polling is active now!");
+                                matchUpdate.setTextColor(getResources().getColor(R.color.common_text_color_night));
                             }
                         }
 

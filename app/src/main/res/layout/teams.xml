@@ -26,7 +26,7 @@
             android:gravity="center"
             android:paddingRight="10dp"
             android:text="Teams"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -74,7 +74,7 @@
                         android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
 
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                         android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -145,7 +145,7 @@
                         android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -178,7 +178,7 @@
                         android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -217,7 +217,7 @@
                         android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -251,7 +251,7 @@
                         android:background="#23355b"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

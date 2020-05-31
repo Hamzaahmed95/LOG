@@ -322,6 +322,7 @@ public class LogOverviewActivity extends AppCompatActivity {
     }
 
 
+
     private void showDialog() {
 
         dialog = new Dialog(this);

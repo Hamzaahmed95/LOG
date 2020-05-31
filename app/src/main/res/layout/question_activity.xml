@@ -19,7 +19,7 @@
             android:paddingBottom="50dp"
             android:id="@+id/Username"
             android:gravity="center"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:textSize="25dp"
             android:fontFamily="sans-serif-condensed"/>
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:textColorHint="@android:color/white"
             android:id="@+id/FavPlayer"/>
 
@@ -51,7 +51,7 @@
             android:layout_marginTop="40dp"
             android:textStyle="bold"
             android:background="@drawable/bg_gradient9"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/sendButtonQuesion"/>
     </LinearLayout>

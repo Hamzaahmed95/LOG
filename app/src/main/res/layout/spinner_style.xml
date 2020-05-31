@@ -11,4 +11,4 @@
     android:paddingLeft="50dp"
     android:paddingBottom="10dp"
     android:textStyle="bold"
-    android:textColor="@android:color/white" />
+     android:textColor="@color/common_text_color_night" />

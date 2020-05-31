@@ -16,6 +16,6 @@
         android:height="60dp"/>
     <stroke
         android:width="4dp"
-        android:color="#17161B"/>
-    <solid android:color="#F1294A"/>
+        android:color="@color/dark_main"/>
+    <solid android:color="@color/dark_sub"/>
 </shape>

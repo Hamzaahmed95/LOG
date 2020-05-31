@@ -7,12 +7,12 @@
     <color name="lightBlack">#85ffffff</color>
     <color name="bluesh">#478B75</color>
     <color name="gold">#191500</color>
+    <color name="white">#ffffff</color>
     <color name="purple">#95400080</color>
     <color name="gray">#40D3D3D3</color>
-    <color name="white">#ffffff</color>
-    <color name="dark_main">#EAEAEA</color>
+    <color name="dark_main">#17161B</color>
     <color name="dark_sub">#F1294A</color>
-    <color name="dark_black">#ffffff</color>
-    <color name="common_text_color">#000000</color>
-    <color name="common_text_color_night">#ffffff</color>
+    <color name="dark_black">#000000</color>
+    <color name="common_text_color">#ffffff</color>
+    <color name="common_text_color_night">#000000</color>
 </resources>

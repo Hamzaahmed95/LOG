@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatDelegate;
 import android.widget.ProgressBar;
 
 import khi.fast.log.R;
@@ -32,6 +33,8 @@ public class SplashScreen extends Activity {
     }
 
     public void initialization() {
+        System.out.println("SPLASHSCREEN: called?");
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         handler = new Handler();

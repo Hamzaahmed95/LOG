@@ -37,6 +37,7 @@ public class Constants {
     public static final String LOG_Details_MOM_TEXT = "Man of the match";
     public static final String LOG_Details_POINTS_TABLE_TEXT = "Points table";
     public static final String LOG_Details_TEAMS_TEXT = "Teams";
+    public static final String LOG_Details_TEXT = "LOG OVERVIEW";
 
 
 

@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/team"
     android:layout_width="match_parent"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:layout_height="match_parent"
     android:gravity="top|center"
     android:orientation="vertical">
@@ -29,7 +29,7 @@
             android:gravity="center"
             android:paddingRight="10dp"
             android:text="Teams"
-            android:textColor="@android:color/white"
+             android:textColor="@color/white"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -67,10 +67,10 @@
                     android:gravity="center"
                     android:layout_height="30dp"
                     android:layout_marginLeft="0dp"
-                    android:background="#F1294A"
+                    android:background="@color/dark_sub"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Players"
-                    android:textColor="@android:color/white" />
+                     android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -101,10 +101,10 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#F1294A"
+                        android:background="@color/dark_sub"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -142,10 +142,10 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#F1294A"
+                        android:background="@color/dark_sub"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -177,10 +177,10 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#F1294A"
+                        android:background="@color/dark_sub"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -218,10 +218,10 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#F1294A"
+                        android:background="@color/dark_sub"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/white" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -254,10 +254,10 @@
                         android:gravity="center"
                         android:layout_height="30dp"
                         android:layout_marginLeft="0dp"
-                        android:background="#F1294A"
+                        android:background="@color/dark_sub"
                         android:fontFamily="sans-serif-condensed"
                         android:text="Players"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

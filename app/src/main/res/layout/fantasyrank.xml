@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:orientation="vertical">
 
     <LinearLayout
@@ -33,7 +33,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Rank"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/common_text_color"
                     android:textSize="20dp" />
 
                 <View
@@ -50,7 +50,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="20dp" />
 
                 <TextView
@@ -62,7 +62,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Points"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="20dp" />
 
             </LinearLayout>
@@ -94,7 +94,7 @@
                         android:gravity="left"
                         android:padding="10dp"
                         android:text="1st"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                     <TextView
@@ -106,7 +106,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="Compititors"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                     <TextView
@@ -117,7 +117,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="10dp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                 </LinearLayout>
@@ -148,7 +148,7 @@
                         android:gravity="left"
                         android:padding="10dp"
                         android:text="2nd"
-                        android:textColor="#ffffff"
+                         android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                     <TextView
@@ -160,7 +160,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="Compititors"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                     <TextView
@@ -171,7 +171,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="10dp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                 </LinearLayout>
@@ -194,7 +194,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="3rd"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -206,7 +206,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -217,7 +217,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -236,7 +236,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="4th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -248,7 +248,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -259,7 +259,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -278,7 +278,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="5th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -290,7 +290,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -301,7 +301,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -320,7 +320,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="6th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -332,7 +332,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -343,7 +343,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -362,7 +362,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="7th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -374,7 +374,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -385,7 +385,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -404,7 +404,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="8th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -416,7 +416,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -427,7 +427,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -446,7 +446,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="9th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -458,7 +458,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -469,7 +469,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -488,7 +488,7 @@
                     android:gravity="left"
                     android:padding="10dp"
                     android:text="10th"
-                    android:textColor="#ffffff"
+                     android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -500,7 +500,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Compititors"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
                 <TextView
@@ -511,7 +511,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/common_text_color"
                     android:textSize="15dp" />
 
             </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@drawable/new_background"
+    android:background="@color/dark_main"
     android:gravity="center"
     android:padding="5dp"
     android:layout_height="match_parent"
@@ -57,7 +57,7 @@
         </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-condensed"
                 android:id="@+id/FFT"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -261,7 +261,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -322,7 +322,7 @@
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textSize="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"

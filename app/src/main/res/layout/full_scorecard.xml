@@ -24,7 +24,7 @@
                 android:id="@+id/scoring"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:hint="Batsman-Type-R-B-4s-6s-SR"
                 android:textColorHint="@android:color/white" />
 
@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="send"
-                android:textColor="@android:color/white" />
+                 android:textColor="@color/common_text_color" />
         </LinearLayout>
 
         <LinearLayout
@@ -47,7 +47,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="20dp"
-                android:background="#000000"
+                android:background="@color/dark_black"
                 android:gravity="right|top"
                 android:padding="10dp"
                 android:stretchColumns="2">
@@ -59,7 +59,7 @@
                         android:gravity="left"
                         android:padding="3dip"
                         android:text="BATSMEN"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="15dp" />
 
                     <TextView
@@ -67,7 +67,7 @@
                         android:gravity="left"
                         android:padding="3dip"
                         android:text=" "
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:layout_marginLeft="5dp"
@@ -75,7 +75,7 @@
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="R"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:layout_marginLeft="5dp"
@@ -83,7 +83,7 @@
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="B"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:layout_marginLeft="5dp"
@@ -91,7 +91,7 @@
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="4s"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:layout_marginLeft="5dp"
@@ -99,7 +99,7 @@
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="6s"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:layout_marginLeft="5dp"
@@ -107,7 +107,7 @@
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="SR"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
                 </TableRow>
 
                 <View
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#000000"
+                android:background="@color/dark_black"
                 android:divider="@android:color/transparent"
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
@@ -161,7 +161,7 @@
             </TableRow>
             <View
                 android:layout_height="2dip"
-                android:background="#000000" />
+                android:background="@color/dark_black" />
             <TableRow>
 
                 <TextView
@@ -187,7 +187,7 @@
             android:textColorHint="@android:color/white"
             android:id="@+id/editExtras"
             android:hint="extras"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color"
             android:textSize="15dp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -196,7 +196,7 @@
             <EditText
                 android:id="@+id/scoring2"
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:layout_height="wrap_content"
                 android:hint="Bowler-O-M-R-W-EC-Os-WD-NB"
                 android:textColorHint="@android:color/white" />
@@ -206,7 +206,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="send"
-                android:textColor="@android:color/white" /></LinearLayout>
+                 android:textColor="@color/common_text_color" /></LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -218,7 +218,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="20dp"
-                android:background="#000000"
+                android:background="@color/dark_black"
                 android:gravity="right|top"
                 android:padding="10dp"
                 android:stretchColumns="1">
@@ -230,63 +230,63 @@
                         android:gravity="left"
                         android:padding="3dip"
                         android:text="BOWLER"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="3dip"
                         android:text="O"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="M"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="R"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="W"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="EC"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="Os"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="WD"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
 
                     <TextView
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="right"
                         android:padding="4dip"
                         android:text="NB"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color" />
                 </TableRow>
 
                 <View
@@ -301,7 +301,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#000000"
+                android:background="@color/dark_black"
                 android:divider="@android:color/transparent"
                 android:padding="10dp"
                 android:stackFromBottom="true"

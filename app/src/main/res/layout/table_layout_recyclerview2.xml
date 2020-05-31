@@ -15,7 +15,7 @@
             android:fontFamily="sans-serif-condensed"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="3dip" />
         <TextView
             android:text="hello"
@@ -23,7 +23,7 @@
             android:id="@+id/Over"
             android:textSize="15dp"
             android:gravity="left"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="3dip" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:textSize="15dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="left"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="3dip" />
         <TextView
             android:text="hello"
@@ -40,7 +40,7 @@
             android:textSize="15dp"
             android:gravity="center"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="3dip" />
         <TextView
             android:text="hello"
@@ -48,7 +48,7 @@
             android:textSize="15dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="right"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="6dip" />
         <TextView
             android:text="hello"
@@ -56,7 +56,7 @@
             android:textSize="15dp"
             android:id="@+id/Economy"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="6dip" />
         <TextView
             android:text="hello"
@@ -64,7 +64,7 @@
             android:textSize="15dp"
             android:gravity="right"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="6dip" />
         <TextView
             android:text="hello"
@@ -72,7 +72,7 @@
             android:textSize="15dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="right"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="6dip" />
         <TextView
             android:text="hello"
@@ -80,7 +80,7 @@
             android:gravity="right"
             android:textSize="15dp"
             android:id="@+id/Nb"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:padding="6dip" />
     </TableRow>
     <View

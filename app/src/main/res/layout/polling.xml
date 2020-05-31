@@ -1,118 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/polling"
-    android:background="#17161B"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top|center">
+    android:background="@color/dark_main"
+    android:gravity="top|center"
+    android:orientation="vertical">
 
-    <include android:visibility="gone" layout="@layout/toolbar" />
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
 
 
     <ToggleButton
-        android:visibility="gone"
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/toggleButton"/>
+        android:visibility="gone" />
+
     <ProgressBar
-        android:visibility="gone"
         android:id="@+id/progressBar"
-        android:indeterminateTint="@android:color/white"
-        android:foregroundGravity="center"
-        android:layout_gravity="center"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/hide"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/photoImageView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-         />
-    <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
-        android:padding="10dp"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:id="@+id/progressBarPT"
-        android:max="48"
-        android:progress="1"
-        android:progressDrawable="@drawable/circulr_screen"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-
-    <ImageButton
-        android:id="@+id/photoPickerButton2"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="@android:drawable/ic_menu_gallery" />
-    <EditText
-        android:layout_width="match_parent"
-        android:textColorHint="@android:color/white"
         android:layout_height="match_parent"
-        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        android:indeterminateTint="@android:color/white"
+        android:visibility="gone" />
 
-
-        android:hint="Enter Your Answer"
-        android:id="@+id/date1"/>
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/hide"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
-        android:background="#F1294A"
-        android:id="@+id/send1"
-        android:text="@string/button_text_send"/>
-    </LinearLayout>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/photoImageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progressBarPT"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:max="48"
+                android:padding="10dp"
+                android:progress="1"
+                android:progressDrawable="@drawable/circulr_screen" />
+
+
+            <ImageButton
+                android:id="@+id/photoPickerButton2"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/date1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Enter Your Answer"
+
+
+                android:textColor="@color/common_text_color_night"
+                android:textColorHint="@android:color/white" />
+
+            <Button
+                android:id="@+id/send1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/dark_sub"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/button_text_send"
+                android:textColor="@color/common_text_color_night" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/l2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:id="@+id/l2"
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/sadFace"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/sadFace"
             android:layout_marginBottom="30dp"
-            android:src="@drawable/sad"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:textStyle="normal"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
-        android:id="@+id/status"/>
+            android:src="@drawable/sad" />
+
         <TextView
+            android:id="@+id/status"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:fontFamily="sans-serif-condensed"
             android:gravity="center"
+            android:textColor="@color/common_text_color_night"
+            android:textSize="25dp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:textStyle="bold"
-            android:textSize="13dp"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
-            android:id="@+id/msg"/>
+            android:gravity="center"
+            android:textColor="@color/common_text_color_night"
+            android:textSize="13dp"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

@@ -35,7 +35,7 @@
                 android:paddingRight="10dp"
                 android:text="Score"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="25dp" />
         </LinearLayout>
 
@@ -80,7 +80,7 @@
                         android:paddingBottom="10dp"
                         android:paddingRight="10dp"
                         android:text="TEAM 1"
-                        android:textColor="@android:color/white" />
+                         android:textColor="@color/common_text_color_night" />
 
 
                     <TextView
@@ -91,7 +91,7 @@
                         android:paddingLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color_night"
                         android:textSize="20dp"/>
                     <ImageButton
                         android:id="@+id/photoPickerTeam1"
@@ -156,7 +156,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color_night"
                             android:textSize="40dp" />
 
                         <TextView
@@ -164,7 +164,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:text="-"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color_night"
                             android:textSize="40dp" />
 
                         <TextView
@@ -172,7 +172,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color_night"
                             android:textSize="40dp" />
 
                     </LinearLayout>
@@ -187,14 +187,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed"
-                                android:textColor="@android:color/white"
+                                 android:textColor="@color/common_text_color_night"
                                 android:textSize="30dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="'"
-                                android:textColor="@android:color/white"
+                                 android:textColor="@color/common_text_color_night"
                                 android:textSize="30dp" />
                         </LinearLayout>
 
@@ -239,7 +239,7 @@
                         android:paddingBottom="10dp"
                         android:paddingLeft="10dp"
                         android:text="TEAM 2"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color_night"
                         android:textSize="20dp" />
 
 
@@ -252,7 +252,7 @@
                         android:paddingLeft="25dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color_night"
                         android:textSize="20dp"/>
                     <ImageButton
                         android:id="@+id/photoPickerTeam2"
@@ -275,7 +275,7 @@
                 android:id="@+id/e1"
                 android:layout_height="wrap_content"
                 android:hint="Teams names separated by -"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textColorHint="@android:color/white"/>
             <Button
                 android:layout_width="wrap_content"
@@ -347,7 +347,7 @@
                     android:layout_width="wrap_content"
                     android:id="@+id/player1"
                     android:textSize="20dp"
-                    android:textColor="@android:color/white"
+                     android:textColor="@color/common_text_color_night"
                     android:fontFamily="sans-serif-condensed"
                     android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -387,7 +387,7 @@
                             android:layout_width="wrap_content"
                             android:id="@+id/player4"
                             android:textSize="20dp"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color_night"
                             android:fontFamily="sans-serif-condensed"
                             android:layout_height="wrap_content" /></LinearLayout>
 
@@ -432,7 +432,7 @@
                     android:layout_width="wrap_content"
                     android:id="@+id/player2"
                     android:textSize="20dp"
-                    android:textColor="@android:color/white"
+                     android:textColor="@color/common_text_color_night"
                     android:fontFamily="sans-serif-condensed"
                     android:layout_height="wrap_content" /></LinearLayout>
 
@@ -472,7 +472,7 @@
                             android:layout_width="wrap_content"
                             android:id="@+id/player3"
                             android:textSize="20dp"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color_night"
                             android:fontFamily="sans-serif-condensed"
                             android:layout_height="wrap_content" /></LinearLayout>
 
@@ -520,7 +520,7 @@
                 android:background="@null"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="25dp"
                 android:textStyle="normal" />
 
@@ -531,7 +531,7 @@
                 android:background="@null"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="13dp"
                 android:textStyle="bold" />
         </LinearLayout>

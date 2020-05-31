@@ -35,7 +35,7 @@
                 android:paddingRight="10dp"
                 android:text="Score"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="25dp" />
         </LinearLayout>
 

@@ -17,12 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             />
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,7 +34,7 @@
             android:textSize="20dp"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
            />
         <TextView
             android:id="@+id/sub_heading1"
@@ -47,7 +45,7 @@
             android:textStyle="bold"
             android:layout_margin="0dp"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             />
         <TextView
             android:id="@+id/sub_heading2"
@@ -57,7 +55,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center_vertical"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
            />
     </LinearLayout>
     <ImageView
@@ -74,7 +72,7 @@
             android:id="@+id/paragraph0"
             android:layout_width="wrap_content"
             android:textSize="30dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -83,7 +81,7 @@
             android:id="@+id/paragraph1"
             android:layout_width="wrap_content"
             android:textSize="20dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -92,7 +90,7 @@
             android:id="@+id/paragraph2"
             android:layout_width="wrap_content"
             android:textSize="30dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -101,7 +99,7 @@
             android:id="@+id/paragraph3"
             android:layout_width="wrap_content"
             android:textSize="20dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -110,7 +108,7 @@
             android:id="@+id/paragraph4"
             android:layout_width="wrap_content"
             android:textSize="30dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -119,7 +117,7 @@
             android:id="@+id/paragraph5"
             android:layout_width="wrap_content"
             android:textSize="20dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -128,7 +126,7 @@
             android:id="@+id/paragraph6"
             android:layout_width="wrap_content"
             android:textSize="30dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -137,7 +135,7 @@
             android:id="@+id/paragraph7"
             android:layout_width="wrap_content"
             android:textSize="20dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/common_text_color"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:layout_height="wrap_content"
@@ -156,7 +154,7 @@
             android:layout_margin="10dp"
             android:fontFamily="sans-serif-condensed"
             android:background="@android:color/black"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/common_text_color" />
 
     </LinearLayout>
 </LinearLayout>

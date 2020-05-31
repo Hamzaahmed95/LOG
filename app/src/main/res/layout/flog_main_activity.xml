@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:layout_width="match_parent"
     android:gravity="center|top|left"
     android:layout_height="match_parent">
@@ -24,7 +24,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:id="@+id/pickTeam"
-            android:background="#000000"
+            android:background="@color/dark_black"
             android:orientation="horizontal">
 
             <ImageView
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textStyle="bold"
                 android:textSize="30dp"
                 />
@@ -56,7 +56,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#000000"
+            android:background="@color/dark_black"
             android:orientation="horizontal">
 
             <ImageView
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textStyle="bold"
                 android:textSize="30dp"
                 />
@@ -90,7 +90,7 @@
             android:layout_marginBottom="10dp"
 
             android:id="@+id/result"
-            android:background="#000000"
+            android:background="@color/dark_black"
             android:orientation="horizontal">
 
             <ImageView
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color"
                 android:textStyle="bold"
                 android:textSize="30dp"
                 />
@@ -137,7 +137,7 @@
             android:visibility="gone"
             android:text="Match is in progress!"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"/>
+             android:textColor="@color/common_text_color_night"/>
     </LinearLayout>
 
 

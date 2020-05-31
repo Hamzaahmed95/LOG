@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/mom"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:gravity="center|top"
     android:layout_height="match_parent">
     <LinearLayout
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:padding="10dp"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:fontFamily="sans-serif-condensed"
             android:textSize="25dp"
             android:gravity="center"
@@ -72,7 +72,7 @@
             android:padding="12dp"
             android:singleLine="true"
             android:textColorHint="@android:color/white"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:hint="Type a message!"
             android:layout_weight="1" />
 

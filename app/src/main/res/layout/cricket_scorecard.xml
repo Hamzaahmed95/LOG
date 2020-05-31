@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#16171b"
+    android:background="@color/dark_main"
     android:layout_height="match_parent">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color"
             android:textSize="25dp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="40dp" />
 
                     <TextView
@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="/"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="40dp" />
 
                     <TextView
@@ -205,7 +205,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="40dp" />
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -257,13 +257,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp"
                         android:text="."/>
                     <TextView
@@ -271,7 +271,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp" />
 
                     <TextView
@@ -280,7 +280,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:id="@+id/overhide2"
                         android:text=" overs"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp" />
 
                     <LinearLayout
@@ -350,7 +350,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="40dp" />
 
                     <TextView
@@ -358,7 +358,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="/"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="40dp" />
 
                     <TextView
@@ -366,7 +366,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="40dp" />
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -417,13 +417,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:text="."
                         android:textSize="20dp" />
                     <TextView
@@ -431,7 +431,7 @@
                         android:id="@+id/livsScoreOvers22"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp" />
 
                     <LinearLayout
@@ -457,7 +457,7 @@
                         android:id="@+id/overhide1"
                         android:fontFamily="sans-serif-condensed"
                         android:text=" overs"
-                        android:textColor="@android:color/white"
+                         android:textColor="@color/common_text_color"
                         android:textSize="20dp" />
 
                 </LinearLayout>
@@ -477,10 +477,10 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:id="@+id/scorecard1"
-                    android:background="#F1294A"
+                    android:background="@color/dark_sub"
                     android:text="ScoreCard"
 
-                    android:textColor="@android:color/white"
+                     android:textColor="@color/common_text_color"
                     android:layout_height="wrap_content" />
                 <View
                     android:layout_width="1dp"
@@ -490,8 +490,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:text="ScoreCard"
-                    android:background="#F1294A"
-                    android:textColor="@android:color/white"
+                    android:background="@color/dark_sub"
+                     android:textColor="@color/common_text_color"
                     android:id="@+id/scorecard2"
                     android:layout_height="wrap_content" />
 
@@ -549,7 +549,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:paddingRight="6dp"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color"
                             android:textSize="20dp" />
 
 
@@ -557,26 +557,26 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/runs1"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="("
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
                             android:id="@+id/balls1"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=")"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -626,32 +626,32 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:paddingRight="6dp"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color"
                             android:textSize="20dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/runs2"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="("
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
                             android:id="@+id/balls2"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=")"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -706,27 +706,27 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:paddingRight="20dp"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color"
                             android:textSize="20dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/runs3"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
                             android:id="@+id/balls3"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -761,7 +761,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:gravity="start"
                             android:paddingRight="20dp"
-                            android:textColor="@android:color/white"
+                             android:textColor="@color/common_text_color"
                             android:textSize="20dp" />
 
                         <TextView
@@ -769,24 +769,24 @@
 
                             android:id="@+id/runs4"
                             android:layout_height="wrap_content"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
                             android:id="@+id/balls4"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@android:color/white" />
+                             android:textColor="@color/common_text_color" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1040,7 +1040,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color"
             android:id="@+id/status"/>
         <TextView
             android:layout_width="match_parent"
@@ -1050,7 +1050,7 @@
             android:textStyle="bold"
             android:textSize="13dp"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color"
             android:id="@+id/msg"/>
     </LinearLayout>
 

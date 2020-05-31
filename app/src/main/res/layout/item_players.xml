@@ -5,7 +5,7 @@
 
     android:paddingBottom="15dp"
     android:layout_height="wrap_content"
-    android:background="#17161B">
+    android:background="@color/dark_main">
 
     <CheckBox
         android:id="@+id/checkBox1"
@@ -26,7 +26,7 @@
         android:padding="4dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="#FFFFFF"/>
+        android:textColor="@color/common_text_color"/>
     <TextView
         android:id="@+id/price"
         android:gravity="right"
@@ -37,7 +37,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="#FFFFFF"
+         android:textColor="@color/common_text_color"
         android:layout_toLeftOf="@id/checkBox1"
         android:text="Rs.30" />
 

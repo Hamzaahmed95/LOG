@@ -27,7 +27,7 @@
             android:gravity="center"
             android:typeface="serif"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:layout_height="wrap_content"
             android:id="@+id/optionUsername"/>
 
@@ -59,7 +59,7 @@
             android:id="@+id/layout1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#000000"
+            android:background="@color/dark_black"
             android:layout_height="130dp">
             <ImageView
                 android:layout_width="50dp"
@@ -67,7 +67,7 @@
                 android:src="@drawable/votes"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 android:src="@drawable/score"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:src="@drawable/caps"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             android:layout_width="134dp"
             android:id="@+id/layout4"
             android:gravity="center"
-            android:background="#000000"
+            android:background="@color/dark_black"
             android:orientation="vertical"
             android:layout_height="130dp">
 
@@ -141,7 +141,7 @@
                 android:src="@drawable/rank"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
         <LinearLayout
             android:layout_width="134dp"
             android:id="@+id/layout5"
-            android:background="#000000"
+            android:background="@color/dark_black"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_height="130dp">
@@ -172,7 +172,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
                 android:src="@drawable/teams"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/white"
+                 android:textColor="@color/common_text_color_night"
                 android:textSize="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:layout_gravity="center"

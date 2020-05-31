@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:id="@+id/pointstable"
-    android:background="#17161B"
+    android:background="@color/dark_main"
     android:gravity="center|top"
     android:layout_height="match_parent">
     <LinearLayout
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+             android:textColor="@color/common_text_color_night"
             android:textSize="25dp"
             android:fontFamily="sans-serif-condensed"
             android:paddingRight="10dp"

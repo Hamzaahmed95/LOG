@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:text="Note that"
         android:fontFamily="sans-serif-condensed"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:background="#F1294A"/>
+        android:background="@color/dark_sub"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center"
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
-        android:textColor="#17161B"
+        android:textColor="@color/dark_main"
         android:textStyle="bold"
         android:textSize="15dp"
         android:fontFamily="sans-serif-condensed"
@@ -50,11 +50,11 @@
         android:id="@+id/close1"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="#17161B"
+        android:background="@color/dark_main"
         android:textStyle="bold"
         android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
+         android:textColor="@color/common_text_color"
         android:text="Cancel"/>
 
     <Button
@@ -62,10 +62,10 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
-        android:background="#17161B"
+        android:background="@color/dark_main"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
+         android:textColor="@color/common_text_color"
         android:text="Let's Go!"/>
 
 </LinearLayout>
