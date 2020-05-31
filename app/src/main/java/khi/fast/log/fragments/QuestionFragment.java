@@ -27,7 +27,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import khi.fast.log.activities.LogOverviewActivity;
-import khi.fast.log.activities.SplashBack;
 import khi.fast.log.model.House;
 import khi.fast.log.R;
 import khi.fast.log.utils.Constants;

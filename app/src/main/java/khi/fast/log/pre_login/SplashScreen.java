@@ -1,4 +1,4 @@
-package khi.fast.log.activities;
+package khi.fast.log.pre_login;
 
 /**
  * Created by Hamza Ahmed on 25-Sep-17.
@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.widget.ProgressBar;
 
 import khi.fast.log.R;
+import khi.fast.log.activities.LogOverviewActivity;
 import khi.fast.log.utils.Utils;
 
 

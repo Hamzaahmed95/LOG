@@ -1,7 +1,6 @@
 package khi.fast.log.activities;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,10 +15,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 
-import com.bumptech.glide.util.Util;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import khi.fast.log.fan_favourite.FanFavouriteActivity;
 import khi.fast.log.model.IndivisualPoints;
 import khi.fast.log.R;
+import khi.fast.log.pre_login.SplashScreenFLOG;
 import khi.fast.log.utils.Utils;
 import khi.fast.log.log_details.LogDetailsActivity;
 

@@ -8,8 +8,7 @@ import android.content.SharedPreferences;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 
-import khi.fast.log.activities.LogOverviewActivity;
-import khi.fast.log.activities.SplashScreen;
+import khi.fast.log.pre_login.SplashScreen;
 
 import static android.content.Context.MODE_PRIVATE;
 

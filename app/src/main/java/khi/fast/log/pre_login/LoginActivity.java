@@ -1,4 +1,4 @@
-package khi.fast.log.activities;
+package khi.fast.log.pre_login;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

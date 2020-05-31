@@ -1,4 +1,4 @@
-package khi.fast.log.activities;
+package khi.fast.log.pre_login;
 
 /**
  * Created by Hamza Ahmed on 25-Sep-17.
@@ -6,6 +6,7 @@ package khi.fast.log.activities;
 
 import android.support.v4.app.Fragment;
 
+import khi.fast.log.activities.SingleFragmentActivity;
 import khi.fast.log.fragments.QuestionFragment;
 
 /**

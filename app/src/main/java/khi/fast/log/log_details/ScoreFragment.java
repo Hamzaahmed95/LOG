@@ -47,7 +47,7 @@ import khi.fast.log.model.Ball;
 import khi.fast.log.model.BatsmanBowler;
 import khi.fast.log.activities.FullScorecard2;
 import khi.fast.log.activities.FullScorecard3;
-import khi.fast.log.activities.LogDetailsActivity;
+import khi.fast.log.log_details.LogDetailsActivity;
 import khi.fast.log.R;
 import khi.fast.log.model.TeamsPicture;
 import khi.fast.log.model.onOff;

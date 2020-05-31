@@ -36,7 +36,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import khi.fast.log.R;
-import khi.fast.log.activities.LogDetailsActivity;
+import khi.fast.log.log_details.LogDetailsActivity;
 import khi.fast.log.model.PointTablePicture;
 
 import static android.app.Activity.RESULT_OK;
@@ -76,13 +76,13 @@ public class PointsTableFragment extends Fragment {
             @Override
             public void onBackStackChanged() {
                 if(getFragmentManager().getBackStackEntryCount() == 0) {
-                    Intent i = new Intent(getActivity(), khi.fast.log.activities.LogDetailsActivity.class);
+                    Intent i = new Intent(getActivity(), LogDetailsActivity.class);
                     getActivity().finish();
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
                 else{
-                    Intent i = new Intent(getActivity(), khi.fast.log.activities.LogDetailsActivity.class);
+                    Intent i = new Intent(getActivity(), LogDetailsActivity.class);
                     getActivity().finish();
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);

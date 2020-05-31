@@ -1,4 +1,4 @@
-package khi.fast.log.activities;
+package khi.fast.log.pre_login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import khi.fast.log.R;
+import khi.fast.log.activities.FlogMainActivity;
 
 /**
  * Created by Hamza Ahmed on 05-Oct-17.

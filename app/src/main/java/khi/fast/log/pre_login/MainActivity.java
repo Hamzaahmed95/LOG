@@ -1,4 +1,4 @@
-package khi.fast.log.activities;
+package khi.fast.log.pre_login;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

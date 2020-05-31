@@ -13,21 +13,21 @@
         android:supportsRtl="true"
         android:noHistory="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SplashScreen"
+        <activity android:name=".pre_login.SplashScreen"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity"
+        <activity android:name=".pre_login.MainActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.QuestionActivity"
+        <activity android:name=".pre_login.QuestionActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -150,13 +150,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SplashScreenFLOG"
+        <activity android:name=".pre_login.SplashScreenFLOG"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SplashBack"
+        <activity android:name=".pre_login.SplashBack"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -234,7 +234,7 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity"
+        <activity android:name=".pre_login.LoginActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />

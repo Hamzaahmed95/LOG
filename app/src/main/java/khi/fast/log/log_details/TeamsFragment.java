@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import khi.fast.log.R;
-import khi.fast.log.activities.LogDetailsActivity;
+import khi.fast.log.log_details.LogDetailsActivity;
 import khi.fast.log.activities.SelectTeamsActivity;
 import khi.fast.log.activities.TeamsOverview;
 import khi.fast.log.utils.Utils;
@@ -70,7 +70,7 @@ public class TeamsFragment extends Fragment {
         backButton6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(getActivity(), khi.fast.log.activities.LogDetailsActivity.class,true);
+                Utils.startingActivity(getActivity(), LogDetailsActivity.class,true);
             }
         });
 
