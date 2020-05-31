@@ -234,6 +234,15 @@
 
             </intent-filter>
         </activity>
+        <activity android:name=".activities.LoginActivity"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 

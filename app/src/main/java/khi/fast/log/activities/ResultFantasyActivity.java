@@ -253,8 +253,8 @@ public class ResultFantasyActivity extends AppCompatActivity {
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setTheme(R.style.FirebaseLoginTheme)
-                                    .setLogo(R.drawable.floggg)
+                                    .setTheme(R.style.AppTheme)
+                                    .setLogo(R.drawable.flog_logo)
                                     .setProviders(
                                             AuthUI.GOOGLE_PROVIDER
                                     ).build(),

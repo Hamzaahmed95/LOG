@@ -87,6 +87,7 @@ public class FlogMainActivity extends AppCompatActivity {
         pickTeam = (LinearLayout) findViewById(R.id.pickTeam);
         backbutton5 = (ImageView) findViewById(R.id.backButton5);
         l2.setVisibility(View.GONE);
+        flog_text.setTextColor(getResources().getColor(R.color.common_text_color));
     }
 
     private void settingValue() {

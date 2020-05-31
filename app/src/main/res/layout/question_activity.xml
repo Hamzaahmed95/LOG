@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="top|center"
-    android:background="@drawable/bg_gradient9"
+    android:background="@color/dark_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -32,26 +32,24 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:fontFamily="sans-serif-condensed"
-             android:textColor="@color/common_text_color_night"
-            android:textColorHint="@android:color/white"
+            android:textColor="@color/common_text_color"
+            android:textColorHint="@color/common_text_color"
             android:id="@+id/FavPlayer"/>
 
         <Spinner
             android:id="@+id/favTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bg_gradient9"
-            android:popupBackground="@drawable/bg_gradient9"
-            android:layout_marginRight="10dp"
+            android:background="#000000"
+            android:popupBackground="@color/dark_sub"
             android:spinnerMode="dropdown" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:textStyle="bold"
-            android:background="@drawable/bg_gradient9"
-             android:textColor="@color/common_text_color_night"
+            android:background="@color/dark_sub"
+            android:textColor="@color/common_text_color_night"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/sendButtonQuesion"/>
     </LinearLayout>

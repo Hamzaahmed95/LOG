@@ -265,7 +265,7 @@ public class StrikersFragment extends Fragment {
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setTheme(R.style.FirebaseLoginTheme)
+                                    .setTheme(R.style.AppTheme)
                                     .setLogo(R.drawable.wb5)
                                     .setProviders(
                                             AuthUI.EMAIL_PROVIDER,

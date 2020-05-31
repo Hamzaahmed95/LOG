@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient9">
+    android:background="@color/dark_main">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:paddingBottom="20dp"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/floggg"/>
+        android:src="@drawable/flog_logo"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -147,14 +147,15 @@
         android:layout_margin="10dp">
         <Button
             android:id="@+id/getStarted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:padding="10dp"
+            android:textStyle="bold"
             android:layout_margin="10dp"
-            android:fontFamily="sans-serif-condensed"
-            android:background="@android:color/black"
-            android:textColor="@color/common_text_color" />
+            android:fontFamily="sans-serif-condensed-medium"
+            android:background="@color/dark_sub"
+            android:textColor="@color/common_text_color_night" />
 
     </LinearLayout>
 </LinearLayout>

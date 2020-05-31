@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import khi.fast.log.activities.LogOverviewActivity;
 import khi.fast.log.activities.SplashBack;
 import khi.fast.log.model.House;
 import khi.fast.log.R;
@@ -91,27 +92,30 @@ public class QuestionFragment extends Fragment {
 
     private void handleClickListener() {
 
-        GetUserName.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        usernameArray[i] = issue.child("username").getValue().toString();
-                        i++;
-
-                    }
-                    for (int j = 0; j < i; j++) {
-                        System.out.println(j + "" + usernameArray[j]);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        GetUserName.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//
+//                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+//                        if(issue.child("username").getValue().toString()!=null){
+//                            usernameArray[i] = issue.child("username").getValue().toString();
+//                            i++;
+//                        }
+//
+//
+//                    }
+//                    for (int j = 0; j < i; j++) {
+//                        System.out.println(j + "" + usernameArray[j]);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
         BestTeam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -176,7 +180,7 @@ public class QuestionFragment extends Fragment {
                     House house1 = new House(mUsername, favouriteBatsman, favouriteTeam, house);
                     House.push().setValue(house1);
 
-                    Intent i = new Intent(getActivity(), SplashBack.class);
+                    Intent i = new Intent(getActivity(), LogOverviewActivity.class);
                     Bundle b = new Bundle();
                     b.putStringArray("users", usernameArray);
                     i.putExtra("batch", house);

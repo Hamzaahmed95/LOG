@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="center"
-    android:background="@android:color/black"
+    android:background="@color/dark_main"
     android:layout_height="match_parent"
     android:weightSum="1">
 
@@ -17,7 +17,7 @@
         android:id="@+id/progressBar"
         android:max="48"
         android:progress="1"
-        android:progressDrawable="@drawable/circulr_screen"
+        android:indeterminateDrawable="@drawable/circulr_screen"
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -27,7 +27,7 @@
         android:layout_above="@id/progressBar"
         android:layout_height="wrap_content"
         android:id="@+id/app_logo"
-        android:src ="@drawable/floggg"
+        android:src ="@drawable/flog_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
