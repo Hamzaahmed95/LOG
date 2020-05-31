@@ -1,354 +1,400 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/dark_main"
-    android:gravity="center"
-    android:padding="5dp"
     android:layout_height="match_parent"
+    android:background="@color/dark_main"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    android:padding="5dp"
     android:weightSum="1">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:id="@+id/logout"
-            android:background="@drawable/circle10"
-            android:src="@drawable/logout"/>
 
-    </LinearLayout>
+    <android.support.v7.widget.SwitchCompat
+        android:layout_width="match_parent"
+        android:gravity="left"
+        android:id="@+id/switch_button"
+        android:paddingTop="25dp"
+        android:paddingRight="25dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:checked="false"
+        android:theme="@style/SCBSwitch" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingBottom="5dp"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/logout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circle10"
+                android:padding="10dp"
+                android:src="@drawable/logout" />
+
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:id="@+id/futsal"
-            android:visibility="visible"
-            android:paddingTop="75dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="70dp"
-            android:id="@+id/layout1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@drawable/circle"
-            android:layout_height="70dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/futsal"/>
-        </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Futsal"/>
+            android:paddingBottom="5dp">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-
-            android:id="@+id/cricket"
-            android:visibility="visible"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout2"
-                android:gravity="center"
-                android:orientation="vertical"
-
-                android:background="@drawable/circle"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/cricket"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Cricket"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:id="@+id/basketball"
-            android:visibility="visible"
-            android:paddingTop="75dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout3"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/circle"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/basketball"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Basketball"/>
+                android:orientation="horizontal">
 
-        </LinearLayout>
-    </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/futsal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="75dp"
+                    android:visibility="visible">
 
+                    <LinearLayout
+                        android:id="@+id/layout1"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/futsal" />
+                    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/Futsal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
+                </LinearLayout>
 
-            android:id="@+id/badminton"
-            android:visibility="visible"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout7"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/circle7"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/badminton"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Badminton"/>
+                <LinearLayout
+                    android:id="@+id/cricket"
+                    android:layout_width="wrap_content"
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:id="@+id/flog"
-            android:visibility="visible"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="90dp"
-                android:id="@+id/layout8"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/circle11"
-                android:layout_height="90dp">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/logo_flog"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/FLOG"/>
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:visibility="visible">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:id="@+id/fanfav"
-            android:visibility="visible"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout9"
-                android:gravity="center"
-                android:orientation="vertical"
+                    <LinearLayout
+                        android:id="@+id/layout2"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle"
 
-                android:background="@drawable/circle"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ffr"/>
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/cricket" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/Cricket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/basketball"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="75dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout3"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/basketball" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/Basketball"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed"
-                android:id="@+id/FFT"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp" />
 
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-
-            android:id="@+id/volley"
-            android:visibility="visible"
-            android:paddingBottom="75dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout4"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/circle7"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/volleyball"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Volley"/>
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:id="@+id/throwball"
-            android:visibility="visible"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/badminton"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout7"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle7"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/badminton" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/Badminton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/flog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout8"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/circle11"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/logo_flog" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/FLOG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fanfav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout9"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle"
+
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ffr" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/FFT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout5"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/circle7"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/throwball"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Throw"/>
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:id="@+id/tabletennis"
-            android:visibility="visible"
-            android:paddingBottom="75dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/volley"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="75dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout4"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle7"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/volleyball" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/Volley"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/throwball"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout5"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle7"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/throwball" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/Throw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tabletennis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="75dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/layout6"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/circle7"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/tabletennis" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/Table"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
             <LinearLayout
-                android:layout_width="70dp"
-                android:id="@+id/layout6"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@drawable/circle7"
-                android:layout_height="70dp">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/tabletennis"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                 android:textColor="@color/common_text_color"
-                android:textSize="15dp"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/Table"/>
+                android:layout_weight="0.07"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_weight="0.07">
-
-
-
-
-</LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

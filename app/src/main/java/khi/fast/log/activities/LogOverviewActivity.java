@@ -1,15 +1,21 @@
 package khi.fast.log.activities;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -61,6 +67,8 @@ public class LogOverviewActivity extends AppCompatActivity {
     TextView Throw;
     TextView FFT;
     TextView Flog;
+    SwitchCompat switch_button;
+    Handler handler;
 
 
     private FirebaseDatabase mFirebaseDatabase;
@@ -137,6 +145,8 @@ public class LogOverviewActivity extends AppCompatActivity {
         Volley = (TextView) findViewById(R.id.Volley);
         Badminton = (TextView) findViewById(R.id.Badminton);
         Flog = (TextView) findViewById(R.id.FLOG);
+        switch_button = (SwitchCompat) findViewById(R.id.switch_button);
+        handler = new Handler();
     }
 
     private void settingValue() {
@@ -189,6 +199,23 @@ public class LogOverviewActivity extends AppCompatActivity {
             }
         });
 
+        switch_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+                    }
+                }, 1500);
+            }
+        });
         flog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

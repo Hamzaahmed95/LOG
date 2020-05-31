@@ -34,7 +34,7 @@ public class SplashScreen extends Activity {
 
     public void initialization() {
         System.out.println("SPLASHSCREEN: called?");
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         handler = new Handler();
