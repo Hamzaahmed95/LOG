@@ -87,6 +87,7 @@ public class ResultFantasyActivity extends AppCompatActivity {
         t20=(TextView)findViewById(R.id.point10);
         optionUsername = (TextView)findViewById(R.id.optionUsername);
         optionUsername.setText(FLOG_RESULT);
+        optionUsername.setTextColor(getResources().getColor(R.color.common_text_color));
         backbutton5 = (ImageView) findViewById(R.id.backButton5);
         backbutton5.setOnClickListener(new View.OnClickListener() {
             @Override

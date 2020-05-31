@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/dark_sub"
             app:tabTextColor="@color/common_text_color"
             android:background="@color/dark_main"
             app:tabGravity="fill"/>

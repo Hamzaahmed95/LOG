@@ -147,6 +147,7 @@ public class SelectedTeams extends AppCompatActivity {
         extra = this.getIntent().getExtras();
         mHouseDatabaseReferenceteam = mFirebaseDatabase.getReference().child("IndivisualTeams").orderByChild("userId");
         Striker2 = (TextView) findViewById(R.id.striker2);
+        optionUsername.setTextColor(getResources().getColor(R.color.common_text_color));
     }
 
     @Override

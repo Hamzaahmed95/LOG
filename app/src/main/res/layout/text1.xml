@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:background="@android:color/white"
+    android:background="@color/dark_main"
     android:gravity="center"
     android:layout_height="wrap_content">
 
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
-        android:textColor="@color/dark_main"
+        android:textColor="@color/common_text_color"
         android:textStyle="bold"
         android:textSize="15dp"
         android:fontFamily="sans-serif-condensed"
@@ -50,11 +50,11 @@
         android:id="@+id/close1"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="@color/dark_main"
+        android:background="@color/dark_sub"
         android:textStyle="bold"
         android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-condensed"
-         android:textColor="@color/common_text_color"
+         android:textColor="@color/white"
         android:text="Cancel"/>
 
     <Button
@@ -62,10 +62,10 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
-        android:background="@color/dark_main"
+        android:background="@color/dark_sub"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
-         android:textColor="@color/common_text_color"
+         android:textColor="@color/white"
         android:text="Let's Go!"/>
 
 </LinearLayout>
