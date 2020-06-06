@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import khi.fast.log.Test.Test;
 import khi.fast.log.activities.FlogMainActivity;
 import khi.fast.log.R;
 import khi.fast.log.activities.LogOverviewActivity;
@@ -66,7 +67,7 @@ public class LogDetailsActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new TeamsFragment(), "Teams");
+        adapter.addFragment(new Test(), "Teams");
         adapter.addFragment(new ScoreFragment(), "Score");
         adapter.addFragment(new ManOfTheMatchFragment(), "MOM");
         adapter.addFragment(new PointsTableFragment(), "Points table");
