@@ -45,6 +45,7 @@ public class LogDetailsActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         toolbar.setTitleTextColor(getResources().getColor(R.color.common_text_color));
+
         toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.common_text_color), PorterDuff.Mode.SRC_ATOP);
         tabLayout.setupWithViewPager(viewPager);
     }

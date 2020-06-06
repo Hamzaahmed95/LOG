@@ -816,6 +816,7 @@
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/ball1"
+
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_margin="10dp"

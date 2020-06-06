@@ -82,8 +82,21 @@ public class Utils {
             e1.printStackTrace();
         }
     }
+
+    public static void saveString(String key, String val) {
+        SharedPreferences prefs = getPreference();
+        SharedPreferences.Editor e = prefs.edit();
+        try {
+            e.putString(new String(key.getBytes("UTF-8"), Charset.defaultCharset()), val).apply();
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+    }
     public static boolean getBooleanPref(String key) {
         return getPreference().getBoolean(key, false);
+    }
+    public static String getStringPref(String key) {
+        return getPreference().getString(key, "nothing");
     }
 
 }

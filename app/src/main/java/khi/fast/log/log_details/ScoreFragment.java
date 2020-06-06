@@ -782,9 +782,7 @@ public class ScoreFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    // dataSnapshot is the "issue" node with all children with id 0
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
 
                         System.out.println("hello" + issue.child("ball").getValue());
                         RunsINCTeam1 = Integer.parseInt(issue.child("ball").getValue().toString());
@@ -833,8 +831,9 @@ public class ScoreFragment extends Fragment {
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         // do something with the individual "issues"
 
-                        System.out.println("hello" + issue.child("ball").getValue());
+                        System.out.println("hello: 2-> "+ issue.child("ball").getValue());
                         Ball1num = Integer.parseInt(issue.child("ball").getValue().toString());
+
                         ball1.setText(issue.child("ball").getValue().toString());
 
                     }
@@ -1580,9 +1579,11 @@ public class ScoreFragment extends Fragment {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Ball ball = dataSnapshot.getValue(Ball.class);
+                    System.out.println("hello: -> added "+String.valueOf(ball.getBall()));
                     //System.out.println(ball.toString());
                     System.out.println(ball.getTurn());
                     if(ball.getTurn() ==1) {
+
                         ball1.setText(String.valueOf(ball.getBall()));
                     } else if(ball.getTurn() ==2) {
                         ball2.setText(String.valueOf(ball.getBall()));

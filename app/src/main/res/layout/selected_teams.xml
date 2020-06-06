@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/stags"
-    android:background="@color/dark_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_main"
     android:gravity="center|top"
     android:orientation="vertical">
 
+    <include layout="@layout/toolbar" />
+
     <LinearLayout
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#23355b"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/backButton"
@@ -31,7 +33,7 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="Players"
-             android:textColor="@color/common_text_color_night"
+            android:textColor="@color/common_text_color_night"
             android:textSize="20dp" />
 
     </LinearLayout>

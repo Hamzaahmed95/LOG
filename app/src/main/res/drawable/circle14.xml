@@ -17,12 +17,12 @@
 
     <stroke
         android:width="0.5dp"
-        android:color="#293e6a"/>
+        android:color="#F1294A"/>
     <gradient
         android:angle="45"
-        android:endColor="#293e6a"
-        android:centerColor="#293e6a"
-        android:startColor="#293e6a"
+        android:endColor="#F1294A"
+        android:centerColor="#F1294A"
+        android:startColor="#F1294A"
         android:type="linear" />
 
 

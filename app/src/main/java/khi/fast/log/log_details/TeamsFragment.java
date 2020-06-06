@@ -75,7 +75,7 @@ public class TeamsFragment extends Fragment {
         stags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(getActivity(), SelectTeamsActivity.class,"TEAM","selected_teams",true);
+                Utils.startingActivity(getActivity(), SelectTeamsActivity.class,"TEAM","stags",true);
             }
         });
         dragons.setOnClickListener(new View.OnClickListener() {

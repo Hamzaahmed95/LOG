@@ -11,14 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -50,13 +54,17 @@ public class SelectTeamsActivity extends AppCompatActivity {
     private String Team = "";
     SharedPreferences settings;
     Bundle extras;
-
+    TextView optionUsername;
+    ImageView backbutton;
+    private DatabaseReference mStoriesDatabaseReference;
+    private ChildEventListener mChildEventListener;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.selected_teams);
+        System.out.println("SelectTeamsActivity: 123");
         initialization();
         handleClickListener();
         queryingData();
@@ -73,6 +81,7 @@ public class SelectTeamsActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
+        mStoriesDatabaseReference =mFirebaseDatabase.getReference().child("stags");
 
         Button = (ImageView) findViewById(R.id.backButton);
         settings = getSharedPreferences("teams", 0);
@@ -81,12 +90,17 @@ public class SelectTeamsActivity extends AppCompatActivity {
         if (extras != null) {
             Team = extras.getString("TEAM");
         }
-        TAGS = settings.getString("TAG", "CRIC");
+        TAGS = Utils.getStringPref("TAG");
+        System.out.println("Teams: "+Team+" "+TAGS);
+        optionUsername = (TextView)findViewById(R.id.optionUsername);
+        optionUsername.setText("Players");
+        optionUsername.setTextColor(getResources().getColor(R.color.common_text_color));
+        backbutton = (ImageView)findViewById(R.id.backButton5);
 
     }
 
     private void handleClickListener() {
-        Button.setOnClickListener(new View.OnClickListener() {
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Utils.startingActivity(SelectTeamsActivity.this, LogDetailsActivity.class,true);
@@ -95,21 +109,24 @@ public class SelectTeamsActivity extends AppCompatActivity {
     }
 
     private void queryingData() {
+
         Query mHouseDatabaseReference2 = mFirebaseDatabase.getReference().child(Team);
 
         mHouseDatabaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-
+                    System.out.println("SelectTeamsActivity: 0");
                     for (DataSnapshot issue : dataSnapshot.getChildren()) {
                         if((issue.child("game").getValue()!=null)){
+                            System.out.println("SelectTeamsActivity: 1");
                             if (issue.child("game").getValue().toString().equalsIgnoreCase(TAGS)) {
                                 Image image1 = new Image();
                                 image1.setImage_ID(issue.child("image_ID").getValue().toString());
                                 images.add(image1);
                             }
                         }
+                        System.out.println("SelectTeamsActivity: 2"+images);
 
 
                     }
@@ -122,6 +139,7 @@ public class SelectTeamsActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+
             }
         });
 
@@ -131,14 +149,15 @@ public class SelectTeamsActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     //user is signed in
-
+                    onSignedInInitialize();
+                    System.out.println("SelectTeamsActivity1: images= "+images);
                     adapter = new TeamAdapter(SelectTeamsActivity.this, images);
 
                     if (recyclerView != null)
                         recyclerView.setAdapter(adapter);
                 } else {
 
-
+                    onSignedOutInitialize();
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
@@ -183,6 +202,69 @@ public class SelectTeamsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListner);
+    }
+    private void  onSignedInInitialize(){
+
+        attachDatabaseReadListener();
+
+    }
+    private void  onSignedOutInitialize(){
+
+        detachDatabaseReadListener();
+    }
+    private void attachDatabaseReadListener(){
+        if(mChildEventListener==null) {
+            mChildEventListener = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    System.out.println("SelectTeamsActivity: we here"+ dataSnapshot);
+                    System.out.println("SelectTeamsActivity1: images= "+images);
+                    recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    // FriendlyMessage f =dataSnapshot.getValue(FriendlyMessage.class);
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+            mStoriesDatabaseReference.addChildEventListener(mChildEventListener);
+            mStoriesDatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+    }
+    private void detachDatabaseReadListener(){
+        if(mChildEventListener!=null)
+            mStoriesDatabaseReference.removeEventListener(mChildEventListener);
+        mChildEventListener=null;
     }
 
 

@@ -182,7 +182,8 @@ public class LogOverviewActivity extends AppCompatActivity {
         cricket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "log_details", false);
+                Utils.saveString("TAG", "cricket");
+                Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "cricket", false);
             }
         });
 
@@ -197,6 +198,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         futsal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.saveString("TAG", "futsal");
                 Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "futsal", false);
             }
         });
@@ -204,6 +206,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         badminton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.saveString("TAG", "badminton");
                 Utils.startingActivity(LogOverviewActivity.this, FlogMainActivity.class, LOG_OVERVIEW_TAG, "badminton", false);
             }
         });
@@ -224,7 +227,7 @@ public class LogOverviewActivity extends AppCompatActivity {
                         finish();
                         startActivity(intent);
                     }
-                }, 500);
+                }, 100);
             }
         });
         flog.setOnClickListener(new View.OnClickListener() {
@@ -243,6 +246,8 @@ public class LogOverviewActivity extends AppCompatActivity {
         tabletennis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Utils.saveString("TAG", "tt");
                 Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "tt", false);
             }
         });
@@ -258,6 +263,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         volley.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.saveString("TAG", "volley");
                 Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "volley", false);
             }
         });
@@ -266,6 +272,7 @@ public class LogOverviewActivity extends AppCompatActivity {
         throwball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.saveString("TAG", "throwball");
                 Utils.startingActivity(LogOverviewActivity.this, LogDetailsActivity.class, LOG_OVERVIEW_TAG, "throwball", false);
             }
         });
