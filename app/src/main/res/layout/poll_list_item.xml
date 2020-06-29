@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/poll_text_view"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:textStyle="normal"
+        android:text="kajdshfkljds"
+        android:textColor="@color/common_text_color"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/line"
+        android:visibility="gone"
+        android:layout_width="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:paddingRight="20dp"
+        android:src="@drawable/select"
+        android:layout_height="40dp"/>
+    <View
+        android:id="@+id/view_poll"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/common_text_color"/>
+
+</RelativeLayout>

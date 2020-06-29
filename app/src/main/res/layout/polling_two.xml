@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    android:layout_margin="5dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/poll_round_corner"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+       android:padding="15dp"
+        android:layout_weight="0.3"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/common_text_color"
+            android:layout_height="wrap_content"
+            android:text="124 votes"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/common_text_color"
+            android:layout_height="wrap_content"
+            android:text="Who am I to you?"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/common_text_color"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:text="50 mins"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="0dp"
+        android:paddingTop="15dp"
+        android:gravity="top"
+        android:layout_weight="0.6"
+        android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:layout_alignParentTop="true"
+            android:background="@drawable/poll_round_corner"
+            android:id="@+id/poll_recycler_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/submit"
+            android:visibility="gone"
+            android:layout_below="@id/poll_recycler_view"
+            android:layout_marginTop="15dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/dark_sub"
+            android:layout_height="wrap_content"
+            android:text="Submit"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

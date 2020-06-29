@@ -71,7 +71,7 @@ public class LogDetailsActivity extends AppCompatActivity {
         adapter.addFragment(new ScoreFragment(), "Score");
         adapter.addFragment(new ManOfTheMatchFragment(), "MOM");
         adapter.addFragment(new PointsTableFragment(), "Points table");
-        adapter.addFragment(new PollsFragment(), "Polls");
+        adapter.addFragment(new PollFragment(), "Polls");
         viewPager.setAdapter(adapter);
     }
 

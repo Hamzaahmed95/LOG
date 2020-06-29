@@ -31,6 +31,7 @@ import java.util.List;
 
 import khi.fast.log.activities.SelectedTeams;
 import khi.fast.log.adapter.FlogPlayersAdapter;
+import khi.fast.log.adapter.FlogPlayersListAdapter;
 import khi.fast.log.model.FriendlyMessage;
 import khi.fast.log.model.UsersFantacyTeam;
 import khi.fast.log.R;
@@ -40,7 +41,7 @@ public class GoalKeepersFragment extends Fragment {
     public static final String ANONYMOUS = "anonymous";
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
-    private FlogPlayersAdapter mFlogPlayersAdapter;
+    private FlogPlayersListAdapter mFlogPlayersAdapter;
     private ChildEventListener mChildEventListener;
     private DatabaseReference mMessageDatabaseReference;
     public String NAME;
@@ -247,7 +248,7 @@ public class GoalKeepersFragment extends Fragment {
                     onSignedInInitialize();
                     NAME = user.getDisplayName();
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mFlogPlayersAdapter = new FlogPlayersAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"platinumPlayers");
+                    mFlogPlayersAdapter = new FlogPlayersListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"platinumPlayers");
 
                     System.out.println("FLOGMAINACTIVITY: 1");
                     if (mMessageListView != null)

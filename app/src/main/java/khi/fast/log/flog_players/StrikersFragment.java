@@ -39,6 +39,7 @@ import java.util.List;
 
 import khi.fast.log.activities.SelectedTeams;
 import khi.fast.log.adapter.FlogPlayersAdapter;
+import khi.fast.log.adapter.FlogPlayersListAdapter;
 import khi.fast.log.model.FriendlyMessage;
 import khi.fast.log.model.UsersFantacyTeam;
 import khi.fast.log.R;
@@ -48,7 +49,7 @@ public class StrikersFragment extends Fragment {
 
     public static final int RC_SIGN_IN =1;
     private ListView mMessageListView;
-    private FlogPlayersAdapter mFlogPlayersAdapter;
+    private FlogPlayersListAdapter mFlogPlayersAdapter;
     private ProgressBar mProgressBar;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessageDatabaseReference;
@@ -255,7 +256,7 @@ public class StrikersFragment extends Fragment {
                     onSignedInInitialize();
                     NAME = user.getDisplayName();
                     final List<FriendlyMessage> friendlyMessages = new ArrayList<>();
-                    mFlogPlayersAdapter = new FlogPlayersAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
+                    mFlogPlayersAdapter = new FlogPlayersListAdapter(getActivity(), R.layout.item_players, friendlyMessages, NAME,"silverPlayers");
                     if (mMessageListView != null)
                         mMessageListView.setAdapter(mFlogPlayersAdapter);
                 } else {
